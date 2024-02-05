@@ -486,7 +486,6 @@
                                 </div>
                                 <div class="course__enroll-btn">
                                     <?php
-                                    echo "ssssssssssss=>".$this->session->userdata('userType');
                                     if($this->session->userdata('userType') == '1') {
                                     if(!empty($isLoggedIn)) {
                                     $checkUserEnrolledSql = "SELECT `courses`.`id`, `course_enrollment`.`enrollment_id`, `course_enrollment`.`course_id`, `course_enrollment`.`user_id`,`course_enrollment`.`payment_status` FROM `course_enrollment` JOIN `courses` ON `courses`.`id` = `course_enrollment`.`course_id` WHERE `courses`.`id` = '" . @$detail->id . "' AND `course_enrollment`.`payment_status` = 'COMPLETED' and `course_enrollment`.`user_id` = '".@$user_id."'";
@@ -496,14 +495,14 @@
                                     <a href="<?php echo base_url()?>enrolled-courses" class="e-btn e-btn-7 w-100">Go to Dashboard <i class="far fa-arrow-right"></i></a>
                                     <?php } else { 
                                     if (@$detail->course_fees != 'free') { ?>
-                                    <form action="<?= base_url('checkout') ?>" method="post" id="form_validation33" enctype="multipart/form-data">
+                                    <!-- <form action="<?= base_url('checkout') ?>" method="post" id="form_validation33" enctype="multipart/form-data">
                                         <div class="btn-part">
                                             <input type="hidden" id="course_id" name ="course_id" value="<?php echo @$detail->id?>">
                                             <input type="hidden" id="user_id" name ="user_id" value="<?php echo @$user_id?>">
                                             <button type="submit" name="enrollment" value="<?php echo @$detail->price_key; ?>"  class="e-btn e-btn-7 w-100">Enroll</button>
                                         </div>
-                                    </form>
-                                    <!-- <form action="https://api.maxicashapp.com/PayEntryPost" method="POST">
+                                    </form> -->
+                                    <form action="https://api.maxicashapp.com/PayEntryPost" method="POST">
                                         <input type="hidden" name="PayType" value="MaxiCash">
                                         <input type="hidden" name="Amount" value="<?php echo (@$detail->price*100)?>">
                                         <input type="hidden" name="Currency" value="MaxiDollar">
@@ -518,7 +517,7 @@
                                         <input type="hidden" name="declineurl" value="https://translate.google.com/">
                                         <input type="hidden" name="notifyurl" value="https://translate.google.com/">
                                         <button type="submit" name="enrollment" class="e-btn e-btn-7 w-100">Enroll</button>
-                                    </form> -->
+                                    </form>
                                     <?php } else { ?>
                                     <div class="btn-part">
                                         <input type="hidden" id="course_id" name ="course_id" value="<?php echo @$detail->id?>">

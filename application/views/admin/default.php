@@ -47,10 +47,10 @@
     span.logo-lg h2 {margin-top: 7px !important;}
     </style>
     <?php
-    $aid = $this->session->userdata('userid');
-    $rsid = $this->db->get_where('admin', array('id' => $aid, 'status' => 1))->row();
-    $getOptionsSql = "SELECT * FROM `options`";
-    $optionsList = $this->db->query($getOptionsSql)->result();
+        $aid = $this->session->userdata('userid');
+        $rsid = $this->db->get_where('admin', array('id' => $aid, 'status' => 1))->row();
+        $getOptionsSql = "SELECT * FROM `options`";
+        $optionsList = $this->db->query($getOptionsSql)->result();
     ?>
 </head>
 
@@ -89,12 +89,10 @@
                                 </li>
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="<?= admin_url('profile') ?>" class="btn btn-default btn-flat">Change
-                                            Password</a>
+                                        <a href="<?= admin_url('profile') ?>" class="btn btn-default btn-flat">Change Password</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<?= admin_url('users/logout') ?>" class="btn btn-default btn-flat">Sign
-                                            out</a>
+                                        <a href="<?= admin_url('users/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -163,7 +161,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    
                     <li class="treeview <?= ($tab == 'add_homecourse' || $tab == 'homecourse' || $tab == 'powerspeech') ? 'active' : ''; ?>">
                         <a href="javascript:void(0);">
                             <i class="fa fa-picture-o"></i>
@@ -185,8 +183,7 @@
                         </ul>
                     </li>
 
-                    <li
-                        class="treeview <?= ($tab == 'add_mode' || $tab == 'mode_list' || $tab == 'add_level' || $tab == 'level_list' || $tab == 'add_comp' || $tab == 'comp_list' || $tab == 'cat_list' || $tab == 'v_chapter' || $tab == 'ad_chapter' || $tab == 'v_mat' || $tab == 'ad_comp_chapter' || $tab == 'v_comp_chapter' || $tab == 'add_cat') ? 'active' : ''; ?>">
+                    <li class="treeview <?= ($tab == 'add_mode' || $tab == 'mode_list' || $tab == 'add_level' || $tab == 'level_list' || $tab == 'add_comp' || $tab == 'comp_list' || $tab == 'cat_list' || $tab == 'v_chapter' || $tab == 'ad_chapter' || $tab == 'v_mat' || $tab == 'ad_comp_chapter' || $tab == 'v_comp_chapter' || $tab == 'add_cat') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-book"></i>
                             <span>Course Management </span>
@@ -278,8 +275,9 @@
                         </a>
                         <ul class="treeview-menu">
                             <!-- <li class="<?= ($tab == 'add_cms') ? 'active' : ''; ?>"><a href="<?= admin_url('cms/add') ?>"><i class="fa fa-circle"></i> Add CMS</a></li> -->
-                            <li class="<?= ($tab == 'cms') ? 'active' : ''; ?>"><a href="<?= admin_url('cms') ?>"><i
-                                        class="fa fa-circle"></i> CMS Lists</a></li>
+                            <li class="<?= ($tab == 'cms') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('cms') ?>"><i class="fa fa-circle"></i> CMS Lists</a>
+                            </li>
                         </ul>
                     </li>
                     <!-- <li class="treeview <?= ($tab == 'add_teams' || $tab == 'teams') ? 'active' : ''; ?>">
@@ -294,7 +292,7 @@
                             <li class="<?= ($tab == 'add_teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams/add') ?>"><i class="fa fa-circle"></i> Add Team </a></li>
                             <li class="<?= ($tab == 'teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams') ?>"><i class="fa fa-circle"></i>Team Lists</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="treeview <?= ($tab == 'add_blog' || $tab == 'blog') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>
@@ -307,7 +305,7 @@
                             <li class="<?= ($tab == 'add_blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog/add') ?>"><i class="fa fa-circle"></i> Add Media</a></li>
                             <li class="<?= ($tab == 'blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog') ?>"><i class="fa fa-circle"></i> Media Lists</a></li>
                         </ul>
-                    </li> -->
+                    </li>
 
                     <li class="treeview <?= ($tab == 'faqs') ? 'active' : ''; ?> ">
                         <a href="#">
@@ -345,6 +343,30 @@
                             </li>
                             <li class="<?= ($tab == 'event') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('event') ?>"><i class="fa fa-circle"></i> Event Lists</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview <?= ($tab == 'add_product_cat' || $tab == 'product_cat_list' || $tab == 'add_product' || $tab == 'products') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Product Management </span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_product_cat') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('products/add_product_cat') ?>"><i class="fa fa-circle"></i> Add product category </a>
+                            </li>
+                            <li class="<?= ($tab == 'product_cat_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('products/product_cat_list') ?>"><i class="fa fa-circle"></i> Product Category Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'add_product') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('products/add_product') ?>"><i class="fa fa-circle"></i> Add Product</a>
+                            </li>
+                            <li class="<?= ($tab == 'products') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('products') ?>"><i class="fa fa-circle"></i> Product Lists</a>
                             </li>
                         </ul>
                     </li>
@@ -651,6 +673,31 @@
             }
             $.ajax({
                 url: '<?= admin_url('course/changeStatus') ?>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: String(id),
+                    status: String(newStatus)
+                },
+            })
+                .done(function (data) {
+                    alert_func(data);
+                })
+                .fail(function (data) {
+                    console.log(data);
+                });
+        }
+        function changeProductStatus(id, thisSwitch) {
+            var newStatus;
+            if (thisSwitch.val() == 1) {
+                thisSwitch.val('0');
+                newStatus = '0';
+            } else {
+                thisSwitch.val('1');
+                newStatus = '1';
+            }
+            $.ajax({
+                url: '<?= admin_url('products/changeStatus') ?>',
                 type: 'POST',
                 dataType: 'json',
                 data: {

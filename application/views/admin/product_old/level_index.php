@@ -2,7 +2,7 @@
     <h1><?= $title ?></h1>
     <ol class="breadcrumb">
         <li><a href="<?= site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#"> Product Management</a></li>
+        <li><a href="<?= admin_url('course/level_list') ?>"> Mode List</a></li>
         <li class="active"><?= $title ?></li>
     </ol>
 </section>
@@ -12,27 +12,29 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Product Category Lists</h3>
-                    <a href="<?= admin_url('products/add_product_cat') ?>" class="pull-right btn btn-primary"><span class="fa fa-plus"></span> Add New</a>
+                    <h3 class="box-title">Course Level Lists</h3>
+                    <a href="<?= admin_url('course/level_add') ?>" class="pull-right btn btn-primary"><span class="fa fa-plus"></span> Add New</a>
                 </div>
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th style="width: 30px;">Title</th>
+                            <th>Name</th>
                             <th style="width: 40px">Action</th>
                         </tr>
                         <?php
-                        if (is_array($product_cat_list) && count($product_cat_list) > 0) {
+                        if (is_array($level) && count($level) > 0) {
                         $i = 1;
-                        foreach ($product_cat_list as $list_v) { ?>
+                        foreach ($level as $level_v) { ?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?= $list_v->category_name ?></td>
-                            <td>
-                                <a href="<?= admin_url('products/add_product_cat/' . $list_v->id) ?>" class="btn btn-xs btn-info"><span class="fa fa-pencil"></span></a>
-                                <!-- <a href="<?= admin_url('products/delete_prod_category/' . $list_v->id) ?>" class="btn btn-xs btn-danger delete"><span class="fa fa-trash"></span></a> -->
-                                <button class="btn btn-xs btn-danger" style="margin-left: 5px;" title="Delete" data-toggle="tooltip" onclick="deleteCategory(<?= @$list_v->id ?>)"><i class="fa fa-trash"></i></button>
+                            <td><?= $level_v->level_title ?></td>
+                            <td style="width: 10%;">
+                                <a href="<?= admin_url('course/level_add/' . $level_v->id) ?>" class="btn btn-xs btn-info"><span class="fa fa-pencil"></span></a>
+                                <!-- <a href="<?= admin_url('course/delete_level/' . $level_v->id) ?>" class="btn btn-xs btn-danger delete"><span class="fa fa-trash"></span></a> -->
+                                <button class="btn btn-xs btn-danger" style="margin-left: 5px;" title="Delete" data-toggle="tooltip" onclick="deleteLevel(<?= @$level_v->id ?>)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         <?php $i++; } } ?>
@@ -43,9 +45,9 @@
     </div>
 </section>
 <script>
-function deleteCategory(id) {
+function deleteLevel(id) {
     swal({
-        title: 'Are you sure want to delete this category?',
+        title: 'Are you sure want to delete this mode?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#36A1EA',
@@ -56,7 +58,7 @@ function deleteCategory(id) {
         closeOnCancel: true
     }, function (isConfirm) {
         if (isConfirm) {
-            window.location.href = '<?= admin_url('products/delete_category/') ?>' + id
+            window.location.href = '<?= admin_url('course/delete_level/') ?>' + id
         }
     });
 }

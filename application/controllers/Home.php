@@ -901,18 +901,27 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function store() {
-        $this->load->view('header');
-        $this->load->view('store');
+        $data = array('title' => 'Store','page' => 'product');
+        $data['bestSale'] = $this->db->query("SELECT * FROM product WHERE categori_id = '1' AND `status` = '1' ORDER BY id DESC LIMIT 4")->result_array();
+        $data['premiumBag'] = $this->db->query("SELECT * FROM product WHERE categori_id = '3' AND `status` = '1' ORDER BY id DESC LIMIT 2")->result_array();
+        $data['hat'] = $this->db->query("SELECT * FROM product WHERE categori_id = '2' AND `status` = '1' ORDER BY id DESC LIMIT 5")->result_array();
+        $data['product'] = $this->db->query("SELECT * FROM product WHERE `status` = '1' ORDER BY RAND() LIMIT 2")->result_array();
+		$this->load->view('header', $data);
+        $this->load->view('store', $data);
         $this->load->view('footer');
     }
     public function product_list() {
-        $this->load->view('header');
-        $this->load->view('product_list');
+        $data = array('title' => 'Store','page' => 'product');
+        $data['productData'] = $this->db->query("SELECT * FROM product WHERE `status` = '1' ORDER BY id DESC")->result_array();
+		$this->load->view('header', $data);
+        $this->load->view('product_list', $data);
         $this->load->view('footer');
     }
-    public function product_details() {
-        $this->load->view('header');
-        $this->load->view('product_details');
+    public function product_details($id) {
+        $data = array('title' => 'Product Details','page' => 'product');
+        $data['productDetails'] = $this->db->query("SELECT * FROM product WHERE id = '".$id."' AND status = '1'")->result_array();
+		$this->load->view('header', $data);
+        $this->load->view('product_details', $data);
         $this->load->view('footer');
     }
     public function portfolio9() {

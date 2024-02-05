@@ -20,7 +20,7 @@ class Course extends Admin_Controller {
     //     $offset = ($page - 1) * $show_per_page;
     //     $this->data['title'] = 'Compliance Training';
     //     $this->data['tab'] = 'comp_list';
-    //     $this->data['main'] = admin_view('product/index');
+    //     $this->data['main'] = admin_view('course/index');
     //     $course = $this->Course_model->getAllcomp($offset, $show_per_page);
     //     $this->data['course'] = $course['results'];
     //     $config['base_url'] = admin_url('course/compliance_training');
@@ -65,7 +65,7 @@ class Course extends Admin_Controller {
         $offset = ($page - 1) * $show_per_page;
         $this->data['title'] = 'All Course';
         $this->data['tab'] = 'comp_list';
-        $this->data['main'] = admin_view('product/index');
+        $this->data['main'] = admin_view('course/index');
         $course = $this->Course_model->getAllCourse($offset, $show_per_page);
         $this->data['course'] = $course['results'];
         $config['base_url'] = admin_url('course/course_list');
@@ -126,7 +126,7 @@ class Course extends Admin_Controller {
         $offset = ($page - 1) * $show_per_page;
         $this->data['title'] = 'Certificate Courses';
         $this->data['tab'] = 'cert_list';
-        $this->data['main'] = admin_view('product/index');
+        $this->data['main'] = admin_view('course/index');
         $course = $this->Course_model->getAllcert($offset, $show_per_page);
         $this->data['course'] = $course['results'];
         $config['base_url'] = admin_url('course/index');
@@ -170,7 +170,7 @@ class Course extends Admin_Controller {
         $offset = ($page - 1) * $show_per_page;
         $this->data['title'] = 'Subscriptions';
         $this->data['tab'] = 'subscr_list';
-        $this->data['main'] = admin_view('product/index');
+        $this->data['main'] = admin_view('course/index');
         $course = $this->Course_model->getAllsubscr($offset, $show_per_page);
         $this->data['course'] = $course['results'];
         $config['base_url'] = admin_url('course/index');
@@ -210,7 +210,7 @@ class Course extends Admin_Controller {
     {
         $this->data['title'] = 'Transaction List';
         $this->data['tab'] = 'trans';
-        $this->data['main'] = admin_view('product/txn');
+        $this->data['main'] = admin_view('course/txn');
         $this->data['orders'] = $this->db->get('payments')->result();
         $this->load->view(admin_view('default'), $this->data);
     }
@@ -219,7 +219,7 @@ class Course extends Admin_Controller {
     {
         $this->data['title'] = 'Add Course';
         $this->data['tab'] = 'add_products';
-        $this->data['main'] = admin_view('product/add');
+        $this->data['main'] = admin_view('course/add');
         $this->data['course_cat'] = $this->db->get('sm_category')->result();
         $this->data['course'] = $this->Course_model->getNew();
 
@@ -261,7 +261,7 @@ class Course extends Admin_Controller {
     public function add_course($id = false) {
         $this->data['title'] = 'Add Course';
         $this->data['tab'] = 'add_comp';
-        $this->data['main'] = admin_view('product/add');
+        $this->data['main'] = admin_view('course/add');
         $this->data['course_mode'] = $this->db->get('sm_mode')->result_array();
         $this->data['course_level'] = $this->db->get('sm_levels')->result_array();
         $this->data['course_cat'] = $this->db->get('sm_category')->result_array();
@@ -309,7 +309,7 @@ class Course extends Admin_Controller {
     {
         $this->data['title'] = 'Add Course';
         $this->data['tab'] = 'add_cert';
-        $this->data['main'] = admin_view('product/add_certificate_course');
+        $this->data['main'] = admin_view('course/add_certificate_course');
         $this->data['course_cat'] = $this->db->get('sm_category')->result();
         $this->data['course'] = $this->Course_model->getNew();
 
@@ -355,7 +355,7 @@ class Course extends Admin_Controller {
     public function add_materials($id) {
         $this->data['title'] = 'Add Course Material';
         $this->data['tab'] = 'add_subscr';
-        $this->data['main'] = admin_view('product/add_material');
+        $this->data['main'] = admin_view('course/add_material');
         $this->data['crsid'] = $crsid = $this->uri->segment(4);
         $this->data['course_id'] = $id;
         $this->data['module'] = $this->db->where('course_id', $crsid)->get('course_modules')->result();
@@ -641,7 +641,7 @@ class Course extends Admin_Controller {
     public function material_list($id = null, $module_id = null) {
         $this->data['title'] = 'Course Material List';
         $this->data['tab'] = 'v_mat';
-        $this->data['main'] = admin_view('product/material_view');
+        $this->data['main'] = admin_view('course/material_view');
         if (@$module_id) {
             $this->data['materials'] = $this->db->get_where('course_materials', array('course_id' => $id, 'module' => $module_id))->result();
         } else {
@@ -737,14 +737,14 @@ class Course extends Admin_Controller {
     public function mode() {
         $this->data['title'] = 'Course Mode List';
         $this->data['tab'] = 'mode_list';
-        $this->data['main'] = admin_view('product/mode_index');
+        $this->data['main'] = admin_view('course/mode_index');
         $this->data['mode'] = $this->db->get_where('sm_mode', array('mode_status' => 1))->result();
         $this->load->view(admin_view('default'), $this->data);
     }
     public function mode_add($id = false) {
         $this->data['title'] = 'Add Mode';
         $this->data['tab'] = 'add_mode';
-        $this->data['main'] = admin_view('product/mode_add');
+        $this->data['main'] = admin_view('course/mode_add');
         $this->data['mode'] = $this->Course_model->getNew('sm_mode');
         if ($id) {
             $this->data['mode'] = $mode = $this->Course_model->getRow($id, 'sm_mode');
@@ -784,14 +784,14 @@ class Course extends Admin_Controller {
     public function level() {
         $this->data['title'] = 'Course Level List';
         $this->data['tab'] = 'level_list';
-        $this->data['main'] = admin_view('product/level_index');
+        $this->data['main'] = admin_view('course/level_index');
         $this->data['level'] = $this->db->get_where('sm_levels', array('level_status' => 1))->result();
         $this->load->view(admin_view('default'), $this->data);
     }
     public function level_add($id = false) {
         $this->data['title'] = 'Add Level';
         $this->data['tab'] = 'add_level';
-        $this->data['main'] = admin_view('product/level_add');
+        $this->data['main'] = admin_view('course/level_add');
         $this->data['level'] = $this->Course_model->getNew('sm_levels');
         if ($id) {
             $this->data['level'] = $course = $this->Course_model->getRow($id, 'sm_levels');
@@ -831,14 +831,14 @@ class Course extends Admin_Controller {
     public function category() {
         $this->data['title'] = 'Course Category List';
         $this->data['tab'] = 'cat_list';
-        $this->data['main'] = admin_view('product/category_index');
+        $this->data['main'] = admin_view('course/category_index');
         $this->data['course'] = $this->db->query("SELECT * FROM sm_category")->result();
         $this->load->view(admin_view('default'), $this->data);
     }
     public function category_add($id = false) {
         $this->data['title'] = 'Add Category';
         $this->data['tab'] = 'add_cat';
-        $this->data['main'] = admin_view('product/category_add');
+        $this->data['main'] = admin_view('course/category_add');
         $this->data['course'] = $this->Course_model->getNew('sm_category');
         if ($id) {
             $this->data['course'] = $course = $this->Course_model->getRow($id, 'sm_category');
@@ -884,7 +884,7 @@ class Course extends Admin_Controller {
     public function add_course_syllabus($id = false) {
 		$this->data['title'] = 'Add Course Syllabus';
         $this->data['tab'] = 'ad_comp_chapter';
-        $this->data['main'] = admin_view('product/syllabus_add');
+        $this->data['main'] = admin_view('course/syllabus_add');
         $this->data['coursed'] = $this->db->get('courses')->result();
         $this->data['course'] = $this->Course_model->getNew('course_syllabus');
         $this->data['course_id'] = $id;
@@ -906,7 +906,7 @@ class Course extends Admin_Controller {
         $this->data['tab'] = 'upd_comp_chapter';
         $this->data['course_id'] = $course_id;
         $this->data['module_id'] = $id;
-        $this->data['main'] = admin_view('product/syllabus_update');
+        $this->data['main'] = admin_view('course/syllabus_update');
         $this->data['course'] = $this->db->get_where('course_syllabus', array('id' => $id))->row();
         $this->load->view(admin_view('default'), $this->data);
     }
@@ -950,7 +950,7 @@ class Course extends Admin_Controller {
         $this->data['title'] = 'Course Syllabus List';
         $this->data['tab'] = 'v_chapter';
         $this->data['course_id'] = $id;
-        $this->data['main'] = admin_view('product/syllabus_list');
+        $this->data['main'] = admin_view('course/syllabus_list');
         //$this->data['list'] = $this->db->order_by('position_order', 'ASC')->get_where('course_modules', array('course_id' => $id))->result();
         $this->data['list'] = $this->db->query("SELECT * FROM course_syllabus WHERE course_id = '".$id."' ORDER BY id ASC")->result();
         $this->load->view(admin_view('default'), $this->data);
@@ -958,7 +958,7 @@ class Course extends Admin_Controller {
     public function add_module($id = false) {
         $this->data['title'] = 'Add Course Module';
         $this->data['tab'] = 'ad_comp_chapter';
-        $this->data['main'] = admin_view('product/module_add');
+        $this->data['main'] = admin_view('course/module_add');
         $this->data['coursed'] = $this->db->get('courses')->result();
         $this->data['course'] = $this->Course_model->getNew('course_modules');
         $this->data['course_id'] = $id;
@@ -1011,7 +1011,7 @@ class Course extends Admin_Controller {
     public function add_cert_chapters($id = false) {
         $this->data['title'] = 'Add Course Chapter';
         $this->data['tab'] = 'ad_cert_chapter';
-        $this->data['main'] = admin_view('product/cert_chapter_add');
+        $this->data['main'] = admin_view('course/cert_chapter_add');
         $this->data['coursed'] = $this->db->where('cat_id', 2)->get('courses')->result();
         //$this->data['course'] = $this->Course_model->getNew('chapters');
         $this->data['course'] = $this->Course_model->getNew('chapters');
@@ -1033,7 +1033,7 @@ class Course extends Admin_Controller {
 
         $this->data['title'] = 'Course Chapter List';
         $this->data['tab'] = 'v_cert_chapter';
-        $this->data['main'] = admin_view('product/chapter_index');
+        $this->data['main'] = admin_view('course/chapter_index');
         $this->data['chap'] = $this->db->get_where('course_modules', array('course_id' => $id))->result();
         $this->load->view(admin_view('default'), $this->data);
     }
@@ -1043,7 +1043,7 @@ class Course extends Admin_Controller {
         $this->data['title'] = 'Course Module List';
         $this->data['tab'] = 'v_chapter';
         $this->data['course_id'] = $id;
-        $this->data['main'] = admin_view('product/module_list');
+        $this->data['main'] = admin_view('course/module_list');
         $this->data['list'] = $this->db->order_by('position_order', 'ASC')->get_where('course_modules', array('course_id' => $id))->result();
         $this->load->view(admin_view('default'), $this->data);
     }
@@ -1085,7 +1085,7 @@ class Course extends Admin_Controller {
 
         $this->data['title'] = 'Course Material Format';
         $this->data['tab'] = 'v_mat';
-        $this->data['main'] = admin_view('product/module_material_view');
+        $this->data['main'] = admin_view('course/module_material_view');
         $this->data['matr'] = $this->db->order_by('position_order', 'ASC')->get_where('course_materials', array('module' => $module))->result();
         $this->data['quesquz'] = $this->db->get_where('course_quiz', array('course_id' => $id))->result();
         $this->load->view(admin_view('default'), $this->data);
@@ -1108,7 +1108,7 @@ class Course extends Admin_Controller {
         $this->data['tab'] = 'upd_comp_chapter';
         $this->data['course_id'] = $course_id;
         $this->data['module_id'] = $id;
-        $this->data['main'] = admin_view('product/module_update');
+        $this->data['main'] = admin_view('course/module_update');
         $this->data['course'] = $this->db->get_where('course_modules', array('id' => $id))->row();
         /*$this->form_validation->set_rules('frm[course_id]', 'Course Name', 'required');
         $this->form_validation->set_rules('frm[name]', 'Chapter Name', 'required');
@@ -1185,7 +1185,7 @@ class Course extends Admin_Controller {
 
         $this->data['title'] = 'Update Course Material';
         $this->data['tab'] = 'products';
-        $this->data['main'] = admin_view('product/edit_material');
+        $this->data['main'] = admin_view('course/edit_material');
         $this->data['course_str'] = $this->Course_model->getRow($qid, 'course_materials');
         $this->data['module'] = $this->db->where('course_id', $corssid)->get('course_modules')->result();
 
@@ -1552,7 +1552,7 @@ class Course extends Admin_Controller {
 
         $this->data['title'] = 'Update Question';
         $this->data['tab'] = 'add_products';
-        $this->data['main'] = admin_view('product/question_edit');
+        $this->data['main'] = admin_view('course/question_edit');
         $this->data['quizq'] = $this->Course_model->getRow($qid, 'course_quiz');
         $this->form_validation->set_rules('frm[ques]', 'Question', 'required');
         if ($this->form_validation->run()) {

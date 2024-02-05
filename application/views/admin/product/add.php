@@ -3,7 +3,7 @@
     <h1><?= $title ?></h1>
     <ol class="breadcrumb">
         <li><a href="<?= site_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?= admin_url('course/course_list') ?>"> Course List</a></li>
+        <li><a href="<?= admin_url('products/product_list') ?>"> Product List</a></li>
         <li class="active"><?= $title ?></li>
     </ol>
 </section>
@@ -15,80 +15,26 @@
                 <div class="box-header with-border">
                     <!-- <h3 class="box-title">Add Service</h3> -->
                 </div>
-                <form action="<?= admin_url('course/add_course/' . $course->id) ?>" id="form_validation" method="post" enctype="multipart/form-data">
+                <form action="<?= admin_url('products/add_product/' . $product->id) ?>" id="form_validation" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-10">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Category</label>
-                                            <select name="frm[cat_id]" class="form-control">
+                                            <label for="exampleInputEmail1">Product Category</label>
+                                            <select name="frm[categori_id]" class="form-control">
                                                 <option value="">Choose</option>
-                                                <?php foreach ($course_cat as $cat) { ?>
-                                                <option <?php if (@$course->cat_id == $cat['id']) { echo "selected"; } ?> value="<?= $cat['id'] ?>"><?= $cat['category_name'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Mode</label>
-                                            <select name="frm[mode_id]" class="form-control">
-                                                <option value="">Choose</option>
-                                                <?php foreach ($course_mode as $mode) { ?>
-                                                <option <?php if (@$course->mode_id == $mode['id']) { echo "selected"; } ?> value="<?= $mode['id'] ?>"><?= $mode['mode_title'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Level</label>
-                                            <select name="frm[level_id]" class="form-control">
-                                                <option value="">Choose</option>
-                                                <?php foreach ($course_level as $level) { ?>
-                                                <option <?php if (@$course->level_id == $level['id']) { echo "selected"; } ?> value="<?= $level['id'] ?>"> <?= $level['level_title'] ?> </option>
+                                                <?php foreach ($product_cat as $pcat) { ?>
+                                                <option <?php if (@$product->categori_id == $pcat->id) { echo "selected"; } ?> value="<?= $pcat->id; ?>"><?= $pcat->category_name;?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Name</label>
-                                            <input type="text" name="frm[title]" value="<?= $course->title ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Course Name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Heading 1</label>
-                                            <textarea name="frm[heading_1]" class="form-control" rows="3"><?= $course->heading_1 ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Heading 2</label>
-                                            <textarea name="frm[heading_2]" class="form-control" rows="3"><?= $course->heading_2 ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                        <label for="exampleInputEmail1">Course Benefits</label>
-                                        <textarea name="frm[meta_descr]" class="form-control" rows="3"><?= $course->meta_descr ?></textarea>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Description</label>
-                                            <textarea name="frm[description]" id="editor1"><?= $course->description ?></textarea>
+                                            <label for="exampleInputEmail1">Product Name</label>
+                                            <input type="text" name="frm[product_name]" value="<?= @$product->product_name ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter Product Name">
                                         </div>
                                     </div>
                                 </div>
@@ -96,120 +42,62 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Program Overview</label>
-                                            <textarea name="frm[program_overview]" id="editor2"><?= $course->program_overview ?></textarea>
+                                            <textarea name="frm[overview]" id="editor2"><?= @$product->overview ?></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Objectives</label>
-                                            <textarea name="frm[objectives]" id="editor3"><?= $course->objectives ?></textarea>
+                                            <label for="exampleInputEmail1">Description</label>
+                                            <textarea name="frm[description]" id="editor1"><?= @$product->description ?></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Curriculam</label>
-                                            <textarea name="frm[curriculam]" id="editor4"><?= $course->curriculam ?></textarea>
+                                            <label for="exampleInputEmail1">Additional Information</label>
+                                            <textarea name="frm[additional_information]" id="editor3"><?= @$product->additional_information ?></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Career Paths</label>
-                                            <textarea name="frm[career_paths]" id="editor5"><?= $course->career_paths ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Duration</label>
-                                            <input type="text" name="frm[duration]" value="<?= $course->duration ?>" class="form-control" id="exampleInputEmaila1" placeholder="Enter Course Duration">
-                                            <!-- <textarea name="frm[duration]" id="editor5" rows="3"><?= $course->duration ?></textarea> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Fees <span style="color: red">*</span></label>
-                                            <select class="form-control" name="frm[course_fees]" id="course_fees" required>
-                                                <option value="">Choose</option>
-                                                <option value="free" <?php if ($course->course_fees == 'free') { echo "selected"; } ?>>Free</option>
-                                                <option value="paid" <?php if ($course->course_fees == 'paid') { echo "selected"; } ?>>Paid</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="courseTypefield">
+                                <div class="courseTypefield1">
                                     <div class="col-sm-10">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Course Price(In $)</label>
-                                                <input type="text" name="frm[price]" value="<?= @$course->price ?>" class="form-control price" id="exampleInputEmail1" placeholder="Enter Price">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Price ID (Stripe Price ID) <span style="color: red">*</span></label>
-                                                <input type="text" name="frm[price_key]" value="<?= $course->price_key ?>" class="form-control price_key" id="exampleInputEmaila1" placeholder="Price ID (Stripe Price ID)" required>
+                                                <label for="exampleInputEmail1">Quantity <span id="tooltipTarget">(Allow only numeric values without decimal)</span></label>
+                                                <input type="text" name="frm[quantity]" value="<?= @$product->quantity ?>" class="form-control price" id="quantity" placeholder="Enter Price">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Type<span style="color: red">*</span></label>
-                                            <select class="form-control" name="frm[course_type]" id="course_type" required>
-                                                <option value="">Choose</option>
-                                                <option value="Upcoming Courses" <?php if ($course->course_type == 'Upcoming Courses') { echo "selected"; } ?>>Upcoming Courses</option>
-                                                <option value="Coming Soon Courses" <?php if ($course->course_type == 'Coming Soon Courses') { echo "selected"; } ?>>Coming Soon Courses</option>
-                                            </select>
+                                <div class="courseTypefield1">
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">MRP (In $) <span id="tooltipTarget">(Allow only numeric values)</span></label>
+                                                <input type="text" name="frm[mrp]" value="<?= @$product->mrp ?>" class="form-control price" id="mrp" placeholder="Enter MRP">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Course Certificate <span style="color: red">*</span></label>
-                                            <select class="form-control" name="frm[course_certificate]" id="course_certificate" required>
-                                                <option value="">Choose</option>
-                                                <option value="Certificate of Completion" <?php if ($course->course_certificate == 'Certificate of Completion') { echo "selected"; } ?>>Certificate of Completion</option>
-                                                <option value="Certificate of Attendance" <?php if ($course->course_certificate == 'Certificate of Attendance') { echo "selected"; } ?>>Certificate of Attendance</option>
-                                                <option value="BOTH" <?php if ($course->course_certificate == 'BOTH') { echo "selected"; } ?>>BOTH</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Entry Requirement</label>
-                                            <input type="text" name="frm[requirement]" value="<?= $course->requirement ?>" class="form-control" id="exampleInputEmaila1" placeholder="Entry Requirement">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Who should Attend</label>
-                                            <input type="text" name="frm[attended]" value="<?= $course->attended ?>" class="form-control" id="exampleInputEmaila1" placeholder="Who should Attend">
+                                <div class="courseTypefield1">
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Selling price (In $) <span id="tooltipTarget">(Allow only numeric values)</span></label>
+                                                <input type="text" name="frm[sale_price]" value="<?= @$product->sale_price ?>" class="form-control price" id="sale_price" placeholder="Enter sale price">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <img src="<?= site_url('assets/images/courses/' . $course->image) ?>" onerror="this.src='<?= site_url() ?>assets/images/no-image.png';" class="img-responsive" style="width:100px">
-                                            <label for="exampleInputEmail1">Image</label>
-                                            <input type="file" name="image" value="<?= $course->video ?>" class="form-control" id="exampleInputEmail1">
+                                            <img src="<?= site_url('uploads/products/' . @$product->product_image) ?>" onerror="this.src='<?= site_url() ?>assets/images/no-image.png';" class="img-responsive" style="width:100px">
+                                            <label for="exampleInputEmail1">Product Image</label>
+                                            <input type="file" name="product_image" value="<?= @$product->product_image ?>" class="form-control" id="exampleInputEmail1">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -221,8 +109,8 @@
                                             <label for="exampleInputEmail1">Status <span style="color: red">*</span></label>
                                             <select name="frm[status]" class="form-control" required>
                                                 <option value="">Choose</option>
-                                                <option <?php if ($course->status == 1) { echo "selected"; } ?> value="1">Active</option>
-                                                <option <?php if ($course->status == 0) { echo "selected"; } ?>value="0">Inactive</option>
+                                                <option <?php if (@$product->status == 1) { echo "selected"; } ?> value="1">Active</option>
+                                                <option <?php if (@$product->status == 0) { echo "selected"; } ?>value="0">Inactive</option>
                                             </select>
                                         </div>
                                     </div>
@@ -243,6 +131,7 @@
 .courseTypefield {
     display: none;
 }
+#tooltipTarget {color: red;}
 </style>
 <script>
 $(document).ready(function () {
@@ -258,20 +147,27 @@ $(document).ready(function () {
     } else {
         $('.courseTypefield').hide();
     }
-});
 
-$('#course_fees').change(function () {
-    var selectedOption = $(this).val(); //alert(selectedOption);
-    if (selectedOption == 'free') {
-        $('.courseTypefield').hide();
-        $('.price').val('');
-        $('.price_key').val('');
-        $('.price_key').prop('required', false);
-    } else if (selectedOption == 'paid') {
-        $('.courseTypefield').show();
-        $('.price_key').prop('required', true);
-    } else {
-        $('.courseTypefield').hide();
-    }
-})
+    $('#quantity').on('input', function() {
+        var inputValue = $(this).val();
+        var numericValue = inputValue.replace(/\D/g, '');
+        $(this).val(numericValue);
+    });
+
+    $("#mrp").on("input", function(evt) {
+        var self = $(this);
+        self.val(self.val().replace(/[^0-9\.]/g, ''));
+        if ((evt.which != 46 || self.val().indexOf('.') != -1) && (evt.which < 48 || evt.which > 57)) {
+            evt.preventDefault();
+        }
+    });
+
+    $("#sale_price").on("input", function(evt) {
+        var self = $(this);
+        self.val(self.val().replace(/[^0-9\.]/g, ''));
+        if ((evt.which != 46 || self.val().indexOf('.') != -1) && (evt.which < 48 || evt.which > 57)) {
+            evt.preventDefault();
+        }
+    });
+});
 </script>

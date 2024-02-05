@@ -21,16 +21,24 @@
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme" id="prolist1">
+                <?php if(!empty($bestSale)) { 
+                foreach ($bestSale as $value) { 
+                    if (@$value['product_image'] && file_exists('./uploads/products/' . @$value['product_image'])) {
+                        $image = base_url('/uploads/products/' . @$value['product_image']);
+                    } else {
+                        $image = base_url('assets/images/no-image.png');
+                    } ?>
                     <div class="item">
                         <div class="productlistBox">
                             <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img
-                                        src="<?= base_url()?>assets/img/products/black-print-t-shirt.jpg"></a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value['id'];?>" class="productlistImg">
+                                    <img src="<?php echo $image;?>">
+                                </a>
                                 <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
                             </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Black Print T-Shirt</a></h3>
+                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value['id'];?>"><?= $value['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
+                                <p class="pListPrice">$<?= $value['sale_price']?> <del class="text-slate-400">$<?= $value['mrp']?></del></p>
                                 <div class="productListRate">
                                     <span class="active"><i class="fas fa-star"></i></span>
                                     <span class="active"><i class="fas fa-star"></i></span>
@@ -41,82 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product3.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Mens Print T-Shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product4.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Mens Blue T-Shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product10-1.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Black Print T-Shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product11.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Black Print T-Shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>
             <div class="mb-60">
@@ -126,15 +59,24 @@
                     </div>
                 </div>
                 <div class="row g-4">
+                    <?php if(!empty($premiumBag)) { 
+                    foreach ($premiumBag as $value1) {
+                    if (@$value1['product_image'] && file_exists('./uploads/products/' . @$value1['product_image'])) {
+                        $image1 = base_url('/uploads/products/' . @$value1['product_image']);
+                    } else {
+                        $image1 = base_url('assets/images/no-image.png');
+                    } ?>
                     <div class="col-lg-6 col-md-6 col-6">
                         <div class="productlistBox">
                             <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/luxurious-bag.jpg"></a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value1['id'];?>" class="productlistImg">
+                                    <img src="<?php echo $image1;?>">
+                                </a>
                                 <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
                             </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Orange Luxurious Bag</a></h3>
+                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value1['id'];?>"><?= $value1['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
+                                <p class="pListPrice">$<?= $value1['sale_price']?> <del class="text-slate-400">$<?= $value1['mrp']?></del></p>
                                 <div class="productListRate">
                                     <span class="active"><i class="fas fa-star"></i></span>
                                     <span class="active"><i class="fas fa-star"></i></span>
@@ -145,26 +87,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-6">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img
-                                        src="<?= base_url()?>assets/img/products/luxurious-bag2.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Orange Luxurious Bag</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>
             <div class="producstPnl mb-60">
@@ -174,15 +97,24 @@
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme" id="prolist2">
+                <?php if(!empty($hat)) { 
+                    foreach ($hat as $value2) {
+                    if (@$value2['product_image'] && file_exists('./uploads/products/' . @$value2['product_image'])) {
+                        $image2 = base_url('/uploads/products/' . @$value2['product_image']);
+                    } else {
+                        $image2 = base_url('assets/images/no-image.png');
+                    } ?>
                     <div class="item">
                         <div class="productlistBox">
                             <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product2.jpg"></a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value2['id'];?>" class="productlistImg">
+                                    <img src="<?php echo $image2;?>">
+                                </a>
                                 <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
                             </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Ski Hat</a></h3>
+                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value2['id'];?>"><?= $value2['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
+                                <p class="pListPrice">$<?= $value2['sale_price']?> <del class="text-slate-400">$<?= $value2['mrp']?></del></p>
                                 <div class="productListRate">
                                     <span class="active"><i class="fas fa-star"></i></span>
                                     <span class="active"><i class="fas fa-star"></i></span>
@@ -193,82 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/product2-1.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Ski Hat</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/hat1.webp"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Straw Hat Safari</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/hat2.webp"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Black Print T-Shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/hat1.webp"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Straw Hat Safari</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>
             <div class="mb-60">
@@ -278,15 +135,24 @@
                     </div>
                 </div>
                 <div class="row g-4">
+                <?php if(!empty($product)) { 
+                    foreach ($product as $value3) {
+                    if (@$value3['product_image'] && file_exists('./uploads/products/' . @$value3['product_image'])) {
+                        $image3 = base_url('/uploads/products/' . @$value3['product_image']);
+                    } else {
+                        $image3 = base_url('assets/images/no-image.png');
+                    } ?>
                     <div class="col-lg-6 col-md-6 col-6">
                         <div class="productlistBox">
                             <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img src="<?= base_url()?>assets/img/products/luxurious-bag.jpg"></a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value3['id'];?>" class="productlistImg">
+                                    <img src="<?php echo $image3;?>">
+                                </a>
                                 <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
                             </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">Orange Luxurious Bag</a></h3>
+                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value3['id'];?>"><?= $value3['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
+                                <p class="pListPrice">$<?= $value3['sale_price']?> <del class="text-slate-400">$<?= $value3['mrp']?></del></p>
                                 <div class="productListRate">
                                     <span class="active"><i class="fas fa-star"></i></span>
                                     <span class="active"><i class="fas fa-star"></i></span>
@@ -297,26 +163,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-6">
-                        <div class="productlistBox">
-                            <div class="pListImgbox">
-                                <a href="<?= base_url()?>product_details" class="productlistImg"><img
-                                        src="<?= base_url()?>assets/img/products/trendy-t-shirt2.jpg"></a>
-                                <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
-                            </div>
-                            <h3 class="productlistTitle"><a href="<?= base_url()?>product_details">New Trendy T-shirt</a></h3>
-                            <div class="d-md-flex justify-content-between">
-                                <p class="pListPrice">$16.00 <del class="text-slate-400">$21.00</del></p>
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>
         </div>

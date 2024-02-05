@@ -6,7 +6,7 @@ class Product_model extends Master_Model {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->table = 'courses';
+		$this->table = 'product';
 	}
 
 }
