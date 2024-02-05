@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="<?= base_url()?>product_details" class="e-btn addcartbtn">Add to Cart</a>
+                            <a href="#" class="e-btn addcartbtn">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                                         <a href="<?= base_url()?>product_details/<?php echo $value['id'];?>" class="productlistImg">
                                             <img src="<?php echo $image1;?>">
                                         </a>
-                                        <a href="<?= base_url()?>product_details" class="pListCart shadow">Add to Cart</a>
+                                        <a href="#" class="pListCart shadow">Add to Cart</a>
                                     </div>
                                     <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value['id'];?>"><?= $value['product_name'];?></a></h3>
                                     <div class="d-md-flex justify-content-between">
