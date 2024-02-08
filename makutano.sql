@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2024 at 01:36 PM
+-- Generation Time: Feb 08, 2024 at 02:15 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -76,6 +76,27 @@ CREATE TABLE `blogs` (
   `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `product_id` varchar(45) DEFAULT NULL,
+  `size` varchar(45) DEFAULT NULL,
+  `quantity` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `size`, `quantity`) VALUES
+(1, '1', '1', 'XS', '1');
 
 -- --------------------------------------------------------
 
@@ -48802,7 +48823,7 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `user_id`, `cat_id`, `mode_id`, `level_id`, `title`, `slug`, `heading_1`, `heading_2`, `meta_descr`, `description`, `program_overview`, `objectives`, `curriculam`, `duration`, `career_paths`, `course_fees`, `price`, `price_key`, `course_type`, `course_certificate`, `requirement`, `rating`, `attended`, `image`, `video`, `status`, `created_at`, `assigned_instrustor`) VALUES
-(1, NULL, 1, 1, 2, 'Master’s In Information Technology', 'masters-in-information-technology', 'Businesses and governments rely on robust computer and networking capabilities to keep information moving and secure. Develop an advanced understanding of information systems (IS) development and implementation by earning an online Master of Science in Information Technology at American Public University (APU).', 'APU’s programs are online with 24/7 access and no set login times. At APU, there are no entrance exams and classes start every month, so you can begin quickly and control your schedule. Ask us about transfer credit opportunities to help you save time and money in completing your degree.', '', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '12 Months', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', 'free', '', '', 'Upcoming Courses', 'BOTH', 'Applicable for all', 0, 'Applicable for all', 'information-technology-ms.jpg', '', 1, '2024-02-02 09:34:35', NULL),
+(1, NULL, 1, 1, 2, 'Master’s In Information Technology', 'masters-in-information-technology', 'Businesses and governments rely on robust computer and networking capabilities to keep information moving and secure. Develop an advanced understanding of information systems (IS) development and implementation by earning an online Master of Science in Information Technology at American Public University (APU).', 'APU’s programs are online with 24/7 access and no set login times. At APU, there are no entrance exams and classes start every month, so you can begin quickly and control your schedule. Ask us about transfer credit opportunities to help you save time and money in completing your degree.', '', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '12 Months', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n\r\n<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', 'paid', '.01', '', 'Upcoming Courses', 'BOTH', 'Applicable for all', 0, 'Applicable for all', 'information-technology-ms.jpg', '', 1, '2024-02-02 09:34:35', NULL),
 (2, 2, 3, 1, 3, 'Master of Computer Science', '', 'Advance your career with a master\'s from a top-5 computer science school.', 'Choose from pathways in computer science or data science', '', '<h3><strong>Advance your career with a master&#39;s from a top-5 computer science school. </strong></h3>\r\n\r\n<p>If you want to launch or advance a successful data science or computer science career, you can learn the most in-demand skills while earning your Master of Computer Science. As a graduate, you&rsquo;ll be qualified to pursue a variety of roles: scientist, analyst, engineer, leader, and more. In 2023, <em>Fortune</em> ranked University of Illinois as having the #1 Best Online Master&rsquo;s in Data Science Program.</p>\r\n\r\n<p>The University of Illinois at Urbana-Champaign is a global leader in research, teaching, and public engagement. The UIUC Computer Science Department was named a top-5 computer science school in 2022 by <em>U.S. News and World Report</em>. MCS faculty are known for a pioneering legacy, as they have been at the forefront of new industries and technologies.</p>\r\n', '<ul>\r\n	<li>8 courses (32 credit hours) accredited by the Higher Learning Commission</li>\r\n	<li>Choose between the Computer Science or Data Science paths</li>\r\n	<li>Apply mathematical foundations, algorithmic principles, and computer science theory to real-word problems</li>\r\n	<li>Get lectures and quizzes on demand, and chat with professors and teaching assistants in virtual office hours and on discussion boards</li>\r\n	<li>Join one of the largest alumni networks, with more than 800,000 alumni worldwide</li>\r\n</ul>\r\n', '<h3><strong>Choose from pathways in computer science or data science</strong></h3>\r\n\r\n<p><strong>Master of Computer Science (MCS):</strong> The MCS degree is for computing professionals who want to build skills in advanced topics in computer science, such as artificial intelligence, database &amp; information systems, parallel computing, graphics, systems &amp; networking, scientific computing, and more. This degree will accelerate your career and help you move into leading a team of engineers.</p>\r\n\r\n<p><strong>Master of Computer Science in Data Science (MCS-DS):</strong> The MCS-DS degree gives its graduates full programmable control of the instrumentation of big data as well as the full-stack understanding of how to process the data to discover new insights and optimize organizational decision-making. Students in this track earn the same MCS degree, but their curriculum concentrates on data science courses.</p>\r\n', '<h3><strong>Application Information</strong></h3>\r\n\r\n<p>Applications are open three times per year, for cohorts starting in the fall, spring, and summer.</p>\r\n\r\n<p><strong>Summer 2024 Application Information:</strong></p>\r\n\r\n<ul>\r\n	<li>Application deadline: February 15, 2024.</li>\r\n</ul>\r\n\r\n<p><strong>Performance Pathway</strong>: If you do not have graded and transcripted prerequisite CS coursework, but have at least a 3.2 GPA and four to five years of relevant CS experience, consider enrolling in our <a href=\"https://www.coursera.org/specializations/cs-fundamentals\" target=\"_blank\">Accelerated Computer Science Fundamentals Specialization</a>. This series of courses is designed to help you prepare for the optional <a href=\"https://cs.illinois.edu/admissions/graduate/applications-process-requirements/data-structures-proficiency-exam\" target=\"_blank\">Data Structures Proficiency Exam</a>, which can strengthen your application for admission. Admission preference is still given to those who have prerequisite coursework on their transcript.</p>\r\n', '36 months', '<h3>Careers</h3>\r\n\r\n<p><strong>MCS Career Opportunities: </strong>The demand for computer science jobs is not limited to Silicon Valley. There are positions in nearly every major industry. <em>PayScale</em> indicates that the average salary of an MCS degree-holder is about $17,000 more than those who only hold a bachelor&rsquo;s degree in computer science. And the projected five-year growth for salaries ranges from 14 to 28 percent. The U.S. Bureau of Labor Statistics predicts employment of computer and information research scientists is projected to grow 21 percent from 2021 to 2031, much faster than the average for all occupations.</p>\r\n\r\n<p><strong>MCS-DS Career Opportunities: </strong>A 2016 McKinsey &amp; Company study predicts that there will be a shortfall of nearly 250,000 data scientists by 2024, even after estimating a 7-percent-per-year increase in data science graduates. <em>Business Insider</em> cites being a data scientist as the highest-paying job for college graduates at $95,000 per year.</p>\r\n\r\n<p>Below are a few highlights of how you can advance your career with the MCS or MCS-DS degree.</p>\r\n\r\n<p><strong>Prepare for in-demand jobs</strong></p>\r\n\r\n<p>The computer science field is expected to grow by 21% and the data science field by 36% from 2021 to 2031&mdash;much faster than average. (Bureau of Labor Statistics)</p>\r\n\r\n<p><strong>Increase your salary</strong></p>\r\n\r\n<p>The average salary of a computer scientist in the United States is $131,490 (BLS). The average salary of a data scientist is $145,526 (Indeed).</p>\r\n\r\n<p><strong>Expand your network</strong></p>\r\n\r\n<p>Illinois Computer Science is part of one of the largest alumni networks in the United States, with more than 800,000 alumni worldwide.</p>\r\n\r\n<p><strong>Access career services</strong></p>\r\n\r\n<p>Gain access to Handshake, Illinois&#39; campus-wide recruiting platform. Tens of thousands of jobs and internships are posted here annually.</p>\r\n', 'free', '', '', 'Coming Soon Courses', 'BOTH', 'Applicable for all', 0, 'Applicable for all', 'Blue+Waters+Cabinets+Angle+square.png', '', 1, '2024-02-02 10:22:27', NULL);
 
 -- --------------------------------------------------------
@@ -48817,8 +48838,8 @@ CREATE TABLE `course_enrollment` (
   `user_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
   `enrollment_date` datetime DEFAULT current_timestamp(),
-  `enrollment_price` double DEFAULT NULL,
-  `price_cents` double DEFAULT NULL,
+  `enrollment_price` varchar(100) DEFAULT NULL,
+  `price_cents` varchar(100) DEFAULT NULL,
   `currency` varchar(100) DEFAULT NULL,
   `currency_symbol` varchar(100) DEFAULT NULL,
   `payment_status` varchar(255) DEFAULT NULL,
@@ -48830,7 +48851,8 @@ CREATE TABLE `course_enrollment` (
 --
 
 INSERT INTO `course_enrollment` (`enrollment_id`, `course_id`, `user_id`, `order_id`, `enrollment_date`, `enrollment_price`, `price_cents`, `currency`, `currency_symbol`, `payment_status`, `transaction_id`) VALUES
-(1, 2, 1, NULL, '2024-02-02 17:56:21', 0, 0, 'USD', '$', 'COMPLETED', 'txn_1257655192');
+(1, 2, 1, NULL, '2024-02-02 17:56:21', '0', '0', 'USD', '$', 'COMPLETED', 'txn_1257655192'),
+(3, 1, 1, NULL, '2024-02-08 17:34:18', '0', '.01', 'USD', '$', 'COMPLETED', 'txn_58912309');
 
 -- --------------------------------------------------------
 
@@ -49089,7 +49111,8 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `user_id`, `course_id`, `event_name`, `event_slug`, `event_desc`, `event_dt`, `from_time`, `to_time`, `event_link`, `event_img`, `event_type`, `event_price`, `price_key`, `video_file`, `event_mode`, `event_level`, `created_at`, `status`, `is_delete`) VALUES
-(1, NULL, NULL, 'Spec Ops: The Line is being removed from sale on every platform', 'spec-ops-the-line-is-being-removed-from-sale-on-every-platform', '<p>2K Games has confirmed that Spec Ops: The Line, the cult classic shooter from 2010, is being removed from sale across digital storefronts. Alarms began ringing yesterday when the game vanished from Steam.</p>\r\n\r\n<p><a href=\"https://www.ign.com/articles/spec-ops-the-line-will-no-longer-be-available-in-online-stores-2k-blames-expiring-partnerships\">In a statement given to IGN</a>, 2K said that &ldquo;Spec Ops: The Line will no longer be available on online storefronts, as several partnership licenses related to the game are expiring.&rdquo;</p>\r\n\r\n<p>They confirmed that anyone who already owns the game can still download it and play it from their chosen platforms. However, it&rsquo;s a real shame that 2K didn&rsquo;t inform anyone of this happening beforehand as I&rsquo;m sure there would have been at least a few people who would have grabbed it before it vanished.</p>\r\n\r\n<p>Advertisements</p>\r\n\r\n<p>Exactly what partnership licenses expired is unknown. Spec Ops: The Line did use a few licensed tracks including Jimi Hendrix&rsquo;s awesome version of Star Spangled Banner. Music has indeed been the cause of games being delisted before. It could also be guns themselves in the game as their likenesses and names also have to be licensed from the manufacturers.</p>\r\n\r\n<p>While it is possible that 2K could sign new licensing deals to bring Spec Ops back into digital markets, I doubt they will do that. Licensing costs money and I don&rsquo;t imagine Spec Ops has enough appeal to make it worth the cost in 2K&rsquo;s eyes.</p>\r\n\r\n<p>Spec Ops: The Line launched in 2010 for the Xbox 360 and PS3 to a Metacritic score in the mid to high 70s. It was deemed a commercial failure by Take-Two but it did develop a cult following due to its compelling and morally complex storyline. Based heavily on Heart of Darkness, the game examined what happened to soldiers as they went through chaotic and frequently disturbing scenarios, including the killing of innocents. Although many people argued that the gameplay and the storytelling didn&rsquo;t quite come together, it&rsquo;s nevertheless often hailed as one of the best narratives in video games, and its disappearance is a sad day for the medium.</p>\r\n', '02/02/2024', '10:00', '13:00', 'https://www.zoomgov.com/j/1618188764', 'spec-ops-the-line.png', 'free', '0', '', NULL, 'online', NULL, '2024-02-02 03:42:45', '1', '1');
+(1, NULL, NULL, 'Spec Ops: The Line is being removed from sale on every platform', 'spec-ops-the-line-is-being-removed-from-sale-on-every-platform', '<p>2K Games has confirmed that Spec Ops: The Line, the cult classic shooter from 2010, is being removed from sale across digital storefronts. Alarms began ringing yesterday when the game vanished from Steam.</p>\r\n\r\n<p><a href=\"https://www.ign.com/articles/spec-ops-the-line-will-no-longer-be-available-in-online-stores-2k-blames-expiring-partnerships\">In a statement given to IGN</a>, 2K said that &ldquo;Spec Ops: The Line will no longer be available on online storefronts, as several partnership licenses related to the game are expiring.&rdquo;</p>\r\n\r\n<p>They confirmed that anyone who already owns the game can still download it and play it from their chosen platforms. However, it&rsquo;s a real shame that 2K didn&rsquo;t inform anyone of this happening beforehand as I&rsquo;m sure there would have been at least a few people who would have grabbed it before it vanished.</p>\r\n\r\n<p>Advertisements</p>\r\n\r\n<p>Exactly what partnership licenses expired is unknown. Spec Ops: The Line did use a few licensed tracks including Jimi Hendrix&rsquo;s awesome version of Star Spangled Banner. Music has indeed been the cause of games being delisted before. It could also be guns themselves in the game as their likenesses and names also have to be licensed from the manufacturers.</p>\r\n\r\n<p>While it is possible that 2K could sign new licensing deals to bring Spec Ops back into digital markets, I doubt they will do that. Licensing costs money and I don&rsquo;t imagine Spec Ops has enough appeal to make it worth the cost in 2K&rsquo;s eyes.</p>\r\n\r\n<p>Spec Ops: The Line launched in 2010 for the Xbox 360 and PS3 to a Metacritic score in the mid to high 70s. It was deemed a commercial failure by Take-Two but it did develop a cult following due to its compelling and morally complex storyline. Based heavily on Heart of Darkness, the game examined what happened to soldiers as they went through chaotic and frequently disturbing scenarios, including the killing of innocents. Although many people argued that the gameplay and the storytelling didn&rsquo;t quite come together, it&rsquo;s nevertheless often hailed as one of the best narratives in video games, and its disappearance is a sad day for the medium.</p>\r\n', '02/02/2024', '10:00', '13:00', 'https://www.zoomgov.com/j/1618188764', 'spec-ops-the-line.png', 'free', '0', '', NULL, 'online', NULL, '2024-02-02 03:42:45', '1', '1'),
+(2, NULL, NULL, 'Spec Ops: The Line is being removed from sale on every platform 1', 'spec-ops-the-line-is-being-removed-from-sale-on-every-platform1', '<p>2K Games has confirmed that Spec Ops: The Line, the cult classic shooter from 2010, is being removed from sale across digital storefronts. Alarms began ringing yesterday when the game vanished from Steam.</p>\r\n\r\n<p><a href=\"https://www.ign.com/articles/spec-ops-the-line-will-no-longer-be-available-in-online-stores-2k-blames-expiring-partnerships\">In a statement given to IGN</a>, 2K said that &ldquo;Spec Ops: The Line will no longer be available on online storefronts, as several partnership licenses related to the game are expiring.&rdquo;</p>\r\n\r\n<p>They confirmed that anyone who already owns the game can still download it and play it from their chosen platforms. However, it&rsquo;s a real shame that 2K didn&rsquo;t inform anyone of this happening beforehand as I&rsquo;m sure there would have been at least a few people who would have grabbed it before it vanished.</p>\r\n\r\n<p>Advertisements</p>\r\n\r\n<p>Exactly what partnership licenses expired is unknown. Spec Ops: The Line did use a few licensed tracks including Jimi Hendrix&rsquo;s awesome version of Star Spangled Banner. Music has indeed been the cause of games being delisted before. It could also be guns themselves in the game as their likenesses and names also have to be licensed from the manufacturers.</p>\r\n\r\n<p>While it is possible that 2K could sign new licensing deals to bring Spec Ops back into digital markets, I doubt they will do that. Licensing costs money and I don&rsquo;t imagine Spec Ops has enough appeal to make it worth the cost in 2K&rsquo;s eyes.</p>\r\n\r\n<p>Spec Ops: The Line launched in 2010 for the Xbox 360 and PS3 to a Metacritic score in the mid to high 70s. It was deemed a commercial failure by Take-Two but it did develop a cult following due to its compelling and morally complex storyline. Based heavily on Heart of Darkness, the game examined what happened to soldiers as they went through chaotic and frequently disturbing scenarios, including the killing of innocents. Although many people argued that the gameplay and the storytelling didn&rsquo;t quite come together, it&rsquo;s nevertheless often hailed as one of the best narratives in video games, and its disappearance is a sad day for the medium.</p>\r\n', '02/02/2024', '10:00', '13:00', 'https://www.zoomgov.com/j/1618188764', 'spec-ops-the-line.png', 'paid', '.01', '', NULL, 'online', NULL, '2024-02-02 03:42:45', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -49110,6 +49133,14 @@ CREATE TABLE `event_booked` (
   `payment_status` varchar(255) DEFAULT NULL,
   `transaction_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_booked`
+--
+
+INSERT INTO `event_booked` (`id`, `event_id`, `user_id`, `order_id`, `booking_date`, `event_price`, `price_cents`, `currency`, `currency_symbol`, `payment_status`, `transaction_id`) VALUES
+(1, 1, 1, NULL, '2024-02-08 17:34:33', 0, 0, 'USD', '$', 'COMPLETED', 'txn_1490792633'),
+(2, 2, 1, NULL, '2024-02-08 17:59:37', 0.01, 0, 'USD', '$', 'COMPLETED', 'txn_183797125');
 
 -- --------------------------------------------------------
 
@@ -49329,22 +49360,86 @@ INSERT INTO `powerspeech` (`id`, `heading`, `sub_heading`, `message`, `icon`) VA
 --
 
 CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
   `categori_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `price` varchar(100) NOT NULL,
-  `manufacturer` int(11) NOT NULL,
+  `product_name` text NOT NULL,
+  `overview` text NOT NULL,
+  `description` text NOT NULL,
+  `additional_information` text NOT NULL,
+  `quantity` int(20) NOT NULL,
+  `mrp` varchar(100) NOT NULL,
   `sale_price` varchar(100) NOT NULL,
-  `description` blob NOT NULL,
-  `sku` varchar(1000) NOT NULL,
-  `supplier_id` int(11) NOT NULL,
-  `discount` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `product_image` varchar(255) NOT NULL,
+  `product_image` text NOT NULL,
   `product_add_date` date NOT NULL,
-  `status` enum('1','0') NOT NULL
+  `status` enum('1','0') NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `user_id`, `categori_id`, `product_name`, `overview`, `description`, `additional_information`, `quantity`, `mrp`, `sale_price`, `product_image`, `product_add_date`, `status`) VALUES
+(1, NULL, 1, 'Black Print T-Shirt', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', 0, '599', '499', 'black-print-t-shirt1.jpg', '2024-02-08', '1'),
+(2, NULL, 1, 'Black Print T-Shirt 1', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design. 1</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design. 1</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design. 1</p>\r\n', 0, '599', '499', 'black-print-t-shirt1.jpg', '2024-02-08', '1'),
+(3, NULL, 3, 'Product Bag 1', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', 0, '1299', '1099', 'luxurious-bag3.jpg', '2024-02-08', '1'),
+(4, NULL, 2, 'Product Hat 1', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', '<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.</p>\r\n', 0, '999', '799', 'product21.jpg', '2024-02-08', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_category`
+--
+
+CREATE TABLE `product_category` (
+  `id` int(11) NOT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `category_link` text DEFAULT NULL,
+  `status` enum('1','2') DEFAULT '1',
+  `is_delete` enum('1','2') DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_category`
+--
+
+INSERT INTO `product_category` (`id`, `category_name`, `category_link`, `status`, `is_delete`) VALUES
+(1, 'T-Shirt', 't-shirt', '1', '1'),
+(2, 'Hat', 'hat', '1', '1'),
+(3, 'Bag', 'bag', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_details`
+--
+
+CREATE TABLE `product_details` (
+  `id` int(11) NOT NULL,
+  `product_id` varchar(45) DEFAULT NULL,
+  `size` varchar(45) DEFAULT NULL,
+  `quantity` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_details`
+--
+
+INSERT INTO `product_details` (`id`, `product_id`, `size`, `quantity`) VALUES
+(18, '2', 'XS', '10'),
+(19, '2', 'S', '20'),
+(20, '2', 'M', '30'),
+(21, '2', 'L', '40'),
+(22, '1', 'XS', '10'),
+(23, '1', 'S', '20'),
+(24, '1', 'M', '30'),
+(25, '3', 'XS', '10'),
+(26, '3', 'S', '20'),
+(27, '3', 'M', '30'),
+(28, '3', 'L', '40'),
+(29, '4', 'S', '10'),
+(30, '4', 'M', '20'),
+(31, '4', 'L', '30');
 
 -- --------------------------------------------------------
 
@@ -53810,6 +53905,12 @@ ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cities`
 --
 ALTER TABLE `cities`
@@ -53971,7 +54072,19 @@ ALTER TABLE `powerspeech`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_details`
+--
+ALTER TABLE `product_details`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_type`
@@ -54092,6 +54205,12 @@ ALTER TABLE `blogs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
@@ -54125,7 +54244,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `course_enrollment`
 --
 ALTER TABLE `course_enrollment`
-  MODIFY `enrollment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `enrollment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `course_enrollment_status`
@@ -54185,13 +54304,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `event_booked`
 --
 ALTER TABLE `event_booked`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `faqs`
@@ -54251,7 +54370,19 @@ ALTER TABLE `powerspeech`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `product_category`
+--
+ALTER TABLE `product_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product_details`
+--
+ALTER TABLE `product_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `product_type`
