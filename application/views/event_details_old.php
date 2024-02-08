@@ -1,10 +1,3 @@
-<?php
-    $user_id = $this->session->userdata('user_id');
-    $getUserDetails = $this->db->query("SELECT * FROM users where id = '".$user_id."' AND email_verified = '1' AND status = '1'")->row();
-    //echo "<pre>"; print_r($getUserDetails); die();
-    $isLoggedIn = $this->session->userdata('isLoggedIn');
-    $catname = $this->db->query("SELECT * FROM sm_category WHERE id = '".$detail->cat_id."'")->row();
-?>
 <main>
     <section class="signup__area po-rel-z1 pt-150 pb-50">
         <div class="container">
@@ -86,7 +79,7 @@
                                     </div>
                                     <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                                         <div class="course__video-price ">
-                                            <?php if($eventDetails->event_type == "free") { ?>
+                                            <?php if($eventDetails->event_price == "free") { ?>
                                             <h5 class="text-dark">$0.<span>00</span></h5>
                                             <?php } else { 
                                             $price = explode('.', $eventDetails->event_price)
@@ -139,56 +132,20 @@
                                     </div>
 
                                     <div class="course__enroll-btn">
-                                    <?php
-                                    if($this->session->userdata('userType') == '1') {
-                                    if(!empty($isLoggedIn)) {
-                                    $checkUserEnrolledSql = "SELECT `event`.`id`, `event_booked`.`id`, `event_booked`.`event_id`, `event_booked`.`user_id`,`event_booked`.`payment_status` FROM `event_booked` JOIN `event` ON `event`.`id` = `event_booked`.`event_id` WHERE `event`.`id` = '" . @$eventDetails->id . "' AND `event_booked`.`payment_status` = 'COMPLETED' and `event_booked`.`user_id` = '".@$this->session->userdata('user_id')."'";
-                                    $checkUserenrollment = $this->db->query($checkUserEnrolledSql)->result_array();
-                                    //print_r($checkUserenrollment);
-                                    if(@$checkUserenrollment[0]['user_id'] == @$this->session->userdata('user_id')) { ?>
-                                    <a href="<?php echo base_url()?>event-booked" class="e-btn e-btn-7 w-100">Go to Dashboard <i class="far fa-arrow-right"></i></a>
-                                    <?php } else { 
-                                    if (@$eventDetails->event_price != 'free') { ?>
-                                    <!-- <form action="https://api.maxicashapp.com/PayEntryPost" method="POST"> -->
-                                    <form action="https://api-testbed.maxicashapp.com/PayEntryPost" method="POST">
-                                        <input type="hidden" name="PayType" value="MaxiCash">
-                                        <input type="hidden" name="Amount" value="<?php echo (@$eventDetails->event_price*100)?>">
-                                        <input type="hidden" name="Currency" value="MaxiDollar">
-                                        <input type="hidden" name="Telephone" value="<?= $getUserDetails->phone?>">
-                                        <input type="hidden" name="Email" value="<?= $getUserDetails->email?>">
-                                        <input type="hidden" name="MerchantID" value="f00fab442fcc420ab3d04765bebe1818">
-                                        <input type="hidden" name="MerchantPassword" value="dec9a3edff854eec82c2c354efc8ba9c">
-                                        <input type="hidden" name="Language" value="En">
-                                        <input type="hidden" name="Reference" value="txn_<?php echo rand()?>">
-                                        <input type="hidden" name="accepturl" value="<?= base_url()?>event/<?= $eventDetails->event_slug?>">
-                                        <input type="hidden" name="cancelurl" value="<?= base_url()?>event/<?= $eventDetails->event_slug?>">
-                                        <input type="hidden" name="declineurl" value="<?= base_url()?>event/<?= $eventDetails->event_slug?>">
-                                        <input type="hidden" name="notifyurl" value="<?= base_url()?>event/<?= $eventDetails->event_slug?>">
-                                        <button type="submit" name="enrollment" class="e-btn e-btn-7 w-100">Enroll</button>
-                                    </form>
-                                    <?php } else { ?>
-                                    <div class="btn-part">
-                                        <a href="javascript:void(0)" class="e-btn e-btn-7 w-100" onclick="bookEvent()">Book Event <i class="far fa-arrow-right"></i></a>
-                                        <input type="hidden" id="userId" value="<?= $this->session->userdata('user_id')?>">
-                                        <input type="hidden" id="eventId" value="<?= $eventDetails->id?>"/>
-                                        <input type="hidden" id="price" value="<?= $eventDetails->event_price?>"/>
-                                    </div>
-                                    <?php } } } else {
-                                    if (@$eventDetails->event_price != 'free') { ?>
-                                    <form action="<?= base_url('login/') ?>" method="post" id="form_validation33" enctype="multipart/form-data">
-                                        <div class="btn-part">
-                                            <button type="submit" name="enrollment" value="<?php echo @$detail->price_key; ?>"  class="e-btn e-btn-7 w-100">Enroll</button>
-                                        </div>
-                                    </form>
-                                    <?php } else { ?>
-                                    <div class="btn-part">
-                                        <a href="<?= base_url('login/') ?>" name="enrollment" id="event_activation1"  class="e-btn e-btn-7 w-100">Activate</a>
-                                    </div>
-                                <?php } } } else if(empty($this->session->userdata('userType'))) { ?>
-                                    <div class="btn-part">
-                                        <a href="<?= base_url('login/') ?>" name="enrollment" id="event_activation1"  class="e-btn e-btn-7 w-100">Activate</a>
-                                    </div>
-                                <?php } ?>
+                                        <?php 
+                                        if(!empty($this->session->userdata('user_id'))) { 
+                                            if($this->session->userdata('userType') == '1') { 
+                                                $checkenrolled = $this->db->query("SELECT * FROM event_booked WHERE event_id = '".$eventDetails->id."' AND user_id = '".$this->session->userdata('user_id')."'")->result_array();
+                                                if(!empty($checkenrolled)) { ?>
+                                                <a href="<?= base_url()?>student-dashboard" class="e-btn e-btn-7 w-100">Go To dashboard <i class="far fa-arrow-right"></i></a>
+                                                <?php } else { ?>
+                                                <a href="javascript:void(0)" class="e-btn e-btn-7 w-100" onclick="bookEvent()">Book Event <i class="far fa-arrow-right"></i></a>
+                                                <input type="hidden" id="userId" value="<?= $this->session->userdata('user_id')?>">
+                                                <input type="hidden" id="eventId" value="<?= $eventDetails->id?>"/>
+                                                <input type="hidden" id="price" value="<?= $eventDetails->event_price?>"/>
+                                        <?php } } } else { ?>
+                                            <a href="<?= base_url()?>login" class="e-btn e-btn-7 w-100">Book Event <i class="far fa-arrow-right"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -219,27 +176,4 @@ function bookEvent() {
         }
     });
 }
-$(document).ready(function(){
-    var url = window.location.href;
-    var splitURL=url.toString().split("/");
-    var splitURL = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    var txn = splitURL[1].split('=');
-    var txnR = txn[1];
-    var event_id = "<?= $eventDetails->id?>"; alert(event_id);
-    var user_id = "<?= $this->session->userdata('user_id')?>"; alert(user_id);
-    var price = "<?= $eventDetails->event_price?>"; alert(price);
-    if(window.location.href.indexOf("status=success") > -1) {
-        var baseUrl = "<?= base_url(); ?>";
-        $.ajax({
-            url: baseUrl + 'Home/purchaseMEvent',
-            type: 'POST',
-            data: {txnR: txnR, event_id: event_id, user_id: user_id, price: price},
-            success: function(data) {
-                if(data == 1) {
-                    window.location.href = "<?= base_url()?>event-booked";
-                }
-            }
-        });
-    }
-})
 </script>

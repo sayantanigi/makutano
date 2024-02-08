@@ -68,14 +68,7 @@
                                 </div>
                             </td>
                             <td>
-                                <?php 
-                                $getQuantity = $this->db->query("SELECT * FROM product_details WHERE product_id = '".$product->id."'")->result_array();
-                                if(!empty($getQuantity)) {
-                                    foreach ($getQuantity as $qnty) {
-                                        echo "<div><p>Size: ".$qnty['size'].", Quantity:".$qnty['quantity']."</p></div>";
-                                    }
-                                }
-                                ?>
+                                <?php echo $product->quantity; ?>
                             </td>
                             <td>
                                 <?php echo $price = '$'.number_format($product->mrp, 2); ?>

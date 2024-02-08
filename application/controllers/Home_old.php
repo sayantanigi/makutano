@@ -783,19 +783,6 @@ class Home extends CI_Controller {
             echo '1';
         }                        
     }
-    public function purchaseMCourse() {
-        $user_id = $this->input->post('user_id');
-        $course_id = $this->input->post('course_id');
-        $enrollment_price = '0';
-        $price_cents = $this->input->post('price');
-        $currency = 'USD';
-        $currency_symbol = '$';
-        $transaction_id	= $this->input->post('txnR');
-        $this->db->query("INSERT INTO course_enrollment (`course_id`, `user_id`, `enrollment_price`, `price_cents`, `currency`, `currency_symbol`, `payment_status`, `transaction_id`) VALUES ('$course_id', '$user_id', '$enrollment_price', '$price_cents', '$currency', '$currency_symbol', 'COMPLETED', '$transaction_id')");
-        if($this->db->insert_id()) {
-            echo '1';
-        }                        
-    }
     public function faqs() {
         $data['faqs'] = $this->db->query("SELECT * FROM faqs")->result_array();
         $this->load->view('header');
@@ -881,20 +868,6 @@ class Home extends CI_Controller {
         $price_cents = '0.00';
         $currency = 'USD';
         $currency_symbol = '$';
-        $transaction_id	= $this->input->post('txnR');
-        $this->db->query("INSERT INTO event_booked (`event_id`, `user_id`, `event_price`, `price_cents`, `currency`, `currency_symbol`, `payment_status`, `transaction_id`) 
-        VALUES ('$event_id', '$user_id', '$price', '$price_cents', '$currency', '$currency_symbol', 'COMPLETED', '$transaction_id')");
-        if($this->db->insert_id()) {
-            echo '1';
-        }                        
-    }
-    public function purchaseMEvent() {
-        $event_id = $this->input->post('event_id');
-        $user_id = $this->input->post('user_id');
-        $price = $this->input->post('price');
-        $price_cents = '0.00';
-        $currency = 'USD';
-        $currency_symbol = '$';
         $transaction_id	= 'txn_'.rand();
         $this->db->query("INSERT INTO event_booked (`event_id`, `user_id`, `event_price`, `price_cents`, `currency`, `currency_symbol`, `payment_status`, `transaction_id`) 
         VALUES ('$event_id', '$user_id', '$price', '$price_cents', '$currency', '$currency_symbol', 'COMPLETED', '$transaction_id')");
@@ -949,17 +922,6 @@ class Home extends CI_Controller {
         $data['productDetails'] = $this->db->query("SELECT * FROM product WHERE id = '".$id."' AND status = '1'")->result_array();
 		$this->load->view('header', $data);
         $this->load->view('product_details', $data);
-        $this->load->view('footer');
-    }
-    public function getQuantityBySize() {
-        $pId = $_POST['pId'];
-        $size = $_POST['size'];
-        $getQuantity = $this->db->query("SELECT * FROM product_details WHERE product_id = '".$pId."' AND size = '".$size."'")->row();
-        echo $getQuantity->quantity;
-    }
-    public function cart() {
-        $this->load->view('header');
-        $this->load->view('cart');
         $this->load->view('footer');
     }
     public function portfolio9() {

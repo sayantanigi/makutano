@@ -42,35 +42,29 @@
                         <div class="mb-4">
                             <div class="d-flex sizeSelect align-items-center mb-4">
                                 <label class="me-2" style="min-width: 80px;">Size:</label>
-                                <?php $getQuantity = $this->db->query("SELECT * FROM product_details WHERE product_id = '".$productDetails[0]['id']."'")->result_array();
-                                if($getQuantity) { ?>
-                                <select class="form-control form-select" id="selectSize">
-                                    <option value="">Select</option>
-                                    <?php foreach ($getQuantity as $qnty) { ?>
-                                    <option value="<?= $qnty['size']?>"><?= $qnty['size']?></option>
-                                    <?php } } ?>
+                                <select class="form-control form-select">
+                                    <option>Select</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="2XL">2XL</option>
+                                    <option value="3XL">3XL</option>
                                 </select>
-                                <input type="hidden" id="stock" value="">
-                                <input type="hidden" id="pId" value="<?= $productDetails[0]['id']?>">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="me-2" style="min-width: 80px;">Quantity:</label>
                                 <div class="qty-input">
                                     <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
-                                    <input class="product-qty" type="number" name="product-qty" id="product_qty" min="0" max="100" value="1">
+                                    <input class="product-qty" type="number" name="product-qty" min="0" max="100" value="1">
                                     <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <?php if(empty($this->session->userdata('isLoggedIn'))) { ?>
-                            <a href="<?= base_url()?>login" class="e-btn addcartbtn">Add to Cart</a>
-                            <?php } else { ?>
-                            <a href="javascript:void(0)" class="e-btn addcartbtn" onclick="addToCart()">Add to Cart</a>
-                            <input type="hidden" id="user_id" value="<?= $this->session->userdata('user_id')?>">
-                            <?php } ?>
+                            <a href="#" class="e-btn addcartbtn">Add to Cart</a>
                         </div>
-                        <div class="error-message"></div>
                     </div>
                 </div>
             </div>
@@ -230,118 +224,4 @@
 </main>
 <style>
 .text-light * {color: #fff;}
-.error-message {margin-top: 15px;color: #db3636;}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-    var QtyInput = (function () {
-    var $qtyInputs = $(".qty-input");
-    if (!$qtyInputs.length) {
-        return;
-    }
-    var $inputs = $qtyInputs.find(".product-qty");
-    var $countBtn = $qtyInputs.find(".qty-count");
-    var qtyMin = parseInt($inputs.attr("min"));
-    var qtyMax = parseInt($inputs.attr("max"));
-
-    $inputs.change(function () {
-        var $this = $(this);
-        var $minusBtn = $this.siblings(".qty-count--minus");
-        var $addBtn = $this.siblings(".qty-count--add");
-        var qty = parseInt($this.val());
-        if (isNaN(qty) || qty <= qtyMin) {
-            $this.val(qtyMin);
-            $minusBtn.attr("disabled", true);
-        } else {
-            $minusBtn.attr("disabled", false);
-            if(qty >= qtyMax){
-                $this.val(qtyMax);
-                $addBtn.attr('disabled', true);
-            } else {
-                $this.val(qty);
-                $addBtn.attr('disabled', false);
-            }
-        }
-    });
-
-    $countBtn.click(function () {
-        var operator = this.dataset.action;
-        var $this = $(this);
-        var $input = $this.siblings(".product-qty");
-        var qty = parseInt($input.val());
-        if (operator == "add") {
-            qty += 1;
-            if (qty >= qtyMin + 1) {
-                $this.siblings(".qty-count--minus").attr("disabled", false);
-            }
-            if (qty >= qtyMax) {
-                $this.attr("disabled", true);
-            }
-        } else {
-            qty = qty <= qtyMin ? qtyMin : (qty -= 1);
-            if (qty == qtyMin) {
-                $this.attr("disabled", true);
-            }
-            if (qty < qtyMax) {
-                $this.siblings(".qty-count--add").attr("disabled", false);
-            }
-        }
-        $input.val(qty);
-    });
-})();
-$(document).ready(function(){
-    $('.error-message').hide() // Hide it initially
-    $('#selectSize').change(function() {
-        var pId = $('#pId').val();
-        var size = $(this).val();
-        $.ajax({
-            method: 'POST',
-            url: '<?= base_url()?>Home/getQuantityBySize',
-            cache: false,
-            data: {pId: pId, size: size},
-            success: function(data){
-                $('#stock').val(data);
-            }
-        })
-    })
-})
-function addToCart() {
-    var pid = $('#pId').val();
-    var size = $('#selectSize').val();
-    var stock = $('#stock').val();
-    var quantity = $('#product_qty').val();
-    var user_id = $('#user_id').val();
-    if(size.length > 0) {
-        if(parseInt(quantity) > parseInt(stock)) {
-            $('.error-message').show().html('Sorry! This product is out of stock');
-            setTimeout(() => {
-                $('.error-message').hide();
-            }, 3000);
-            return false;
-        } else {
-            $.ajax({
-                url: "<?php echo base_url('users/addToCartFromProductPage') ?>",
-                type: "POST",
-                data: {pid: pid, size: size, quantity: quantity, user_id: user_id} ,
-                dataType: "json",
-                success: function(response) {
-                    //console.log(response);
-                    if(response == 1) {
-                        window.location="<?php echo base_url('cart')?>";
-                    }else{
-                        alert("Error");
-                    }
-                },
-                error: function() {
-                    alert("Error");
-                }
-            });
-        }
-    } else {
-        $('.error-message').show().html('Please select size');
-        setTimeout(() => {
-            $('.error-message').hide();
-        }, 3000);
-    }
-}
-</script>

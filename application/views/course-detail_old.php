@@ -502,21 +502,20 @@
                                             <button type="submit" name="enrollment" value="<?php echo @$detail->price_key; ?>"  class="e-btn e-btn-7 w-100">Enroll</button>
                                         </div>
                                     </form> -->
-                                    <!-- <form action="https://api.maxicashapp.com/PayEntryPost" method="POST"> -->
-                                    <form action="https://api-testbed.maxicashapp.com/PayEntryPost" method="POST">
+                                    <form action="https://api.maxicashapp.com/PayEntryPost" method="POST">
                                         <input type="hidden" name="PayType" value="MaxiCash">
                                         <input type="hidden" name="Amount" value="<?php echo (@$detail->price*100)?>">
                                         <input type="hidden" name="Currency" value="MaxiDollar">
                                         <input type="hidden" name="Telephone" value="<?= $getUserDetails->phone?>">
                                         <input type="hidden" name="Email" value="<?= $getUserDetails->email?>">
-                                        <input type="hidden" name="MerchantID" value="f00fab442fcc420ab3d04765bebe1818">
-                                        <input type="hidden" name="MerchantPassword" value="dec9a3edff854eec82c2c354efc8ba9c">
+                                        <input type="hidden" name="MerchantID" value="2c6e6625facb4ec79863d86186014853">
+                                        <input type="hidden" name="MerchantPassword" value="85ec50bc1484443a927d93cb7a8c6104">
                                         <input type="hidden" name="Language" value="En">
                                         <input type="hidden" name="Reference" value="txn_<?php echo rand()?>">
-                                        <input type="hidden" name="accepturl" value="<?= base_url()?>course-detail/<?= $detail->id?>">
-                                        <input type="hidden" name="cancelurl" value="<?= base_url()?>course-detail/<?= $detail->id?>">
-                                        <input type="hidden" name="declineurl" value="<?= base_url()?>course-detail/<?= $detail->id?>">
-                                        <input type="hidden" name="notifyurl" value="<?= base_url()?>course-detail/<?= $detail->id?>">
+                                        <input type="hidden" name="accepturl" value="https://translate.google.com/">
+                                        <input type="hidden" name="cancelurl" value="https://translate.google.com/">
+                                        <input type="hidden" name="declineurl" value="https://translate.google.com/">
+                                        <input type="hidden" name="notifyurl" value="https://translate.google.com/">
                                         <button type="submit" name="enrollment" class="e-btn e-btn-7 w-100">Enroll</button>
                                     </form>
                                     <?php } else { ?>
@@ -730,27 +729,5 @@ $(document).ready(function(){
             });
         }
     });
-
-    var url = window.location.href;
-    var splitURL=url.toString().split("/");
-    var splitURL = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    var txn = splitURL[1].split('=');
-    var txnR = txn[1];
-    var course_id = "<?= $detail->id?>";
-    var user_id = "<?= $this->session->userdata('user_id')?>";
-    var price = "<?= $detail->price?>";
-    if(window.location.href.indexOf("status=success") > -1) {
-        var baseUrl = "<?= base_url(); ?>";
-        $.ajax({
-            url: baseUrl + 'Home/purchaseMCourse',
-            type: 'POST',
-            data: {txnR: txnR, course_id: course_id, user_id: user_id, price: price},
-            success: function(data) {
-                if(data == 1) {
-                    window.location.href = "<?= base_url()?>enrolled-courses";
-                }
-            }
-        });
-    }
 })
 </script>

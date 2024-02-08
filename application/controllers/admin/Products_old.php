@@ -117,56 +117,30 @@ class Products extends Admin_Controller {
 		$this->data['main'] = admin_view('product/add');
         $this->data['product_cat'] = $this->db->get('product_category')->result();
 		$this->data['product'] = $this->Product_model->getNew();
-        if (@$id) {
+        if ($id) {
             $this->data['product'] = $product = $this->Product_model->getRow($id);
             if(!isset($product)){
                show_404();
                 exit();
             }
         }
-		$this->form_validation->set_rules('product_name', 'Product title', 'required');
+		$this->form_validation->set_rules('frm[product_name]', 'Product title', 'required');
 		if ($this->form_validation->run()) {
-			$formdata = array(
-                'categori_id' => $this->input->post('categori_id'),
-                'product_name' => $this->input->post('product_name'),
-                'overview' => $this->input->post('frmoverview'),
-                'description' => $this->input->post('frmdescription'),
-                'additional_information' => $this->input->post('additional_information'),
-                'mrp' => $this->input->post('mrp'),
-                'sale_price' => $this->input->post('sale_price'),
-                'status' => $this->input->post('status'),
-                'product_add_date' => date('Y-m-d H:i:s'),
-			    'id' => $id
-            );
+			$formdata = $this->input->post('frm');
+			$formdata['id'] = $id;
 			//$images = $this->input->post('image');
 			if ($this->upload->do_upload('product_image')) {
 				$data = $this->upload->data();
 				$formdata['product_image'] = $data['file_name'];
 			}
-			$this->Product_model->save($formdata);
-            $insert_id = $this->db->insert_id();
-            $this->db->delete('product_details', array('product_id' => $id));
-            for($i=0; $i<count($this->input->post('size')); $i++){ 
-                if ($id) {
-                    $datavalue = array(
-                        'size' => $this->input->post("size[$i]"),
-                        'quantity' => $this->input->post("quantity[$i]"),
-                        'product_id' => $id
-                    );
-                } else {
-                    $datavalue = array(
-                        'size' => $this->input->post("size[$i]"),
-                        'quantity' => $this->input->post("quantity[$i]"),
-                        'product_id' => $insert_id
-                    );
-                }
-                $this->Commonmodel->add_details('product_details', $datavalue);
-            }
+			//print_r($formdata); die();
+			$id = $this->Product_model->save($formdata);
 			$this->session->set_flashdata("success", "Product detail saved");
             redirect(admin_url('products'));
 		}		
 		$this->load->view(admin_view('default'),$this->data);
 	}
+
     public function changeStatus() {
         if ($this->input->post('id')) {
             $id = $this->input->post('id');

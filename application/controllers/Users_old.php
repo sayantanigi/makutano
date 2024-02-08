@@ -313,20 +313,6 @@ class Users extends CI_Controller {
 		$this->load->view('reviews');
 		$this->load->view('footer');
 	}
-	public function addToCartFromProductPage() {
-		$data = array(
-			'user_id' => $_POST["user_id"],
-			'product_id' => $_POST["pid"],
-			'size' => $_POST["size"],
-			'quantity' => $_POST["quantity"]
-		);
-		$insert_id = $this->Commonmodel->add_details('cart', $data);
-		if(!empty($insert_id)) {
-			echo '1';
-		} else {
-			echo '2';
-		}
-	}
 	public function logout() {
 		session_destroy();
 		$this->session->set_flashdata('success', 'You have successfully logout!');

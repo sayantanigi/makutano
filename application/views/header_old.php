@@ -28,10 +28,6 @@ $optionsList = $this->db->query($getOptionsSql)->result();
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/default.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/responsive.css">
-    <style>
-    .header__cart {top: 40px; right: 75px;}
-    .header__cart a {color: #fff !important;}
-    </style>
 </head>
 
 <body>
@@ -156,14 +152,6 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                 <a href="<?= base_url()?>register" class="e-btn">Sign Up</a>
                             </div>
                             <?php } ?>
-                            <div class="header__cart ml-15">
-                                <?php if(!empty($this->session->userdata('user_id'))) { ?>
-                                <a href="<?= base_url()?>cart"><i class="fa fa-shopping-cart"></i></a>
-                                <?php } else { ?>
-                                <a href="<?= base_url()?>login"><i class="fa fa-shopping-cart"></i></a>
-                                <?php } ?>
-                            </div>
-
                             <div class="sidebar__menu d-xl-none">
                                 <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
                                     <span class="line"></span>
