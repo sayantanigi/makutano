@@ -318,14 +318,54 @@ class Users extends CI_Controller {
 			'user_id' => $_POST["user_id"],
 			'product_id' => $_POST["pid"],
 			'size' => $_POST["size"],
-			'quantity' => $_POST["quantity"]
+			'quantity' => $_POST["quantity"],
+			'price' => $_POST["quantity"] * $_POST["price"]
 		);
-		$insert_id = $this->Commonmodel->add_details('cart', $data);
-		if(!empty($insert_id)) {
+		$checkcartProduct = $this->db->query("SELECT * FROM cart WHERE user_id = '".$_POST["user_id"]."' AND product_id = '".$_POST["pid"]."' AND size = '".$_POST["size"]."'")->row();
+		if(!empty($checkcartProduct)) {
+			$finalquantity = $checkcartProduct->quantity + $_POST["quantity"];
+			$finalPrice = $finalquantity * $_POST["price"]; 
+			$this->db->query("UPDATE cart SET quantity = '".$finalquantity."', price = '".$finalPrice."' WHERE user_id = '".$_POST["user_id"]."' AND product_id = '".$_POST["pid"]."' AND size = '".$_POST["size"]."'");
 			echo '1';
 		} else {
-			echo '2';
+			$insert_id = $this->Commonmodel->add_details('cart', $data);
+			if(!empty($insert_id)) {
+				echo '1';
+			} else {
+				echo '2';
+			}
 		}
+	}
+	public function updateCart() {
+		//echo "<pre>"; print_r($_POST);
+		$checkCart = $this->db->query("SELECT * FROM cart WHERE product_id = '".$_POST['pId']."'")->row();
+		if(!empty($checkCart)) {
+			$updateprc = $_POST['qnty'] * $_POST['price'];
+			$updateCart = $this->db->query("UPDATE cart SET quantity = '".$_POST['qnty']."', price = '".$updateprc."' WHERE `id` = '".$_POST['cartId']."'");
+			// if($updateCart > 0) {
+			// 	$cartItems = $this->db->query("SELECT * FROM cart WHERE user_id = '".$this->session->userdata('user_id')."'")->result_array();
+			// 	$html = '';
+			// 	$i = 1;
+			// 	foreach ($cartItems as $item) {
+			// 		$product_details = $this->db->query("SELECT * FROM product WHERE id = '".$item['product_id']."'")->row();
+			// 		$price = number_format((float)$product_details->sale_price, 2, '.', '');
+			// 		$total_price = $price * $item['quantity'];
+			// 		$html .="<tr><td class='product-thumbnail'><a href='#' class='cartProductimg'><img src=".base_url()."uploads/products/".$product_details->product_image." alt=''></a></td><td class='product-name'><a href='javascript:void(0)'>$product_details->product_name</a></td><td class='product-price'><span class='amount'>$".number_format((float)$product_details->sale_price, 2, '.', '')."</span></td><td class='product-quantity text-center'><div class='product-quantity mt-10 mb-10'><div class='product-quantity-form'><form action='#'><button class='cart-minus' id='qntyminus_$i'><i class='far fa-minus'></i></button><input class='cart-input' id='qntyinput_$i' type='text' value=".$item['quantity']." readonly><button class='cart-plus' id='qntyplus_$i'><i class='far fa-plus'></i></button><p class='d-none' id='pId_$i'>".$item['product_id']."</p><p class='d-none' id='prodprice_$i'>".number_format((float)$product_details->sale_price, 2, '.', '')."</p><p class='d-none' id='cartId_$i'>".$item['id']."</p></form></div></div></td><td class='product-subtotal'><span class='amount'>$".number_format((float)$total_price, 2, '.', '')."</span></td><td class='product-remove'><a href='#' class='text-danger'><i class='fa fa-times'></i></a></td></tr>";
+			// 		$i++;
+			// 	}
+			// } else {
+			// 	$html .= "No data found";
+			// }
+		}
+		//echo $html;
+	}
+	public function removeFromCart() {
+		$cartId = $_POST['cartId'];
+		$this->db->query("DELETE FROM cart where id = '".$cartId."'");
+		echo '1';
+	}
+	public function savecheckoutData1() {
+		echo "<pre>"; print_r($_POST);
 	}
 	public function logout() {
 		session_destroy();

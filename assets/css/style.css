@@ -4813,7 +4813,7 @@ p {
 }
 .cart-area .table-content table td {
   border-top: medium none;
-  padding: 20px 10px;
+  padding:8px 6px;
   vertical-align: middle;
   font-size: 16px;
 }
@@ -4883,7 +4883,7 @@ p {
 .cart-area .cart-page-total > ul > li {
   list-style: none;
   font-size: 15px;
-  color: #6f7172;
+  color: #000;
   padding: 10px 30px;
   border-bottom: 1px solid #eaedff;
   font-weight: 400;
@@ -4894,9 +4894,7 @@ p {
 .cart-area .cart-page-total li:last-child {
   border-bottom: 0;
 }
-.cart-area td.product-thumbnail img {
-  width: 125px;
-}
+
 .cart-area .product-quantity-form {
   margin: auto;
   width: 122px;
@@ -5139,7 +5137,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 
 .checkout-form-list {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .checkout-form-list label {
@@ -5148,7 +5146,7 @@ p.checkout-coupon input[type=text]:focus {
 
 .checkout-form-list input[type=text], .checkout-form-list input[type=password], .checkout-form-list input[type=email] {
   background: #ffffff;
-  border: 1px solid #eaedff;
+  border: 2px solid #d4d4d4;
   border-radius: 0;
   height: 45px;
   padding: 0 0 0 10px;
@@ -5199,7 +5197,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 
 .order-notes textarea {
-  border: 1px solid #eaedff;
+  border: 2px solid #d4d4d4;
   height: 90px;
   padding: 15px;
   width: 100%;
@@ -5239,7 +5237,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 .your-order h3 {
   border-bottom: 1px solid #eaedff;
-  font-size: 30px;
+  font-size: 26px;
   margin: 0 0 20px;
   padding-bottom: 10px;
   width: 100%;
@@ -5255,7 +5253,7 @@ p.checkout-coupon input[type=text]:focus {
   border-bottom: 1px solid #eaedff;
   border-right: medium none;
   color: #6f7172;
-  font-size: 14px;
+  font-size: 15px;
   padding: 15px 0;
   text-align: left;
 }
@@ -5308,7 +5306,8 @@ p.checkout-coupon input[type=text]:focus {
 .your-order-table table tr.order-total td span {
   color: #0e1133;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
 .payment-method {
@@ -8977,4 +8976,15 @@ p.checkout-coupon input[type=text]:focus {
 .filtermore .card-body{
   max-height: 300px;
   overflow: auto;
+}
+/* .carttable .table th{
+  color: #fff;
+}
+.carttable .table td, .carttable .table th, .carttable .table{
+  border-color: #575757;
+} */
+.cartProductimg img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }

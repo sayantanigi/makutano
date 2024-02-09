@@ -34,7 +34,7 @@
                                 <a href="<?= base_url()?>product_details/<?php echo $value['id'];?>" class="productlistImg">
                                     <img src="<?php echo $image;?>">
                                 </a>
-                                <a href="#" class="pListCart shadow">Add to Cart</a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value['id'];?>" class="pListCart shadow">View Details</a>
                             </div>
                             <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value['id'];?>"><?= $value['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
@@ -72,7 +72,7 @@
                                 <a href="<?= base_url()?>product_details/<?php echo $value1['id'];?>" class="productlistImg">
                                     <img src="<?php echo $image1;?>">
                                 </a>
-                                <a href="#" class="pListCart shadow">Add to Cart</a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value1['id'];?>" class="pListCart shadow">View Details</a>
                             </div>
                             <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value1['id'];?>"><?= $value1['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
@@ -110,7 +110,7 @@
                                 <a href="<?= base_url()?>product_details/<?php echo $value2['id'];?>" class="productlistImg">
                                     <img src="<?php echo $image2;?>">
                                 </a>
-                                <a href="#" class="pListCart shadow">Add to Cart</a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value2['id'];?>" class="pListCart shadow">View Details</a>
                             </div>
                             <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value2['id'];?>"><?= $value2['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">
@@ -148,7 +148,7 @@
                                 <a href="<?= base_url()?>product_details/<?php echo $value3['id'];?>" class="productlistImg">
                                     <img src="<?php echo $image3;?>">
                                 </a>
-                                <a href="#" class="pListCart shadow">Add to Cart</a>
+                                <a href="<?= base_url()?>product_details/<?php echo $value3['id'];?>" class="pListCart shadow">View Details</a>
                             </div>
                             <h3 class="productlistTitle"><a href="<?= base_url()?>product_details/<?php echo $value3['id'];?>"><?= $value3['product_name'];?></a></h3>
                             <div class="d-md-flex justify-content-between">

@@ -35,6 +35,8 @@ $arr_default['twitter'] = '';
 $arr_default['openh'] = '';
 $arr_default['course_price'] = '';
 $arr_default['map'] = '';
+$arr_default['shipping_charge'] = '';
+$arr_default['tax'] = '';
 $arr_default['tollfree'] = '';
 
 $_GET['options'] = $options;
@@ -127,6 +129,20 @@ function get_option($fname)
                   <label class="col-sm-2 control-label">Map</label>
                   <div class="col-sm-8">
                      <textarea class="form-control" name="map" rows="6"><?= get_option('map') ?></textarea>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Shipping Charge</label>
+                  <div class="col-sm-8">
+                     <!-- <textarea class="form-control" name="shipping_charge" rows="6"><?= get_option('shipping_charge') ?></textarea> -->
+                     <input type="text" name="shipping_charge" value="<?= get_option('shipping_charge'); ?>" placeholder="Shipping Charge" class="form-control input-sm" />
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Tax (%)</label>
+                  <div class="col-sm-8">
+                     <!-- <textarea class="form-control" name="tax" rows="6"><?= get_option('shipping_charge') ?></textarea> -->
+                     <input type="text" name="tax" value="<?= get_option('tax'); ?>" placeholder="Tax (%)" class="form-control input-sm" />
                   </div>
                </div>
                <hr />

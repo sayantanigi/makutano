@@ -52,6 +52,7 @@
                                 </select>
                                 <input type="hidden" id="stock" value="">
                                 <input type="hidden" id="pId" value="<?= $productDetails[0]['id']?>">
+                                <input type="hidden" id="price" value="<?= $productDetails[0]['sale_price']?>">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="me-2" style="min-width: 80px;">Quantity:</label>
@@ -310,6 +311,7 @@ function addToCart() {
     var size = $('#selectSize').val();
     var stock = $('#stock').val();
     var quantity = $('#product_qty').val();
+    var price = $('#price').val();
     var user_id = $('#user_id').val();
     if(size.length > 0) {
         if(parseInt(quantity) > parseInt(stock)) {
@@ -322,7 +324,7 @@ function addToCart() {
             $.ajax({
                 url: "<?php echo base_url('users/addToCartFromProductPage') ?>",
                 type: "POST",
-                data: {pid: pid, size: size, quantity: quantity, user_id: user_id} ,
+                data: {pid: pid, size: size, quantity: quantity, user_id: user_id, price: price} ,
                 dataType: "json",
                 success: function(response) {
                     //console.log(response);

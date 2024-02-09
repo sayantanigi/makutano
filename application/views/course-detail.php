@@ -390,7 +390,7 @@
                                         <?php if($detail->course_fees == "free") { ?>
                                         <h5 class="text-dark">$0.<span>00</span></h5>
                                         <?php } else { 
-                                        $price = explode('.', $detail->price)
+                                        $price = explode('.', $detail->price);
                                         ?>
                                         <h5 class="text-dark">$<?= $price[0]?>.<span><?php if(!empty($price[1])) {echo $price[1]; } else { echo "00";} ?></span> </h5>
                                         <?php } ?>

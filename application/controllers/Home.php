@@ -255,14 +255,14 @@ class Home extends CI_Controller {
 		$this->load->view('payment');
 		$this->load->view('footer');
 	}
-    public function checkout() {
+    /*public function checkout() {
         $data['user_id'] = $this->input->post('user_id');
         $data['price_key'] = $this->input->post('enrollment');
         $this->session->set_userdata('course_id', $this->input->post('course_id'));
         $this->load->view('header', $data);
 		$this->load->view('checkout');
 		$this->load->view('footer');
-    }
+    }*/
     public function success($id) {
         $data['p_id'] = $id;
         $this->load->view('header');
@@ -958,8 +958,15 @@ class Home extends CI_Controller {
         echo $getQuantity->quantity;
     }
     public function cart() {
-        $this->load->view('header');
-        $this->load->view('cart');
+        $data['cartItems'] = $this->db->query("SELECT * FROM cart WHERE user_id = '".@$this->session->userdata('user_id')."'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('cart', $data);
+        $this->load->view('footer');
+    }
+    public function checkout() {
+        $data['cartItems'] = $this->db->query("SELECT * FROM cart WHERE user_id = '".@$this->session->userdata('user_id')."'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('checkout', $data);
         $this->load->view('footer');
     }
     public function portfolio9() {
