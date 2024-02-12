@@ -104,13 +104,18 @@ if (!empty($active_data)) {
                                             for($i=0; $i < count($order_item); $i++) {
                                                 $proQuery = $this->db->query("SELECT * FROM product WHERE id = '".$order_item[$i]->product_id."'")->result_array();
                                                 foreach ($proQuery as $proData) {?>
-                                                <p style="color: #fff; margin: 0px;"><?= $proData['product_name']." (".$order_item[$i]->size.") x".$order_item[$i]->quantity." = ".$order_item[$i]->price?></p>
+                                                <p style="color: #fff; margin: 0px; text-align: end;">
+                                                    <?= $proData['product_name']." (".$order_item[$i]->size.") x".$order_item[$i]->quantity." = ".$order_item[$i]->price?>
+                                                </p>
                                             <?php } } ?>
+                                                <p style="color: #fff; margin: 0px; text-align: end;">Shipping: <?= $value['shipping']; ?></p>
+                                                <p style="color: #fff; margin: 0px; text-align: end;">Tax: <?= number_format((float)$value['tax'], 2, '.', ''); ?></p>
+                                                <hr style="margin: 1px;">
+                                                <p style="color: #fff; margin: 0px; text-align: end;">Total: <?= number_format((float)$value['order_total'], 2, '.', ''); ?></p>
                                             </td>
                                             <td><?php echo date("jS F Y, H:i", strtotime(@$value['created_date'])); ?></td>
-                                            <td><?php echo @$value['order_total']; ?></td>
-                                            <td><span class="badge bg-success rounded-pill fw-normal"><?php echo ucWords(strtolower(@$value['status'])); ?></span>
-                                            </td>
+                                            <td><?php echo @number_format((float)$value['order_total'], 2, '.', ''); ?></td>
+                                            <td><span class="badge bg-success rounded-pill fw-normal"><?php echo ucWords(strtolower(@$value['status'])); ?></span></td>
                                         </tr>
                                         <?php } } else { ?>
                                         <tr>
