@@ -29,18 +29,24 @@
                     <div class="d-md-flex">
                         <p class="pListPrice">$<?= @$productDetails[0]['sale_price']?> <del class="text-slate-400">$<?= @$productDetails[0]['mrp']?></del></p>
                         <div class="productListRate ms-md-4">
-                            <?php 
-                            $rating = $this->db->query("SELECT * FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->result_array();
-                            $totalrate = $this->db->query("SELECT SUM(rating) as total FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->row();
-                            if(!empty($rating)) {
-                            $rate = round($totalrate->total/count($rating), 0); 
-                            foreach (range(1,5) as $i) { 
-                            if($rate > 0) { ?>
-                            <span class="active"><i class="fas fa-star"></i></span>
-                            <?php } else { ?>
-                            <span><i class="fas fa-star"></i></span>
-                            <?php } $rate--; } ?>
-                            <?php } ?>
+                        <?php 
+                        $rating = $this->db->query("SELECT * FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->result_array();
+                        $totalrate = $this->db->query("SELECT SUM(rating) as total FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->row();
+                        if(!empty($rating)) {
+                        $rate = round($totalrate->total/count($rating), 0); 
+                        foreach (range(1,5) as $i) { 
+                        if($rate > 0) { ?>
+                        <span class="active"><i class="fas fa-star"></i></span>
+                        <?php } else { ?>
+                        <span><i class="fas fa-star"></i></span>
+                        <?php } $rate--; } ?>
+                        <?php } else { ?>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <?php } ?>
                         </div>
                     </div>
                     <div class="mt-4 ">
@@ -202,11 +208,24 @@
                                     <div class="d-md-flex justify-content-between">
                                         <p class="pListPrice">$<?= $value['sale_price']?> <del class="text-slate-400">$<?= $value['mrp']?></del></p>
                                         <div class="productListRate">
-                                            <span class="active"><i class="fas fa-star"></i></span>
-                                            <span class="active"><i class="fas fa-star"></i></span>
-                                            <span class="active"><i class="fas fa-star"></i></span>
-                                            <span class="active"><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
+                                        <?php 
+                                        $rating = $this->db->query("SELECT * FROM product_review WHERE product_id = '".$value['id']."'")->result_array();
+                                        $totalrate = $this->db->query("SELECT SUM(rating) as total FROM product_review WHERE product_id = '".$value['id']."'")->row();
+                                        if(!empty($rating)) {
+                                        $rate = round($totalrate->total/count($rating), 0); 
+                                        foreach (range(1,5) as $i) { 
+                                        if($rate > 0) { ?>
+                                        <span class="active"><i class="fas fa-star"></i></span>
+                                        <?php } else { ?>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <?php } $rate--; } ?>
+                                        <?php } else { ?>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                        <?php } ?>
                                         </div>
                                     </div>
                                 </div>
