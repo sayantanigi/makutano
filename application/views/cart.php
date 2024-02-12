@@ -178,5 +178,37 @@ $(document).ready(function(){
     $('#update_cart').click(function() {
         location.reload();
     })
+
+    var url = window.location.href;
+    var splitURL=url.toString().split("/");
+    var splitURL = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var txn = splitURL[1].split('=');
+    var txnR = txn[1];
+    var user_id = "<?= $this->session->userdata('user_id')?>";
+    if(window.location.href.indexOf("status=success") > -1) {
+        var baseUrl = "<?= base_url(); ?>";
+        $.ajax({
+            url: baseUrl + 'Users/purchasePorderSuccess',
+            type: 'POST',
+            data: {txnR: txnR, user_id: user_id},
+            success: function(data) {
+                if(data == 1) {
+                    window.location.href = "<?= base_url()?>student-dashboard";
+                }
+            }
+        });
+    } else {
+        var baseUrl = "<?= base_url(); ?>";
+        $.ajax({
+            url: baseUrl + 'Users/purchasePorderFailed',
+            type: 'POST',
+            data: {txnR: txnR, user_id: user_id},
+            success: function(data) {
+                if(data == 1) {
+                    window.location.href = "<?= base_url()?>student-dashboard";
+                }
+            }
+        });
+    }
 })
 </script>

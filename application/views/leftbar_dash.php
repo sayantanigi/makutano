@@ -43,6 +43,12 @@
                             <span>Order History</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= base_url('product-order-list')?>">
+                            <i class="far fa-shopping-bag"></i>
+                            <span>Product Order History</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <h4 class="h6 mb-4 text-light mt-4">User</h4>

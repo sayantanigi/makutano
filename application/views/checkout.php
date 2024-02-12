@@ -1,3 +1,10 @@
+<?php
+    $user_id = $this->session->userdata('user_id');
+    $getUserDetails = $this->db->query("SELECT * FROM users where id = '".$user_id."' AND email_verified = '1' AND status = '1'")->row();
+    //echo "<pre>"; print_r($getUserDetails); die();
+    $isLoggedIn = $this->session->userdata('isLoggedIn');
+    $catname = $this->db->query("SELECT * FROM sm_category WHERE id = '".$detail->cat_id."'")->row();
+?>
 <main>
     <section class="signup__area po-rel-z1 pt-100 pb-50">
         <div class="container">
@@ -19,7 +26,8 @@
 
     <section class="checkout-area pb-70">
         <div class="container">
-            <form action="<?php echo base_url()?>Users/savecheckoutData" method="POST" id="idForm">
+            <!-- <form action="<?php echo base_url()?>Users/savecheckoutData" method="POST" id="idForm"> -->
+            <form action="https://api-testbed.maxicashapp.com/PayEntryPost" method="POST" id="idForm">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkbox-form bg-white text-dark p-4">
@@ -132,7 +140,7 @@
                                         <div class="col-md-12">
                                             <div class="checkout-form-list">
                                                 <label>Address <span class="required">*</span></label>
-                                                <input type="text" placeholder="Street address" name="shipping_address" id="shipping_address" />
+                                                <input type="text" placeholder="Street address" name="shipping_address1" id="shipping_address1" />
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -200,8 +208,15 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 1;
-                                        foreach ($cartItems as $item) { 
+                                        $items = array();
+                                        foreach ($cartItems as $key => $item) { 
                                         $product_details = $this->db->query("SELECT * FROM product WHERE id = '".$item['product_id']."'")->row();
+                                        $items[$key]['id'] = $item['id'];
+                                        $items[$key]['user_id'] = $item['user_id'];
+                                        $items[$key]['product_id'] = $item['product_id'];
+                                        $items[$key]['size'] = $item['size'];
+                                        $items[$key]['quantity'] = $item['quantity'];
+                                        $items[$key]['price'] = $item['price']; 
                                         ?>
                                         <tr class="cart_item">
                                             <td class="product-name"><?= $product_details->product_name." (Size: ".$item['size'].")"?><strong class="product-quantity"> × <?= $item['quantity'] ?></strong>
@@ -265,14 +280,33 @@
                                         </tr>
                                         <tr class="order-total">
                                             <th class="fw-bold">Order Total</th>
-                                            <td><span class="amount">$<?= $totalAmt + $shippingAmt + $taxableamt; ?></span> </td>
+                                            <td><span class="amount">$<?= $totalPrice = $totalAmt + $shippingAmt + $taxableamt; ?></span> </td>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
                             <div class="order-button-payment mt-20">
                                 <button type="submit" class="e-btn" id="placeOrder">Place order</button>
-                                <input type="hidden" user_id = "<?= $this->session->userdata('user_id')?>">
+                                <input type="hidden" name='user_id' value="<?= $this->session->userdata('user_id')?>">
+                                <input type="hidden" name="order_item" value='<?= json_encode($items);?>'>
+                                <input type="hidden" name='subtotal' value=<?php echo $totalAmt;?>>
+                                <input type="hidden" name="shipping" value="<?= $shippingAmt; ?>">
+                                <input type="hidden" name="tax" value="<?= $taxableamt; ?>">
+                                <input type="hidden" name="order_total" value="<?= $totalPrice?>">
+
+                                <input type="hidden" name="PayType" value="MaxiCash">
+                                <input type="hidden" name="Amount" value="<?php echo (@$totalPrice*100)?>">
+                                <input type="hidden" name="Currency" value="MaxiDollar">
+                                <input type="hidden" name="Telephone" value="<?= $getUserDetails->phone?>">
+                                <input type="hidden" name="Email" value="<?= $getUserDetails->email?>">
+                                <input type="hidden" name="MerchantID" value="f00fab442fcc420ab3d04765bebe1818">
+                                <input type="hidden" name="MerchantPassword" value="dec9a3edff854eec82c2c354efc8ba9c">
+                                <input type="hidden" name="Language" value="En">
+                                <input type="hidden" name="Reference" value="txn_<?php echo rand()?>">
+                                <input type="hidden" name="accepturl" value="<?= base_url()?>cart">
+                                <input type="hidden" name="cancelurl" value="<?= base_url()?>cart">
+                                <input type="hidden" name="declineurl" value="<?= base_url()?>cart">
+                                <input type="hidden" name="notifyurl" value="<?= base_url()?>cart">
                             </div>
                         </div>
                     </div>
@@ -285,16 +319,16 @@
 <script>
 $(document).ready(function() {
     $('#placeOrder').click(function(e) {
-        e.preventDefault(); 
-        // var form = $('#idForm');
-        // $.ajax({
-        //     type: "POST",
-        //     url: "<?php base_url() ?>users/savecheckoutData1",
-        //     data: form.serialize(), // serializes the form's elements.
-        //     success: function(data) {
-        //         return true;
-        //     }
-        // });
+        //e.preventDefault(); 
+        var form = $('#idForm');
+        $.ajax({
+            type: "POST",
+            url: "<?php base_url() ?>users/savecheckoutData1",
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data) {
+                return true;
+            }
+        });
     })
 })
 </script>

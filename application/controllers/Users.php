@@ -365,7 +365,76 @@ class Users extends CI_Controller {
 		echo '1';
 	}
 	public function savecheckoutData1() {
-		echo "<pre>"; print_r($_POST);
+		$data = array(
+			'billing_first_name' => $_POST['billing_first_name'], 
+			'billing_last_name' => $_POST['billing_last_name'], 
+			'billing_company_name' => $_POST['billing_company_name'], 
+			'billing_address1' => $_POST['billing_address1'], 
+			'billing_address2' => $_POST['billing_address2'], 
+			'billing_city' => $_POST['billing_city'], 
+			'billing_state' => $_POST['billing_state'], 
+			'billing_country' => $_POST['billing_country'], 
+			'billing_postcode' => $_POST['billing_postcode'], 
+			'billing_email' => $_POST['billing_email'],
+			'billing_phone' => $_POST['billing_phone'], 
+			'shipping_first_name' => $_POST['shipping_first_name'], 
+			'shipping_last_name' => $_POST['shipping_last_name'], 
+			'shipping_company_name' => $_POST['shipping_company_name'], 
+			'shipping_address1' => $_POST['shipping_address1'], 
+			'shipping_address2' => $_POST['shipping_address2'], 
+			'shipping_city' => $_POST['shipping_city'], 
+			'shipping_state' => $_POST['shipping_state'], 
+			'shipping_country' => $_POST['shipping_country'], 
+			'shipping_postcode' => $_POST['shipping_postcode'], 
+			'shipping_email' => $_POST['shipping_email'], 
+			'shipping_phone' => $_POST['shipping_phone'], 
+			'order_note' => $_POST['order_note'], 
+			'user_id' => $_POST['user_id']
+		);
+		$insert_id = $this->Commonmodel->add_details('user_address', $data);
+		if(!empty($insert_id)) {
+			$data1 = array(
+				'user_id' => $_POST['user_id'],
+				'user_addressid' => $insert_id,
+				'txn_id' => $_POST['Reference'],
+				'order_item' => $_POST['order_item'], 
+				'cart_subtotal' => $_POST['subtotal'],
+				'shipping' => $_POST['shipping'],
+				'tax' => $_POST['tax'],
+				'order_total' => $_POST['order_total'],
+			);
+		}
+		$insert_id = $this->Commonmodel->add_details('product_order_details', $data1);
+	}
+	public function purchasePorderSuccess() {
+		$user_id = $this->input->post('user_id');
+        $transaction_id	= $this->input->post('txnR');
+        $this->db->query("UPDATE product_order_details SET status = 'SUCCESS' WHERE txn_id = '".$transaction_id."' AND  user_id='".$user_id."'");
+		$this->db->query("DELETE FROM cart WHERE user_id = '".$user_id."'");
+        echo '1';
+	}
+	public function purchasePorderFailed() {
+		$user_id = $this->input->post('user_id');
+        $transaction_id	= $this->input->post('txnR');
+        $this->db->query("UPDATE product_order_details SET status = 'FAILED' WHERE txn_id = '".$transaction_id."' AND  user_id='".$user_id."'");
+        echo '1';
+	}
+	public function productOrderList(){
+		$data = array(
+			'title' => 'Product Order History',
+			'page' => 'product',
+		);
+		$user_id = $this->session->userdata('user_id');
+		$where = array('id' => $user_id);
+		$data['user'] = $this->Commonmodel->fetch_row('users', $where);
+		$getPurchaseSql = "SELECT ctrl.*, cour.title FROM `course_enrollment` as ctrl INNER JOIN `courses` as cour ON cour.id = ctrl.course_id WHERE ctrl.user_id = '" . $user_id . "' ORDER BY ctrl.enrollment_date DESC";
+		$data['orders'] = $this->Commonmodel->fetch_all_join($getPurchaseSql);
+		$getEnrolmentSql = "SELECT * FROM `course_enrollment` WHERE `user_id` = '" . $user_id . "' and `payment_status` = 'COMPLETED'";
+		$data['ctn_enrolment'] = $this->db->query($getEnrolmentSql)->num_rows();
+		$data['productOrderList'] = $this->db->query("SELECT * FROM product_order_details WHERE user_id = '".$user_id."'")->result_array();
+		$this->load->view('header', $data);
+		$this->load->view('product-order-list');
+		$this->load->view('footer');
 	}
 	public function logout() {
 		session_destroy();

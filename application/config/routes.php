@@ -81,6 +81,7 @@ $route['edit-profile'] = 'Users/editProfile';
 $route['enrolled-courses'] = 'Users/enrolledCourse';
 $route['event-booked'] = 'Users/eventBooked';
 $route['purchase-list'] = 'Users/purchaseList';
+$route['product-order-list'] = 'Users/productOrderList';
 $route['reviews'] = 'Users/reviews';
 $route['logout'] = 'Users/logout';
 $route['consultant-dashboard'] = 'supercontrol/home';
