@@ -436,6 +436,28 @@ class Users extends CI_Controller {
 		$this->load->view('product-order-list');
 		$this->load->view('footer');
 	}
+	public function submitReview() {
+		$data = array(
+			'fname' => $_POST['fname'],
+			'lname' => $_POST['lname'],
+			'email' => $_POST['email'],
+			'rating' => $_POST['rating'],
+			'comment' => $_POST['comment'],
+			'user_id' => $this->session->userdata('user_id'),
+			'product_id' => $_POST['product_id']
+		);
+		$checkreview = $this->db->query("SELECT * FROM product_review WHERE user_id = '".$this->session->userdata('user_id')."' AND product_id = '".$_POST['product_id']."'")->result_array();
+		if(!empty($checkreview)) {
+			echo "2";
+		} else {
+			$insert_id = $this->Commonmodel->add_details('product_review', $data);
+			if(!empty($insert_id)){
+				echo "1";
+			} else{
+				echo "3";
+			}
+		}
+	}
 	public function logout() {
 		session_destroy();
 		$this->session->set_flashdata('success', 'You have successfully logout!');

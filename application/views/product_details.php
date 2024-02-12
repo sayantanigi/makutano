@@ -29,11 +29,18 @@
                     <div class="d-md-flex">
                         <p class="pListPrice">$<?= @$productDetails[0]['sale_price']?> <del class="text-slate-400">$<?= @$productDetails[0]['mrp']?></del></p>
                         <div class="productListRate ms-md-4">
+                            <?php 
+                            $rating = $this->db->query("SELECT * FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->result_array();
+                            $totalrate = $this->db->query("SELECT SUM(rating) as total FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->row();
+                            if(!empty($rating)) {
+                            $rate = round($totalrate->total/count($rating), 0); 
+                            foreach (range(1,5) as $i) { 
+                            if($rate > 0) { ?>
                             <span class="active"><i class="fas fa-star"></i></span>
-                            <span class="active"><i class="fas fa-star"></i></span>
-                            <span class="active"><i class="fas fa-star"></i></span>
-                            <span class="active"><i class="fas fa-star"></i></span>
+                            <?php } else { ?>
                             <span><i class="fas fa-star"></i></span>
+                            <?php } $rate--; } ?>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="mt-4 ">
@@ -98,49 +105,33 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><?= @$productDetails[0]['additional_information']?></div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="reviewBox">
+                            <?php
+                            $checkReview = $this->db->query("SELECT * FROM product_review WHERE product_id = '".$productDetails[0]['id']."'")->result_array();
+                            if(!empty($checkReview)) { 
+                            foreach ($checkReview as $review) { ?>
                             <div class="reviews-list">
                                 <div class="productListRate">
+                                    <?php foreach (range(1,5) as $i) { 
+                                    if($review['rating'] > 0) { ?>
                                     <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <?php } else { ?>
                                     <span><i class="fas fa-star"></i></span>
+                                    <?php } $review['rating']--; } ?>
                                 </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout. It is a long established fact that a
-                                    reader will be distracted by the readable content of a page when looking at its
-                                    layout.</p>
-                                <h5>- John Doe</h5>
+                                <p><?= $review['comment']?></p>
+                                <h5>
+                                <?php
+                                $getuserDetail = $this->db->query("SELECT * FROM users WHERE id = '".$review['user_id']."'")->row();
+                                echo "- ".$getuserDetail->fname."  ".$getuserDetail->lname;
+                                ?>
+                                </h5>
                             </div>
-                            <div class="reviews-list">
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout. It is a long established fact that a
-                                    reader will be distracted by the readable content of a page when looking at its
-                                    layout.</p>
-                                <h5>- John Doe</h5>
-                            </div>
-                            <div class="reviews-list">
-                                <div class="productListRate">
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span class="active"><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout. It is a long established fact that a
-                                    reader will be distracted by the readable content of a page when looking at its
-                                    layout.</p>
-                                <h5>- John Doe</h5>
-                            </div>
+                            <?php } } else { 
+                            if(empty($this->session->userdata('user_id'))) { ?>
+                            No Review
+                            <?php } } ?>
                         </div>
+                        <?php if(!empty($this->session->userdata('user_id'))) { ?>
                         <div class="row">
                             <div class="col-lg-8">
                                 <h3>Leave A Comment:</h3>
@@ -148,41 +139,42 @@
                                     <div class="row g-4">
                                         <div class="col-lg-6">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="First Name">
+                                            <input type="text" class="form-control" id='fname' name='fname' placeholder="First Name" required>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name">
+                                            <input type="text" class="form-control" id='lname' name='lname' placeholder="Last Name" required>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Email Address">
+                                            <input type="email" class="form-control" id='email' name='email' placeholder="Email Address" required>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Rating</label>
-                                            <select class="form-control form-select">
-                                                <option>Select</option>
-                                                <option>5 Stars</option>
-                                                <option>4 Stars</option>
-                                                <option>3 Stars</option>
-                                                <option>2 Stars</option>
-                                                <option>1 Star</option>
+                                            <select class="form-control form-select" id='rating' name='rating' required>
+                                                <option value="">Select</option>
+                                                <option value="5">5 Stars</option>
+                                                <option value="4">4 Stars</option>
+                                                <option value="3">3 Stars</option>
+                                                <option value="2">2 Stars</option>
+                                                <option value="1">1 Star</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-12">
                                             <label>Your Comment</label>
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <textarea class="form-control" rows="5" id='comment' name='comment' required></textarea>
+                                            <input type="hidden" id="product_id" name="product_id" value="<?= @$productDetails[0]['id']?>"/>
                                         </div>
                                         <div class="col-lg-12">
-                                            <button class="e-btn">Submit</button>
+                                            <button type="button" class="e-btn" id="submitReview">Submit</button>
                                         </div>
+                                        <div id="successmsg"></div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-
+                        <?php } ?>
                     </div>
-                    
                     <?php 
                     $relatedProduct = $this->db->query("SELECT * FROM product WHERE categori_id = '".@$productDetails[0]['categori_id']."' AND id != '".@$productDetails[0]['id']."' AND status = '1'")->result_array();
                     if(!empty($relatedProduct)) {
@@ -302,6 +294,38 @@ $(document).ready(function(){
             data: {pId: pId, size: size},
             success: function(data){
                 $('#stock').val(data);
+            }
+        })
+    })
+
+    $("#submitReview").click(function(){
+        let fname = $("#fname").val();
+        let lname = $("#lname").val();
+        let email = $("#email").val();
+        let rating = $("#rating").val();
+        let comment = $("#comment").val();
+        let product_id = $("#product_id").val();
+        $.ajax({
+            method:"post",
+            url: "<?php echo base_url('users/submitReview') ?>",
+            data:{fname: fname, lname: lname, email:email, rating:rating, comment:comment, product_id:product_id},
+            success:function(data){
+                if(data == 1) {
+                    $('#successmsg').append('Review posted successfully');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else if(data == 2) {
+                    $('#successmsg').append('You have already reviewed this product');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    $('#successmsg').append('Something went wrong! Please try again later');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                }
             }
         })
     })
