@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 02:15 PM
+-- Generation Time: Feb 12, 2024 at 02:42 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -88,15 +88,9 @@ CREATE TABLE `cart` (
   `user_id` varchar(45) DEFAULT NULL,
   `product_id` varchar(45) DEFAULT NULL,
   `size` varchar(45) DEFAULT NULL,
-  `quantity` varchar(45) DEFAULT NULL
+  `quantity` varchar(45) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `product_id`, `size`, `quantity`) VALUES
-(1, '1', '1', 'XS', '1');
 
 -- --------------------------------------------------------
 
@@ -49277,7 +49271,9 @@ INSERT INTO `options` (`option_id`, `option_name`, `option_value`) VALUES
 (40, 'youtube', 'https://www.youtube.com/'),
 (41, 'openh', NULL),
 (42, 'map', '<iframe src=\"https://maps.google.com/maps?q=Fort%20Miley&t=&z=13&ie=UTF8&iwloc=&output=embed\"></iframe>'),
-(43, 'tollfree', NULL);
+(43, 'tollfree', NULL),
+(44, 'shipping_charge', '20'),
+(45, 'tax', '18');
 
 -- --------------------------------------------------------
 
@@ -49440,6 +49436,62 @@ INSERT INTO `product_details` (`id`, `product_id`, `size`, `quantity`) VALUES
 (29, '4', 'S', '10'),
 (30, '4', 'M', '20'),
 (31, '4', 'L', '30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_order_details`
+--
+
+CREATE TABLE `product_order_details` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `user_addressid` varchar(45) DEFAULT NULL,
+  `txn_id` varchar(45) DEFAULT NULL,
+  `order_item` longtext DEFAULT NULL,
+  `cart_subtotal` varchar(45) DEFAULT NULL,
+  `shipping` varchar(45) DEFAULT NULL,
+  `tax` varchar(45) DEFAULT NULL,
+  `order_total` varchar(45) DEFAULT NULL,
+  `status` text DEFAULT NULL,
+  `created_date` varchar(100) DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_order_details`
+--
+
+INSERT INTO `product_order_details` (`id`, `user_id`, `user_addressid`, `txn_id`, `order_item`, `cart_subtotal`, `shipping`, `tax`, `order_total`, `status`, `created_date`) VALUES
+(1, '1', '1', 'txn_1616312841', '[{\"id\":\"10\",\"user_id\":\"1\",\"product_id\":\"1\",\"size\":\"M\",\"quantity\":\"1\",\"price\":\"499\"},{\"id\":\"11\",\"user_id\":\"1\",\"product_id\":\"3\",\"size\":\"XS\",\"quantity\":\"2\",\"price\":\"2198\"}]', '2697.00', '20.00', '485.46', '3202.46', 'SUCCESS', '2024-02-12 15:06:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_review`
+--
+
+CREATE TABLE `product_review` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `product_id` varchar(45) DEFAULT NULL,
+  `fname` text DEFAULT NULL,
+  `lname` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `rating` varchar(45) DEFAULT NULL,
+  `comment` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_review`
+--
+
+INSERT INTO `product_review` (`id`, `user_id`, `product_id`, `fname`, `lname`, `email`, `rating`, `comment`) VALUES
+(1, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '5', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'),
+(2, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '5', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'),
+(3, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '5', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'),
+(4, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '2', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'),
+(5, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '2', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'),
+(6, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '5', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
 
 -- --------------------------------------------------------
 
@@ -53826,6 +53878,48 @@ INSERT INTO `users` (`id`, `currency`, `currency_symbol`, `fname`, `lname`, `ema
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_address`
+--
+
+CREATE TABLE `user_address` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `billing_first_name` text DEFAULT NULL,
+  `billing_last_name` text DEFAULT NULL,
+  `billing_company_name` text DEFAULT NULL,
+  `billing_email` text DEFAULT NULL,
+  `billing_phone` varchar(100) DEFAULT NULL,
+  `billing_address1` longtext DEFAULT NULL,
+  `billing_address2` longtext DEFAULT NULL,
+  `billing_city` longtext DEFAULT NULL,
+  `billing_state` longtext DEFAULT NULL,
+  `billing_country` longtext DEFAULT NULL,
+  `billing_postcode` longtext DEFAULT NULL,
+  `shiptodifferentadd` longtext DEFAULT NULL,
+  `shipping_first_name` text DEFAULT NULL,
+  `shipping_last_name` text DEFAULT NULL,
+  `shipping_company_name` text DEFAULT NULL,
+  `shipping_email` text DEFAULT NULL,
+  `shipping_phone` varchar(100) DEFAULT NULL,
+  `shipping_address1` longtext DEFAULT NULL,
+  `shipping_address2` longtext DEFAULT NULL,
+  `shipping_city` longtext DEFAULT NULL,
+  `shipping_state` longtext DEFAULT NULL,
+  `shipping_country` longtext DEFAULT NULL,
+  `shipping_postcode` longtext DEFAULT NULL,
+  `order_note` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_address`
+--
+
+INSERT INTO `user_address` (`id`, `user_id`, `billing_first_name`, `billing_last_name`, `billing_company_name`, `billing_email`, `billing_phone`, `billing_address1`, `billing_address2`, `billing_city`, `billing_state`, `billing_country`, `billing_postcode`, `shiptodifferentadd`, `shipping_first_name`, `shipping_last_name`, `shipping_company_name`, `shipping_email`, `shipping_phone`, `shipping_address1`, `shipping_address2`, `shipping_city`, `shipping_state`, `shipping_country`, `shipping_postcode`, `order_note`) VALUES
+(1, '1', 'Sayantan', 'Bhakta', 'demo company', 'student@gmail.com', '7894561231', 'BN Block, Sector V, West Bengal', 'Webel Tower 1', 'Kolkata', 'West Bengal', 'India', '70033', NULL, 'soham', 'Bhakta', 'Soham company', 'soham@gmail.com', '0912047047', 'BN Block, Sector V, West Bengal', 'Test apartment', 'Test City', 'Test state', 'Test Country', '718273', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_final_ques`
 --
 
@@ -54087,6 +54181,18 @@ ALTER TABLE `product_details`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_order_details`
+--
+ALTER TABLE `product_order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_review`
+--
+ALTER TABLE `product_review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_type`
 --
 ALTER TABLE `product_type`
@@ -54165,6 +54271,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_address`
+--
+ALTER TABLE `user_address`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_final_ques`
 --
 ALTER TABLE `user_final_ques`
@@ -54208,7 +54320,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -54340,7 +54452,7 @@ ALTER TABLE `homecourse`
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -54383,6 +54495,18 @@ ALTER TABLE `product_category`
 --
 ALTER TABLE `product_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `product_order_details`
+--
+ALTER TABLE `product_order_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product_review`
+--
+ALTER TABLE `product_review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_type`
@@ -54461,6 +54585,12 @@ ALTER TABLE `testimonials`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user_address`
+--
+ALTER TABLE `user_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_final_ques`
