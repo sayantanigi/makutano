@@ -74,6 +74,26 @@ class Master_model extends CI_Model
         $data['total'] = $this->db->get($this->table)->num_rows();
         return $data;
     }
+    function getAllproductpurchesed($offset = 0, $limit = 40, $table = false)
+    {
+
+        
+      
+        if ($table) {
+            $this->table1 = $table;
+        }
+        
+       
+        $this->db->order_by('id', 'DESC');
+        $this->db->limit($limit, $offset);
+       
+        $rest = $this->db->get($this->table1);
+        $data['results'] = $rest->result();
+        // echo $this->db->last_query(); die;
+
+        $data['total'] = $this->db->get($this->table1)->num_rows();
+        return $data;
+    }
 
     function getAllcertificate($offset = 0, $limit = 40, $table = false)
     {

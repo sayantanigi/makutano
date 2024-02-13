@@ -377,6 +377,7 @@ class Users extends CI_Controller {
 			'billing_postcode' => $_POST['billing_postcode'], 
 			'billing_email' => $_POST['billing_email'],
 			'billing_phone' => $_POST['billing_phone'], 
+			'shiptodifferentadd' => $_POST['shiptodifferentadd'], 
 			'shipping_first_name' => $_POST['shipping_first_name'], 
 			'shipping_last_name' => $_POST['shipping_last_name'], 
 			'shipping_company_name' => $_POST['shipping_company_name'], 

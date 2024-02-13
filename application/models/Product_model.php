@@ -7,6 +7,7 @@ class Product_model extends Master_Model {
 	{
 		parent::__construct();
 		$this->table = 'product';
+		$this->table1 = 'product_order_details';
 	}
 
 }

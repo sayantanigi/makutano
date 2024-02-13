@@ -368,6 +368,9 @@
                             <li class="<?= ($tab == 'products') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('products') ?>"><i class="fa fa-circle"></i> Product Lists</a>
                             </li>
+                            <li class="<?= ($tab == 'purchased_products') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('products/purchased_products') ?>"><i class="fa fa-circle"></i> Purchased Products Lists</a>
+                            </li>
                         </ul>
                     </li>
                     <!-- <li class="treeview <?= ($tab == 'add_testimonials' || $tab == 'testimonials') ? 'active' : ''; ?>">
