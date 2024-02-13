@@ -14,14 +14,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div style="width: 200px;" class="ms-auto">
+                    <!-- <div style="width: 200px;" class="ms-auto">
                         <label>Filter:</label>
                         <select class="form-control form-select">
                             <option>Select</option>
                             <option>Course Type 1</option>
                             <option>Course Type 2</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="pt-5">
@@ -35,10 +35,10 @@
                             $image = base_url('./images/noimage.jpg');
                         }
                         // Get Average Rating.
-                        $getAverageRatingSql = "SELECT ROUND(AVG(rating),1) as averageRating FROM `course_reviews` where `course_id` = '" . @$value->id . "'";
-                        $ratingRow = $this->db->query($getAverageRatingSql)->row();
-                        $averageRating = @$ratingRow->averageRating;
-                        $rating = @$ratingRow->averageRating;
+                        // $getAverageRatingSql = "SELECT ROUND(AVG(rating),1) as averageRating FROM `course_reviews` where `course_id` = '" . @$value->id . "'";
+                        // $ratingRow = $this->db->query($getAverageRatingSql)->row();
+                        // $averageRating = @$ratingRow->averageRating;
+                        // $rating = @$ratingRow->averageRating;
                         // Total user enroll
                         $totalEnrolledSql = "SELECT * FROM `course_enrollment` WHERE `course_id` = '" . @$value->id . "' AND `payment_status` = 'COMPLETED'";
                         $totalEnrolledUsr = $this->db->query($totalEnrolledSql)->num_rows();
@@ -67,21 +67,26 @@
                                         ?>
                                         <span><i class="far fa-book-alt"></i><?= $count;?> Lesson</span>
                                     </div>
-                                    <div class="course__rating">
-                                        <?php
-                                        echo "<span class='stars'>";
-                                        for ( $i = 1; $i <= 5; $i++ ) {
-                                            if ( round( $rating - .25 ) >= $i ) {
-                                                echo "<i class='icon_star'></i>"; //fas fa-star for v5
-                                            } elseif ( round( $rating + .25 ) >= $i ) {
-                                                echo "<i class='icon_star'></i>"; //fas fa-star-half-alt for v5
-                                            } else {
-                                                echo "<i class='icon_star'></i>"; //far fa-star for v5
-                                            }
-                                        }
-                                        echo @$averageRating;
-                                        echo '</span>';
-                                        ?>
+                                    <div class="productListRate">
+                                    <?php 
+                                    $rating = $this->db->query("SELECT * FROM course_reviews WHERE course_id = '".$value->id."'")->result_array();
+                                    $totalrate = $this->db->query("SELECT SUM(rating) as total FROM course_reviews WHERE course_id = '".$value->id."'")->row();
+                                    if(!empty($rating)) {
+                                    $rate = round($totalrate->total/count($rating), 0); 
+                                    foreach (range(1,5) as $i) { 
+                                    if($rate > 0) { ?>
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <?php } else { ?>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <?php } $rate--; } ?>
+                                    <?php } else { ?>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <?php } echo "(".round($totalrate->total/count($rating), 0).")";
+                                    ?>
                                     </div>
                                 </div>
                                 <h3 class="course__title" style="font-size: 18px">

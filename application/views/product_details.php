@@ -138,7 +138,7 @@
                             <?php } } ?>
                         </div>
                         <?php if(!empty($this->session->userdata('user_id'))) { ?>
-                        <div class="row">
+                        <div class="row" style="padding-top: 40px; border-top: 1px solid;">
                             <div class="col-lg-8">
                                 <h3>Leave A Comment:</h3>
                                 <form>
@@ -243,6 +243,10 @@
 <style>
 .text-light * {color: #fff;}
 .error-message {margin-top: 15px;color: #db3636;}
+#pills-contact ::-webkit-scrollbar {width: 6px;}
+#pills-contact ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
+#pills-contact ::-webkit-scrollbar-thumb {background: #db3636; border-radius: 10px;}
+#pills-contact ::-webkit-scrollbar-thumb:hover {background: #b30000;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>

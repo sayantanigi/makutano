@@ -29,8 +29,9 @@ $optionsList = $this->db->query($getOptionsSql)->result();
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/responsive.css">
     <style>
-    .header__cart {top: 40px; right: 75px;}
+    .header__cart {top: 40px; right: 70px;}
     .header__cart a {color: #fff !important;}
+    .header__cart {padding-left: 10px !important;}
     </style>
 </head>
 
@@ -157,10 +158,13 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                             </div>
                             <?php } ?>
                             <div class="header__cart ml-15">
-                                <?php if(!empty($this->session->userdata('user_id'))) { ?>
-                                <a href="<?= base_url()?>cart"><i class="fa fa-shopping-cart"></i></a>
+                                <?php if(!empty($this->session->userdata('user_id'))) { 
+                                $cartCount = $this->db->query("SELECT COUNT(id) as cart_count FROM cart WHERE user_id = '".$this->session->userdata('user_id')."'")->row();
+                                ?>
+                                <span style="position: absolute; top: -5px; left: 31px; z-index: 999999999;"><?= $cartCount->cart_count; ?></span>
+                                <a href="<?= base_url()?>cart"><img src="<?= base_url()?>assets/img/cart.png" style="width: 38px; top: -3px; position: relative;"></a>
                                 <?php } else { ?>
-                                <a href="<?= base_url()?>login"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="<?= base_url()?>login"><img src="<?= base_url()?>assets/img/cart.png" style="width: 38px; top: -3px; position: relative;"></i></a>
                                 <?php } ?>
                             </div>
 

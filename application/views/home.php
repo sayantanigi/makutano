@@ -144,8 +144,26 @@
                                     ?>
                                     <span><i class="far fa-book-alt"></i><?= $count;?> Lesson</span>
                                 </div>
-                                <div class="course__rating">
-                                    <span><i class="icon_star"></i>4.5 (44)</span>
+                                <div class="productListRate">
+                                <?php 
+                                $rating = $this->db->query("SELECT * FROM course_reviews WHERE course_id = '".$value->id."'")->result_array();
+                                $totalrate = $this->db->query("SELECT SUM(rating) as total FROM course_reviews WHERE course_id = '".$value->id."'")->row();
+                                if(!empty($rating)) {
+                                $rate = round($totalrate->total/count($rating), 0); 
+                                foreach (range(1,5) as $i) { 
+                                if($rate > 0) { ?>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <?php } else { ?>
+                                <span><i class="fas fa-star"></i></span>
+                                <?php } $rate--; } ?>
+                                <?php } else { ?>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <?php } echo "(".round($totalrate->total/count($rating), 0).")";
+                                ?>
                                 </div>
                             </div>
                             <h3 class="course__title" style="font-size: 18px"><a href="<?=base_url('course-detail/'.@$value->id)?>"><?= $value->title?></a>

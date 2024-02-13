@@ -56,15 +56,27 @@
                         </div>
                         <div class="course__rating-2 mb-30 ">
                             <h5 class="text-white">Review:</h5>
-                            <div class="course__rating-inner d-flex align-items-center">
-                                <ul>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                    <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                </ul>
-                                <p class="text-white">4.5</p>
+                            <div class="course__rating-inner d-flex align-items-center productListRate">
+                                <?php 
+                                $rating = $this->db->query("SELECT * FROM course_reviews WHERE course_id = '".$detail->id."'")->result_array();
+                                $totalrate = $this->db->query("SELECT SUM(rating) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                if(!empty($rating)) {
+                                $rate = round($totalrate->total/count($rating), 0); 
+                                foreach (range(1,5) as $i) { 
+                                if($rate > 0) { ?>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <?php } else { ?>
+                                <span><i class="fas fa-star"></i></span>
+                                <?php } $rate--; } ?>
+                                <p class="text-white"><?php echo "(".round($totalrate->total/count($rating), 0).")" ?></p>
+                                <?php } else { ?>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <?php echo "(0)"; } 
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -209,15 +221,24 @@
                                     <div class="course__review-rating mb-50">
                                         <div class="row g-0">
                                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                                <div class="course__review-rating-info grey-bg text-center">
-                                                    <h5 class="text-dark"><?php echo @$count; ?></h5>
-                                                    <ul>
-                                                        <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                        <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                        <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                        <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                        <li><a href="#"> <i class="icon_star"></i> </a></li>
-                                                    </ul>
+                                                <div class="course__review-rating-info grey-bg text-center productListRate">
+                                                    <h5 class="text-dark"><?php echo round($totalrate->total/count($rating), 0); ?></h5>
+                                                    <?php if(!empty($rating)) {
+                                                    $rate = round($totalrate->total/count($rating), 0); 
+                                                    foreach (range(1,5) as $i) { 
+                                                    if($rate > 0) { ?>
+                                                    <span class="active"><i class="fas fa-star"></i></span>
+                                                    <?php } else { ?>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <?php } $rate--; } ?>
+                                                    <?php } else { ?>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <span><i class="fas fa-star"></i></span>
+                                                    <?php }
+                                                    ?>
                                                     <p><?php echo @$count; ?> Ratings</p>
                                                 </div>
                                             </div>
@@ -229,55 +250,75 @@
                                                             <div class="course__review-text">
                                                                 <span>5 stars</span>
                                                             </div>
+                                                            <?php 
+                                                            $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '5'")->row();
+                                                            $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                                            ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="100%"></div>
+                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5>100%</h5>
+                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
                                                             <div class="course__review-text">
                                                                 <span>4 stars</span>
                                                             </div>
+                                                            <?php 
+                                                            $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '4'")->row();
+                                                            $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                                            ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="30%"></div>
+                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5>30%</h5>
+                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
                                                             <div class="course__review-text">
                                                                 <span>3 stars</span>
                                                             </div>
+                                                            <?php 
+                                                            $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '3'")->row();
+                                                            $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                                            ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="0%"></div>
+                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5>0%</h5>
+                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
                                                             <div class="course__review-text">
                                                                 <span>2 stars</span>
                                                             </div>
+                                                            <?php 
+                                                            $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '2'")->row();
+                                                            $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                                            ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="0%"></div>
+                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5>0%</h5>
+                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
                                                             <div class="course__review-text">
                                                                 <span>1 stars</span>
                                                             </div>
+                                                            <?php 
+                                                            $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '1'")->row();
+                                                            $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
+                                                            ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="0%"></div>
+                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5>0%</h5>
+                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -287,7 +328,11 @@
                                     </div>
                                     <div class="course__comment mb-75">
                                         <h3><?php echo @$count; ?> Comments</h3>
+                                        <?php if(count($reviewList) > 2) { ?>
+                                        <ul style="overflow-x: auto; height: 350px;">
+                                        <?php } else { ?>
                                         <ul>
+                                        <?php } ?>
                                             <?php
                                             if(!empty($reviewList)) {
                                             foreach ($reviewList as $key => $value) {
@@ -306,14 +351,17 @@
                                                         <div class="course__comment-wrapper ml-70 fix">
                                                             <div class="course__comment-info float-start">
                                                                 <h4 class="text-dark"><?php echo $value->fname. " ".$value->lname; ?></h4>
-                                                                <span class="text-dark">July 14, 2022</span>
+                                                                <span class="text-dark"><?= date('M j, Y', strtotime(@$value->review_date))?></span>
                                                             </div>
-                                                            <div class="course__comment-rating float-start float-sm-end">
-                                                                <span class="total-rating" style="color: #0e151a;"><?php echo @$value->rating; ?> <?php if(@$value->rating > 1) {echo "Stars"; } else {echo "Star"; }?></span>
+                                                            <div class="course__comment-rating float-start float-sm-end productListRate">
                                                                 <?php
-                                                                for( $i = 1; $i <= $rating; $i++ ) { ?>
-                                                                <i class='icon_star' style="color: #ff9415;"></i>
-                                                                <?php } ?>
+                                                                foreach (range(1,5) as $i) { 
+                                                                if($rating > 0) { ?>
+                                                                <span class="active"><i class="fas fa-star"></i></span>
+                                                                <?php } else { ?>
+                                                                <span><i class="fas fa-star"></i></span>
+                                                                <?php } $rating--; } ?>
+                                                                <span class="total-rating" style="color: #0e151a;">(<?php echo @$value->rating; ?> <?php if(@$value->rating > 1) {echo "Stars"; } else {echo "Star"; }?>)</span>
                                                             </div>
                                                         </div>
                                                         <div class="course__comment-text ml-70">
@@ -668,6 +716,17 @@
 <style>
 .blockUI h1 {font-size: 30px;font-weight: 600;color: #fff;margin: 0;}
 .course__update p{color: #fff !important;}
+.course__teacher-info-3 h5 {color: #fff !important;}
+.course__update h5 {color: #fff !important;}
+.productListRate span {font-size: 18px !important;}
+.course__description ::-webkit-scrollbar {width: 6px;}
+.course__description ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
+.course__description ::-webkit-scrollbar-thumb {background: #db3636; border-radius: 10px;}
+.course__description ::-webkit-scrollbar-thumb:hover {background: #b30000;}
+.course__comment ::-webkit-scrollbar {width: 6px;}
+.course__comment ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
+.course__comment ::-webkit-scrollbar-thumb {background: #db3636; border-radius: 10px;}
+.course__comment ::-webkit-scrollbar-thumb:hover {background: #b30000;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
