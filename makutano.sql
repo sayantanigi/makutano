@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2024 at 02:42 PM
+-- Generation Time: Feb 14, 2024 at 02:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -68,14 +68,23 @@ CREATE TABLE `banner` (
 
 CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `title` text NOT NULL,
+  `slug` text DEFAULT NULL,
   `uploaded_by` varchar(255) NOT NULL,
-  `popular` int(11) NOT NULL,
+  `popular` text NOT NULL,
   `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` text NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `slug`, `uploaded_by`, `popular`, `description`, `image`, `status`, `created_at`) VALUES
+(1, 'What is Lorem Ipsum?', 'what-is-lorem-ipsum', '', 'news', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', 'images.jpg', 1, '2024-02-14 06:16:38'),
+(4, 'Why do we use it?', 'why-do-we-use-it', '2', 'press', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', 'gfx100s_sample_04_thum-1.jpg', 1, '2024-02-13 20:07:00');
 
 -- --------------------------------------------------------
 
@@ -91,6 +100,13 @@ CREATE TABLE `cart` (
   `quantity` varchar(45) DEFAULT NULL,
   `price` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `size`, `quantity`, `price`) VALUES
+(12, '1', '2', 'XS', '3', '1497');
 
 -- --------------------------------------------------------
 
@@ -49018,6 +49034,18 @@ CREATE TABLE `course_reviews` (
   `review_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `course_reviews`
+--
+
+INSERT INTO `course_reviews` (`review_id`, `course_id`, `user_id`, `rating`, `review_message`, `review_status`, `review_date`) VALUES
+(1, 1, 1, 1, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-13 11:20:25'),
+(2, 1, 1, 2, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-12 11:20:25'),
+(3, 2, 1, 3, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-11 11:20:25'),
+(4, 1, 1, 3, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-11 11:20:25'),
+(5, 0, 1, 4, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25'),
+(92, 0, 1, 5, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25');
+
 -- --------------------------------------------------------
 
 --
@@ -49033,6 +49061,26 @@ CREATE TABLE `course_syllabus` (
   `s_order` int(11) DEFAULT NULL,
   `status` enum('1','0') DEFAULT NULL COMMENT '1=active,0=inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email_subscription`
+--
+
+CREATE TABLE `email_subscription` (
+  `id` int(11) NOT NULL,
+  `user_email` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `email_subscription`
+--
+
+INSERT INTO `email_subscription` (`id`, `user_email`, `status`, `created_at`) VALUES
+(5, 'sayantan@goigi.in', '0', '2024-02-13 22:27:00');
 
 -- --------------------------------------------------------
 
@@ -49233,7 +49281,7 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`option_id`, `option_name`, `option_value`) VALUES
-(1, 'logo', 'logo.png'),
+(1, 'logo', 'logo1.png'),
 (2, 'meta_title', NULL),
 (6, 'twitter', 'https://www.twitter.com/'),
 (7, 'facebook', 'https://www.facebook.com/'),
@@ -53915,7 +53963,7 @@ CREATE TABLE `user_address` (
 --
 
 INSERT INTO `user_address` (`id`, `user_id`, `billing_first_name`, `billing_last_name`, `billing_company_name`, `billing_email`, `billing_phone`, `billing_address1`, `billing_address2`, `billing_city`, `billing_state`, `billing_country`, `billing_postcode`, `shiptodifferentadd`, `shipping_first_name`, `shipping_last_name`, `shipping_company_name`, `shipping_email`, `shipping_phone`, `shipping_address1`, `shipping_address2`, `shipping_city`, `shipping_state`, `shipping_country`, `shipping_postcode`, `order_note`) VALUES
-(1, '1', 'Sayantan', 'Bhakta', 'demo company', 'student@gmail.com', '7894561231', 'BN Block, Sector V, West Bengal', 'Webel Tower 1', 'Kolkata', 'West Bengal', 'India', '70033', NULL, 'soham', 'Bhakta', 'Soham company', 'soham@gmail.com', '0912047047', 'BN Block, Sector V, West Bengal', 'Test apartment', 'Test City', 'Test state', 'Test Country', '718273', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
+(1, '1', 'Sayantan', 'Bhakta', 'demo company', 'student@gmail.com', '7894561231', 'BN Block, Sector V, West Bengal', 'Webel Tower 1', 'Kolkata', 'West Bengal', 'India', '70033', 'on', 'soham', 'Bhakta', 'Soham company', 'soham@gmail.com', '0912047047', 'BN Block, Sector V, West Bengal', 'Test apartment', 'Test City', 'Test state', 'Test Country', '718273', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
 
 -- --------------------------------------------------------
 
@@ -54080,6 +54128,12 @@ ALTER TABLE `course_reviews`
 -- Indexes for table `course_syllabus`
 --
 ALTER TABLE `course_syllabus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `email_subscription`
+--
+ALTER TABLE `email_subscription`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54314,13 +54368,13 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -54392,13 +54446,19 @@ ALTER TABLE `course_resources`
 -- AUTO_INCREMENT for table `course_reviews`
 --
 ALTER TABLE `course_reviews`
-  MODIFY `review_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `course_syllabus`
 --
 ALTER TABLE `course_syllabus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `email_subscription`
+--
+ALTER TABLE `email_subscription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `email_unsubscribe_list`
