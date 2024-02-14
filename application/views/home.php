@@ -105,17 +105,6 @@
                         <p>You don't have to struggle alone, you've got our assistance and help.</p>
                     </div>
                 </div>
-                <!-- <div class="col-xxl-7 col-xl-6 col-lg-6">
-                    <div class="course__menu d-flex justify-content-lg-end mb-60">
-                        <div class="masonary-menu filter-button-group">
-                            <button class="active" data-filter="*">See All <span class="tag">new</span></button>
-                            <button data-filter=".cat1">Trending</button>
-                            <button data-filter=".cat2">Popularity</button>
-                            <button data-filter=".cat3">Featured</button>
-                            <button data-filter=".cat4">Art & Design</button>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="row grid">
                 <?php if(!empty($list)) { 
@@ -313,85 +302,60 @@
                 </div>
             </div>
             <div class="row">
+                <?php 
+                $latestBlog = $this->db->query("SELECT * FROM blogs WHERE status = '1' ORDER BY id DESC LIMIT 3")->result_array(); 
+                if(!empty($latestBlog)) {
+                foreach($latestBlog as $row) { 
+                ?>
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                     <div class="blog__item white-bg mb-30 transition-3 fix">
                         <div class="blog__thumb w-img fix">
-                            <a href="<?= base_url() ?>blog/blog_details">
-                                <img src="<?= base_url() ?>assets/img/blog/blog-1.jpg" alt="">
+                            <a href="<?= base_url() ?>blog-details/<?= $row['slug']?>">
+                                <img src="<?= base_url() ?>uploads/blog/<?= $row['image']?>" alt="" style="height:260px;">
                             </a>
                         </div>
                         <div class="blog__content">
-                            <h3 class="blog__title"><a href="<?= base_url() ?>blog/blog_details">The Challenge Of Global Learning In Public Education</a></h3>
+                            <h3 class="blog__title"><a href="<?= base_url() ?>blog-details/<?= $row['slug']?>"><?= $row['title']?></a></h3>
                             <div class="blog__meta d-flex align-items-center justify-content-between">
+                                <?php if(!empty($row['uploaded_by'])) { 
+                                $user_details = $this->db->query("SELECT id, fname, lname, image FROM users WHERE id = '".$row['uploaded_by']."'")->row();?>
                                 <div class="blog__author d-flex align-items-center">
                                     <div class="blog__author-thumb mr-10">
-                                        <img src="<?= base_url() ?>assets/img/blog/author/author-1.jpg" alt="">
+                                        <?php if(!empty($user_details->image)) { ?>
+                                        <img src="<?= base_url() ?>uploads/users/<?= $user_details->image?>" alt="">
+                                        <?php } else { ?>
+                                        <img src="<?= base_url() ?>images/no-user.png" alt="">
+                                        <?php } ?>
                                     </div>
                                     <div class="blog__author-info">
-                                        <h5>Jim Séchen</h5>
+                                        <h5><a href="javascript:void(0)"><?= $user_details->fname." ".$user_details->lname?></a></h5>
                                     </div>
                                 </div>
+                                <?php } else { ?>
+                                <div class="course__teacher d-flex align-items-center">
+                                    <div class="course__teacher-thumb mr-15">
+                                        <img src="<?= base_url() ?>assets/img/favicon.png" alt="">
+                                    </div>
+                                    <h6><a href="javascript:void(0)">Admin</a></h6>
+                                </div>
+                                <?php } ?>
                                 <div class="blog__date d-flex align-items-center">
                                     <i class="fal fa-clock"></i>
-                                    <span>April 02, 2024</span>
+                                    <span><?= date("M jS, Y", strtotime($row['created_at']))?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                    <div class="blog__item white-bg mb-30 transition-3 fix">
-                        <div class="blog__thumb w-img fix">
-                            <a href="<?= base_url() ?>blog/blog_details">
-                                <img src="<?= base_url() ?>assets/img/blog/blog-2.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="blog__content">
-                            <h3 class="blog__title"><a href="<?= base_url() ?>blog/blog_details">Exactly How Technology Can Make Reading Better</a></h3>
-                            <div class="blog__meta d-flex align-items-center justify-content-between">
-                                <div class="blog__author d-flex align-items-center">
-                                    <div class="blog__author-thumb mr-10">
-                                        <img src="<?= base_url() ?>assets/img/blog/author/author-2.jpg" alt="">
-                                    </div>
-                                    <div class="blog__author-info">
-                                        <h5>Barry Tone</h5>
-                                    </div>
-                                </div>
-                                <div class="blog__date d-flex align-items-center">
-                                    <i class="fal fa-clock"></i>
-                                    <span>July 02, 2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                    <div class="blog__item white-bg mb-30 transition-3 fix">
-                        <div class="blog__thumb w-img fix">
-                            <a href="<?= base_url() ?>blog/blog_details">
-                                <img src="<?= base_url() ?>assets/img/blog/blog-3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="blog__content">
-                            <h3 class="blog__title"><a href="<?= base_url() ?>blog/blog_details">New Chicago school budget relies on state pension</a></h3>
-                            <div class="blog__meta d-flex align-items-center justify-content-between">
-                                <div class="blog__author d-flex align-items-center">
-                                    <div class="blog__author-thumb mr-10">
-                                        <img src="<?= base_url() ?>assets/img/blog/author/author-3.jpg" alt="">
-                                    </div>
-                                    <div class="blog__author-info">
-                                        <h5>Barry Tone</h5>
-                                    </div>
-                                </div>
-                                <div class="blog__date d-flex align-items-center">
-                                    <i class="fal fa-clock"></i>
-                                    <span>July 02, 2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } } else { ?>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">No data found</div>
+                <?php } ?>
             </div>
+            <?php 
+            $countCourse = $this->db->query("SELECT COUNT(id) as id FROM blogs WHERE status = '1'")->row();
+            if($countCourse->id > 3) { ?>
+            <div style="text-align: center;"><a href="<?php echo base_url()?>blog-list" class="e-btn e-btn-border-2">View All Blod</a></div>
+            <?php } ?>
         </div>
     </section>
 </main>

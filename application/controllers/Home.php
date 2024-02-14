@@ -918,13 +918,15 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function blog() {
-        $this->load->view('header');
-        $this->load->view('blog');
+        $data['blogList'] = $this->db->query("SELECT * FROM blogs WHERE status = '1' ORDER BY id DESC")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('blog', $data);
         $this->load->view('footer');
     }
-    public function blog_details() {
-        $this->load->view('header');
-        $this->load->view('blog_details');
+    public function blog_details($slug) {
+        $data['blog_details'] = $this->db->query("SELECT * FROM blogs WHERE slug LIKE '%".$slug."%' ORDER BY id DESC")->row();
+        $this->load->view('header', $data);
+        $this->load->view('blog_details', $data);
         $this->load->view('footer');
     }
     public function store() {
