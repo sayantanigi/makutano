@@ -273,26 +273,6 @@ $nl2 = $this->uri->segment(3);
                 </li>
             </ul>
         </li>
-        <li class="nav-item <?php if ($nl == "news") { ?>active open<?php } ?>"> 
-            <a href="javascript:;" class="nav-link nav-toggle"> 
-                <i class="fa fa-newspaper-o"></i> 
-                <span class="title">News Managements</span> 
-                <span class="addindividual"></span> 
-                <span class="arrow addindividual"></span> 
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item  <?php if ($nl2 == "news_add_form") { ?>active open<?php } ?>"> 
-                    <a href="<?php echo base_url(); ?>supercontrol/news/news_add_form" class="nav-link "> 
-                        <span class="title">Add News</span> 
-                    </a> 
-                </li>
-                <li class="nav-item  <?php if ($nl == "show_news") { ?>active open<?php } ?>"> 
-                    <a href="<?php echo base_url(); ?>supercontrol/news/show_news" class="nav-link "> 
-                        <span class="title">Manage News</span> 
-                    </a> 
-                </li>
-            </ul>
-        </li>
         <li class="nav-item <?php if ($nl == "announcement") { ?>active open<?php } ?>"> 
             <a href="javascript:;" class="nav-link nav-toggle"> 
                 <i class="fa fa-bullhorn"></i> 
@@ -543,6 +523,7 @@ $nl2 = $this->uri->segment(3);
                 </li>
             </ul>
         </li>
+
         <li class="nav-item <?php if ($nl == "level") { ?>active open<?php } ?>"> 
             <a href="javascript:;" class="nav-link nav-toggle"> 
                 <i class="fa fa-certificate"></i> 
@@ -562,6 +543,7 @@ $nl2 = $this->uri->segment(3);
                 </li>
             </ul>
         </li>
+
         <li class="nav-item <?php if ($nl == "category") { ?>active open<?php } ?>">
             <a href="javascript:;" class="nav-link nav-toggle"> 
                 <i class="fa fa-keyboard-o"></i> 
@@ -581,6 +563,7 @@ $nl2 = $this->uri->segment(3);
                 </li>
             </ul>
         </li>
+
         <li class="nav-item <?php if ($nl == "course" || $nl == "batch" || $nl == "lesson") { ?>active open<?php } ?>">
             <a href="javascript:;" class="nav-link nav-toggle"> <i class="fa fa-th-list"></i> 
                 <span class="title">Course Mgmt</span> 
@@ -615,6 +598,7 @@ $nl2 = $this->uri->segment(3);
                 </li>-->
             </ul>
         </li>
+
         <li class="nav-item <?php if ($nl == "event") { ?>active open<?php } ?>">
             <a href="javascript:;" class="nav-link nav-toggle"> 
                 <i class="fa fa-keyboard-o"></i> 
@@ -630,6 +614,27 @@ $nl2 = $this->uri->segment(3);
                 <li class="nav-item  <?php if ($nl2 == "show_event") { ?>active open<?php } ?>"> 
                     <a href="<?php echo base_url(); ?>supercontrol/event/showevent" class="nav-link "> 
                         <span class="title">Manage Event</span> 
+                    </a> 
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item <?php if ($nl == "news") { ?>active open<?php } ?>"> 
+            <a href="javascript:;" class="nav-link nav-toggle"> 
+                <i class="fa fa-newspaper-o"></i> 
+                <span class="title">Blog Managements</span> 
+                <span class="addindividual"></span> 
+                <span class="arrow addindividual"></span> 
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  <?php if ($nl2 == "news_add_form") { ?>active open<?php } ?>"> 
+                    <a href="<?php echo base_url(); ?>supercontrol/news/news_add_form" class="nav-link "> 
+                        <span class="title">Add Blog</span> 
+                    </a> 
+                </li>
+                <li class="nav-item  <?php if ($nl == "show_news") { ?>active open<?php } ?>"> 
+                    <a href="<?php echo base_url(); ?>supercontrol/news/show_news" class="nav-link "> 
+                        <span class="title">Blog list</span> 
                     </a> 
                 </li>
             </ul>

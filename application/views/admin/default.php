@@ -296,14 +296,14 @@
                     <li class="treeview <?= ($tab == 'add_blog' || $tab == 'blog') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>
-                            <span>Media Management</span>
+                            <span>Blog Management</span>
                             <span class="pull-right-container">
                                 <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog/add') ?>"><i class="fa fa-circle"></i> Add Media</a></li>
-                            <li class="<?= ($tab == 'blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog') ?>"><i class="fa fa-circle"></i> Media Lists</a></li>
+                            <li class="<?= ($tab == 'add_blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog/add') ?>"><i class="fa fa-circle"></i> Add Blog</a></li>
+                            <li class="<?= ($tab == 'blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog') ?>"><i class="fa fa-circle"></i> Blog Lists</a></li>
                         </ul>
                     </li>
 

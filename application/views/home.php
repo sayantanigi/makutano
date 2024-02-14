@@ -162,7 +162,7 @@
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
                                 <span><i class="fas fa-star"></i></span>
-                                <?php } echo "(".round($totalrate->total/count($rating), 0).")";
+                                <?php } echo "(0)";
                                 ?>
                                 </div>
                             </div>

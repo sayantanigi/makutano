@@ -222,7 +222,13 @@
                                         <div class="row g-0">
                                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                                 <div class="course__review-rating-info grey-bg text-center productListRate">
-                                                    <h5 class="text-dark"><?php echo round($totalrate->total/count($rating), 0); ?></h5>
+                                                    <h5 class="text-dark">
+                                                    <?php if(@$count > 0 ) {
+                                                        echo $rate = round($totalrate->total/count($rating), 0);
+                                                    } else { 
+                                                        echo "0";
+                                                    } ?>
+                                                    </h5>
                                                     <?php if(!empty($rating)) {
                                                     $rate = round($totalrate->total/count($rating), 0); 
                                                     foreach (range(1,5) as $i) { 
@@ -253,12 +259,16 @@
                                                             <?php 
                                                             $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '5'")->row();
                                                             $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
-                                                            ?>
+                                                            if(empty($countofadence->total)) {
+                                                                $val5 = "0";
+                                                            } else {
+                                                                $val5 = ($sumofRating->sum/$countofadence->total)*100;
+                                                            } ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
+                                                                <div class="single-progress" data-width="<?php echo $val5 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
+                                                                <h5><?php echo round($val5, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
@@ -268,12 +278,16 @@
                                                             <?php 
                                                             $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '4'")->row();
                                                             $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
-                                                            ?>
+                                                            if(empty($countofadence->total)) {
+                                                                $val4 = "0";
+                                                            } else {
+                                                                $val4 = ($sumofRating->sum/$countofadence->total)*100;
+                                                            } ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
+                                                                <div class="single-progress" data-width="<?php echo $val4 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
+                                                                <h5><?php echo round($val4, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
@@ -283,12 +297,16 @@
                                                             <?php 
                                                             $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '3'")->row();
                                                             $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
-                                                            ?>
+                                                            if(empty($countofadence->total)) {
+                                                                $val3 = "0";
+                                                            } else {
+                                                                $val3 = ($sumofRating->sum/$countofadence->total)*100;
+                                                            } ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
+                                                                <div class="single-progress" data-width="<?php echo $val3 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
+                                                                <h5><?php echo round($val3, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
@@ -298,12 +316,16 @@
                                                             <?php 
                                                             $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '2'")->row();
                                                             $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
-                                                            ?>
+                                                            if(empty($countofadence->total)) {
+                                                                $val2 = "0";
+                                                            } else {
+                                                                $val2 = ($sumofRating->sum/$countofadence->total)*100;
+                                                            } ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
+                                                                <div class="single-progress" data-width="<?php echo $val2 ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
+                                                                <h5><?php echo round($val2, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                         <div class="course__review-item d-flex align-items-center justify-content-between">
@@ -313,12 +335,16 @@
                                                             <?php 
                                                             $sumofRating = $this->db->query("SELECT COUNT(rating) as sum FROM course_reviews WHERE course_id = '".$detail->id."' AND rating = '1'")->row();
                                                             $countofadence = $this->db->query("SELECT COUNT(review_id) as total FROM course_reviews WHERE course_id = '".$detail->id."'")->row();
-                                                            ?>
+                                                            if(empty($countofadence->total)) {
+                                                                $val = "0";
+                                                            } else {
+                                                                $val = ($sumofRating->sum/$countofadence->total)*100;
+                                                            } ?>
                                                             <div class="course__review-progress">
-                                                                <div class="single-progress" data-width="<?php echo ($sumofRating->sum/$countofadence->total)*100 ?>%"></div>
+                                                                <div class="single-progress" data-width="<?php echo $val ?>%"></div>
                                                             </div>
                                                             <div class="course__review-percent">
-                                                                <h5><?php echo round(($sumofRating->sum/$countofadence->total)*100, 0) ?>%</h5>
+                                                                <h5><?php echo round($val, 0) ?>%</h5>
                                                             </div>
                                                         </div>
                                                     </div>
