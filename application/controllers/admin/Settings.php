@@ -203,19 +203,16 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function email_unsubscribe_list($page=1) {
+    public function email_list($page=1) {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
         }
-
         $show_per_page = 20;
         $offset = ($page - 1) * $show_per_page;
-
-        $this->data['title'] = 'Email Unsubscribe List';
-        $this->data['tab'] = 'email_unsubscribe';
+        $this->data['title'] = 'Email List';
+        $this->data['tab'] = 'email_list';
         $this->data['main'] = admin_view('setting/email_list');
-        $members = $this->Master_model->getAll($offset, $show_per_page, 'email_unsubscribe_list');
-      
+        $members = $this->Master_model->getAll($offset, $show_per_page, 'email_subscription');
         $this->data['members'] = $members['results'];
         $config['base_url'] = admin_url('members/index');
         $config['num_links'] = 2;
@@ -251,18 +248,10 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function deleteUsers($id = false)
-    {
-        // echo $id;die;
-        $this->Master_model->delete($id, 'email_unsubscribe_list');
-        // $data = $this->User_model->getRow($id);
-
-
-        // $this->User_model->delete($id);
-         $msg = '["Deleted successfully.", "success", "#36A1EA"]';
-
-         $this->session->set_flashdata('msg', $msg);
-
-         redirect(admin_url('settings/email_unsubscribe_list'));
+    public function deleteUsers($id = false) {
+        $this->Master_model->delete($id, 'email_subscription');
+        $msg = '["Deleted successfully.", "success", "#36A1EA"]';
+        $this->session->set_flashdata('msg', $msg);
+        redirect(admin_url('settings/email_list'));
     }
 }

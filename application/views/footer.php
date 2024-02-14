@@ -98,11 +98,12 @@
                                 <div class="footer__subscribe footer__subscribe-2">
                                     <form action="#">
                                         <div class="footer__subscribe-input mb-15">
-                                            <input type="email" placeholder="Your email address">
-                                            <button type="submit">
+                                            <input type="email" placeholder="Your email address" id="user_email" required>
+                                            <button type="button" onclick="subscribe()">
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>
                                             </button>
+                                            <div id="success" style="margin-top: 10px;"></div>
                                         </div>
                                     </form>
                                     <p>Get the latest news and updates right at your inbox.</p>
@@ -163,6 +164,45 @@ function deleteReview(id) {
             window.location.href = '<?= base_url('home/deleteReview/') ?>' + id
         }
     });
+}
+function subscribe() {
+    var email = $('#user_email').val();
+    if(email.length == 0) {
+        $("#success").show().html("<p style='color: red; margin:0;'>Please enter your email address</p>").fadeIn(2000);
+        setTimeout(function() {
+            $("#success").hide();
+        }, 2000);
+    } else {
+        $.ajax({
+        url: "<?php echo site_url('Home/user_subscribe');?>",
+        dataType: "JSON",
+        method: "POST",
+        data: { user_email: email },
+        success: function(data) {
+            console.log(data);
+            if (data == 1) {
+                $("#success").show().html("<p style='color: red; margin:0;'>This email is already exists.</p>").fadeIn(2000);
+                setTimeout(function() {
+                    location.reload();
+                    $("#success").hide();
+                }, 4000);
+            } else if (data == 2) {
+                $("#success").show().html("<p style='color: green; margin:0;'>Your subscription is successful.</p>").fadeIn(2000);
+                setTimeout(function() {
+                    $("#success").hide();
+                }, 4000);
+                setTimeout(function() {
+                    location.reload();
+                }, 5500);
+            } else {
+                $("#error").show().html("<p style='color: green; margin:0;'>Something went wrong. Please try again.</p>").fadeIn(2000);
+                setTimeout(function() {
+                    $("#error").hide();
+                }, 4000);
+            }
+        }
+    })
+    }
 }
 </script>
 </body>

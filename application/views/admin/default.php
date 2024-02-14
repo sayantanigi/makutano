@@ -432,8 +432,8 @@
                     <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
                     </li>
-                    <li class="<?= ($tab == 'email_unsubscribe') ? 'active' : ''; ?>">
-                        <a href="<?= admin_url('settings/email_unsubscribe_list') ?>"><i class="fa fa-circle"></i> Email Unsubscribe List</a>
+                    <li class="<?= ($tab == 'email_list') ? 'active' : ''; ?>">
+                        <a href="<?= admin_url('settings/email_list') ?>"><i class="fa fa-circle"></i> Email List</a>
                     </li>
                 </ul>
             </section>
