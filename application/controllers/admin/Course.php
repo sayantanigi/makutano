@@ -100,7 +100,6 @@ class Course extends Admin_Controller {
         $this->data['paginate'] = $this->pagination->create_links();
         $this->load->view(admin_view('default'), $this->data);
     }
-
     public function changeStatus() {
         if ($this->input->post('id')) {
             $id = $this->input->post('id');
@@ -117,7 +116,6 @@ class Course extends Admin_Controller {
             }
         }
     }
-
     public function certificate_courses($page = 1) {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -161,7 +159,6 @@ class Course extends Admin_Controller {
         $this->data['paginate'] = $this->pagination->create_links();
         $this->load->view(admin_view('default'), $this->data);
     }
-
     public function subscription_courses($page = 1) {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -205,18 +202,14 @@ class Course extends Admin_Controller {
         $this->data['paginate'] = $this->pagination->create_links();
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    public function course_transaction()
-    {
+    public function course_transaction() {
         $this->data['title'] = 'Transaction List';
         $this->data['tab'] = 'trans';
         $this->data['main'] = admin_view('course/txn');
         $this->data['orders'] = $this->db->get('payments')->result();
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    public function add($id = false)
-    {
+    public function add($id = false) {
         $this->data['title'] = 'Add Course';
         $this->data['tab'] = 'add_products';
         $this->data['main'] = admin_view('course/add');
@@ -305,8 +298,7 @@ class Course extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function add_certif_course($id = false)
-    {
+    public function add_certif_course($id = false) {
         $this->data['title'] = 'Add Course';
         $this->data['tab'] = 'add_cert';
         $this->data['main'] = admin_view('course/add_certificate_course');
@@ -362,16 +354,14 @@ class Course extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function testInput($data)
-    {
+    public function testInput($data) {
         $data = trim($data);
         $data = stripcslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
 
-    public function save_materials($id)
-    {
+    public function save_materials($id)  {
         if ($this->input->post('submit') && $this->input->post('module')) {
             $this->form_validation->set_rules('material_type', 'Material Type', 'required');
             if ($this->form_validation->run()) {
@@ -651,8 +641,7 @@ class Course extends Admin_Controller {
         $this->data['module_id'] = $module_id;
         $this->load->view(admin_view('default'), $this->data);
     }
-    function activate($id = false)
-    {
+    function activate($id = false) {
         $redirect = isset($_GET['redirect_to']) ? $_GET['redirect_to'] : admin_url('products');
         if ($id) {
             $c['id'] = $id;
@@ -663,8 +652,7 @@ class Course extends Admin_Controller {
         redirect($redirect);
     }
 
-    function deactivate($id = false)
-    {
+    function deactivate($id = false) {
         $redirect = isset($_GET['redirect_to']) ? $_GET['redirect_to'] : admin_url('products');
         if ($id) {
             $c['id'] = $id;
@@ -675,8 +663,7 @@ class Course extends Admin_Controller {
         redirect($redirect);
     }
 
-    function delete_compliance($id)
-    {
+    function delete_compliance($id) {
         if ($id > 0) {
             $this->Course_model->delete($id);
             $this->session->set_flashdata('success', 'Course deleted successfully ');
@@ -684,8 +671,7 @@ class Course extends Admin_Controller {
         redirect(admin_url('course/course_list'));
     }
 
-    public function deleteCourse($id = false)
-    {
+    public function deleteCourse($id = false) {
         $data = $this->db->get_where('courses', array('id' => $id))->row();
 
         if (@$data->image && file_exists('./assets/images/courses/' . @$data->image)) {
@@ -700,8 +686,7 @@ class Course extends Admin_Controller {
         redirect(admin_url('course/course_list'));
     }
 
-    public function deleteMaterialFile($id = false, $course_id = false, $material_id = false)
-    {
+    public function deleteMaterialFile($id = false, $course_id = false, $material_id = false) {
         $data = $this->db->get_where('course_resources', array('id' => $id))->row();
 
         if (@$data->resource_file && file_exists('./uploads/materials/' . @$data->resource_file)) {
@@ -1628,6 +1613,49 @@ class Course extends Admin_Controller {
         } else {
             echo "2";
         }
+    }
+
+    public function purchased_course($page=1) {
+        if(isset($_GET['page'])){
+            $page = $_GET['page'];
+        }
+        $show_per_page = 10;
+        $offset = ($page - 1) * $show_per_page;
+        $this->data['title'] = 'Course Purchased List';
+        $this->data['tab'] = 'purchased_course';
+        $this->data['main'] = admin_view('course/purchased_course');
+        $course = $this->Course_model->getAllcoursepurchesed($offset, $show_per_page);
+        $this->data['course_order_details'] = $this->db->query("SELECT * FROM course_enrollment ORDER BY enrollment_id DESC")->result_array();
+        $config['num_links'] = 2;
+        $config['uri_segment'] = 4;
+        $config['total_rows'] = $course['total'];
+        $config['per_page'] = $show_per_page;
+        $config['full_tag_open'] = '<ul class="pagination pagination-sm">';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['prev_link'] = 'Prev';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = 'Next';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['use_page_numbers'] = true;
+        $config['use_page_numbers'] = true;
+        $config['page_query_string'] = true;
+        $config['query_string_segment'] = 'page';
+        $config['reuse_query_string'] = true;
+        $this->pagination->initialize($config);
+        $this->data['paginate'] = $this->pagination->create_links();
+        $this->load->view(admin_view('default'),$this->data);
     }
 }
 

@@ -7,6 +7,7 @@ class Event_model extends Master_Model {
 	{
 		parent::__construct();
 		$this->table = 'event';
+		$this->table2 = 'event_booked';
 	}
 
 }

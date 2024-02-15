@@ -1,16 +1,11 @@
 <?php
-
-class Master_model extends CI_Model
-{
+class Master_model extends CI_Model {
     var $table;
-
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
-    function getNew($table = false)
-    {
+    function getNew($table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -22,81 +17,79 @@ class Master_model extends CI_Model
         }
         return $temp;
     }
-
-    function getRow($id, $table = false)
-    {
+    function getRow($id, $table = false) {
         if ($table) {
             $this->table = $table;
         }
         return $this->db->get_where($this->table, array('id' => $id))->first_row();
     }
-
-    function getAll_members($offset = 0, $limit = 40, $table = false)
-    {
-
-        
+    function getAll_members($offset = 0, $limit = 40, $table = false) {
         $this->db->select('users.*,c.course_id,c.enrollment_id');
         $this->db->from($table);
         if ($table) {
             $this->table = $table;
         }
-        
         $this->db->join('course_enrollment c', 'c.user_id = users.id', 'LEFT');
-        $this->db->group_by('users.id'); 
+        $this->db->group_by('users.id');
         $this->db->order_by('id', 'DESC');
         $this->db->limit($limit, $offset);
         $rest = $this->db->get();
         // $rest = $this->db->get($this->table);
         $data['results'] = $rest->result();
         // echo $this->db->last_query(); die;
-
         $data['total'] = $this->db->get($this->table)->num_rows();
         return $data;
     }
 
-    function getAll($offset = 0, $limit = 40, $table = false)
-    {
-
-        
-      
+    function getAll($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
-        
-       
         $this->db->order_by('id', 'DESC');
         $this->db->limit($limit, $offset);
-       
         $rest = $this->db->get($this->table);
         $data['results'] = $rest->result();
         // echo $this->db->last_query(); die;
-
         $data['total'] = $this->db->get($this->table)->num_rows();
         return $data;
     }
-    function getAllproductpurchesed($offset = 0, $limit = 40, $table = false)
-    {
-
-        
-      
+    function getAllproductpurchesed($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table1 = $table;
         }
-        
-       
         $this->db->order_by('id', 'DESC');
         $this->db->limit($limit, $offset);
-       
         $rest = $this->db->get($this->table1);
         $data['results'] = $rest->result();
         // echo $this->db->last_query(); die;
-
         $data['total'] = $this->db->get($this->table1)->num_rows();
         return $data;
     }
-
-    function getAllcertificate($offset = 0, $limit = 40, $table = false)
-    {
+    function getAlleventpurchesed($offset = 0, $limit = 40, $table = false) {
+        if ($table) {
+            $this->table2 = $table;
+        }
+        $this->db->order_by('id', 'DESC');
+        $this->db->limit($limit, $offset);
+        $rest = $this->db->get($this->table2);
+        $data['results'] = $rest->result();
+        // echo $this->db->last_query(); die;
+        $data['total'] = $this->db->get($this->table2)->num_rows();
+        return $data;
+    }
+    function getAllcoursepurchesed($offset = 0, $limit = 40, $table = false) {
+        if ($table) {
+            $this->table3 = $table;
+        }
+        $this->db->order_by('enrollment_id', 'DESC');
+        $this->db->limit($limit, $offset);
+        $rest = $this->db->get($this->table3);
+        $data['results'] = $rest->result();
+        // echo $this->db->last_query(); die;
+        $data['total'] = $this->db->get($this->table3)->num_rows();
+        return $data;
+    }
+    function getAllcertificate($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -109,9 +102,7 @@ class Master_model extends CI_Model
         echo $this->db->last_query();
         return $data;
     }
-
-    function getAllcomp($offset = 0, $limit = 40, $table = false)
-    {
+    function getAllcomp($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -124,32 +115,25 @@ class Master_model extends CI_Model
         //echo $this->db->last_query();die;
         return $data;
     }
-
-    // function getAllCourse($offset = 0, $limit = 40, $table = false)
-    // {
-    //     if ($table) {
-    //         $this->table = $table;
-    //     }
-
-    //     $this->db->select('t1.*, t2.name');
-    //     $this->db->from('courses as t1');
-    //     $this->db->order_by('t1.id', 'DESC');
-    //     $this->db->join('cr_category as t2', 't1.cat_id = t2.id', 'INNER');
-    //     $this->db->limit($limit, $offset);
-    //     $rest = $this->db->get();
-    //     $data['results'] = $rest->result();
-    //     // echo $this->db->last_query();die;
-    //     $data['total'] = $this->db->get($this->table)->num_rows();
-        
-    //     return $data;
-    // }
-
-    function getAllCourse($offset = 0, $limit = 40, $table = false)
-    {
+    /*function getAllCourse($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
-
+        $this->db->select('t1.*, t2.name');
+        $this->db->from('courses as t1');
+        $this->db->order_by('t1.id', 'DESC');
+        $this->db->join('cr_category as t2', 't1.cat_id = t2.id', 'INNER');
+        $this->db->limit($limit, $offset);
+        $rest = $this->db->get();
+        $data['results'] = $rest->result();
+        // echo $this->db->last_query();die;
+        $data['total'] = $this->db->get($this->table)->num_rows();
+        return $data;
+    }*/
+    function getAllCourse($offset = 0, $limit = 40, $table = false) {
+        if ($table) {
+            $this->table = $table;
+        }
         $this->db->select('t1.*');
         $this->db->from('courses as t1');
         $this->db->order_by('t1.id', 'DESC');
@@ -158,12 +142,9 @@ class Master_model extends CI_Model
         $data['results'] = $rest->result();
         // echo $this->db->last_query();die;
         $data['total'] = $this->db->get($this->table)->num_rows();
-        
         return $data;
     }
-
-    function getAllcert($offset = 0, $limit = 40, $table = false)
-    {
+    function getAllcert($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -176,9 +157,7 @@ class Master_model extends CI_Model
         //echo $this->db->last_query();die;
         return $data;
     }
-
-    function getAllsubscr($offset = 0, $limit = 40, $table = false)
-    {
+    function getAllsubscr($offset = 0, $limit = 40, $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -192,8 +171,7 @@ class Master_model extends CI_Model
         return $data;
     }
 
-    function getAllSearched($offset = 0, $limit = 40, $likes = array(), $table = false)
-    {
+    function getAllSearched($offset = 0, $limit = 40, $likes = array(), $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -208,12 +186,9 @@ class Master_model extends CI_Model
         $rest = $this->db->get();
         $data['results'] = $rest->result();
         $data['total'] = $this->db->query($sql)->num_rows();
-
         return $data;
     }
-
-    function getWhereRecords($limit = 40, $offset = 0, $rules = array(), $table = false)
-    {
+    function getWhereRecords($limit = 40, $offset = 0, $rules = array(), $table = false) {
         $this->db->order_by('id', 'DESC');
         if ($table) {
             $this->table = $table;
@@ -230,18 +205,14 @@ class Master_model extends CI_Model
         $data['total'] = $this->db->query($sql)->num_rows();
         return $data;
     }
-
-    function listAll($table = false)
-    {
+    function listAll($table = false) {
         if ($table) {
             $this->table = $table;
         }
         $rest = $this->db->get($this->table);
         return $rest->result();
     }
-
-    function listAllByDesc($table = false)
-    {
+    function listAllByDesc($table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -249,9 +220,7 @@ class Master_model extends CI_Model
         $rest = $this->db->get($this->table);
         return $rest->result();
     }
-
-    function save($data, $table = false)
-    {
+    function save($data, $table = false) {
         if ($table) {
             $this->table = $table;
         }
@@ -263,17 +232,13 @@ class Master_model extends CI_Model
             return $this->db->insert_id();
         }
     }
-
-    function delete($id, $table = false)
-    {
+    function delete($id, $table = false) {
         if ($table) {
             $this->table = $table;
         }
         $this->db->delete($this->table, array('id' => $id));
     }
-
-    function get_unique_url($url, $id = false)
-    {
+    function get_unique_url($url, $id = false) {
         $this->db->select('slug, id');
         $this->db->where('slug', $url);
         $rest = $this->db->get($this->table);
@@ -289,9 +254,7 @@ class Master_model extends CI_Model
             }
         }
     }
-
-    function totalCount()
-    {
+    function totalCount() {
         return $this->db->get($this->table)->num_rows();
     }
 }

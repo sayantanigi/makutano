@@ -7,6 +7,7 @@ class Course_model extends Master_Model {
 	{
 		parent::__construct();
 		$this->table = 'courses';
+		$this->table3 = 'course_enrollment';
 	}
 
 }

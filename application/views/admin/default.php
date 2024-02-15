@@ -199,27 +199,28 @@
                                 <a href="<?= admin_url('course/mode') ?>"><i class="fa fa-circle"></i> Mode Lists</a>
                             </li>
                             <li class="<?= ($tab == 'add_level') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/level_add') ?>"><i class="fa fa-circle"></i> Add Level
-                                </a>
+                                <a href="<?= admin_url('course/level_add') ?>"><i class="fa fa-circle"></i> Add Level </a>
                             </li>
                             <li class="<?= ($tab == 'level_list') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('course/level') ?>"><i class="fa fa-circle"></i> Level Lists</a>
                             </li>
                             <li class="<?= ($tab == 'add_cat') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/category_add') ?>"><i class="fa fa-circle"></i> Add
-                                    Category </a>
+                                <a href="<?= admin_url('course/category_add') ?>"><i class="fa fa-circle"></i> Add Category </a>
                             </li>
                             <li class="<?= ($tab == 'cat_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/category') ?>"><i class="fa fa-circle"></i> Category
-                                    Lists</a>
+                                <a href="<?= admin_url('course/category') ?>"><i class="fa fa-circle"></i> Category Lists</a>
                             </li>
                             <li class="<?= ($tab == 'add_comp') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/add_course') ?>"><i class="fa fa-circle"></i> Add
-                                    Course</a>
+                                <a href="<?= admin_url('course/add_course') ?>"><i class="fa fa-circle"></i> Add Course</a>
                             </li>
                             <li class="<?= ($tab == 'comp_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/course_list') ?>"><i class="fa fa-circle"></i> Course
-                                    Lists</a>
+                                <a href="<?= admin_url('course/course_list') ?>"><i class="fa fa-circle"></i> Course Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'purchased_course') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/purchased_course') ?>"><i class="fa fa-circle"></i> Purchased Course Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'course_reviewd') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/course_reviewd') ?>"><i class="fa fa-circle"></i> Course Review Lists</a>
                             </li>
                         </ul>
                     </li>
@@ -343,6 +344,9 @@
                             </li>
                             <li class="<?= ($tab == 'event') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('event') ?>"><i class="fa fa-circle"></i> Event Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'purchased_events') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('event/purchased_events') ?>"><i class="fa fa-circle"></i> Purchased Event Lists</a>
                             </li>
                         </ul>
                     </li>
