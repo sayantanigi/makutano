@@ -1,3 +1,7 @@
+<?php 
+$getSetting = $this->db->query("SELECT * from options")->result_array();
+//echo "<pre>"; print_r($getSetting);
+?>
 <section class="cta__area mb--100">
     <div class="container">
         <div class="cta__inner cta__inner-2 blue-bg fix">
@@ -12,8 +16,8 @@
                 </div>
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6">
                     <div class="cta__apps d-lg-flex justify-content-end p-relative z-index-1">
-                        <a target="_blank" href="https://www.apple.com/app-store/" class="mr-10"><i class="fab fa-apple"></i> Apple Store</a>
-                        <a target="_blank" href="https://play.google.com/store/apps" class="active"><i class="fab fa-google-play"></i> Play Store</a>
+                        <a target="_blank" href="<?= @$getSetting[41]['option_value']?>" class="mr-10"><i class="fab fa-apple"></i> Apple Store</a>
+                        <a target="_blank" href="<?= @$getSetting[42]['option_value']?>" class="active"><i class="fab fa-google-play"></i> Play Store</a>
                     </div>
                 </div>
             </div>
@@ -36,14 +40,14 @@
                                 </div>
                             </div>
                             <div class="footer__widget-body footer__widget-body-2">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                <p><?= @$getSetting[17]['option_value']?></p>
                                 <div class="footer__social">
                                     <ul>
-                                        <li><a href="#"><i class="social_facebook"></i></a></li>
-                                        <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
-                                        <li><a href="#" class="link"><i class="social_linkedin"></i></a></li>
-                                        <li><a href="#" class="instagram"><i class="social_instagram"></i></a></li>
-                                        <li><a href="#" class="youtube"><i class="social_youtube"></i></a></li>
+                                        <li><a href="<?= @$getSetting[3]['option_value']?>"><i class="social_facebook"></i></a></li>
+                                        <li><a href="<?= @$getSetting[2]['option_value']?>" class="tw"><i class="social_twitter"></i></a></li>
+                                        <li><a href="<?= @$getSetting[16]['option_value']?>" class="link"><i class="social_linkedin"></i></a></li>
+                                        <li><a href="<?= @$getSetting[18]['option_value']?>" class="instagram"><i class="social_instagram"></i></a></li>
+                                        <li><a href="<?= @$getSetting[35]['option_value']?>" class="youtube"><i class="social_youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

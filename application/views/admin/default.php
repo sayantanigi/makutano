@@ -419,6 +419,23 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="treeview <?= ($tab == 'youth_activity' || $tab == 'add_youth_activity') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Youth Activity Management </span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_youth_activity') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('youth_activity/add') ?>"><i class="fa fa-circle"></i> Add youth activity </a>
+                            </li>
+                            <li class="<?= ($tab == 'youth_activity') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('youth_activity') ?>"><i class="fa fa-circle"></i> Youth Activity</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
                     </li>

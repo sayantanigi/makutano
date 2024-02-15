@@ -17,9 +17,9 @@
                     <div class="col-lg-6">
                         <div class="youthbanner">
                             <div class="owl-carousel owl-theme" id="youthslide1">
-                                <div class="item"><img src="assets/img/makutano-youth-1-1.jpg" /></div>
-                                <div class="item"><img src="assets/img/makutano-youth-2-1.jpg" /></div>
-                                <div class="item"><img src="assets/img/makutano-youth-3-1.jpg" /></div>
+                                <div class="item"><img src="<?= base_url()?>assets/img/makutano-youth-1-1.jpg" /></div>
+                                <div class="item"><img src="<?= base_url()?>assets/img/makutano-youth-2-1.jpg" /></div>
+                                <div class="item"><img src="<?= base_url()?>assets/img/makutano-youth-3-1.jpg" /></div>
                             </div>
                         </div>
                     </div>
@@ -56,56 +56,57 @@
                             <p class="mb-0">Makutano for Youth is a platform dedicated to young people.</p>
                             <p>Join our network and receive notification of our activities.</p>
                         </div>
-                        <form>
+                        <?php print_r($this->session->flashdata());?>
+                        <form action="<?= base_url()?>Home/submitYouthForm" method="post">
                             <div class="row g-3">
                                 <div class="col-lg-6">
                                     <div class="contact__form-input ">
-                                        <input type="text" placeholder="Your First Name" class=" mb-0">
+                                        <input type="text" placeholder="Your First Name" class=" mb-0" name="fname" id="fname" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input ">
-                                        <input type="text" placeholder="Your Last Name" class=" mb-0">
+                                        <input type="text" placeholder="Your Last Name" class=" mb-0" name="lname" id="lname" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="email" placeholder="Your Email Address" class=" mb-0">
+                                        <input type="email" placeholder="Your Email Address" class=" mb-0" name="email" id="email"> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Contact Number" class="  mb-0">
+                                        <input type="text" placeholder="Contact Number" class="  mb-0" name="contactno" id="contactno" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Your Age" class="  mb-0">
+                                        <input type="text" placeholder="Your Age" class="  mb-0" name="age" id="age" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Town of residence" class="  mb-0">
+                                        <input type="text" placeholder="Town of residence" class="  mb-0" name="town" id="town" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Activity Area" class="  mb-0">
+                                        <input type="text" placeholder="Activity Area" class="  mb-0" name="area" id="area" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Name of your company" class="  mb-0">
+                                        <input type="text" placeholder="Name of your company" class="  mb-0" name="company" id="company" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <input type="text" placeholder="Your training or diploma" class="mb-0">
+                                        <input type="text" placeholder="Your training or diploma" class="mb-0" name="qualification" id="qualification" required> 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="contact__form-input">
-                                        <select class="mb-0">
+                                        <select class="mb-0" name="statute" id="statute" required> 
                                             <option>Your Statute...</option>
                                             <option>Student</option>
                                             <option>Employee</option>
@@ -116,10 +117,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <p class="mb-1">Your interest in Makutano</p>
-                                    <div><label><input type="checkbox"> Networking</label></div>
-                                    <div><label><input type="checkbox"> Mentoring</label></div>
-                                    <div><label><input type="checkbox"> Financement</label></div>
-                                    <div><label><input type="checkbox"> Formation / Coaching</label></div>
+                                    <div><label><input type="checkbox" name="interest[]" id="interest" value="Networking"> Networking</label></div>
+                                    <div><label><input type="checkbox" name="interest[]" id="interest" value="Mentoring"> Mentoring</label></div>
+                                    <div><label><input type="checkbox" name="interest[]" id="interest" value="Financement"> Financement</label></div>
+                                    <div><label><input type="checkbox" name="interest[]" id="interest" value="Formation / Coaching"> Formation / Coaching</label></div>
                                 </div>
                                 <div class="col-lg-12 text-center">
                                     <button class="btn btn-success py-3 text-uppercase px-5">Send</button>
@@ -135,77 +136,35 @@
     <section class="pt-100 pb-100" style="background-color: #009470;">
         <div class="container">
             <h3 class="fw-bold text-center mb-3">ACTIVITIES</h3>
-            <p class="text-white text-center mb-30">Makutano for Youth provides for all young people wishing to join the
-                network:</p>
+            <p class="text-white text-center mb-30">Makutano for Youth provides for all young people wishing to join the network:</p>
             <div class="row g-4">
+                <?php if(!empty($youth_activity)) { 
+                foreach ($youth_activity as $value) { ?>
                 <div class="col-lg-6">
                     <div class=" text-white h-100 shadow-lg p-lg-5 p-4 text-center" style="background: #007599;">
-                        <h4>MAKUTANO YOUTH SUMMIT</h4>
-                        <p class="mb-0">This is a specific event at MAK4Y, a bit like a mini Makutano for young talents
-                            and entrepreneurs.</p>
+                        <h4><?= $value['heading']?></h4>
+                        <p class="mb-0"><?= $value['description']?></p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class=" text-white h-100 shadow-lg p-lg-5 p-4 text-center" style="background: #007599;">
-                        <h4>MASTER CLASS</h4>
-                        <p class="mb-0">These are mentoring and coaching sessions for young people with a CEO through
-                            the sharing of experience of a Makutano CEO or other selected guest.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class=" text-white h-100 shadow-lg p-lg-5 p-4 text-center" style="background: #007599;">
-                        <h4>CONFERENCES / DEBATES</h4>
-                        <p class="mb-0">These are sessions in the form of exchanges and conversations where groups of
-                            young people will be able to chat with the members of the MAKUTANO network.</p>
-                        <p>During the workshops, young people can present their projects and thus be guided by mentors
-                            present.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class=" text-white h-100 shadow-lg p-lg-5 p-4 text-center" style="background: #007599;">
-                        <h4>SOCIAL NETWORK CHATS</h4>
-                        <p class="mb-0">These are online discussion sessions on social networks on a predefined topic
-                            where any young person from all over the republic and even beyond, can ask questions
-                            directly (live) to a person representing MAKUTANO with the aim of to create real proximity
-                            between MAKUTANO and young people.</p>
-                    </div>
-                </div>
+                <?php } } else { ?>
+                <div class="col-lg-6">No data found</div>
+                <?php } ?>
             </div>
         </div>
     </section>
     <section class="pt-100 pb-100">
         <div class="container">
             <div class="row g-2">
+                <?php if(!empty($youth_portfolio)) { 
+                foreach ($youth_portfolio as $row) { ?>
                 <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-1.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-1.jpg" />
+                    <a href="<?= base_url()?>uploads/portfolio/<?= $row['image']?>" data-fancybox="group" class="galleryBox">
+                        <img src="<?= base_url()?>uploads/portfolio/<?= $row['image']?>" />
                     </a>
                 </div>
-                <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-2.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-2.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-3.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-3.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-4.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-4.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-5.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-5.jpg" />
-                    </a>
-                </div>
-                <div class="col-lg-4 col-6">
-                    <a href="assets/img/makutano-youth-galerie-6.jpg" data-fancybox="group" class="galleryBox">
-                        <img src="assets/img/makutano-youth-galerie-6.jpg" />
-                    </a>
-                </div>
+                <?php } } else { ?>
+                <div class="col-lg-4 col-6">No data found</div>
+                <?php } ?>
             </div>
         </div>
     </section>

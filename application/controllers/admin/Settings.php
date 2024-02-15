@@ -1,11 +1,13 @@
 <?php
-class Settings extends Admin_Controller {
+class Settings extends Admin_Controller
+{
     var $global;
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->load->model('Setting_model');
-		$this->load->model('Commonmodel');
+        $this->load->model('Commonmodel');
         $this->data['active_tabs'] = 'media';
         $this->load->model('master_model');
         $this->data['title'] = 'Settings';
@@ -13,7 +15,8 @@ class Settings extends Admin_Controller {
         $this->admin_login();
     }
 
-    public function index() {
+    public function index()
+    {
         $this->data['main'] = admin_view('setting/theme-options');
         $this->data['options'] = $this->Setting_model->all_options();
         if ($this->input->post('submit')) {
@@ -39,7 +42,7 @@ class Settings extends Admin_Controller {
             }
             $fields = $this->input->post('fields');
             $arr_fields = explode(',', $fields);
-            if (is_array($arr_fields) AND count($arr_fields) > 0) {
+            if (is_array($arr_fields) and count($arr_fields) > 0) {
                 foreach ($arr_fields as $fname) {
                     $fname = trim($fname);
                     $s['option_name'] = $fname;
@@ -54,7 +57,8 @@ class Settings extends Admin_Controller {
         }
     }
 
-    function seo_url($offset = 0) {
+    function seo_url($offset = 0)
+    {
         $this->data['offset'] = $offset;
         $show_per_page = 40;
         $this->data['main'] = admin_view('setting/url-index');
@@ -88,26 +92,28 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    function seo_setting($id =false) {
+    function seo_setting($id = false)
+    {
         $this->data['page_title'] = "Seo Setting";
         $this->data['menu2'] = "Setting";
         $this->data['menu3'] = "Seo Setting";
         $this->data['main'] = admin_view('setting/seo_setting');
         $this->data['s'] = $this->Master_model->getNew('seo_url');
-        if($id != '') {
+        if ($id != '') {
             $this->data['s'] = $this->Master_model->getRow($id, 'seo_url');
         }
-        if($this->input->post('frm[url]')) {
+        if ($this->input->post('frm[url]')) {
             $save = $this->input->post('frm');
             $save['id'] = $id;
             $id = $this->Master_model->save($save, 'seo_url');
             $this->session->set_flashdata('success', 'Data saved successfully');
-            redirect(site_url('settings/seo-setting').$id);
+            redirect(site_url('settings/seo-setting') . $id);
         }
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    function edit_url($id = false) {
+    function edit_url($id = false)
+    {
         $this->data['main'] = admin_view('setting/add-url');
         $this->data['url'] = array('id' => $id, 'url' => '', 'seo_title' => '', 'seo_description' => '', 'seo_keywords' => '', 'h1_heading' => '', 'small_desc' => '');
         if ($id) {
@@ -131,7 +137,8 @@ class Settings extends Admin_Controller {
         }
     }
 
-    function delete_url($id = false) {
+    function delete_url($id = false)
+    {
         if ($id) {
             $this->Setting_model->url_delete($id);
             $this->session->set_flashdata('success', 'SEO URL and details deleted successfully');
@@ -139,13 +146,15 @@ class Settings extends Admin_Controller {
         redirect(admin_url('settings/seo-url'));
     }
 
-    function restore() {
+    function restore()
+    {
         $this->db->truncate('options');
         $this->session->set_flashdata('success', 'Global Setting reset to Default');
         redirect(admin_url('settings'));
     }
 
-    function sql() {
+    function sql()
+    {
         $this->data['main'] = admin_view('setting/sql');
         if ($this->input->post('sql')) {
             $sql = $this->input->post('sql');
@@ -156,7 +165,8 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    function mail() {
+    function mail()
+    {
         $this->data['main'] = admin_view('setting/write-mail');
         if ($this->input->post('submit')) {
             echo $name = $this->input->post('name');
@@ -165,14 +175,14 @@ class Settings extends Admin_Controller {
             echo $des = $this->input->post('message');
             $this->email->set_mailtype("html");
             $this->load->library('email');
-            $txt = $this->email->from('webmail@igi.com','');
+            $txt = $this->email->from('webmail@igi.com', '');
             $txt = $this->email->to($email);
             $txt = $this->email->subject($sub);
             $txt = $this->email->message('name: &nbsp;' . $name . '<br> email:&nbsp;' . $email . '<br> message: &nbsp;' . $des);
             $mail = $this->email->send();
-            if($mail ==true){
+            if ($mail == true) {
                 $this->session->set_flashdata('success', "Your Email Sent Successfully");
-            } else{
+            } else {
                 $this->session->set_flashdata('error', "Oops ! you cant send message.");
             }
             redirect(admin_view('settings/mail'));
@@ -181,7 +191,8 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function change_password() {
+    public function change_password()
+    {
         $this->data['main'] = admin_view('admin/password');
         $this->form_validation->set_rules('old', 'Old Password', 'trim|required');
         $this->form_validation->set_rules('new', 'New Password', 'trim|required|min_length[6]');
@@ -190,9 +201,9 @@ class Settings extends Admin_Controller {
             $old = md5($this->input->post('old'));
             $new = md5($this->input->post('new'));
             $user = $this->session->userdata('userid');
-            $check = $this->db->get_where('admin',array('id'=>$user))->row();
-            if ($old==$check->password) {
-                $arr = array('password'=>$new);
+            $check = $this->db->get_where('admin', array('id' => $user))->row();
+            if ($old == $check->password) {
+                $arr = array('password' => $new);
                 $this->db->where('id', $user);
                 $this->db->update('admin', $arr);
                 $this->session->set_flashdata('success', 'Password changed');
@@ -203,7 +214,8 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function email_list($page=1) {
+    public function email_list($page = 1)
+    {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
         }
@@ -248,7 +260,8 @@ class Settings extends Admin_Controller {
         $this->load->view(admin_view('default'), $this->data);
     }
 
-    public function deleteUsers($id = false) {
+    public function deleteUsers($id = false)
+    {
         $this->Master_model->delete($id, 'email_subscription');
         $msg = '["Deleted successfully.", "success", "#36A1EA"]';
         $this->session->set_flashdata('msg', $msg);

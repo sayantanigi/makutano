@@ -19,6 +19,7 @@
                                                 <option value="1" <?php if ($portfolio->portfolioId == '1') { echo 'selected'; } ?>>Portfolio 9</option>
                                                 <option value="2" <?php if ($portfolio->portfolioId == '2') { echo 'selected'; } ?>>Portfolio 8</option>
                                                 <option value="3" <?php if ($portfolio->portfolioId == '3') { echo 'selected'; } ?>>Portfolio 7</option>
+                                                <option value="4" <?php if ($portfolio->portfolioId == '4') { echo 'selected'; } ?>>Youth</option>
                                             </select>
                                         </div>
                                     </div>

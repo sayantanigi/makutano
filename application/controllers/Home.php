@@ -913,9 +913,101 @@ class Home extends CI_Controller {
         }
     }
     public function youth() {
-        $this->load->view('header');
-        $this->load->view('youth');
+        $data['youth_activity'] = $this->db->query("SELECT * FROM youth_activity WHERE status = '1'")->result_array();
+        $data['youth_portfolio'] = $this->db->query("SELECT * FROM portfolio WHERE portfolioId = '4' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('youth', $data);
         $this->load->view('footer');
+    }
+    public function submitYouthForm() {
+        $interest = implode(',', $this->input->post('interest'));
+        $formdata = array(
+            'fname'=>$this->input->post('fname'),
+            'lname'=>$this->input->post('lname') ,
+            'email'=>$this->input->post('email') ,
+            'contactno'=>$this->input->post('contactno') ,
+            'age'=>$this->input->post('age') ,
+            'town'=>$this->input->post('town') ,
+            'area'=>$this->input->post('area') ,
+            'company'=>$this->input->post('company') ,
+            'qualification'=>$this->input->post('qualification') ,
+            'statute'=>$this->input->post('statute'),
+            'interest'=>$interest
+        );
+        $insertId = $this->db->insert("youth_member", $formdata);
+        if(!empty($insertId)) {
+            $optionsList = $this->db->query("SELECT * FROM options")->result();
+            $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            $admEmail = $optionsList[8]->option_value;
+            $message = "<table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'> 
+                <tbody>
+                    <tr>
+                        <td>
+                            <table class='col-600' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-top:2px solid #232323;width=600px;border=0;align=center;cellpadding=0;cellspacing=0'> 
+                                <tbody> 
+                                    <tr> 
+                                        <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='".$imagePath."' style='max-height: 40px;'></td> 
+                                    </tr>
+                                    <tr>
+                                        <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'>Dear User,</td> 
+                                    </tr> 
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align='center'>
+                            <table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-bottom:2px solid #232323'> 
+                                <tbody> 
+                                    <tr>
+                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'></td>
+                                    </tr>
+                                    <tr>
+                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'>
+                                            <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Thank you for subscribing to our newsletter</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>";
+            $mail = new PHPMailer(true);
+            try {
+                $mail->CharSet = 'UTF-8';
+                $mail->SetFrom($admEmail, 'Makutano');
+                $mail->AddAddress($this->input->post('email'));
+                $mail->IsHTML(true);
+                $mail->Subject = "Youth Member";
+                $mail->Body = $message;
+                $mail->IsSMTP();
+                /*$mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'no-reply@goigi.com';
+                $mail->Password = 'wj8jeml3eu0z';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;*/
+                $mail->send();
+            } catch (Exception $e) {
+                $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+            }
+            $this->session->set_flashdata('success', "1");
+        }else{
+            $this->session->set_flashdata('error', "2");
+        }
+        redirect('youth', 'refresh');
     }
     public function blog() {
         $data['blogList'] = $this->db->query("SELECT * FROM blogs WHERE status = '1' ORDER BY id DESC")->result_array();

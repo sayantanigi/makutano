@@ -354,7 +354,7 @@
             <?php 
             $countCourse = $this->db->query("SELECT COUNT(id) as id FROM blogs WHERE status = '1'")->row();
             if($countCourse->id > 3) { ?>
-            <div style="text-align: center;"><a href="<?php echo base_url()?>blog-list" class="e-btn e-btn-border-2">View All Blod</a></div>
+            <div style="text-align: center;"><a href="<?php echo base_url()?>blog-list" class="e-btn e-btn-border-2">View All Blog</a></div>
             <?php } ?>
         </div>
     </section>
