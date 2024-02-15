@@ -972,18 +972,21 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function portfolio9() {
-        $this->load->view('header');
-        $this->load->view('portfolio9');
+        $data['portfolio9'] = $this->db->query("SELECT * FROM portfolio WHERE portfolioId = '1' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('portfolio9', $data);
         $this->load->view('footer');
     }
     public function portfolio8() {
-        $this->load->view('header');
-        $this->load->view('portfolio8');
+        $data['portfolio8'] = $this->db->query("SELECT * FROM portfolio WHERE portfolioId = '2' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('portfolio8', $data);
         $this->load->view('footer');
     }
     public function portfolio7() {
-        $this->load->view('header');
-        $this->load->view('portfolio7');
+        $data['portfolio7'] = $this->db->query("SELECT * FROM portfolio WHERE portfolioId = '3' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('portfolio7', $data);
         $this->load->view('footer');
     }
     public function user_subscribe() {

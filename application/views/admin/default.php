@@ -126,104 +126,6 @@
                             </span>
                         </a>
                     </li>
-                    <li class="treeview <?= ($tab == 'add_member' || $tab == 'members') ? 'active' : ''; ?>">
-                        <a href="#">
-                            <i class="fa fa-users"></i>
-                            <span>Members Management</span>
-                            <span class="pull-right-container">
-                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_member') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('members/add') ?>"><i class="fa fa-circle"></i> Add Member</a>
-                            </li>
-                            <li class="<?= ($tab == 'members') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('members') ?>"><i class="fa fa-circle"></i> Member Lists</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview <?= ($tab == 'add_banner' || $tab == 'banner') ? 'active' : ''; ?>">
-                        <a href="javascript:void(0);">
-                            <i class="fa fa-picture-o"></i>
-                            <span>Banner Management</span>
-                            <span class="pull-right-container">
-                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_banner') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('banner/add') ?>"><i class="fa fa-circle"></i> Add Banner</a>
-                            </li>
-                            <li class="<?= ($tab == 'banner') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('banner') ?>"><i class="fa fa-circle"></i> Banner Lists</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li class="treeview <?= ($tab == 'add_homecourse' || $tab == 'homecourse' || $tab == 'powerspeech') ? 'active' : ''; ?>">
-                        <a href="javascript:void(0);">
-                            <i class="fa fa-picture-o"></i>
-                            <span>Home Management</span>
-                            <span class="pull-right-container">
-                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_homecourse') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('homecourse/add') ?>"><i class="fa fa-circle"></i> Add Home Courses</a>
-                            </li>
-                            <li class="<?= ($tab == 'homecourse') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('homecourse') ?>"><i class="fa fa-circle"></i> Home Courses Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'powerspeech') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('homecourse/powerspeech') ?>"><i class="fa fa-circle"></i> Home Middle</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview <?= ($tab == 'add_mode' || $tab == 'mode_list' || $tab == 'add_level' || $tab == 'level_list' || $tab == 'add_comp' || $tab == 'comp_list' || $tab == 'cat_list' || $tab == 'v_chapter' || $tab == 'ad_chapter' || $tab == 'v_mat' || $tab == 'ad_comp_chapter' || $tab == 'v_comp_chapter' || $tab == 'add_cat') ? 'active' : ''; ?>">
-                        <a href="#">
-                            <i class="fa fa-book"></i>
-                            <span>Course Management </span>
-                            <span class="pull-right-container">
-                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_mode') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/mode_add') ?>"><i class="fa fa-circle"></i> Add Mode </a>
-                            </li>
-                            <li class="<?= ($tab == 'mode_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/mode') ?>"><i class="fa fa-circle"></i> Mode Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'add_level') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/level_add') ?>"><i class="fa fa-circle"></i> Add Level </a>
-                            </li>
-                            <li class="<?= ($tab == 'level_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/level') ?>"><i class="fa fa-circle"></i> Level Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'add_cat') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/category_add') ?>"><i class="fa fa-circle"></i> Add Category </a>
-                            </li>
-                            <li class="<?= ($tab == 'cat_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/category') ?>"><i class="fa fa-circle"></i> Category Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'add_comp') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/add_course') ?>"><i class="fa fa-circle"></i> Add Course</a>
-                            </li>
-                            <li class="<?= ($tab == 'comp_list') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/course_list') ?>"><i class="fa fa-circle"></i> Course Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'purchased_course') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/purchased_course') ?>"><i class="fa fa-circle"></i> Purchased Course Lists</a>
-                            </li>
-                            <li class="<?= ($tab == 'course_reviewd') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('course/course_reviewd') ?>"><i class="fa fa-circle"></i> Course Review Lists</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- <li class="treeview <?= ($tab == 'add_cert' || $tab == 'cert_list' || $tab == 'cat_list' || $tab == 'ad_chapter' || $tab == 'v_mat' || $tab == 'ad_cert_chapter' || $tab == 'v_cert_chapter') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-book"></i>
@@ -265,7 +167,105 @@
                             <li class="<?= ($tab == 'add_subscr') ? 'active' : ''; ?>"><a href="<?= admin_url('course/add_subscription') ?>"><i class="fa fa-circle"></i> Add Course</a></li>
                             <li class="<?= ($tab == 'subscr_list') ? 'active' : ''; ?>"><a href="<?= admin_url('course/subscription_courses') ?>"><i class="fa fa-circle"></i> Course Lists</a></li>
                         </ul>
-                    </li>-->
+                    </li>
+                    <li class="treeview <?= ($tab == 'add_teams' || $tab == 'teams') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>Team Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams/add') ?>"><i class="fa fa-circle"></i> Add Team </a></li>
+                            <li class="<?= ($tab == 'teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams') ?>"><i class="fa fa-circle"></i>Team Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'add_testimonials' || $tab == 'testimonials') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Testimonial Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_testimonials') ? 'active' : ''; ?>"><a href="<?= admin_url('testimonials/add') ?>"><i class="fa fa-circle"></i> Add Testimonial</a></li>
+                            <li class="<?= ($tab == 'testimonials') ? 'active' : ''; ?>"><a href="<?= admin_url('testimonials') ?>"><i class="fa fa-circle"></i> Testimonial Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'gallery' || $tab == 'ad_gallery') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-image"></i>
+                            <span>Partner Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'ad_gallery') ? 'active' : ''; ?>"><a href="<?= admin_url('Partner/add') ?>"><i class="fa fa-circle"></i> Add Partner</a></li>
+                            <li class="<?= ($tab == 'gallery') ? 'active' : ''; ?>"><a href="<?= admin_url('Partner') ?>"><i class="fa fa-circle"></i> Partner Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="<?= ($tab == 'option') ? 'active' : ''; ?>">
+                        <a href="<?= admin_url('option') ?>"><i class="fa fa-bolt"></i>Solution Management</a>
+                    </li> -->
+                    <li class="treeview <?= ($tab == 'add_member' || $tab == 'members') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>Members Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_member') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('members/add') ?>"><i class="fa fa-circle"></i> Add Member</a>
+                            </li>
+                            <li class="<?= ($tab == 'members') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('members') ?>"><i class="fa fa-circle"></i> Member Lists</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview <?= ($tab == 'add_banner' || $tab == 'banner') ? 'active' : ''; ?>">
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-picture-o"></i>
+                            <span>Banner Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_banner') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('banner/add') ?>"><i class="fa fa-circle"></i> Add Banner</a>
+                            </li>
+                            <li class="<?= ($tab == 'banner') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('banner') ?>"><i class="fa fa-circle"></i> Banner Lists</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="treeview <?= ($tab == 'add_homecourse' || $tab == 'homecourse' || $tab == 'powerspeech') ? 'active' : ''; ?>">
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-home"></i>
+                            <span>Home Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_homecourse') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('homecourse/add') ?>"><i class="fa fa-circle"></i> Add Home Courses</a>
+                            </li>
+                            <li class="<?= ($tab == 'homecourse') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('homecourse') ?>"><i class="fa fa-circle"></i> Home Courses Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'powerspeech') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('homecourse/powerspeech') ?>"><i class="fa fa-circle"></i> Home Middle</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="treeview <?= ($tab == 'add_cms' || $tab == 'cms') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-cog"></i>
@@ -281,19 +281,47 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- <li class="treeview <?= ($tab == 'add_teams' || $tab == 'teams') ? 'active' : ''; ?>">
+                    <li class="treeview <?= ($tab == 'add_mode' || $tab == 'mode_list' || $tab == 'add_level' || $tab == 'level_list' || $tab == 'add_comp' || $tab == 'comp_list' || $tab == 'cat_list' || $tab == 'v_chapter' || $tab == 'ad_chapter' || $tab == 'v_mat' || $tab == 'ad_comp_chapter' || $tab == 'v_comp_chapter' || $tab == 'add_cat') ? 'active' : ''; ?>">
                         <a href="#">
-                            <i class="fa fa-users"></i>
-                            <span>Team Management</span>
+                            <i class="fa fa-book"></i>
+                            <span>Course Management </span>
                             <span class="pull-right-container">
                                 <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams/add') ?>"><i class="fa fa-circle"></i> Add Team </a></li>
-                            <li class="<?= ($tab == 'teams') ? 'active' : ''; ?>"><a href="<?= admin_url('teams') ?>"><i class="fa fa-circle"></i>Team Lists</a></li>
+                            <li class="<?= ($tab == 'add_mode') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/mode_add') ?>"><i class="fa fa-circle"></i> Add Mode </a>
+                            </li>
+                            <li class="<?= ($tab == 'mode_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/mode') ?>"><i class="fa fa-circle"></i> Mode Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'add_level') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/level_add') ?>"><i class="fa fa-circle"></i> Add Level </a>
+                            </li>
+                            <li class="<?= ($tab == 'level_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/level') ?>"><i class="fa fa-circle"></i> Level Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'add_cat') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/category_add') ?>"><i class="fa fa-circle"></i> Add Category </a>
+                            </li>
+                            <li class="<?= ($tab == 'cat_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/category') ?>"><i class="fa fa-circle"></i> Category Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'add_comp') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/add_course') ?>"><i class="fa fa-circle"></i> Add Course</a>
+                            </li>
+                            <li class="<?= ($tab == 'comp_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/course_list') ?>"><i class="fa fa-circle"></i> Course Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'purchased_course') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/purchased_course') ?>"><i class="fa fa-circle"></i> Purchased Course Lists</a>
+                            </li>
+                            <li class="<?= ($tab == 'course_reviewd') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('course/course_reviewd') ?>"><i class="fa fa-circle"></i> Course Review Lists</a>
+                            </li>
                         </ul>
-                    </li> -->
+                    </li>
                     <li class="treeview <?= ($tab == 'add_blog' || $tab == 'blog') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>
@@ -307,7 +335,6 @@
                             <li class="<?= ($tab == 'blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog') ?>"><i class="fa fa-circle"></i> Blog Lists</a></li>
                         </ul>
                     </li>
-
                     <li class="treeview <?= ($tab == 'faqs') ? 'active' : ''; ?> ">
                         <a href="#">
                             <i class="fa fa-user"></i>
@@ -327,7 +354,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="treeview <?= ($tab == 'add_event' || $tab == 'event') ? 'active' : ''; ?> ">
                         <a href="#">
                             <i class="fa fa-user"></i>
@@ -350,7 +376,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="treeview <?= ($tab == 'add_product_cat' || $tab == 'product_cat_list' || $tab == 'add_product' || $tab == 'products') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-book"></i>
@@ -377,32 +402,29 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- <li class="treeview <?= ($tab == 'add_testimonials' || $tab == 'testimonials') ? 'active' : ''; ?>">
+                    <li class="treeview <?= ($tab == 'add_product_cat' || $tab == 'product_cat_list' || $tab == 'add_product' || $tab == 'products') ? 'active' : ''; ?>">
                         <a href="#">
-                            <i class="fa fa-user"></i>
-                            <span>Testimonial Management</span>
+                            <i class="fa fa-book"></i>
+                            <span>Portfolio Management </span>
                             <span class="pull-right-container">
                                 <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'add_testimonials') ? 'active' : ''; ?>"><a href="<?= admin_url('testimonials/add') ?>"><i class="fa fa-circle"></i> Add Testimonial</a></li>
-                            <li class="<?= ($tab == 'testimonials') ? 'active' : ''; ?>"><a href="<?= admin_url('testimonials') ?>"><i class="fa fa-circle"></i> Testimonial Lists</a></li>
+                            <li class="<?= ($tab == 'add_portfolio') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('portfolio/add') ?>"><i class="fa fa-circle"></i> Add portfolio </a>
+                            </li>
+                            <li class="<?= ($tab == 'portfolio_list') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('portfolio') ?>"><i class="fa fa-circle"></i> Portfolio Lists</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="treeview <?= ($tab == 'gallery' || $tab == 'ad_gallery') ? 'active' : ''; ?>">
-                        <a href="#">
-                            <i class="fa fa-image"></i>
-                            <span>Partner Management</span>
-                            <span class="pull-right-container">
-                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="<?= ($tab == 'ad_gallery') ? 'active' : ''; ?>"><a href="<?= admin_url('Partner/add') ?>"><i class="fa fa-circle"></i> Add Partner</a></li>
-                            <li class="<?= ($tab == 'gallery') ? 'active' : ''; ?>"><a href="<?= admin_url('Partner') ?>"><i class="fa fa-circle"></i> Partner Lists</a></li>
-                        </ul>
-                    </li> -->
+                    <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
+                        <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
+                    </li>
+                    <li class="<?= ($tab == 'email_list') ? 'active' : ''; ?>">
+                        <a href="<?= admin_url('settings/email_list') ?>"><i class="fa fa-circle"></i> Email List</a>
+                    </li>
                     <li class="treeview <?= ($tab == 'cert_apply' || $tab == 'rv_cont' || $tab == 'contacts' || $tab == 'cert_contacts' || $tab == 'contacts_stay') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-envelope"></i>
@@ -428,16 +450,6 @@
                                 </a>
                             </li> -->
                         </ul>
-                    </li>
-
-                    <!-- <li class="<?= ($tab == 'option') ? 'active' : ''; ?>">
-                        <a href="<?= admin_url('option') ?>"><i class="fa fa-bolt"></i>Solution Management</a>
-                    </li> -->
-                    <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
-                        <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
-                    </li>
-                    <li class="<?= ($tab == 'email_list') ? 'active' : ''; ?>">
-                        <a href="<?= admin_url('settings/email_list') ?>"><i class="fa fa-circle"></i> Email List</a>
                     </li>
                 </ul>
             </section>

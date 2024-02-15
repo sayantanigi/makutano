@@ -17,81 +17,16 @@
             </div>
             <div class="container">
                 <div class="row g-2">
+                    <?php if(!empty($portfolio7)) { 
+                    foreach ($portfolio7 as $value) { ?>
                     <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery1.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery1.webp" />
+                        <a href="<?= base_url()?>uploads/portfolio/<?php echo $value['image']?>" data-fancybox="group" class="galleryBox">
+                            <img src="<?= base_url()?>uploads/portfolio/<?php echo $value['image'] ?>" />
                         </a>
                     </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery2.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery2.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery3.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery3.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery4.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery4.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery5.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery5.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery6.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery6.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery7.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery7.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery8.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery8.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery9.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery9.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery10.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery10.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery11.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery11.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery12.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery12.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery13.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery13.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery14.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery14.webp" />
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-6">
-                        <a href="<?= base_url()?>assets/img/gallery15.webp" data-fancybox="group" class="galleryBox">
-                            <img src="<?= base_url()?>assets/img/gallery15.webp" />
-                        </a>
-                    </div>
+                    <?php } } else { ?>
+                    <div class="col-lg-4 col-6">No data found</div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
