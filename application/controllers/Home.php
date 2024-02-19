@@ -1249,7 +1249,7 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function programme_sejour() {
-        $data['mak_zeronine'] = $this->db->query("SELECT * FROM mak_zeronine WHERE status = '1'")->result_array();
+        $data['programme_sejour'] = $this->db->query("SELECT * FROM programme_sejour WHERE status = '1'")->result_array();
         $this->load->view('header', $data);
         $this->load->view('programme_sejour', $data);
         $this->load->view('footer');

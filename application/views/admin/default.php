@@ -446,10 +446,27 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="<?= ($tab == 'add_programme_forum') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('programme/add') ?>"><i class="fa fa-circle"></i> Add rogramme Forum</a>
+                                <a href="<?= admin_url('programme/add') ?>"><i class="fa fa-circle"></i> Add programme Forum</a>
                             </li>
                             <li class="<?= ($tab == 'programme_forum') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('programme') ?>"><i class="fa fa-circle"></i> Programme Forum</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'programme_forum' || $tab == 'add_programme_forum') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Programme Sejour </span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_programme_sejour') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('programme_sejour/add') ?>"><i class="fa fa-circle"></i> Add programme Sejour</a>
+                            </li>
+                            <li class="<?= ($tab == 'programme_sejour') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('programme_sejour') ?>"><i class="fa fa-circle"></i> Programme Sejour</a>
                             </li>
                         </ul>
                     </li>
