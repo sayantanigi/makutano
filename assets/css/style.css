@@ -651,7 +651,75 @@ p {
   font-size: 16px;
   color: #e0e0e0;
 }
-
+.bg-success{
+  background: #31A95E !important;
+}
+.m-width-120{
+  min-width: 120px;
+}
+.bg-gold{
+  background-color: #CC9933;
+}
+.forumtab .nav-link{
+    padding: 12px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    background: white;
+    color: #000;
+    position: relative;
+}
+.forumtab .nav-link.active:after{
+  width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 10px 7.5px 0 7.5px;
+   border-color: #db3636 transparent transparent transparent;
+   transform: rotate(0deg);
+   content: '';
+   position: absolute;
+   bottom: -9px;
+   left: 0;
+   right: 0;
+   margin: auto;
+}
+.forumtab .nav-link.active {
+  background-color: #db3636;
+}
+.forumtabBox p{
+  margin-bottom: 4px;
+  color: #000;
+}
+.forumtabBox h5{
+  color: #000;
+  font-size: 18px;
+  letter-spacing: .2px;
+}
+.instbanner{
+  background-size: cover;
+  background-attachment: fixed;
+}
+.instbanner:after{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  content: '';
+  background-color:rgb(94 24 0);
+  opacity: 0.5;
+  position: absolute;
+}
+.instbanner .container{
+  position: relative;
+  z-index: 9;
+}
+.instbanner h1{
+  color: #052093;
+  font-family: 'Oswald', sans-serif;
+    font-size: 55px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 @keyframes section-animation {
   0% {
     width: 0;
@@ -1410,7 +1478,7 @@ p {
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .main-menu-2 ul li:not(:first-child) {
-    margin-left: 20px;
+    margin-left: 15px;
   }
 }
 .main-menu-2 ul li .menu-tag {

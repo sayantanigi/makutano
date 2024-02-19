@@ -1162,7 +1162,7 @@ class Home extends CI_Controller {
                     $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
                 }
                 echo "2";
-            }else{
+            } else {
                 echo "3";
             }
         }
@@ -1170,5 +1170,88 @@ class Home extends CI_Controller {
     public function unsubscribe($id) {
         $this->db->query("UPDATE email_subscription SET status = '0' WHERE id = '".$id."'");
         redirect('home', 'refresh');
+    }
+    public function institute() {
+        $this->load->view('header');
+        $this->load->view('institute');
+        $this->load->view('footer');
+    }
+    public function contactInstitute() {
+        $insertData = array(
+            'fname' => $_POST['fname'],
+            'lname' => $_POST['lname'],
+            'email' => $_POST['email'],
+            'subject' => $_POST['subject'],
+            'message' => $_POST['message'],
+            'created_at' => date('Y-m-d h:i')
+        );
+        $insertId = $this->db->insert("contact_institute", $insertData);
+        if(!empty($insertId)) {
+            $optionsList = $this->db->query("SELECT * FROM options")->result();
+            //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            $admEmail = $optionsList[8]->option_value;
+            $address = $optionsList[6]->option_value;
+            $message = "<body>
+            <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                    <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                    <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Afrebay</span></h3>
+                    <p style='font-size:24px;'>Hello User,</p>
+                    <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
+                    <p style='font-size:20px;'></p>
+                    <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                    <p style='list-style: none;'><b>Makutano</b></p>
+                    <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                    <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                </div>
+                <table style='width: 100%;'>
+                    <tr>
+                        <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Afrebay. All rights reserved.</td>
+                    </tr>
+                </table>
+            </div>
+        </body>";
+            $mail = new PHPMailer(true);
+            try {
+                $mail->CharSet = 'UTF-8';
+                $mail->SetFrom($admEmail, 'Makutano');
+                $mail->AddAddress($_POST['email']);
+                $mail->IsHTML(true);
+                $mail->Subject = "Contact Makutano Institute";
+                $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
+                $mail->Body = $message;
+                /*$mail->IsSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'no-reply@goigi.com';
+                $mail->Password = 'wj8jeml3eu0z';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+                $mail->send();*/
+            } catch (Exception $e) {
+                $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+            }
+            echo "1";
+        } else {
+            echo "2";
+        }
+    }
+    public function programmeForum() {
+        $data['programme'] = $this->db->query("SELECT * FROM programme WHERE status = '1' LIMIT 2")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('programme_forum', $data);
+        $this->load->view('footer');
+    }
+    public function mak_zeronine() {
+        $data['mak_zeronine'] = $this->db->query("SELECT * FROM mak_zeronine WHERE status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('mak_09', $data);
+        $this->load->view('footer');
+    }
+    public function programme_sejour() {
+        $data['mak_zeronine'] = $this->db->query("SELECT * FROM mak_zeronine WHERE status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('programme_sejour', $data);
+        $this->load->view('footer');
     }
 }

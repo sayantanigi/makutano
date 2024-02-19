@@ -81,9 +81,9 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                         <li class="has-dropdown">
                                             <a href="#">#Makutano9</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Présentation #Makutano9</a></li>
-                                                <li><a href="#">Programme Séjour</a></li>
-                                                <li><a href="#">Programme Forum</a></li>
+                                                <li><a href="<?= base_url()?>mak_09">Présentation #Makutano9</a></li>
+                                                <li><a href="<?= base_url()?>programme_sejour">Programme Séjour</a></li>
+                                                <li><a href="<?= base_url()?>programme_forum">Programme Forum</a></li>
                                                 <li><a href="<?= base_url()?>portfolio9">Portfolio #Makutano9</a></li>
                                             </ul>
                                         </li>
@@ -114,7 +114,7 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                         <li class="has-dropdown">
                                             <a href="#">Institute</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Institute</a></li>
+                                                <li><a href="<?= base_url()?>institute">Institute</a></li>
                                                 <li><a href="#">Publications</a>
                                                     <ul class="submenu">
                                                         <li><a href="#">Conference proceedings</a></li>

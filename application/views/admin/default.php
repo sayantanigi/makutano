@@ -436,6 +436,40 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="treeview <?= ($tab == 'programme_forum' || $tab == 'add_programme_forum') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Forum Management </span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_programme_forum') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('programme/add') ?>"><i class="fa fa-circle"></i> Add rogramme Forum</a>
+                            </li>
+                            <li class="<?= ($tab == 'programme_forum') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('programme') ?>"><i class="fa fa-circle"></i> Programme Forum</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'maknine' || $tab == 'add_maknine') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Makutano 09 </span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_maknine') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('maknine/add') ?>"><i class="fa fa-circle"></i> Add Maknine</a>
+                            </li>
+                            <li class="<?= ($tab == 'maknine') ? 'active' : ''; ?>">
+                                <a href="<?= admin_url('maknine') ?>"><i class="fa fa-circle"></i> Maknine</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
                     </li>
