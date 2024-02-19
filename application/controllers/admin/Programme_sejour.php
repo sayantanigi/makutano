@@ -69,7 +69,7 @@ class Programme_sejour extends Admin_Controller {
         // echo $this->db->last_query();die();
         $this->data['programme_sejour']->gender = "Male";
         if ($id) {
-            $this->data['programme_sejour'] = $programme_v = $this->Programme_sejour_model->getRow($id);
+            $this->data['programme_sejour'] = $programmes_v = $this->Programme_sejour_model->getRow($id);
             if(!isset($programmes_v)){
                show_404();
                 exit();
