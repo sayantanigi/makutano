@@ -64,6 +64,9 @@ $route['institute'] = 'Home/institute';
 $route['programme_forum'] = 'Home/programmeForum';
 $route['mak_09'] = 'Home/mak_zeronine';
 $route['programme_sejour'] = 'Home/programme_sejour';
+$route['conferences'] = 'Home/conferences';
+$route['conference/(:any)'] = 'Home/conference_details/$1';
+
 $route['cart'] = 'Home/cart';
 $route['checkout'] = "home/checkout";
 $route['email_unsubscribe/(:any)'] = 'Home/email_unsubscribe';

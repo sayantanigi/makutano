@@ -227,7 +227,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="treeview <?= ($tab == 'add_banner' || $tab == 'banner') ? 'active' : ''; ?>">
                         <a href="javascript:void(0);">
                             <i class="fa fa-picture-o"></i>
@@ -245,7 +244,6 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li class="treeview <?= ($tab == 'add_homecourse' || $tab == 'homecourse' || $tab == 'powerspeech') ? 'active' : ''; ?>">
                         <a href="javascript:void(0);">
                             <i class="fa fa-home"></i>
@@ -333,6 +331,19 @@
                         <ul class="treeview-menu">
                             <li class="<?= ($tab == 'add_blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog/add') ?>"><i class="fa fa-circle"></i> Add Blog</a></li>
                             <li class="<?= ($tab == 'blog') ? 'active' : ''; ?>"><a href="<?= admin_url('blog') ?>"><i class="fa fa-circle"></i> Blog Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'add_conference' || $tab == 'conference') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Conference Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_conference') ? 'active' : ''; ?>"><a href="<?= admin_url('conference/add') ?>"><i class="fa fa-circle"></i> Add Conference</a></li>
+                            <li class="<?= ($tab == 'conference') ? 'active' : ''; ?>"><a href="<?= admin_url('conference') ?>"><i class="fa fa-circle"></i> Conference Lists</a></li>
                         </ul>
                     </li>
                     <li class="treeview <?= ($tab == 'faqs') ? 'active' : ''; ?> ">

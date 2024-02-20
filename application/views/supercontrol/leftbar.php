@@ -622,7 +622,7 @@ $nl2 = $this->uri->segment(3);
         <li class="nav-item <?php if ($nl == "news") { ?>active open<?php } ?>"> 
             <a href="javascript:;" class="nav-link nav-toggle"> 
                 <i class="fa fa-newspaper-o"></i> 
-                <span class="title">Blog Managements</span> 
+                <span class="title">Blog Mgmt</span> 
                 <span class="addindividual"></span> 
                 <span class="arrow addindividual"></span> 
             </a>
@@ -635,6 +635,26 @@ $nl2 = $this->uri->segment(3);
                 <li class="nav-item  <?php if ($nl == "show_news") { ?>active open<?php } ?>"> 
                     <a href="<?php echo base_url(); ?>supercontrol/news/show_news" class="nav-link "> 
                         <span class="title">Blog list</span> 
+                    </a> 
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item <?php if ($nl == "conference") { ?>active open<?php } ?>"> 
+            <a href="javascript:;" class="nav-link nav-toggle"> 
+                <i class="fa fa-newspaper-o"></i> 
+                <span class="title">Conference Mgmt</span> 
+                <span class="addindividual"></span> 
+                <span class="arrow addindividual"></span> 
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item <?php if ($nl2 == "conference_add_form") { ?>active open<?php } ?>"> 
+                    <a href="<?php echo base_url(); ?>supercontrol/conference/conference_add_form" class="nav-link "> 
+                        <span class="title">Add Conference</span> 
+                    </a> 
+                </li>
+                <li class="nav-item <?php if ($nl == "show_conference") { ?>active open<?php } ?>"> 
+                    <a href="<?php echo base_url(); ?>supercontrol/conference/show_conference" class="nav-link "> 
+                        <span class="title">Conference list</span> 
                     </a> 
                 </li>
             </ul>

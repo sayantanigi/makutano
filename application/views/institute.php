@@ -48,7 +48,7 @@
                                     <div class="sidebar__widget-content">
                                         <div class="sidebar__category">
                                             <ul>
-                                                <li><a href="#">Conference proceedings</a></li>
+                                                <li><a href="<?= base_url()?>conferences">Conference proceedings</a></li>
                                                 <li><a href="#">Makutano Analytics</a></li>
                                                 <li><a href="#">Work documents</a></li>
                                                 <li><a href="#">Conferences</a></li>

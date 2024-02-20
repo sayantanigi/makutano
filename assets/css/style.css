@@ -9056,3 +9056,23 @@ p.checkout-coupon input[type=text]:focus {
   height: 60px;
   object-fit: cover;
 }
+.conferencebg{
+  background-color: #052093;
+  background-image: url(../img/pattern-orange.png);
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: initial;
+}
+.conferencebg .section__title-wrapper{
+  background: #052093;
+}
+.text-primary{
+  color: #052093 !important;
+}
+.bg-primary{
+  background-color: #052093 !important;
+}
+.rc__post p{
+  font-size: 15px;
+  line-height: 22px;
+}

@@ -1254,4 +1254,21 @@ class Home extends CI_Controller {
         $this->load->view('programme_sejour', $data);
         $this->load->view('footer');
     }
+    public function conferences() {
+        $data['conferences'] = $this->db->query("SELECT * FROM conference WHERE status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('conference', $data);
+        $this->load->view('footer');
+    }
+    public function conference_details($slug="") {
+        $data['conference_details'] = $this->db->query("SELECT * FROM conference WHERE slug LIKE '%$slug%' AND status = '1'")->row();
+        $this->load->view('header', $data);
+        $this->load->view('conference_detail', $data);
+        $this->load->view('footer');
+    }
+    public function statuts() {
+        $this->load->view('header');
+        $this->load->view('statuts');
+        $this->load->view('footer');
+    }
 }
