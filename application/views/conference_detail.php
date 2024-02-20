@@ -76,7 +76,7 @@
                                     <div class="sidebar__widget-content">
                                         <div class="sidebar__category">
                                             <ul>
-                                                <li><a href="<?= base_url()?>conference">Conference proceedings</a></li>
+                                                <li><a href="<?= base_url()?>conferences">Conference proceedings</a></li>
                                                 <li><a href="#">Work documents</a></li>
                                                 <li><a href="#">Revue Africaine de la Banque et des Assurances
                                                         (African Review of Banking and Insurance)</a></li>

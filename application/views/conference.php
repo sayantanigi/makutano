@@ -28,12 +28,12 @@
                     <div class="blog__wrapper">
                         <div class="blog__item white-bg mb-30 transition-3 fix">
                             <div class="blog__thumb w-img fix">
-                                <a href="blog-details.html">
+                                <a href="<?= base_url()?>conference/<?= $value['slug']?>">
                                     <img src="<?= base_url()?>uploads/conference/<?= $value['image']?>" style="height: 215px;">
                                 </a>
                             </div>
                             <div class="blog__content">
-                                <h3 class="blog__title mb-3"><a href="#" class="text-primary"><?= $value['title']?></a></h3>
+                                <h3 class="blog__title mb-3"><a href="<?= base_url()?>conference/<?= $value['slug']?>" class="text-primary"><?= $value['title']?></a></h3>
                                 <p class="text-danger fw-bold"><?= date('j M Y', strtotime($value['date']))?></p>
                                 <p>
                                     <?php
