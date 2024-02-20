@@ -45,6 +45,7 @@
                                                         <th>Sl No</th>
                                                         <th style="max-width:170px;">Image</th>
                                                         <th>Title</th>
+                                                        <th>Category</th>
                                                         <th>Posted By</th>
                                                         <th>Date</th>
                                                         <th>Attachment Link</th>
@@ -65,6 +66,7 @@
                                                         <img src="<?php echo base_url() ?>uploads/conference/<?php echo $i->image; ?>" width="150" height="100" style="border: 2px solid #ddd;"/>
                                                         <?php } ?></td>
                                                         <td style="max-width:150px;"> <?php echo $i->title; ?> </td>
+                                                        <td style="max-width:150px;"> <?php echo ucwords($i->category); ?> </td>
                                                         <td style="max-width:200px;"> 
                                                         <?php 
                                                         if(!empty($i->uploaded_by)){

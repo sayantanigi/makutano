@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 09, 2024 at 07:34 PM
+-- Generation Time: Feb 20, 2024 at 07:58 PM
 -- Server version: 5.7.44
 -- PHP Version: 8.1.27
 
@@ -68,14 +68,23 @@ CREATE TABLE `banner` (
 
 CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `title` text NOT NULL,
+  `slug` text,
   `uploaded_by` varchar(255) NOT NULL,
-  `popular` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `popular` text NOT NULL,
+  `description` longtext NOT NULL,
+  `image` text NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `slug`, `uploaded_by`, `popular`, `description`, `image`, `status`, `created_at`) VALUES
+(1, 'Spec Ops: The Line - Analise ', 'spec-ops-the-line-analise', '', 'blog', '<p>N&atilde;o &eacute; comum ver um videojogo retirar inspira&ccedil;&atilde;o de uma obra liter&aacute;ria, e &eacute; ainda menos comum no caso de um shooter t&atilde;o declarado como este Spec Ops: The Line. Desenvolvido pela Yager Development, o jogo &eacute; apresentado como uma adapta&ccedil;&atilde;o moderna da obra de Joseph Conrad, Heart of Darkness, a mesma que servira de inspira&ccedil;&atilde;o para o filme Apocalypse Now de Francis Ford Coppola.</p>\r\n\r\n<p>Tudo come&ccedil;a com a cidade do Dubai em ru&iacute;nas, fustigada por fortes tempestades de areia, que tornam uma das zonas mais exuberantes do mundo numa &quot;terra de ningu&eacute;m&quot;. Os sobreviventes comportam-se como abutres, matando e pilhando por o que resta de alimento. Impera a lei da bala, com grupos altamente armados, grupos de civis, a CIA, e at&eacute; o que resta das for&ccedil;as militares de uma base Americana situada naquela &aacute;rea.</p>\r\n\r\n<p>Controlamos uma equipa de tr&ecirc;s elementos da Delta Force, encarregues de conduzir uma miss&atilde;o de resgate neste terreno hostil, motivados por uma transmiss&atilde;o r&aacute;dio que sugere que o coronel John konrad (uma clara refer&ecirc;ncia ao nome do autor de Heart of Darkness) se encontra vivo algures no Dubai. Konrad &eacute; um antigo companheiro do protagonista do jogo, o capit&atilde;o Martin Walker, e salvara a sua vida no passado durante uma miss&atilde;o em Kabul.</p>\r\n', 'spec-ops-the-line1.png', 1, '2024-02-14 12:48:33'),
+(2, 'What is Lorem Ipsum?', 'what-is-lorem-ipsum', '2', 'news', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Where does it come from?</h2>\r\n\r\n<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.</p>\r\n\r\n<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>\r\n\r\n<h2>Where can I get some?</h2>\r\n\r\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>\r\n', 'Blue+Waters+Cabinets+Angle+square.png', 1, '2024-02-14 00:59:00');
 
 -- --------------------------------------------------------
 
@@ -91,13 +100,6 @@ CREATE TABLE `cart` (
   `quantity` varchar(45) DEFAULT NULL,
   `price` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `product_id`, `size`, `quantity`, `price`) VALUES
-(2, '1', '1', 'XS', '2', '33.2');
 
 -- --------------------------------------------------------
 
@@ -48497,6 +48499,36 @@ INSERT INTO `cms` (`id`, `page`, `title`, `meta_title`, `slug`, `meta_descriptio
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `conference`
+--
+
+CREATE TABLE `conference` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `slug` text,
+  `category` text,
+  `description` longtext NOT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `image` text NOT NULL,
+  `attachment` text NOT NULL,
+  `uploaded_by` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `conference`
+--
+
+INSERT INTO `conference` (`id`, `title`, `slug`, `category`, `description`, `date`, `image`, `attachment`, `uploaded_by`, `status`, `created_at`) VALUES
+(1, 'when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'when-an-unknown-printer-took-a-galley-of-type-and-scrambled-it-to-make-a-type-specimen-book', 'webinar', '</p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n\" id=\"editor1\"><h2>CONFÉRENCE DE LANCEMENT DE L’INSTITUT MAKUTANO</h2>\r\n\r\n<h3>MOTIVATION ET OBJET</h3>\r\n\r\n<p>A l’occasion de la commémoration de l’indépendance politique de la République démocratique du Congo, une interrogation sur l’indépendance économique du pays s’invite avec acuité tant il est vrai que sans celle-ci, la première ne saurait être appréciée à sa juste valeur. Le réseau Makutano organise ce samedi 27 juin 2020, sous forme de webinaire, une conférence académique sur ce thème pour mettre en évidence les pistes d’avancée vers l’indépendance économique de la République démocratique du Congo. Au-delà, Les trois axes majeurs qui seront discutés sont : l’indépendance<br />\r\nfinancière et ses limites, l’indépendance énergétique et la politique industrielle ainsi que le capital humain dans la transformation de l’agriculture. Au-delà de la compréhension des démarches intellectuelle et empirique de la transformation industrielle, la conférence apportera une lumière sur l’état du portefeuille de projets d’investissements y relatif en RDC, le processus concret de lancement d’un projet en partenariat avec le gouvernement congolais via l’accompagnement de l’Agence Nationale pour la Promotion des Investissements ainsi qu’une esquisse d’une nouvelle politique d’investissement.</p>\r\n\r\n<hr />\r\n<h3>PROGRAM</h3>\r\n\r\n<p><strong>11h00</strong> : Ouverture et présentation du projet de lancement de l’Institut Makutano, Think tank du réseau Makutano.</p>\r\n\r\n<p><em><strong>Nicole Sulu Tshiyoyo</strong>, Fondatrice du réseau Sultani Makutano.</em></p>\r\n\r\n<p><strong>11h05</strong> : Présentation sur « L’indépendance financière et ses limites : la balance entre stratégies d’accès aux marchés internationaux et développement d’un système financier interne ».</p>\r\n\r\n<p><em><strong>José Manoka Mussala</strong> (MBA), Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing de la banque Clearstream Banking Luxembourg S.A.</em></p>\r\n\r\n<p><strong>11h20</strong> : Présentation sur « L’indépendance énergétique et la politique industrielle : cas de la transformation structurelle d’une économie de ressources naturelles ».</p>\r\n\r\n<p><em><strong>Jean-Marc Kilolo Malambwe</strong> (PhD, MBA), Economiste international, Professeur à l’Université Protestante du Congo et à l’Université Pédagogique Nationale.</em></p>\r\n\r\n<p><strong>11h35</strong> : Présentation sur « Capital humain et transformation de l’agriculture : rôle des entreprises et des décideurs ».</p>\r\n\r\n<p><em><strong>Christian OTCHIA</strong> (PhD), Professeur associé à l’Université de Nagoya au Japon.</em></p>\r\n\r\n<p><strong>11h50</strong> : Présentation sur « Portefeuille de projets de la RDC compatible avec l’indépendance économique, en finance, énergie, agriculture et ressources minières : esquisse d’une nouvelle politique d’investissement ».</p>\r\n\r\n<p><em><strong>Anthony NKINZO</strong>, Directeur Général de l’Agence Nationale pour la Promotion des Investissements.</em></p>\r\n\r\n<p><strong>12h05</strong> : Séance de questions-réponses et échanges</p>\r\n\r\n<p><strong>12h30</strong> : Fin de la conférence</p>\r\n\r\n<hr />\r\n<h3>NOTES BIOGRAPHIQUES DES PRINCIPAUX ORATEURS</h3>\r\n\r\n<p><strong>José MANOKA MUSSALA</strong> (MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.01.21-150x150.png\" /></p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n', '2024-02-29', 'spec-ops-the-line1.png', 'c4611_sample_explain_-_Copy.pdf', '', 1, '2024-02-20 07:14:56'),
+(7, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry', 'network', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-20', 'spec-ops-the-line6.png', '9982_6655_ActivateGoogleLocationAPI2.pdf', '2', 1, '2024-02-19 23:06:00'),
+(8, 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'it-was-popularised-in-the-1960s-with-the-release-of-letraset-sheets-containing-lorem-ipsum-passages', 'institute', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-21', 'luxurious-bag2.jpg', '9982_6655_ActivateGoogleLocationAPI4.pdf', '2', 1, '2024-02-19 23:06:00'),
+(11, 'It has survived not only five centuries, but also the leap into electronic typesetting', 'it-has-survived-not-only-five-centuries-but-also-the-leap-into-electronic-typesetting', 'foundation', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-24', '1624550510XoNRRYd0t0.png', 'c4611_sample_explain_-_Copy1.pdf', '2', 1, '2024-02-19 23:07:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contacts`
 --
 
@@ -48515,6 +48547,30 @@ CREATE TABLE `contacts` (
   `address` text NOT NULL,
   `business_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_institute`
+--
+
+CREATE TABLE `contact_institute` (
+  `id` int(11) NOT NULL,
+  `fname` text,
+  `lname` text,
+  `email` text,
+  `subject` longtext,
+  `message` longtext,
+  `created_at` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact_institute`
+--
+
+INSERT INTO `contact_institute` (`id`, `fname`, `lname`, `email`, `subject`, `message`, `created_at`) VALUES
+(1, 'sayantan', 'Bhakta', 'sayantan@goigi.in', 'Test Subject', 'This is a test email', '2024-02-19 12:40'),
+(2, 'sayantan', 'Bhakta', 'sayantan@goigi.in', 'Test Subject', 'this is a test email', '2024-02-19 12:42');
 
 -- --------------------------------------------------------
 
@@ -49044,6 +49100,19 @@ CREATE TABLE `course_syllabus` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `email_subscription`
+--
+
+CREATE TABLE `email_subscription` (
+  `id` int(11) NOT NULL,
+  `user_email` text,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `email_unsubscribe_list`
 --
 
@@ -49226,6 +49295,39 @@ INSERT INTO `homecourse` (`id`, `heading`, `sub_heading`, `course_icon`, `course
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mak_zeronine`
+--
+
+CREATE TABLE `mak_zeronine` (
+  `id` int(11) NOT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mak_zeronine`
+--
+
+INSERT INTO `mak_zeronine` (`id`, `image`, `status`, `created_date`) VALUES
+(1, '4404_mak-09-1.webp', '1', '2024-02-19 17:22:55'),
+(2, '2106_mak-09-2.webp', '1', '2024-02-19 17:22:55'),
+(3, '8959_mak-09-3.webp', '1', '2024-02-19 17:22:55'),
+(4, '3402_mak-09-4.webp', '1', '2024-02-19 17:22:55'),
+(5, '7720_mak-09-5.webp', '1', '2024-02-19 17:22:55'),
+(6, '8580_mak-09-6.webp', '1', '2024-02-19 17:22:55'),
+(7, '6753_mak-09-7.webp', '1', '2024-02-19 17:22:55'),
+(8, '3591_mak-09-8.webp', '1', '2024-02-19 17:22:55'),
+(9, '5793_mak-09-9.webp', '1', '2024-02-19 17:22:55'),
+(10, '546_mak-09-10.webp', '1', '2024-02-19 17:22:55'),
+(11, '1532_mak-09-11.webp', '1', '2024-02-19 17:22:55'),
+(12, '1867_mak-09-12.webp', '1', '2024-02-19 17:22:55'),
+(13, '1459_mak-09-13.webp', '1', '2024-02-19 17:22:55'),
+(15, '3984_mak-09-14.webp', '1', '2024-02-19 17:28:34');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `options`
 --
 
@@ -49280,7 +49382,9 @@ INSERT INTO `options` (`option_id`, `option_name`, `option_value`) VALUES
 (42, 'map', '<iframe src=\"https://maps.google.com/maps?q=Fort%20Miley&t=&z=13&ie=UTF8&iwloc=&output=embed\"></iframe>'),
 (43, 'tollfree', NULL),
 (44, 'shipping_charge', '20'),
-(45, 'tax', '18');
+(45, 'tax', '18'),
+(46, 'app_store_link', NULL),
+(47, 'play_store_link', NULL);
 
 -- --------------------------------------------------------
 
@@ -49334,6 +49438,71 @@ CREATE TABLE `payments` (
   `payment_status` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolio`
+--
+
+CREATE TABLE `portfolio` (
+  `id` int(11) NOT NULL,
+  `portfolioId` varchar(45) DEFAULT NULL,
+  `image` longtext,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolio`
+--
+
+INSERT INTO `portfolio` (`id`, `portfolioId`, `image`, `status`, `created_date`) VALUES
+(1, '1', '1743_gallery1.webp', '1', '2024-02-15 19:18:40'),
+(2, '1', '2826_gallery2.webp', '1', '2024-02-15 19:18:40'),
+(3, '1', '219_gallery3.webp', '1', '2024-02-15 19:18:40'),
+(4, '1', '5961_gallery4.webp', '1', '2024-02-15 19:18:40'),
+(5, '1', '3992_gallery5.webp', '1', '2024-02-15 19:18:40'),
+(6, '1', '4821_gallery6.webp', '1', '2024-02-15 19:18:40'),
+(7, '1', '433_gallery7.webp', '1', '2024-02-15 19:18:40'),
+(8, '1', '9809_gallery8.webp', '1', '2024-02-15 19:18:40'),
+(9, '1', '1916_gallery9.webp', '1', '2024-02-15 19:18:40'),
+(10, '1', '2841_gallery10.webp', '1', '2024-02-15 19:18:40'),
+(11, '1', '3687_gallery11.webp', '1', '2024-02-15 19:18:40'),
+(12, '1', '8129_gallery12.webp', '1', '2024-02-15 19:18:40'),
+(13, '1', '6726_gallery13.webp', '1', '2024-02-15 19:18:40'),
+(14, '1', '1876_gallery14.webp', '1', '2024-02-15 19:18:40'),
+(15, '1', '6369_gallery15.webp', '1', '2024-02-15 19:18:40'),
+(16, '1', '2003_gallery16.webp', '1', '2024-02-15 19:18:40'),
+(17, '1', '359_gallery17.webp', '1', '2024-02-15 19:18:40'),
+(18, '1', '6053_gallery18.webp', '1', '2024-02-15 19:18:40'),
+(19, '2', '349_gallery4.webp', '1', '2024-02-15 19:19:56'),
+(20, '2', '2216_gallery5.webp', '1', '2024-02-15 19:19:56'),
+(21, '2', '9987_gallery6.webp', '1', '2024-02-15 19:19:56'),
+(22, '2', '4099_gallery7.webp', '1', '2024-02-15 19:19:56'),
+(23, '2', '5744_gallery8.webp', '1', '2024-02-15 19:19:56'),
+(24, '2', '6439_gallery9.webp', '1', '2024-02-15 19:19:56'),
+(25, '2', '5026_gallery10.webp', '1', '2024-02-15 19:19:56'),
+(26, '2', '7151_gallery11.webp', '1', '2024-02-15 19:19:56'),
+(27, '2', '5214_gallery12.webp', '1', '2024-02-15 19:19:56'),
+(28, '2', '6534_gallery13.webp', '1', '2024-02-15 19:19:56'),
+(29, '2', '9005_gallery14.webp', '1', '2024-02-15 19:19:56'),
+(30, '2', '851_gallery15.webp', '1', '2024-02-15 19:19:56'),
+(31, '3', '3470_gallery13.webp', '1', '2024-02-15 19:21:22'),
+(32, '3', '8171_gallery14.webp', '1', '2024-02-15 19:21:22'),
+(33, '3', '5327_gallery15.webp', '1', '2024-02-15 19:21:22'),
+(34, '3', '990_gallery16.webp', '1', '2024-02-15 19:21:22'),
+(35, '3', '15_gallery17.webp', '1', '2024-02-15 19:21:22'),
+(36, '3', '1007_gallery18.webp', '1', '2024-02-15 19:21:22'),
+(37, '4', '2230_makutano-youth-1-1.jpg', '1', '2024-02-15 19:21:36'),
+(38, '4', '2908_makutano-youth-2-1.jpg', '1', '2024-02-15 19:21:36'),
+(39, '4', '5778_makutano-youth-3-1.jpg', '1', '2024-02-15 19:21:36'),
+(40, '4', '4255_makutano-youth-galerie-1.jpg', '1', '2024-02-15 19:21:36'),
+(41, '4', '4726_makutano-youth-galerie-2.jpg', '1', '2024-02-15 19:21:36'),
+(42, '4', '1302_makutano-youth-galerie-3.jpg', '1', '2024-02-15 19:21:36'),
+(43, '4', '2297_makutano-youth-galerie-4.jpg', '1', '2024-02-15 19:21:36'),
+(44, '4', '8150_makutano-youth-galerie-5.jpg', '1', '2024-02-15 19:21:36'),
+(45, '4', '3765_makutano-youth-galerie-6.jpg', '1', '2024-02-15 19:21:36');
 
 -- --------------------------------------------------------
 
@@ -49452,31 +49621,48 @@ INSERT INTO `product_details` (`id`, `product_id`, `size`, `quantity`) VALUES
 
 CREATE TABLE `product_order_details` (
   `id` int(11) NOT NULL,
-  `billing_first_name` text,
-  `billing_last_name` text,
-  `billing_company_name` text,
-  `billing_email` text,
-  `billing_phone` varchar(100) DEFAULT NULL,
-  `billing_address1` longtext,
-  `billing_address2` longtext,
-  `billing_city` longtext,
-  `billing_state` longtext,
-  `billing_country` longtext,
-  `billing_postcode` longtext,
-  `shiptodifferentadd` longtext,
-  `shipping_first_name` text,
-  `shipping_last_name` text,
-  `shipping_company_name` text,
-  `shipping_email` text,
-  `shipping_phone` varchar(100) DEFAULT NULL,
-  `shipping_address1` longtext,
-  `shipping_address2` longtext,
-  `shipping_city` longtext,
-  `shipping_state` longtext,
-  `shipping_country` longtext,
-  `shipping_postcode` longtext,
-  `order_note` longtext
+  `user_id` varchar(45) DEFAULT NULL,
+  `user_addressid` varchar(45) DEFAULT NULL,
+  `txn_id` varchar(45) DEFAULT NULL,
+  `order_item` longtext,
+  `cart_subtotal` varchar(45) DEFAULT NULL,
+  `shipping` varchar(45) DEFAULT NULL,
+  `tax` varchar(45) DEFAULT NULL,
+  `order_total` varchar(45) DEFAULT NULL,
+  `status` text,
+  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_order_details`
+--
+
+INSERT INTO `product_order_details` (`id`, `user_id`, `user_addressid`, `txn_id`, `order_item`, `cart_subtotal`, `shipping`, `tax`, `order_total`, `status`, `created_date`) VALUES
+(1, '1', '1', 'txn_1941950400', '[{\"id\":\"2\",\"user_id\":\"1\",\"product_id\":\"1\",\"size\":\"XS\",\"quantity\":\"2\",\"price\":\"33.2\"}]', '33.20', '20.00', '5.976', '59.176', 'SUCCESS', '2024-02-12 10:17:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_review`
+--
+
+CREATE TABLE `product_review` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `product_id` varchar(45) DEFAULT NULL,
+  `fname` text,
+  `lname` text,
+  `email` text,
+  `rating` varchar(45) DEFAULT NULL,
+  `comment` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_review`
+--
+
+INSERT INTO `product_review` (`id`, `user_id`, `product_id`, `fname`, `lname`, `email`, `rating`, `comment`) VALUES
+(1, '1', '1', 'sayantan', 'Bhakta', 'sayantan@goigi.in', '5', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
 
 -- --------------------------------------------------------
 
@@ -49491,6 +49677,57 @@ CREATE TABLE `product_type` (
   `product_type_status` varchar(255) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programme`
+--
+
+CREATE TABLE `programme` (
+  `id` int(11) NOT NULL,
+  `title` longtext,
+  `forum_date` text,
+  `start_time` text,
+  `end_time` text,
+  `description` longtext,
+  `dress_code` text,
+  `uploaded_by` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `programme`
+--
+
+INSERT INTO `programme` (`id`, `title`, `forum_date`, `start_time`, `end_time`, `description`, `dress_code`, `uploaded_by`, `status`, `created_at`) VALUES
+(1, 'MERCREDI 20 SEPTEMBRE 2023', NULL, NULL, NULL, '<p class=\"fw-bold\">08H00 – 8H45</p>\r\n                                <p>Salle des fêtes</p>\r\n                                <h5 class=\"text-danger my-2\">ACCUEIL CAFÉ</h5>', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:15'),
+(2, 'JEUDI 21 SEPTEMBRE 2023', NULL, NULL, NULL, '<p>08H00 &ndash; 8H45</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>ACCUEIL CAF&Eacute;</p>\r\n\r\n<p>09H00 &ndash; 10H15</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>MOT DE BIENVENUE</p>\r\n\r\n<p>Deborah Mutund,&nbsp;Entrepreneure, femme de media, consultante en relations publiques</p>\r\n\r\n<p>MC MAKUTANO 2023</p>\r\n\r\n<p>OPENING SPEECH</p>\r\n\r\n<p>Nicole Sulu,&nbsp;Founder Makutano</p>\r\n\r\n<p>S.E.M. Jean-Michel Sama Lukonde,&nbsp;Premier ministre, RDC</p>\r\n\r\n<p>S.E.M. Patrick Achi,&nbsp;Premier ministre, C&ocirc;te d&rsquo;Ivoire</p>\r\n\r\n<p>10H15 &ndash; 11H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 1</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>&Eacute;ric Kacou,&nbsp;DG, Entrepreneurial Solutions Partners</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Keynote (10 min)</p>\r\n\r\n<p>Robert Matana Gumede,&nbsp;Executive Chairman, GUMA Group</p>\r\n\r\n<p>Intervenants</p>\r\n\r\n<p>S.EM. Olusegun Obasanjo,&nbsp;Pr&eacute;sident honoraire du Nig&eacute;ria</p>\r\n\r\n<p>S.E.M. Nicolas Kazadi,&nbsp;Ministre des Finances de RDC</p>\r\n\r\n<p>Albert Yuma,&nbsp;Pr&eacute;sident, FEC</p>\r\n\r\n<p>Paulo Gomes,&nbsp;PDG &ndash; Orango Investment Corporation, Co-fondateur &ndash; New African Capital Partners</p>\r\n\r\n<p>Abdou Souleye Diop,&nbsp;Managing Partner &ndash; Mazars</p>\r\n\r\n<p>Farida Jirari,&nbsp;Directrice g&eacute;n&eacute;rale Association pour le Progr&egrave;s des Dirigeants</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle Chandelier Lagune</p>\r\n\r\n<p>WORKSHOP 1 (25 Pax)</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Discussion sur une probl&eacute;matique concr&egrave;te issue du panel, assortie d&rsquo;un &laquo; Take Away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Ambassadrice</p>\r\n\r\n<p>Charlotte Kalala,&nbsp;Congo na Paris</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>Teddy Roux,&nbsp;Directeur Afrique de l&rsquo;Ouest &ndash; Entrepreneurial Solutions Partners, LLC</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 2</p>\r\n\r\n<p>INTERVIEW 4.0</p>\r\n\r\n<p>Special guest</p>\r\n\r\n<p>Samuel Eto&rsquo;o,&nbsp;Pr&eacute;sident, FECAFOOT</p>\r\n\r\n<p>Mod&eacute;ratrice</p>\r\n\r\n<p>Madjissem Beringaye,&nbsp;TV Host &amp; Entrepreneure</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle ABOISSO</p>\r\n\r\n<p>WORKSHOP 2 (25 pax)</p>\r\n\r\n<p>MINES</p>\r\n\r\n<p>Discussion pr&eacute;paratoire sur une probl&eacute;matique concr&egrave;te du panel Mines, assortie d&rsquo;un &laquo; take away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Mod&eacute;rateurs</p>\r\n\r\n<p>Landry Djimpe, Innogence Consulting</p>\r\n\r\n<p>Laetitia Gadegbeku, Directrice-pays Groupe Endeavour Minm</p>\r\n', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programme_sejour`
+--
+
+CREATE TABLE `programme_sejour` (
+  `id` int(11) NOT NULL,
+  `title` text,
+  `description` longtext,
+  `dress_code` text,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `programme_sejour`
+--
+
+INSERT INTO `programme_sejour` (`id`, `title`, `description`, `dress_code`, `status`, `created_at`) VALUES
+(1, 'LUNDI 18/09/2023 | DÉPART', '<p>15H00 - 19HOO :&nbsp;<strong>Vol Air C&ocirc;te d&rsquo;Ivoire Kinshasa-Abidjan&nbsp;</strong>/ A&eacute;roport de N&rsquo;djili</p>\r\n', '', '1', '2024-02-19 07:35'),
+(2, 'MARDI 19/09/2023 : COCKTAIL', '<p>19H00 :&nbsp;<strong>Cocktail de bienvenue&nbsp;</strong>/ R&eacute;sidence priv&eacute;e, Marcory</p>\r\n', 'Business casual', '1', '2024-02-19 06:57'),
+(3, 'MERCREDI 20/09/2023 : JOUR 1 MAKUTANO', '<p>08H00 - 08H45 :&nbsp;<strong>Accueil&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>09H00 - 12H30 :&nbsp;<strong>1&egrave;re partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 1&nbsp;</strong>/ Le Comptoir, ITC Ivoire Trade Center</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 2 - D&eacute;jeunerd&eacute;bat entrepreunariat&nbsp;</strong>/ La R&eacute;sidence (sur invitation)</p>\r\n\r\n<p>14H30 - 17H30 :&nbsp;<strong>2&egrave;me&nbsp;partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>18H30 - 20H00 :&nbsp;<strong>Cocktail Makutano</strong>&nbsp;/ Galerie Studer, 13 Bd Hassan II</p>\r\n', 'Business formal', '1', '2024-02-19 06:58');
 
 -- --------------------------------------------------------
 
@@ -53858,7 +54095,50 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `currency`, `currency_symbol`, `fname`, `lname`, `email`, `password`, `phone`, `phone_full`, `phone_code`, `phone_country`, `phone_st_country`, `user_bio`, `skills`, `email_verified`, `status`, `image`, `created_at`, `otp`, `token`, `userType`) VALUES
 (1, 'USD', '$', 'Sayantan', 'Bhakta', 'student@gmail.com', '25d55ad283aa400af464c76d713c07ad', '9852365412', '', 0, '', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc vel odio bibendum tincidunt. Nulla facilisi. Sed euismod, justo vel aliquam molestie, dolor sapien sagittis velit, et lacinia nisi nisl vel nisi. Sed auctor nibh vitae urna vulputate molestie.', 'Python', 1, 1, '1357_istockphoto-1399565382-170667a.jpg', '2024-02-02 13:45:48', NULL, NULL, '1'),
-(2, 'USD', '$', 'Demo', 'Instructor', 'instructor@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-02 13:47:50', NULL, NULL, '2');
+(2, 'USD', '$', 'Demo', 'Instructor', 'instructor@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-02 13:47:50', NULL, NULL, '2'),
+(3, 'USD', '$', 'Tes', 'Tes', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, NULL, '2024-02-09 19:45:58', '074229', NULL, '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_address`
+--
+
+CREATE TABLE `user_address` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `billing_first_name` text,
+  `billing_last_name` text,
+  `billing_company_name` text,
+  `billing_email` text,
+  `billing_phone` varchar(100) DEFAULT NULL,
+  `billing_address1` longtext,
+  `billing_address2` longtext,
+  `billing_city` longtext,
+  `billing_state` longtext,
+  `billing_country` longtext,
+  `billing_postcode` longtext,
+  `shiptodifferentadd` longtext,
+  `shipping_first_name` text,
+  `shipping_last_name` text,
+  `shipping_company_name` text,
+  `shipping_email` text,
+  `shipping_phone` varchar(100) DEFAULT NULL,
+  `shipping_address1` longtext,
+  `shipping_address2` longtext,
+  `shipping_city` longtext,
+  `shipping_state` longtext,
+  `shipping_country` longtext,
+  `shipping_postcode` longtext,
+  `order_note` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_address`
+--
+
+INSERT INTO `user_address` (`id`, `user_id`, `billing_first_name`, `billing_last_name`, `billing_company_name`, `billing_email`, `billing_phone`, `billing_address1`, `billing_address2`, `billing_city`, `billing_state`, `billing_country`, `billing_postcode`, `shiptodifferentadd`, `shipping_first_name`, `shipping_last_name`, `shipping_company_name`, `shipping_email`, `shipping_phone`, `shipping_address1`, `shipping_address2`, `shipping_city`, `shipping_state`, `shipping_country`, `shipping_postcode`, `order_note`) VALUES
+(1, '1', 'Sayantan', 'Bhakta', 'demo company', 'student@gmail.com', '7894561231', 'BN Block, Sector V, West Bengal', 'Webel Tower 1', 'Kolkata', 'West Bengal', 'India', '70033', 'on', 'soham', 'Bhakta', 'Soham company', 'soham@gmail.com', '0912047047', 'BN Block, Sector V, West Bengal', 'Test apartment', 'Test City', 'Test state', 'Test Country', '718273', 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.');
 
 -- --------------------------------------------------------
 
@@ -53919,6 +54199,51 @@ CREATE TABLE `user_subscriptions` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youth_activity`
+--
+
+CREATE TABLE `youth_activity` (
+  `id` int(11) NOT NULL,
+  `heading` text,
+  `description` longtext,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `youth_activity`
+--
+
+INSERT INTO `youth_activity` (`id`, `heading`, `description`, `status`, `created_at`) VALUES
+(1, 'MAKUTANO YOUTH SUMMIT', '<p>This is a specific event at MAK4Y, a bit like a mini Makutano for young talents and entrepreneurs.</p>\r\n', '1', '2024-02-15 07:22'),
+(2, 'MASTER CLASS', '<p>These are mentoring and coaching sessions for young people with a CEO through the sharing of experience of a Makutano CEO or other selected guest.</p>\r\n', '1', '2024-02-15 07:22'),
+(3, 'CONFERENCES / DEBATES', '<p>These are sessions in the form of exchanges and conversations where groups of young people will be able to chat with the members of the MAKUTANO network.</p>\r\n\r\n<p>During the workshops, young people can present their projects and thus be guided by mentors present.</p>\r\n', '1', '2024-02-15 07:23'),
+(4, 'SOCIAL NETWORK CHATS', '<p>These are online discussion sessions on social networks on a predefined topic where any young person from all over the republic and even beyond, can ask questions directly (live) to a person representing MAKUTANO with the aim of to create real proximity between MAKUTANO and young people.</p>\r\n', '1', '2024-02-15 07:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youth_member`
+--
+
+CREATE TABLE `youth_member` (
+  `id` int(11) NOT NULL,
+  `fname` text,
+  `lname` text,
+  `email` text,
+  `contactno` text,
+  `age` text,
+  `town` text,
+  `area` text,
+  `company` text,
+  `qualification` text,
+  `statute` text,
+  `interest` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -53960,9 +54285,21 @@ ALTER TABLE `cms`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `conference`
+--
+ALTER TABLE `conference`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_institute`
+--
+ALTER TABLE `contact_institute`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54026,6 +54363,12 @@ ALTER TABLE `course_syllabus`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `email_subscription`
+--
+ALTER TABLE `email_subscription`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `email_unsubscribe_list`
 --
 ALTER TABLE `email_unsubscribe_list`
@@ -54075,6 +54418,12 @@ ALTER TABLE `homecourse`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `mak_zeronine`
+--
+ALTER TABLE `mak_zeronine`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `options`
 --
 ALTER TABLE `options`
@@ -54097,6 +54446,12 @@ ALTER TABLE `order_list`
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `portfolio`
+--
+ALTER TABLE `portfolio`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54130,9 +54485,27 @@ ALTER TABLE `product_order_details`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_review`
+--
+ALTER TABLE `product_review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_type`
 --
 ALTER TABLE `product_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `programme`
+--
+ALTER TABLE `programme`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `programme_sejour`
+--
+ALTER TABLE `programme_sejour`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54208,6 +54581,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_address`
+--
+ALTER TABLE `user_address`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_final_ques`
 --
 ALTER TABLE `user_final_ques`
@@ -54224,6 +54603,18 @@ ALTER TABLE `user_ques`
 --
 ALTER TABLE `user_subscriptions`
   ADD PRIMARY KEY (`usr_subid`);
+
+--
+-- Indexes for table `youth_activity`
+--
+ALTER TABLE `youth_activity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `youth_member`
+--
+ALTER TABLE `youth_member`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -54245,7 +54636,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -54266,10 +54657,22 @@ ALTER TABLE `cms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `conference`
+--
+ALTER TABLE `conference`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact_institute`
+--
+ALTER TABLE `contact_institute`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -54332,6 +54735,12 @@ ALTER TABLE `course_syllabus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `email_subscription`
+--
+ALTER TABLE `email_subscription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `email_unsubscribe_list`
 --
 ALTER TABLE `email_unsubscribe_list`
@@ -54380,10 +54789,16 @@ ALTER TABLE `homecourse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `mak_zeronine`
+--
+ALTER TABLE `mak_zeronine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -54402,6 +54817,12 @@ ALTER TABLE `order_list`
 --
 ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `portfolio`
+--
+ALTER TABLE `portfolio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `powerspeech`
@@ -54431,13 +54852,31 @@ ALTER TABLE `product_details`
 -- AUTO_INCREMENT for table `product_order_details`
 --
 ALTER TABLE `product_order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product_review`
+--
+ALTER TABLE `product_review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product_type`
 --
 ALTER TABLE `product_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `programme`
+--
+ALTER TABLE `programme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `programme_sejour`
+--
+ALTER TABLE `programme_sejour`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `quiz_bank`
@@ -54509,7 +54948,13 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_address`
+--
+ALTER TABLE `user_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_final_ques`
@@ -54528,6 +54973,18 @@ ALTER TABLE `user_ques`
 --
 ALTER TABLE `user_subscriptions`
   MODIFY `usr_subid` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `youth_activity`
+--
+ALTER TABLE `youth_activity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `youth_member`
+--
+ALTER TABLE `youth_member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

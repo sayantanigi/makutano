@@ -27,8 +27,8 @@
                         <div class="sidebar__widget mb-60">
                             <div class="sidebar__widget-content">
                                 <div class="sidebar__search p-relative mb-50">
-                                    <form action="#">
-                                        <input type="text" placeholder="Search for courses...">
+                                    <form method="post" action="<?php echo base_url()?>search-query">
+                                        <input type="text" id="search_input" name="search_input" placeholder="Search for courses...">
                                         <button type="submit">
                                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 584.4 584.4" style="enable-background:new 0 0 584.4 584.4;" xml:space="preserve">
                                             <g>
