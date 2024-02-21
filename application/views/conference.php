@@ -10,7 +10,7 @@
                             <ol class="breadcrumbnav mb-lg-0">
                                 <li class="breadcrumb-item"><a href="<?= base_url()?>">Home</a></li>
                                 <li class="breadcrumb-item"><a href="<?= base_url()?>institute">Institute</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Conferences</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $title?></li>
                             </ol>
                         </nav>
                     </div>
@@ -59,7 +59,9 @@
                         </div>
                     </div>
                 </div>
-                <?php } } ?>
+                <?php } } else { ?>
+                <p style="text-align:center; color: #fff;">No Conference Yet</p>
+                <?php } ?>
             </div>
         </div>
     </section>

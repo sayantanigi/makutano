@@ -1,16 +1,12 @@
 <main>
-    <section class="signup__area po-rel-z1 pt-50 pb-50 mt-100 bg-primary">
+    <section class="signup__area po-rel-z1 pt-50 pb-50 conferencebg mt-100">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 mt-50">
                     <div class="section__title-wrapper text-center pb-20 mb-30">
-                        <h2 class="section__title"><?= $conference_details->title; ?></h2>
-                        <nav>
-                            <ol class="breadcrumbnav mb-lg-0">
-                                <li class="breadcrumb-item"><a href="<?php base_url()?>conference"><i class="fas fa-flag me-3"></i> Conference proceedings - Institute</a></li>
-                                <li class="breadcrumb-item"><a href="<?php base_url()?>conference"><i class="fas fa-arrow-left me-3"></i> Retour aux publications</a></li>
-                            </ol>
-                        </nav>
+                        <p class="text-danger text-uppercase fw-bold pt-1">INSTITUTE</p>
+                        <h2 class="section__title">LES ACTES DES CONFÉRENCES DE L'INSTITUT MAKUTANO.</h2>
+                        
                     </div>
                 </div>
             </div>
@@ -19,16 +15,35 @@
     <section class="po-rel-z1 pt-50 pb-50">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 text-white">
-                    <div class="mb-30">
-                        <?php if(!empty($conference_details->image)) { ?>
-                        <img src="<?= base_url()?>uploads/conference/<?= $conference_details->image; ?>" class="img-fluid" style="height: 400px;">
-                        <?php } ?>
-                        <div style="margin: 25px 0 0 0;"><?= $conference_details->description; ?></div>
-                        <?php if(!empty($conference_details->description)) { ?>
-                        <a href="<?= base_url()?>uploads/conference/<?= $conference_details->attachment?>" target="_blank" class="text-uppercase e-btn">Read the Report</a>
-                        <?php } ?>
+                <div class="col-lg-8">
+                    <?php if($categoryWiseList) { 
+                    foreach ($categoryWiseList as $value) { ?>
+                    <div class=" bg-white mb-30">
+                        <div>
+                            <img src="<?= base_url()?>uploads/conference/<?= $value['image']?>" class="img-fluid w-100" style="height: 400px">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="h3 fw-bold text-primary"><a href="<?= base_url()?>conference/<?= $value['slug']?>"><?= $value['title']?></a></h3>
+                            <p class="text-danger fw-bold"><?= date('j M Y', strtotime($value['date']))?></p>
+                            <p>
+                            <?php
+                            $string = strip_tags($value['description']);
+                            if (strlen($string) > 500) {
+                                // truncate string
+                                $stringCut = substr($string, 0, 250);
+                                $endPoint = strrpos($stringCut, ' ');
+                                $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                $string .= '';
+                            }
+                            echo $string;
+                            ?>
+                            </p>
+                            <a href="<?= base_url()?>conference/<?= $value['slug']?>" class="e-btn">Read More</a>
+                        </div>
                     </div>
+                    <?php } } else { ?>
+                    <p style="text-align: center; color: #fff;">No data found.</p>
+                    <?php } ?>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog__sidebar pl-40">
@@ -77,8 +92,11 @@
                                         <div class="sidebar__category">
                                             <ul>
                                                 <li><a href="<?= base_url()?>conferences">Conference proceedings</a></li>
-                                                <li><a href="<?= base_url()?>work_documents">Work documents</a></li>
-                                                <li><a href="<?= base_url()?>raba_arbi">RABA/ARBI</a></li>
+                                                <li><a href="#">Work documents</a></li>
+                                                <li><a href="#">Revue Africaine de la Banque et des Assurances
+                                                        (African Review of Banking and Insurance)</a></li>
+                                                <li><a href="#">Revue Africaine de la Banque et des Assurances
+                                                        (African Review of Banking and Insurance) | No2</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -105,7 +123,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php } } ?>
+                                            <?php } } else { ?>
+                                            <div class="rc__post ">No Data found .</div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>

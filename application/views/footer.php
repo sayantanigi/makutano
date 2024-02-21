@@ -69,6 +69,7 @@ $getSetting = $this->db->query("SELECT * from options")->result_array();
                                         <li><a href="#">Foundation</a></li>
                                         <li><a href="<?= base_url()?>youth">Youth</a></li>
                                         <li><a href="<?= base_url()?>contact">Contact</a></li>
+                                        <li><a href="<?= base_url()?>others_info">Others Information</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -83,6 +84,7 @@ $getSetting = $this->db->query("SELECT * from options")->result_array();
                                 <div class="footer__link footer__link-2">
                                     <ul>
                                         <li><a href="<?= base_url()?>about">About Us</a></li>
+                                        <li><a href="<?= base_url()?>sponsorship">Become Partner</a></li>
                                         <li><a href="<?= base_url() ?>blog">News & Blogs</a></li>
                                         <li><a href="<?= base_url()?>page/faqs">FAQs</a></li>
                                         <li><a href="<?= base_url()?>privacy">Privacy Policy</a></li>

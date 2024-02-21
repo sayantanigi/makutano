@@ -88,6 +88,9 @@
                                                                 <option value="institute" <?php if ($i->category == 'institute') { echo 'selected';} ?>>Institute</option>
                                                                 <option value="network" <?php if ($i->category == 'network') { echo 'selected';} ?>>Network</option>
                                                                 <option value="webinar" <?php if ($i->category == 'webinar') { echo 'selected';} ?>>Webinar</option>
+                                                                <option value="Analyses Makutano" <?php if ($conference->category == 'Analyses Makutano') { echo 'selected';} ?>>Analyses Makutano</option>
+                                                                <option value="Working Papers" <?php if ($conference->category == 'Working Papers') { echo 'selected';} ?>>Working Papers</option>
+                                                                <option value="RABA/ARBI" <?php if ($conference->category == 'RABA/ARBI') { echo 'selected';} ?>>RABA/ARBI</option>
                                                             </select>
                                                         </div>
                                                     </div>

@@ -105,6 +105,9 @@
                                                             <option value="institute">Institute</option>
                                                             <option value="network">Network</option>
                                                             <option value="webinar">Webinar</option>
+                                                            <option value="Analyses Makutano">Analyses Makutano</option>
+                                                            <option value="Working Papers">Working Papers</option>
+                                                            <option value="RABA/ARBI">RABA/ARBI</option>
                                                         </select>
                                                     </div>
                                                 </div>

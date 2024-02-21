@@ -1255,7 +1255,29 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function conferences() {
+        $data['title'] = 'Conference';
         $data['conferences'] = $this->db->query("SELECT * FROM conference WHERE status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('conference', $data);
+        $this->load->view('footer');
+    }
+    public function makutano_analytics() {
+        $data['title'] = 'Makutano Analytics';
+        $data['conferences'] = $this->db->query("SELECT * FROM conference WHERE category = 'Analyses Makutano' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('conference', $data);
+        $this->load->view('footer');
+    }
+    public function work_documents() {
+        $data['title'] = 'Work Documents';
+        $data['conferences'] = $this->db->query("SELECT * FROM conference WHERE category = 'Working Papers' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('conference', $data);
+        $this->load->view('footer');
+    }
+    public function raba_arbi() {
+        $data['title'] = 'Raba/Arbi';
+        $data['conferences'] = $this->db->query("SELECT * FROM conference WHERE category = 'RABA/ARBI' AND status = '1'")->result_array();
         $this->load->view('header', $data);
         $this->load->view('conference', $data);
         $this->load->view('footer');
@@ -1269,6 +1291,86 @@ class Home extends CI_Controller {
     public function statuts() {
         $this->load->view('header');
         $this->load->view('statuts');
+        $this->load->view('footer');
+    }
+    public function categoryWiseList($category) {
+        $data['categoryWiseList'] = $this->db->query("SELECT * FROM conference WHERE category = '".$category."'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('category_list', $data);
+        $this->load->view('footer');
+    }
+    public function sponsorship() {
+        $this->load->view('header');
+        $this->load->view('sponsorship');
+        $this->load->view('footer');
+    }
+    public function contactSponsor() {
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $phno = $_POST['phno'];
+        $title = $_POST['title'];
+        $company = $_POST['company'];
+        $activty = $_POST['actvty'];
+        $msg = $_POST['msg'];
+        $optionsList = $this->db->query("SELECT * FROM options")->result();
+        //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+        $admEmail = $optionsList[8]->option_value;
+        $address = $optionsList[6]->option_value;
+        $message = "<body>
+        <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+            <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Afrebay</span></h3>
+                <p style='font-size:24px;'>Hello User,</p>
+                <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
+                <p style='font-size:24px;'>First Name: $fname/p>
+                <p style='font-size:24px;'>Last Name: $lname</p>
+                <p style='font-size:24px;'>Email: $email</p>
+                <p style='font-size:24px;'>Phone Number: $phno</p>
+                <p style='font-size:24px;'>Title: $title</p>
+                <p style='font-size:24px;'>Company: $company</p>
+                <p style='font-size:24px;'>Activity: $activty</p>
+                <p style='font-size:24px;'>Message: $msg</p>
+                <p style='font-size:20px;'></p>
+                <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                <p style='list-style: none;'><b>Makutano</b></p>
+                <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+            </div>
+            <table style='width: 100%;'>
+                <tr>
+                    <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Afrebay. All rights reserved.</td>
+                </tr>
+            </table>
+            </div>
+        </body>";
+        $mail = new PHPMailer(true);
+        try {
+            $mail->CharSet = 'UTF-8';
+            $mail->SetFrom($_POST['email']);
+            $mail->AddAddress($admEmail, 'Makutano');
+            $mail->IsHTML(true);
+            $mail->Subject = "ASK ABOUT SPONSORSHIP";
+            $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
+            $mail->Body = $message;
+            /*$mail->IsSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'no-reply@goigi.com';
+            $mail->Password = 'wj8jeml3eu0z';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+            $mail->send();*/
+            echo "1";
+        } catch (Exception $e) {
+            echo "2";
+            $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        }
+    }
+    public function others_info() {
+        $this->load->view('header');
+        $this->load->view('others_info');
         $this->load->view('footer');
     }
 }

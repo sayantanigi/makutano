@@ -118,9 +118,9 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                                 <li><a href="#">Publications</a>
                                                     <ul class="submenu">
                                                         <li><a href="<?= base_url()?>conferences">Conference proceedings</a></li>
-                                                        <li><a href="#">Makutano Analytics</a></li>
-                                                        <li><a href="#">Work documents</a></li>
-                                                        <li><a href="#">RABA/ARBI</a></li>
+                                                        <li><a href="<?= base_url()?>makutano_analytics">Makutano Analytics</a></li>
+                                                        <li><a href="<?= base_url()?>work_documents">Work documents</a></li>
+                                                        <li><a href="<?= base_url()?>raba_arbi">RABA/ARBI</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="<?= base_url()?>conferences">Conferences</a></li>
