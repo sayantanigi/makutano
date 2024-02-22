@@ -1237,19 +1237,19 @@ class Home extends CI_Controller {
         }
     }
     public function programmeForum() {
-        $data['programme'] = $this->db->query("SELECT * FROM programme WHERE status = '1' LIMIT 2")->result_array();
+        $data['programme'] = $this->db->query("SELECT * FROM programme WHERE programme_for = 'mak_09' AND status = '1' LIMIT 2")->result_array();
         $this->load->view('header', $data);
         $this->load->view('programme_forum', $data);
         $this->load->view('footer');
     }
     public function mak_zeronine() {
-        $data['mak_zeronine'] = $this->db->query("SELECT * FROM mak_zeronine WHERE status = '1'")->result_array();
+        $data['mak_zeronine'] = $this->db->query("SELECT * FROM mak_zeronine WHERE presentation_for = 'mak_09' AND status = '1'")->result_array();
         $this->load->view('header', $data);
         $this->load->view('mak_09', $data);
         $this->load->view('footer');
     }
     public function programme_sejour() {
-        $data['programme_sejour'] = $this->db->query("SELECT * FROM programme_sejour WHERE status = '1'")->result_array();
+        $data['programme_sejour'] = $this->db->query("SELECT * FROM programme_sejour WHERE programme_for = 'mak_09' AND status = '1'")->result_array();
         $this->load->view('header', $data);
         $this->load->view('programme_sejour', $data);
         $this->load->view('footer');
@@ -1371,6 +1371,40 @@ class Home extends CI_Controller {
     public function others_info() {
         $this->load->view('header');
         $this->load->view('others_info');
+        $this->load->view('footer');
+    }
+    public function mak_eight() {
+        $data['mak_zeroeight'] = $this->db->query("SELECT * FROM mak_zeronine WHERE presentation_for = 'mak_08' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('mak_08', $data);
+        $this->load->view('footer');
+    }
+    public function programme_mak8() {
+        $data['tab'] = 'programme_mak8';
+        $data['programme'] = $this->db->query("SELECT * FROM programme_sejour WHERE programme_for = 'mak_08' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('programme_forum', $data);
+        $this->load->view('footer');
+    }
+    public function network() {
+        $data['title'] = 'Conference';
+        $data['network'] = $this->db->query("SELECT * FROM conference WHERE category = 'network' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('network', $data);
+        $this->load->view('footer');
+    }
+    public function foundation() {
+        $data['title'] = 'Foundation';
+        $data['network'] = $this->db->query("SELECT * FROM conference WHERE category = 'foundation' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('foundation', $data);
+        $this->load->view('footer');
+    }
+    public function business_women() {
+        $data['title'] = 'Women In Business';
+        $data['business_women'] = $this->db->query("SELECT * FROM portfolio WHERE portfolioId = '5' AND status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('business_women', $data);
         $this->load->view('footer');
     }
 }

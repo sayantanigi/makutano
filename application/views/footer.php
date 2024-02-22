@@ -62,11 +62,11 @@ $getSetting = $this->db->query("SELECT * from options")->result_array();
                             <div class="footer__widget-body">
                                 <div class="footer__link footer__link-2">
                                     <ul>
-                                        <li><a href="#">#Makutano9</a></li>
-                                        <li><a href="#">Forum</a></li>
-                                        <li><a href="#">Institute</a></li>
-                                        <li><a href="#">Network</a></li>
-                                        <li><a href="#">Foundation</a></li>
+                                        <li><a href="<?= base_url()?>mak_09">#Makutano9</a></li>
+                                        <!-- <li><a href="#">Forum</a></li> -->
+                                        <li><a href="<?= base_url()?>institute">Institute</a></li>
+                                        <li><a href="<?= base_url()?>network">Network</a></li>
+                                        <li><a href="<?= base_url()?>foundation">Foundation</a></li>
                                         <li><a href="<?= base_url()?>youth">Youth</a></li>
                                         <li><a href="<?= base_url()?>contact">Contact</a></li>
                                         <li><a href="<?= base_url()?>others_info">Others Information</a></li>

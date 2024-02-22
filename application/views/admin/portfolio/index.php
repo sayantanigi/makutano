@@ -32,8 +32,10 @@
                                 echo "Portfolio 8";
                             } else if($gal->portfolioId == '3') {
                                 echo "Portfolio 7";
-                            } else {
+                            } else if($gal->portfolioId == '4') {
                                 echo "Youth";
+                            } else {
+                                echo "Women In Business";
                             }?>
                             </td>
                             <td>

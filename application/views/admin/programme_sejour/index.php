@@ -20,6 +20,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Title</th>
+                            <th>Presentation For</th>
                             <th>Dress Code</th>
                             <th>Description</th>
                             <th>Status</th>
@@ -32,6 +33,7 @@
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $programmes_v->title ?></td>
+                            <td><?php if($programmes_v->programme_for == 'mak_09') {echo 'Makutano 09';} elseif ($programmes_v->programme_for == 'mak_08') {echo 'Makutano 08';} else { echo 'No data';} ?></td>
                             <td>
                                 <?php if(!empty($programmes_v->dress)) {
                                     echo $programmes_v->dress;

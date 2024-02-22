@@ -20,6 +20,7 @@
                                                 <option value="2" <?php if ($portfolio->portfolioId == '2') { echo 'selected'; } ?>>Portfolio 8</option>
                                                 <option value="3" <?php if ($portfolio->portfolioId == '3') { echo 'selected'; } ?>>Portfolio 7</option>
                                                 <option value="4" <?php if ($portfolio->portfolioId == '4') { echo 'selected'; } ?>>Youth</option>
+                                                <option value="5" <?php if ($portfolio->portfolioId == '5') { echo 'selected'; } ?>>Women In Business</option>
                                             </select>
                                         </div>
                                     </div>

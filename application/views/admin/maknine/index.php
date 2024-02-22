@@ -13,6 +13,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Image</th>
+                            <th>Presentation For</th>
                             <th>status</th>
                             <th style="width: 40px">Action</th>
                         </tr>
@@ -22,26 +23,19 @@
                         foreach ($maknine as $gal) {
                         ?>
                         <tr>
+                            <td><?= $i ?></td>
+                            <td><img src="<?= site_url('uploads/maknine/' . @$gal->image) ?>" title="" width="80px" ></td>
                             <td>
-                                <?= $i ?>
+                                <?php
+                                if($gal->presentation_for == 'mak_09'){echo 'Makutano 09';} elseif($gal->presentation_for == 'mak_08') {echo 'Makutano 08';} else { echo 'No data';}
+                                ?>
                             </td>
                             <td>
-                                <img src="<?= site_url('uploads/maknine/' . @$gal->image) ?>" title="" width="80px" >
-                            </td>
-                            <td>
-                            <?php
-                            if ($gal->status == 1) {
-                                ?>
-                                <a href="<?= admin_url('maknine/deactivate/' . $gal->id) ?>"><span
-                                        class="badge bg-green">Active</span></a>
-                                <?php
-                            } else {
-                                ?>
-                                <a href="<?= admin_url('maknine/activate/' . $gal->id) ?>"><span
-                                        class="badge bg-red">Inactive</span></a>
-                                <?php
-                            }
-                            ?>
+                                <?php if ($gal->status == 1) { ?>
+                                <a href="<?= admin_url('maknine/deactivate/' . $gal->id) ?>"><span class="badge bg-green">Active</span></a>
+                                <?php } else { ?>
+                                <a href="<?= admin_url('maknine/activate/' . $gal->id) ?>"><span class="badge bg-red">Inactive</span></a>
+                                <?php } ?>
                             </td>
                             <td>
                                 <div class="action-button">

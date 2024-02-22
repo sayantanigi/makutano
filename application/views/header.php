@@ -92,8 +92,8 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                             <ul class="submenu">
                                                 <li><a href="#">Makutano 8</a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Présentation #Makutano8</a></li>
-                                                        <li><a href="#">Program</a></li>
+                                                        <li><a href="<?= base_url()?>mak_08">Présentation #Makutano8</a></li>
+                                                        <li><a href="<?= base_url()?>programme_mak8">Program</a></li>
                                                         <li><a href="#">Intervenants</a></li>
                                                         <li><a href="#">Partenaires</a></li>
                                                         <li><a href="<?= base_url()?>portfolio8">Portfolio #Makutano8</a></li>
@@ -115,7 +115,7 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                             <a href="#">Institute</a>
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url()?>institute">Institute</a></li>
-                                                <li><a href="#">Publications</a>
+                                                <li><a href="<?= base_url()?>conferences">Publications</a>
                                                     <ul class="submenu">
                                                         <li><a href="<?= base_url()?>conferences">Conference proceedings</a></li>
                                                         <li><a href="<?= base_url()?>makutano_analytics">Makutano Analytics</a></li>
@@ -130,10 +130,10 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                         <li class="has-dropdown">
                                             <a href="#">Network</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Network news</a></li>
+                                                <li><a href="<?= base_url()?>network">Network news</a></li>
                                                 <li><a href="#">Newsletter</a></li>
-                                                <li><a href="#">Women in Business</a></li>
-                                                <li><a href="#">Levelup Makutano</a></li>
+                                                <li><a href="<?= base_url()?>business_women">Women in Business</a></li>
+                                                <li><a href="https://levelupmakutano.com/">Levelup Makutano</a></li>
                                             </ul>
                                         </li>
                                         <!-- <li><a href="#">Foundation</a></li>

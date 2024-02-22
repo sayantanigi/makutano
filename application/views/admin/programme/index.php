@@ -20,7 +20,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Forum Name</th>
-                            <!-- <th>Forum Slot</th> -->
+                            <th>Presentation For</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th style="width: 40px">Action</th>
@@ -33,10 +33,7 @@
                             <td><?= $i ?></td>
                             <td><?= $programme_v->title ?></td>
                             <td style="max-height: 100px !important;overflow-y: scroll;display: block;"><?= $programme_v->description ?></td>
-                            <!-- <td>
-                                <p>Start Date Time: <?= $programme_v->start_time ?></p>
-                                <p>End Date Time: <?= $programme_v->end_time ?></p>
-                            </td> -->
+                            <td><?php if($programme_v->programme_for == 'mak_09') {echo 'Makutano 09';} elseif ($programme_v->programme_for == 'mak_08') {echo 'Makutano 08';} else { echo 'No data';} ?></td>
                             <td>
                                 <?php 
                                 if(!empty($programme_v->uploaded_by)){

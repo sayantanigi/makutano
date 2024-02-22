@@ -74,11 +74,12 @@ class Maknine extends AI_Controller {
 		}
 		
 		if ($this->input->post()) {
+			print_r($this->input->post());
 			if (!empty($_FILES['image']['name'][0])) {
 				$cpt = count($_FILES['image']['name']);
 				for($i=0; $i<$cpt; $i++) {
 					$src = $_FILES['image']['tmp_name'][$i];
-					echo $avatar = str_replace(array('(', ')', ' '), '', rand(0000, 9999) . "_" . $_FILES['image']['name'][$i]);  echo "<br>"; 
+					$avatar = str_replace(array('(', ')', ' '), '', rand(0000, 9999) . "_" . $_FILES['image']['name'][$i]);  echo "<br>"; 
 					$dest = getcwd() . '/uploads/maknine/' . $avatar;
 					if (move_uploaded_file($src, $dest)) {
 						$file  = $avatar;
@@ -92,6 +93,7 @@ class Maknine extends AI_Controller {
 					$data_image = array(
 						'id' => @$id,
 						'image' => $file,
+						'presentation_for' => $this->input->post('presentation_for'),
 						'status' => 1,
 						'created_date' => date("Y-m-d H:i:s"),
 					);
@@ -99,6 +101,16 @@ class Maknine extends AI_Controller {
 					$this->Maknine_model->save($data_image, 'mak_zeronine');
 					$this->session->set_flashdata('message', 'Image added Successfully !');
 				}
+			} else {
+				$data_image = array(
+					'id' => @$id,
+					'presentation_for' => $this->input->post('presentation_for'),
+					'status' => 1,
+					'created_date' => date("Y-m-d H:i:s"),
+				);
+				print_r($data_image);
+				$this->Maknine_model->save($data_image, 'mak_zeronine');
+				$this->session->set_flashdata('message', 'Data updated Successfully !');
 			}
 			$this->session->set_flashdata("success", "Image saved");
 			redirect(admin_url('maknine/index'));

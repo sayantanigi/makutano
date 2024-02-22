@@ -70,6 +70,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-10">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Programme For</label>
+                                            <select name="frm[programme_for]" class="form-control" id="exampleInputEmail1">
+                                                <option value="">Select Programme For</option>
+                                                <option value="mak_09" <?php if($programme->programme_for == 'mak_09'){echo "selected";}?>>Makutano 09</option>
+                                                <option value="mak_08" <?php if($programme->programme_for == 'mak_08'){echo "selected";}?>>Makutano 08</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

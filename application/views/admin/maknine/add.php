@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Inamges</h3>
+                    <h3 class="box-title">Add Images</h3>
                 </div>
                 <form action="<?= admin_url('maknine/add/' . @$maknine->id) ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
@@ -14,6 +14,18 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <input type="file" name="image[]" multiple class="form-control" id="exampleInputEmail1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Presentation For</label>
+                                            <select name="presentation_for" class="form-control">
+                                                <option value="">Select Option</option>
+                                                <option value="mak_09" <?php if (@$maknine->presentation_for == 'mak_09') { echo 'selected'; } ?>>Makutano 09</option>
+                                                <option value="mak_08" <?php if (@$maknine->presentation_for == 'mak_08') { echo 'selected'; } ?>>Makutano 08</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
