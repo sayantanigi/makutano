@@ -331,24 +331,51 @@ class Home extends CI_Controller {
             $subject = $sub;
             $getOptionsSql = "SELECT * FROM `options`";
             $optionsList = $this->db->query($getOptionsSql)->result();
-            $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
-            $message = "<table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'> <tbody> <tr> <td> <table class='col-600' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-top:2px solid #232323;width=600px;border=0;align=center;cellpadding=0;cellspacing=0'> <tbody> <tr> <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='".$imagePath."' style='max-height: 40px;'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'>Dear Team,</td> </tr> </tbody> </table> </td> </tr> <tr> <td align='center'> <table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-bottom:2px solid #232323'> <tbody> <tr> <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'> <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Name : ".$fname."</p> </td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'> <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Email: ".$email."</p> </td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'> <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Phone: ".$phone."</p> </td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'> <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Message: ".nl2br($msg)."</p></td></tr></tbody></table></td></tr></tbody></table>";
+            //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            $admEmail = $optionsList[8]->option_value;
+            $address = $optionsList[6]->option_value;
+            $message = "
+            <body>
+                <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                    <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                        <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                        <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Makutano</span></h3>
+                        <p style='font-size:24px;'>Hello User,</p>
+                        <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
+                        <p style='font-size:24px;'>First Name: $fname/p>
+                        <p style='font-size:24px;'>Email: $email</p>
+                        <p style='font-size:24px;'>Phone Number: $phone</p>
+                        <p style='font-size:24px;'>Message: $msg</p>
+                        <p style='font-size:20px;'></p>
+                        <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                        <p style='list-style: none;'><b>Makutano</b></p>
+                        <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                        <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                    </div>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                        </tr>
+                    </table>
+                </div>
+            </body>";
             $mail = new PHPMailer(true);
             try {
                 $mail->CharSet = 'UTF-8';
                 $mail->SetFrom($email);
-                $mail->AddAddress('sayantan@goigi.in', 'Makutano');
+                $mail->AddAddress('masterclass@makutano.cd', 'Makutano');
                 $mail->IsHTML(true);
+                $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                 $mail->Subject = $subject;
                 $mail->Body = $message;
                 $mail->IsSMTP();
                 //Send mail using GMAIL server
-                /*$mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-                $mail->Username = 'no-reply@goigi.com';                     // SMTP username
-                $mail->Password = 'wj8jeml3eu0z';                               // SMTP password
-                $mail->SMTPSecure = 'tls';                                 // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;*/
+                $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;
                 $mail->send();
             } catch (Exception $e) {
                 $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
@@ -390,20 +417,54 @@ class Home extends CI_Controller {
             $subject = "Consult With Us";
             $getOptionsSql = "SELECT * FROM `options`";
             $optionsList = $this->db->query($getOptionsSql)->result();
-            $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
             //$imagePath = base_url() . 'user_assets/images/C2C_Home/Header_Logo.png';
-            $message = "<table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'><tbody><tr><td><table class='col-600' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-top:2px solid #232323;width=600px;border=0;align=center;cellpadding=0;cellspacing=0'><tbody><tr><td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='".$imagePath."' style='max-height: 40px;'></td></tr><tr><td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'>Dear Team,</td></tr></tbody></table></td></tr><tr><td align='center'><table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-bottom:2px solid #232323'><tbody><tr><td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'></td></tr><tr><td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'><p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Name : ".$fname."</p></td></tr><tr><td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'><p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Email: ".$email."</p></td></tr><tr><td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'><p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Phone: ".$phone."</p></td></tr><tr><td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'><p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Message: ".nl2br($msg)."</p></td></tr></tbody></table></td></tr></tbody></table>";
+            $admEmail = $optionsList[8]->option_value;
+            $address = $optionsList[6]->option_value;
+            $message = "
+            <body>
+                <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                    <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                        <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                        <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Makutano</span></h3>
+                        <p style='font-size:24px;'>Hello User,</p>
+                        <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
+                        <p style='font-size:24px;'>First Name: $fname/p>
+                        <p style='font-size:24px;'>Email: $email</p>
+                        <p style='font-size:24px;'>Phone Number: $phone</p>
+                        <p style='font-size:24px;'>Message: $msg</p>
+                        <p style='font-size:20px;'></p>
+                        <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                        <p style='list-style: none;'><b>Makutano</b></p>
+                        <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                        <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                    </div>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                        </tr>
+                    </table>
+                </div>
+            </body>";
             $mail = new PHPMailer(true);
             try {
                 //Server settings
                 $mail->CharSet = 'UTF-8';
                 $mail->SetFrom($email);
-                $mail->AddAddress('support@makutano.com', 'makutano');
+                $mail->AddAddress('masterclass@makutano.cd', 'Makutano');
                 $mail->IsHTML(true);
+                $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                 $mail->Subject = $subject;
                 $mail->Body = $message;
                 //Send email via SMTP
                 $mail->IsSMTP();
+                //Send mail using GMAIL server
+                $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;
                 $mail->send();
                 // echo 'Message has been sent';
             } catch (Exception $e) {
@@ -488,26 +549,28 @@ class Home extends CI_Controller {
 				$activationURL = base_url() . "email-verification/" . urlencode(base64_encode($otp));
                 $getOptionsSql = "SELECT * FROM `options`";
                 $optionsList = $this->db->query($getOptionsSql)->result();
+                $admEmail = $optionsList[8]->option_value;
+                $address = $optionsList[6]->option_value;
                 //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
 				$message = "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'> <tbody> <tr> <td align='center'> <table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px; margin-right:20px; border-left: 1px solid #dbd9d9; border-right: 1px solid #dbd9d9; border-top:2px solid #232323'> <tbody> <tr> <td height='35'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'><img  src='cid:Logo'/></td> </tr> <tr> <td height='35'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'>Hello ".$first_name.",</td> </tr> <tr> <td height='10'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: 400;'>Thank you for registration on <strong style='font-weight:bold;'>Makutano</strong>.</td> </tr> <tr> <td height='10'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: 400;'>Please click on the below activation link to verify your email address.</td> </tr> <tr> <td height='10'></td> </tr> <tr> <td align='left' style='text-align:center;padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: bold;'> <a href=" . $activationURL . " target='_blank' style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px;'>click here</a> </td> </tr> <tr> <td height='10'></td> </tr> <tr> <td align='left' style='padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: bold;'>Email: " . $email . "<br/></td> </tr> <tr> <td height='30'></td> </tr> <tr> <td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:16px; color:#232323; line-height:24px; font-weight: 700;'>Thank you!</td> </tr> <tr> <td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Sincerely</td> </tr> <tr> <td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Makutano</td> </tr> </tbody> </table> </td> </tr> </tbody> </table>";
 				require 'vendor/autoload.php';
                 $mail = new PHPMailer(true);
                 try {
                     $mail->CharSet = 'UTF-8';
-                    $mail->SetFrom('no-reply@goigi.com', 'Makutano');
+                    $mail->SetFrom('masterclass@makutano.cd', 'Makutano');
                     $mail->AddAddress($email);
                     $mail->IsHTML(true);
                     $mail->Subject = $subject;
                     $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                     $mail->Body = $message;
                     $mail->IsSMTP();
-                    $mail->SMTPAuth   = true;
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                    $mail->Host       = "smtp.gmail.com";
-                    $mail->Port       = 587; //587 465
-                    $mail->Username   = "no-reply@goigi.com";
-                    $mail->Password   = "wj8jeml3eu0z";
-                    //$mail->send();
+                    //Send mail using GMAIL server
+                    $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                    $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                    $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                    $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;
                     if(!$mail->send()) {
                         $msg = "Error sending: " . $mail->ErrorInfo;
                     } else {
@@ -618,20 +681,27 @@ class Home extends CI_Controller {
             $url = base_url() . "otp-verification/" . urlencode(base64_encode($otp));
             $getOptionsSql = "SELECT * FROM `options`";
             $optionsList = $this->db->query($getOptionsSql)->result();
-            $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
-            //$imagePath = base_url() . 'assets/images/logo.png';
-            $message = "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tbody><tr><td align='center'><table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px; margin-right:20px; border-left: 1px solid #dbd9d9; border-right: 1px solid #dbd9d9; border-top:2px solid #232323'><tbody><tr><td height='35'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'><img src='" . $imagePath . "'/></td></tr><tr><td height='35'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'>Hello ".$name.",</td></tr><tr><td height='10'></td></tr></tbody></table></td></tr><tr><td align='center'><table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px; margin-right:20px; border-left: 1px solid #dbd9d9; border-right: 1px solid #dbd9d9; border-bottom:2px solid #232323'><tbody><tr><td height='10'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: 400;'>Please click on below link to reset your password.</td></tr><tr><td height='10'></td></tr><tr><td align='left' style='text-align:center;padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: bold;'><a href=" . $url . " target='_blank' style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px;'>click here</a></td></tr><tr><td height='10'></td></tr><tr><td height='30'></td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:16px; color:#232323; line-height:24px; font-weight: 700;'>Thank you!</td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Sincerely</td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Makutano </td></tr></tbody></table></td></tr></tbody></table>";
+            //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            $message = "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0'><tbody><tr><td align='center'><table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px; margin-right:20px; border-left: 1px solid #dbd9d9; border-right: 1px solid #dbd9d9; border-top:2px solid #232323'><tbody><tr><td height='35'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'><img src='cid:Logo'/></td></tr><tr><td height='35'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Raleway, sans-serif; font-size:16px; font-weight: bold; color:#2a3a4b;'>Hello ".$name.",</td></tr><tr><td height='10'></td></tr></tbody></table></td></tr><tr><td align='center'><table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px; margin-right:20px; border-left: 1px solid #dbd9d9; border-right: 1px solid #dbd9d9; border-bottom:2px solid #232323'><tbody><tr><td height='10'></td></tr><tr><td align='left' style='padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: 400;'>Please click on below link to reset your password.</td></tr><tr><td height='10'></td></tr><tr><td align='left' style='text-align:center;padding:5px 10px;font-family: Lato, sans-serif; font-size:16px; color:#444; line-height:24px; font-weight: bold;'><a href=" . $url . " target='_blank' style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px;'>click here</a></td></tr><tr><td height='10'></td></tr><tr><td height='30'></td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:16px; color:#232323; line-height:24px; font-weight: 700;'>Thank you!</td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Sincerely</td></tr><tr><td align='left' style='padding:0 10px;font-family: Lato, sans-serif; font-size:14px; color:#232323; line-height:24px; font-weight: 700;'>Makutano </td></tr></tbody></table></td></tr></tbody></table>";
             $mail = new PHPMailer(true);
             try {
                 //Server settings
                 $mail->CharSet = 'UTF-8';
-                $mail->SetFrom('support@makutano.com', 'Makutano');
+                $mail->SetFrom('masterclass@makutano.cd', 'Makutano');
                 $mail->AddAddress($email);
                 $mail->IsHTML(true);
+                $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                 $mail->Subject = $subject;
                 $mail->Body = $message;
                 //Send email via SMTP
                 $mail->IsSMTP();
+                //Send mail using GMAIL server
+                $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;
                 $mail->send();
             } catch (Exception $e) {
                 $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
@@ -921,84 +991,86 @@ class Home extends CI_Controller {
     }
     public function submitYouthForm() {
         $interest = implode(',', $this->input->post('interest'));
+        $fname = $this->input->post('fname');
+        $lname = $this->input->post('lname');
+        $email = $this->input->post('email');
+        $contactno = $this->input->post('contactno');
+        $age = $this->input->post('age');
+        $town = $this->input->post('town');
+        $area = $this->input->post('area');
+        $company = $this->input->post('company');
+        $qualification = $this->input->post('qualification') ;
+        $statute = $this->input->post('statute');
+        $interest = $interest;
         $formdata = array(
-            'fname'=>$this->input->post('fname'),
-            'lname'=>$this->input->post('lname') ,
-            'email'=>$this->input->post('email') ,
-            'contactno'=>$this->input->post('contactno') ,
-            'age'=>$this->input->post('age') ,
-            'town'=>$this->input->post('town') ,
-            'area'=>$this->input->post('area') ,
-            'company'=>$this->input->post('company') ,
-            'qualification'=>$this->input->post('qualification') ,
-            'statute'=>$this->input->post('statute'),
+            'fname'=>$fname,
+            'lname'=>$lname,
+            'email'=>$email,
+            'contactno'=>$contactno,
+            'age'=>$age,
+            'town'=>$town,
+            'area'=>$area,
+            'company'=>$company,
+            'qualification'=>$qualification,
+            'statute'=>$statute,
             'interest'=>$interest
         );
         $insertId = $this->db->insert("youth_member", $formdata);
         if(!empty($insertId)) {
             $optionsList = $this->db->query("SELECT * FROM options")->result();
-            $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+            //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
             $admEmail = $optionsList[8]->option_value;
-            $message = "<table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'> 
-                <tbody>
-                    <tr>
-                        <td>
-                            <table class='col-600' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-top:2px solid #232323;width=600px;border=0;align=center;cellpadding=0;cellspacing=0'> 
-                                <tbody> 
-                                    <tr> 
-                                        <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='".$imagePath."' style='max-height: 40px;'></td> 
-                                    </tr>
-                                    <tr>
-                                        <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'>Dear User,</td> 
-                                    </tr> 
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align='center'>
-                            <table class='col-600' width='600' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-bottom:2px solid #232323'> 
-                                <tbody> 
-                                    <tr>
-                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'></td>
-                                    </tr>
-                                    <tr>
-                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'>
-                                            <p style='background:#232323;color:#fff;padding:10px;text-decoration:none;line-height:24px'>Thank you for subscribing to our newsletter</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td align='left' style='padding:5px 10px;font-family:Lato,sans-serif;font-size:16px;color:#444;line-height:24px;font-weight:400'>
-                                            
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>";
+            $address = $optionsList[6]->option_value;
+            $admEmail = $optionsList[8]->option_value;
+            $message = "
+            <body>
+                <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                    <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                        <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                        <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Makutano</span></h3>
+                        <p style='font-size:24px;'>Hello Admin,</p>
+                        <p style='font-size:24px;'>Please find the below details submitted by the user for Youth Member Registration.</p><br/><br/>
+                        <p style='font-size:24px;'>First Name: $fname/p>
+                        <p style='font-size:24px;'>Last Name: $lname</p>
+                        <p style='font-size:24px;'>Email: $email</p>
+                        <p style='font-size:24px;'>Phone Number: $contactno</p>
+                        <p style='font-size:24px;'>Age: $age</p>
+                        <p style='font-size:24px;'>Town: $town</p>
+                        <p style='font-size:24px;'>Area: $area</p>
+                        <p style='font-size:24px;'>Company: $company</p>
+                        <p style='font-size:24px;'>Qualification: $qualification</p>
+                        <p style='font-size:24px;'>Statute: $statute</p>
+                        <p style='font-size:24px;'>Interest: $interest</p>
+                        <p style='font-size:20px;'></p>
+                        <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                        <p style='list-style: none;'><b>Makutano</b></p>
+                        <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                        <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                    </div>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                        </tr>
+                    </table>
+                </div>
+            </body>";
             $mail = new PHPMailer(true);
             try {
                 $mail->CharSet = 'UTF-8';
-                $mail->SetFrom($admEmail, 'Makutano');
+                $mail->SetFrom('masterclass@makutano.cd', 'Makutano');
                 $mail->AddAddress($this->input->post('email'));
                 $mail->IsHTML(true);
+                $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                 $mail->Subject = "Youth Member";
                 $mail->Body = $message;
                 $mail->IsSMTP();
-                /*$mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'no-reply@goigi.com';
-                $mail->Password = 'wj8jeml3eu0z';
-                $mail->SMTPSecure = 'tls';
-                $mail->Port = 587;*/
+                //Send mail using GMAIL server
+                $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;
                 $mail->send();
             } catch (Exception $e) {
                 $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
@@ -1095,16 +1167,18 @@ class Home extends CI_Controller {
             $insertId = $this->db->insert("email_subscription", $insertData);
             if(!empty($insertId)) {
                 $optionsList = $this->db->query("SELECT * FROM options")->result();
-                $imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
+                //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
                 $admEmail = $optionsList[8]->option_value;
-                $message = "<table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'> 
+                $address = $optionsList[6]->option_value;
+                $message = "
+                <table style='width=100%;border=0;align=center;cellpadding=0;cellspacing=0'> 
                     <tbody>
                         <tr>
                             <td>
                                 <table class='col-600' style='margin-left:20px;margin-right:20px;border-left:1px solid #dbd9d9;border-right:1px solid #dbd9d9;border-top:2px solid #232323;width=600px;border=0;align=center;cellpadding=0;cellspacing=0'> 
                                     <tbody> 
                                         <tr> 
-                                            <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='".$imagePath."' style='max-height: 40px;'></td> 
+                                            <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'><img src='cid:Logo' style='max-height: 40px;'></td> 
                                         </tr>
                                         <tr>
                                             <td align='left' style='padding:5px 10px;font-family:Raleway,sans-serif;font-size:16px;font-weight:700;color:#2a3a4b'>Dear User,</td> 
@@ -1136,6 +1210,10 @@ class Home extends CI_Controller {
                                                 <a href='<?= base_url()?>unsubscribe/<?= $insertId?>'>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>style='list-style:none;'><b>Visit us:</b> <span>$address</span></td>
+                                            <td>style='list-style:none;'><b>Email Us us:</b> <span>$admEmail</span></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </td>
@@ -1145,18 +1223,19 @@ class Home extends CI_Controller {
                 $mail = new PHPMailer(true);
                 try {
                     $mail->CharSet = 'UTF-8';
-                    $mail->SetFrom($admEmail, 'Makutano');
+                    $mail->SetFrom('masterclass@makutano.cd', 'Makutano');
                     $mail->AddAddress($user_email);
                     $mail->IsHTML(true);
+                    $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                     $mail->Subject = "Email Subscription";
                     $mail->Body = $message;
                     $mail->IsSMTP();
-                    /*$mail->Host = 'smtp.gmail.com';
-                    $mail->SMTPAuth = true;
-                    $mail->Username = 'no-reply@goigi.com';
-                    $mail->Password = 'wj8jeml3eu0z';
-                    $mail->SMTPSecure = 'tls';
-                    $mail->Port = 587;*/
+                    $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                    $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                    $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                    $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;
                     $mail->send();
                 } catch (Exception $e) {
                     $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
@@ -1177,6 +1256,11 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function contactInstitute() {
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
         $insertData = array(
             'fname' => $_POST['fname'],
             'lname' => $_POST['lname'],
@@ -1191,43 +1275,46 @@ class Home extends CI_Controller {
             //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
             $admEmail = $optionsList[8]->option_value;
             $address = $optionsList[6]->option_value;
-            $message = "<body>
-            <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
-                <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
-                    <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
-                    <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Afrebay</span></h3>
-                    <p style='font-size:24px;'>Hello User,</p>
-                    <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
-                    <p style='font-size:20px;'></p>
-                    <p style='font-size:20px;list-style: none;'>Sincerly</p>
-                    <p style='list-style: none;'><b>Makutano</b></p>
-                    <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
-                    <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+            $message = "
+            <body>
+                <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                    <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                        <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                        <p style='font-size:24px;'>First Name: $fname/p>
+                        <p style='font-size:24px;'>Last Name: $lname</p>
+                        <p style='font-size:24px;'>Email: $email</p>
+                        <p style='font-size:24px;'>Age: $message</p>
+                        <p style='font-size:20px;'></p>
+                        <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                        <p style='list-style: none;'><b>Makutano</b></p>
+                        <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                        <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                    </div>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                        </tr>
+                    </table>
                 </div>
-                <table style='width: 100%;'>
-                    <tr>
-                        <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Afrebay. All rights reserved.</td>
-                    </tr>
-                </table>
-            </div>
-        </body>";
+            </body>";
             $mail = new PHPMailer(true);
             try {
                 $mail->CharSet = 'UTF-8';
-                $mail->SetFrom($admEmail, 'Makutano');
-                $mail->AddAddress($_POST['email']);
+                $mail->SetFrom($_POST['email']);
+                $mail->AddAddress('masterclass@makutano.cd', 'Makutano');
                 $mail->IsHTML(true);
                 $mail->Subject = "Contact Makutano Institute";
                 $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
                 $mail->Body = $message;
-                /*$mail->IsSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'no-reply@goigi.com';
-                $mail->Password = 'wj8jeml3eu0z';
-                $mail->SMTPSecure = 'tls';
+                $mail->IsSMTP();
+                //Send mail using GMAIL server
+                $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 587;
-                $mail->send();*/
+                $mail->send();
             } catch (Exception $e) {
                 $this->session->set_flashdata('error_message', "Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
             }
@@ -1317,51 +1404,53 @@ class Home extends CI_Controller {
         //$imagePath = base_url().'uploads/logo/'.$optionsList[0]->option_value;
         $admEmail = $optionsList[8]->option_value;
         $address = $optionsList[6]->option_value;
-        $message = "<body>
-        <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
-            <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
-                <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
-                <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Afrebay</span></h3>
-                <p style='font-size:24px;'>Hello User,</p>
-                <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
-                <p style='font-size:24px;'>First Name: $fname/p>
-                <p style='font-size:24px;'>Last Name: $lname</p>
-                <p style='font-size:24px;'>Email: $email</p>
-                <p style='font-size:24px;'>Phone Number: $phno</p>
-                <p style='font-size:24px;'>Title: $title</p>
-                <p style='font-size:24px;'>Company: $company</p>
-                <p style='font-size:24px;'>Activity: $activty</p>
-                <p style='font-size:24px;'>Message: $msg</p>
-                <p style='font-size:20px;'></p>
-                <p style='font-size:20px;list-style: none;'>Sincerly</p>
-                <p style='list-style: none;'><b>Makutano</b></p>
-                <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
-                <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
-            </div>
-            <table style='width: 100%;'>
-                <tr>
-                    <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Afrebay. All rights reserved.</td>
-                </tr>
-            </table>
+        $message = "
+        <body>
+            <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                    <img src='cid:Logo' style='width:100px;float: right;margin-top: 0 auto;'>
+                    <h3 style='padding-top:40px; line-height: 30px;'>Greetings from<span style='font-weight: 900;font-size: 35px;color: #F44C0D; display: block;'>Makutano</span></h3>
+                    <p style='font-size:24px;'>Hello User,</p>
+                    <p style='font-size:24px;'>Thank you for Thank you for your email. Our contact person will reach you shortly.</p>
+                    <p style='font-size:24px;'>First Name: $fname/p>
+                    <p style='font-size:24px;'>Last Name: $lname</p>
+                    <p style='font-size:24px;'>Email: $email</p>
+                    <p style='font-size:24px;'>Phone Number: $phno</p>
+                    <p style='font-size:24px;'>Title: $title</p>
+                    <p style='font-size:24px;'>Company: $company</p>
+                    <p style='font-size:24px;'>Activity: $activty</p>
+                    <p style='font-size:24px;'>Message: $msg</p>
+                    <p style='font-size:20px;'></p>
+                    <p style='font-size:20px;list-style: none;'>Sincerly</p>
+                    <p style='list-style: none;'><b>Makutano</b></p>
+                    <p style='list-style:none;'><b>Visit us:</b> <span>$address</span></p>
+                    <p style='list-style:none'><b>Email us:</b> <span>$admEmail</span></p>
+                </div>
+                <table style='width: 100%;'>
+                    <tr>
+                        <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                    </tr>
+                </table>
             </div>
         </body>";
         $mail = new PHPMailer(true);
         try {
             $mail->CharSet = 'UTF-8';
             $mail->SetFrom($_POST['email']);
-            $mail->AddAddress($admEmail, 'Makutano');
+            $mail->AddAddress('masterclass@makutano.cd', 'Makutano');
             $mail->IsHTML(true);
             $mail->Subject = "ASK ABOUT SPONSORSHIP";
             $mail->AddEmbeddedImage('uploads/logo/'.$optionsList[0]->option_value, 'Logo');
             $mail->Body = $message;
-            /*$mail->IsSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'no-reply@goigi.com';
-            $mail->Password = 'wj8jeml3eu0z';
-            $mail->SMTPSecure = 'tls';
+            $mail->IsSMTP();
+            //Send mail using GMAIL server
+            $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                          // Enable SMTP authentication
+            $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+            $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+            $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;
-            $mail->send();*/
+            $mail->send();
             echo "1";
         } catch (Exception $e) {
             echo "2";
