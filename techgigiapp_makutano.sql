@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 20, 2024 at 07:58 PM
+-- Generation Time: Feb 23, 2024 at 03:34 PM
 -- Server version: 5.7.44
 -- PHP Version: 8.1.27
 
@@ -48548,6 +48548,20 @@ CREATE TABLE `contacts` (
   `business_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `fname`, `lname`, `email`, `phone`, `subject`, `message`, `crested_at`, `rply_text`, `rply_status`, `rply_date`, `address`, `business_name`) VALUES
+(1, 'sa', '', 'sayantan@goigi.in', 0, 'sa', 'sa', '2024-02-22 13:41:38', '', 0, NULL, '', ''),
+(2, 'Test Name', '', 'sayantan@goigi.in', 2147483647, 'Test Email Subject', 'test message', '2024-02-22 13:42:59', '', 0, NULL, '', ''),
+(3, 'Sayantan Bhakta', '', 'sayantan@goigi.in', 2147483647, 'Test Email Subject', 'Test email', '2024-02-23 05:25:05', '', 0, NULL, '', ''),
+(4, 'Test Name', '', 'sayantan@goigi.in', 2147483647, 'Test Email Subject', 'test', '2024-02-23 05:27:40', '', 0, NULL, '', ''),
+(5, 'Test Name', '', 'sayantan@goigi.in', 2147483647, 'Test Email Subject', 'test emAIL', '2024-02-23 05:29:42', '', 0, NULL, '', ''),
+(6, 'Module 1 update', '', 'sayantan@goigi.in', 2147483647, 'Test Subject', 'TEST', '2024-02-23 05:31:20', '', 0, NULL, '', ''),
+(7, 'Module 1 update', '', 'sayantan@goigi.in', 2147483647, 'subject', 'TEST', '2024-02-23 05:33:32', '', 0, NULL, '', ''),
+(8, 'Test Name', '', 'employee@gmail.com', 2147483647, 'Test Email Subject', 'testestetest', '2024-02-23 05:42:31', '', 0, NULL, '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -49110,6 +49124,17 @@ CREATE TABLE `email_subscription` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `email_subscription`
+--
+
+INSERT INTO `email_subscription` (`id`, `user_email`, `status`, `created_at`) VALUES
+(2, 'sayantan1@goigi.in', '1', '2024-02-23 06:58:00'),
+(3, 'sayantan2@goigi.in', '1', '2024-02-23 07:07:00'),
+(4, 'sayantan3@goigi.in', '1', '2024-02-23 07:16:00'),
+(6, 'sayantan4@goigi.in', '1', '2024-02-22 19:34:00'),
+(7, 'sayantan@goigi.in', '0', '2024-02-22 19:34:00');
+
 -- --------------------------------------------------------
 
 --
@@ -49301,6 +49326,7 @@ INSERT INTO `homecourse` (`id`, `heading`, `sub_heading`, `course_icon`, `course
 CREATE TABLE `mak_zeronine` (
   `id` int(11) NOT NULL,
   `image` varchar(45) DEFAULT NULL,
+  `presentation_for` varchar(45) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   `created_date` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -49309,21 +49335,41 @@ CREATE TABLE `mak_zeronine` (
 -- Dumping data for table `mak_zeronine`
 --
 
-INSERT INTO `mak_zeronine` (`id`, `image`, `status`, `created_date`) VALUES
-(1, '4404_mak-09-1.webp', '1', '2024-02-19 17:22:55'),
-(2, '2106_mak-09-2.webp', '1', '2024-02-19 17:22:55'),
-(3, '8959_mak-09-3.webp', '1', '2024-02-19 17:22:55'),
-(4, '3402_mak-09-4.webp', '1', '2024-02-19 17:22:55'),
-(5, '7720_mak-09-5.webp', '1', '2024-02-19 17:22:55'),
-(6, '8580_mak-09-6.webp', '1', '2024-02-19 17:22:55'),
-(7, '6753_mak-09-7.webp', '1', '2024-02-19 17:22:55'),
-(8, '3591_mak-09-8.webp', '1', '2024-02-19 17:22:55'),
-(9, '5793_mak-09-9.webp', '1', '2024-02-19 17:22:55'),
-(10, '546_mak-09-10.webp', '1', '2024-02-19 17:22:55'),
-(11, '1532_mak-09-11.webp', '1', '2024-02-19 17:22:55'),
-(12, '1867_mak-09-12.webp', '1', '2024-02-19 17:22:55'),
-(13, '1459_mak-09-13.webp', '1', '2024-02-19 17:22:55'),
-(15, '3984_mak-09-14.webp', '1', '2024-02-19 17:28:34');
+INSERT INTO `mak_zeronine` (`id`, `image`, `presentation_for`, `status`, `created_date`) VALUES
+(1, '4404_mak-09-1.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(2, '2106_mak-09-2.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(3, '8959_mak-09-3.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(4, '3402_mak-09-4.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(5, '7720_mak-09-5.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(6, '8580_mak-09-6.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(7, '6753_mak-09-7.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(8, '3591_mak-09-8.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(9, '5793_mak-09-9.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(10, '546_mak-09-10.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(11, '1532_mak-09-11.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(12, '1867_mak-09-12.webp', 'mak_09', '1', '2024-02-22 12:30:30'),
+(13, '1459_mak-09-13.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(15, '3984_mak-09-14.webp', 'mak_09', '1', '2024-02-22 12:28:18'),
+(16, '7844_0002-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(17, '1376_0003-1-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(18, '5659_0004-1-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(19, '3226_0005-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(20, '2777_0006-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(21, '1482_0007-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(22, '7933_0008-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(23, '7718_0009-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(24, '5830_0010-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(25, '1220_0011-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(26, '4271_0012-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(27, '5204_0013-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(28, '1500_0014-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(29, '6920_0015-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(30, '7043_0016-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(31, '2131_0017-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(32, '8912_0018-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(33, '9676_0019-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(34, '8348_0020-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(35, '5738_0021-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43');
 
 -- --------------------------------------------------------
 
@@ -49687,6 +49733,7 @@ CREATE TABLE `product_type` (
 CREATE TABLE `programme` (
   `id` int(11) NOT NULL,
   `title` longtext,
+  `programme_for` varchar(45) DEFAULT NULL,
   `forum_date` text,
   `start_time` text,
   `end_time` text,
@@ -49701,9 +49748,9 @@ CREATE TABLE `programme` (
 -- Dumping data for table `programme`
 --
 
-INSERT INTO `programme` (`id`, `title`, `forum_date`, `start_time`, `end_time`, `description`, `dress_code`, `uploaded_by`, `status`, `created_at`) VALUES
-(1, 'MERCREDI 20 SEPTEMBRE 2023', NULL, NULL, NULL, '<p class=\"fw-bold\">08H00 – 8H45</p>\r\n                                <p>Salle des fêtes</p>\r\n                                <h5 class=\"text-danger my-2\">ACCUEIL CAFÉ</h5>', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:15'),
-(2, 'JEUDI 21 SEPTEMBRE 2023', NULL, NULL, NULL, '<p>08H00 &ndash; 8H45</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>ACCUEIL CAF&Eacute;</p>\r\n\r\n<p>09H00 &ndash; 10H15</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>MOT DE BIENVENUE</p>\r\n\r\n<p>Deborah Mutund,&nbsp;Entrepreneure, femme de media, consultante en relations publiques</p>\r\n\r\n<p>MC MAKUTANO 2023</p>\r\n\r\n<p>OPENING SPEECH</p>\r\n\r\n<p>Nicole Sulu,&nbsp;Founder Makutano</p>\r\n\r\n<p>S.E.M. Jean-Michel Sama Lukonde,&nbsp;Premier ministre, RDC</p>\r\n\r\n<p>S.E.M. Patrick Achi,&nbsp;Premier ministre, C&ocirc;te d&rsquo;Ivoire</p>\r\n\r\n<p>10H15 &ndash; 11H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 1</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>&Eacute;ric Kacou,&nbsp;DG, Entrepreneurial Solutions Partners</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Keynote (10 min)</p>\r\n\r\n<p>Robert Matana Gumede,&nbsp;Executive Chairman, GUMA Group</p>\r\n\r\n<p>Intervenants</p>\r\n\r\n<p>S.EM. Olusegun Obasanjo,&nbsp;Pr&eacute;sident honoraire du Nig&eacute;ria</p>\r\n\r\n<p>S.E.M. Nicolas Kazadi,&nbsp;Ministre des Finances de RDC</p>\r\n\r\n<p>Albert Yuma,&nbsp;Pr&eacute;sident, FEC</p>\r\n\r\n<p>Paulo Gomes,&nbsp;PDG &ndash; Orango Investment Corporation, Co-fondateur &ndash; New African Capital Partners</p>\r\n\r\n<p>Abdou Souleye Diop,&nbsp;Managing Partner &ndash; Mazars</p>\r\n\r\n<p>Farida Jirari,&nbsp;Directrice g&eacute;n&eacute;rale Association pour le Progr&egrave;s des Dirigeants</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle Chandelier Lagune</p>\r\n\r\n<p>WORKSHOP 1 (25 Pax)</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Discussion sur une probl&eacute;matique concr&egrave;te issue du panel, assortie d&rsquo;un &laquo; Take Away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Ambassadrice</p>\r\n\r\n<p>Charlotte Kalala,&nbsp;Congo na Paris</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>Teddy Roux,&nbsp;Directeur Afrique de l&rsquo;Ouest &ndash; Entrepreneurial Solutions Partners, LLC</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 2</p>\r\n\r\n<p>INTERVIEW 4.0</p>\r\n\r\n<p>Special guest</p>\r\n\r\n<p>Samuel Eto&rsquo;o,&nbsp;Pr&eacute;sident, FECAFOOT</p>\r\n\r\n<p>Mod&eacute;ratrice</p>\r\n\r\n<p>Madjissem Beringaye,&nbsp;TV Host &amp; Entrepreneure</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle ABOISSO</p>\r\n\r\n<p>WORKSHOP 2 (25 pax)</p>\r\n\r\n<p>MINES</p>\r\n\r\n<p>Discussion pr&eacute;paratoire sur une probl&eacute;matique concr&egrave;te du panel Mines, assortie d&rsquo;un &laquo; take away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Mod&eacute;rateurs</p>\r\n\r\n<p>Landry Djimpe, Innogence Consulting</p>\r\n\r\n<p>Laetitia Gadegbeku, Directrice-pays Groupe Endeavour Minm</p>\r\n', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:07');
+INSERT INTO `programme` (`id`, `title`, `programme_for`, `forum_date`, `start_time`, `end_time`, `description`, `dress_code`, `uploaded_by`, `status`, `created_at`) VALUES
+(1, 'MERCREDI 20 SEPTEMBRE 2023', NULL, NULL, NULL, NULL, '<p class=\"fw-bold\">08H00 – 8H45</p>\r\n                                <p>Salle des fêtes</p>\r\n                                <h5 class=\"text-danger my-2\">ACCUEIL CAFÉ</h5>', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:15'),
+(2, 'JEUDI 21 SEPTEMBRE 2023', NULL, NULL, NULL, NULL, '<p>08H00 &ndash; 8H45</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>ACCUEIL CAF&Eacute;</p>\r\n\r\n<p>09H00 &ndash; 10H15</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>MOT DE BIENVENUE</p>\r\n\r\n<p>Deborah Mutund,&nbsp;Entrepreneure, femme de media, consultante en relations publiques</p>\r\n\r\n<p>MC MAKUTANO 2023</p>\r\n\r\n<p>OPENING SPEECH</p>\r\n\r\n<p>Nicole Sulu,&nbsp;Founder Makutano</p>\r\n\r\n<p>S.E.M. Jean-Michel Sama Lukonde,&nbsp;Premier ministre, RDC</p>\r\n\r\n<p>S.E.M. Patrick Achi,&nbsp;Premier ministre, C&ocirc;te d&rsquo;Ivoire</p>\r\n\r\n<p>10H15 &ndash; 11H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 1</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>&Eacute;ric Kacou,&nbsp;DG, Entrepreneurial Solutions Partners</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Keynote (10 min)</p>\r\n\r\n<p>Robert Matana Gumede,&nbsp;Executive Chairman, GUMA Group</p>\r\n\r\n<p>Intervenants</p>\r\n\r\n<p>S.EM. Olusegun Obasanjo,&nbsp;Pr&eacute;sident honoraire du Nig&eacute;ria</p>\r\n\r\n<p>S.E.M. Nicolas Kazadi,&nbsp;Ministre des Finances de RDC</p>\r\n\r\n<p>Albert Yuma,&nbsp;Pr&eacute;sident, FEC</p>\r\n\r\n<p>Paulo Gomes,&nbsp;PDG &ndash; Orango Investment Corporation, Co-fondateur &ndash; New African Capital Partners</p>\r\n\r\n<p>Abdou Souleye Diop,&nbsp;Managing Partner &ndash; Mazars</p>\r\n\r\n<p>Farida Jirari,&nbsp;Directrice g&eacute;n&eacute;rale Association pour le Progr&egrave;s des Dirigeants</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle Chandelier Lagune</p>\r\n\r\n<p>WORKSHOP 1 (25 Pax)</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Discussion sur une probl&eacute;matique concr&egrave;te issue du panel, assortie d&rsquo;un &laquo; Take Away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Ambassadrice</p>\r\n\r\n<p>Charlotte Kalala,&nbsp;Congo na Paris</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>Teddy Roux,&nbsp;Directeur Afrique de l&rsquo;Ouest &ndash; Entrepreneurial Solutions Partners, LLC</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 2</p>\r\n\r\n<p>INTERVIEW 4.0</p>\r\n\r\n<p>Special guest</p>\r\n\r\n<p>Samuel Eto&rsquo;o,&nbsp;Pr&eacute;sident, FECAFOOT</p>\r\n\r\n<p>Mod&eacute;ratrice</p>\r\n\r\n<p>Madjissem Beringaye,&nbsp;TV Host &amp; Entrepreneure</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle ABOISSO</p>\r\n\r\n<p>WORKSHOP 2 (25 pax)</p>\r\n\r\n<p>MINES</p>\r\n\r\n<p>Discussion pr&eacute;paratoire sur une probl&eacute;matique concr&egrave;te du panel Mines, assortie d&rsquo;un &laquo; take away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Mod&eacute;rateurs</p>\r\n\r\n<p>Landry Djimpe, Innogence Consulting</p>\r\n\r\n<p>Laetitia Gadegbeku, Directrice-pays Groupe Endeavour Minm</p>\r\n', 'BUSINESS-FORMAL', NULL, '1', '2024-02-19 04:07');
 
 -- --------------------------------------------------------
 
@@ -49714,6 +49761,7 @@ INSERT INTO `programme` (`id`, `title`, `forum_date`, `start_time`, `end_time`, 
 CREATE TABLE `programme_sejour` (
   `id` int(11) NOT NULL,
   `title` text,
+  `programme_for` varchar(45) DEFAULT NULL,
   `description` longtext,
   `dress_code` text,
   `status` varchar(45) DEFAULT NULL,
@@ -49724,10 +49772,10 @@ CREATE TABLE `programme_sejour` (
 -- Dumping data for table `programme_sejour`
 --
 
-INSERT INTO `programme_sejour` (`id`, `title`, `description`, `dress_code`, `status`, `created_at`) VALUES
-(1, 'LUNDI 18/09/2023 | DÉPART', '<p>15H00 - 19HOO :&nbsp;<strong>Vol Air C&ocirc;te d&rsquo;Ivoire Kinshasa-Abidjan&nbsp;</strong>/ A&eacute;roport de N&rsquo;djili</p>\r\n', '', '1', '2024-02-19 07:35'),
-(2, 'MARDI 19/09/2023 : COCKTAIL', '<p>19H00 :&nbsp;<strong>Cocktail de bienvenue&nbsp;</strong>/ R&eacute;sidence priv&eacute;e, Marcory</p>\r\n', 'Business casual', '1', '2024-02-19 06:57'),
-(3, 'MERCREDI 20/09/2023 : JOUR 1 MAKUTANO', '<p>08H00 - 08H45 :&nbsp;<strong>Accueil&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>09H00 - 12H30 :&nbsp;<strong>1&egrave;re partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 1&nbsp;</strong>/ Le Comptoir, ITC Ivoire Trade Center</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 2 - D&eacute;jeunerd&eacute;bat entrepreunariat&nbsp;</strong>/ La R&eacute;sidence (sur invitation)</p>\r\n\r\n<p>14H30 - 17H30 :&nbsp;<strong>2&egrave;me&nbsp;partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>18H30 - 20H00 :&nbsp;<strong>Cocktail Makutano</strong>&nbsp;/ Galerie Studer, 13 Bd Hassan II</p>\r\n', 'Business formal', '1', '2024-02-19 06:58');
+INSERT INTO `programme_sejour` (`id`, `title`, `programme_for`, `description`, `dress_code`, `status`, `created_at`) VALUES
+(1, 'LUNDI 18/09/2023 | DÉPART', NULL, '<p>15H00 - 19HOO :&nbsp;<strong>Vol Air C&ocirc;te d&rsquo;Ivoire Kinshasa-Abidjan&nbsp;</strong>/ A&eacute;roport de N&rsquo;djili</p>\r\n', '', '1', '2024-02-19 07:35'),
+(2, 'MARDI 19/09/2023 : COCKTAIL', NULL, '<p>19H00 :&nbsp;<strong>Cocktail de bienvenue&nbsp;</strong>/ R&eacute;sidence priv&eacute;e, Marcory</p>\r\n', 'Business casual', '1', '2024-02-19 06:57'),
+(3, 'MERCREDI 20/09/2023 : JOUR 1 MAKUTANO', NULL, '<p>08H00 - 08H45 :&nbsp;<strong>Accueil&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>09H00 - 12H30 :&nbsp;<strong>1&egrave;re partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 1&nbsp;</strong>/ Le Comptoir, ITC Ivoire Trade Center</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 2 - D&eacute;jeunerd&eacute;bat entrepreunariat&nbsp;</strong>/ La R&eacute;sidence (sur invitation)</p>\r\n\r\n<p>14H30 - 17H30 :&nbsp;<strong>2&egrave;me&nbsp;partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>18H30 - 20H00 :&nbsp;<strong>Cocktail Makutano</strong>&nbsp;/ Galerie Studer, 13 Bd Hassan II</p>\r\n', 'Business formal', '1', '2024-02-19 06:58');
 
 -- --------------------------------------------------------
 
@@ -54096,7 +54144,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `currency`, `currency_symbol`, `fname`, `lname`, `email`, `password`, `phone`, `phone_full`, `phone_code`, `phone_country`, `phone_st_country`, `user_bio`, `skills`, `email_verified`, `status`, `image`, `created_at`, `otp`, `token`, `userType`) VALUES
 (1, 'USD', '$', 'Sayantan', 'Bhakta', 'student@gmail.com', '25d55ad283aa400af464c76d713c07ad', '9852365412', '', 0, '', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc vel odio bibendum tincidunt. Nulla facilisi. Sed euismod, justo vel aliquam molestie, dolor sapien sagittis velit, et lacinia nisi nisl vel nisi. Sed auctor nibh vitae urna vulputate molestie.', 'Python', 1, 1, '1357_istockphoto-1399565382-170667a.jpg', '2024-02-02 13:45:48', NULL, NULL, '1'),
 (2, 'USD', '$', 'Demo', 'Instructor', 'instructor@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-02 13:47:50', NULL, NULL, '2'),
-(3, 'USD', '$', 'Tes', 'Tes', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, NULL, '2024-02-09 19:45:58', '074229', NULL, '1');
+(3, 'USD', '$', 'Tes', 'Tes', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, NULL, '2024-02-09 19:45:58', '074229', NULL, '1'),
+(6, 'USD', '$', 'Sayantan', 'bhakta', 'sayantan@goigi.in', '1bbd886460827015e5d605ed44252251', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-22 19:06:52', '', NULL, '1'),
+(7, 'USD', '$', 'sa', 'bh', 'sayantan.ece.imps@gmail.com', '1bbd886460827015e5d605ed44252251', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-22 19:08:05', '', NULL, '2');
 
 -- --------------------------------------------------------
 
@@ -54243,6 +54293,14 @@ CREATE TABLE `youth_member` (
   `statute` text,
   `interest` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `youth_member`
+--
+
+INSERT INTO `youth_member` (`id`, `fname`, `lname`, `email`, `contactno`, `age`, `town`, `area`, `company`, `qualification`, `statute`, `interest`) VALUES
+(1, 'sayantan', 'Bhakta', 'sayantan@goigi.in', '1232323123213', '32', 'test', 'test', 'test', 'wqwwqw', 'Employee', 'Networking,Mentoring,Financement,Formation / Coaching'),
+(2, 'sayantan', 'Bhakta', 'sayantan@goigi.in', '1232323123213', '32', 'Kolkata', 'kolkata', 'IGIT', 'Training', 'Employee', 'Networking,Mentoring,Financement,Formation / Coaching');
 
 --
 -- Indexes for dumped tables
@@ -54666,7 +54724,7 @@ ALTER TABLE `conference`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contact_institute`
@@ -54738,7 +54796,7 @@ ALTER TABLE `course_syllabus`
 -- AUTO_INCREMENT for table `email_subscription`
 --
 ALTER TABLE `email_subscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `email_unsubscribe_list`
@@ -54792,7 +54850,7 @@ ALTER TABLE `homecourse`
 -- AUTO_INCREMENT for table `mak_zeronine`
 --
 ALTER TABLE `mak_zeronine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `options`
@@ -54948,7 +55006,7 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_address`
@@ -54984,7 +55042,7 @@ ALTER TABLE `youth_activity`
 -- AUTO_INCREMENT for table `youth_member`
 --
 ALTER TABLE `youth_member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

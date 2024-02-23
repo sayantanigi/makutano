@@ -153,7 +153,7 @@ if (!empty($active_data)) {
                                                 ?>
                                                 </div>
                                             </div>
-                                            <h3 class="course__title">
+                                            <h3 class="course__title" style="font-size: 18px !important; margin-bottom: 5px !important;">
                                                 <a href="<?=base_url('users/courseModule/'.@$value->enrollment_id);?>">
                                                 <?php if (@$value->title) {
                                                     echo @$value->title;

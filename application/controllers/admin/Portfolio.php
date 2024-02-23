@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+ob_start();
 class Portfolio extends AI_Controller {
 
 	public function __construct()
@@ -101,7 +101,7 @@ class Portfolio extends AI_Controller {
 						'status' => 1,
 						'created_date' => date("Y-m-d H:i:s"),
 					);
-					echo "<pre>"; print_r($data_image);
+					//echo "<pre>"; print_r($data_image);
 					$this->Portfolio_model->save($data_image, 'portfolio');
 					$this->session->set_flashdata('message', 'Portfolio Created Successfully !');
 				}

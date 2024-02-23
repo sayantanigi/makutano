@@ -1522,4 +1522,9 @@ class Home extends CI_Controller {
         $this->load->view('business_women', $data);
         $this->load->view('footer');
     }
+    public function newsletter() {
+        $this->load->view('header');
+        $this->load->view('newsletter');
+        $this->load->view('footer');
+    }
 }

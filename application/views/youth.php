@@ -56,7 +56,7 @@
                             <p class="mb-0">Makutano for Youth is a platform dedicated to young people.</p>
                             <p>Join our network and receive notification of our activities.</p>
                         </div>
-                        <?php print_r($this->session->flashdata());?>
+                        <?php //print_r($this->session->flashdata());?>
                         <form action="<?= base_url()?>Home/submitYouthForm" method="post">
                             <div class="row g-3">
                                 <div class="col-lg-6">

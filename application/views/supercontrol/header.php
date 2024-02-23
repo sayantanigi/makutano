@@ -30,7 +30,7 @@ $optionsList = $this->db->query($getOptionsSql)->result();?>
     <div class="page-header navbar navbar-fixed-top">
         <div class="page-header-inner ">
             <div class="page-logo" style="padding-left: 0px; padding-right: 0px;">
-                <a href="<?php echo base_url(); ?>../dashboard.php">
+                <a href="<?php echo base_url(); ?>" target="__blank">
                     <b style="font-family:'Times New Roman', Times, serif; color:#FFF; font-size:18px;">
                         <img style="height: 45px;width: 210px;" src="<?= base_url() ?>uploads/logo/<?php echo $optionsList[0]->option_value?>">
                     </b>

@@ -501,6 +501,19 @@
                     <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
                     </li>
+                    <li class="treeview <?= ($tab == 'add_blog' || $tab == 'blog') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Newsletter Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_newsletter') ? 'active' : ''; ?>"><a href="<?= admin_url('newsletter/add') ?>"><i class="fa fa-circle"></i> Add Newsletter</a></li>
+                            <li class="<?= ($tab == 'newsletter') ? 'active' : ''; ?>"><a href="<?= admin_url('newsletter') ?>"><i class="fa fa-circle"></i> Newsletter Lists</a></li>
+                        </ul>
+                    </li>
                     <li class="<?= ($tab == 'email_list') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings/email_list') ?>"><i class="fa fa-circle"></i> Email List</a>
                     </li>

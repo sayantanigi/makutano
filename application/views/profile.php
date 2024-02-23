@@ -42,6 +42,10 @@ $activeCourse = 0;
 if (!empty($active_data)) {
     $activeCourse = $active_data->activeCourse;
 }
+$data = array(
+    'ctn_enrolment' => @$ctn_enrolment,
+    'courseArray' => count($courseArray)
+);
 ?>
 <main>
     <section class="pt-100 pb-145">
