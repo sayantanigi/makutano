@@ -62,6 +62,7 @@ $route['portfolio8'] = 'Home/portfolio8';
 $route['portfolio7'] = 'Home/portfolio7';
 $route['institute'] = 'Home/institute';
 $route['network'] = 'Home/network';
+$route['newsletter'] = 'Home/newsletter';
 $route['foundation'] = 'Home/foundation';
 $route['business_women'] = 'Home/business_women';
 $route['programme_forum'] = 'Home/programmeForum';

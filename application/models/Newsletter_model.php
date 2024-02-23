@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class newsletter_model extends Master_Model {
+class Newsletter_model extends Master_Model {
 
 	public function __construct() {
 		parent::__construct();
@@ -9,5 +8,5 @@ class newsletter_model extends Master_Model {
 	}
 }
 
-/* End of file Product_model.php */
-/* Location: ./application/models/Product_model.php */
+/* End of file Gallery_model.php */
+/* Location: ./application/models/Gallery_model.php */

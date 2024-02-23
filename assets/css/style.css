@@ -3402,6 +3402,14 @@ p {
   color: #ffffff;
   background: #285da1;
 }
+.course__share ul li a.linkedin {
+  color: #0077b5 ;
+  /* background: rgba(40, 93, 161, 0.1); */
+}
+.course__share ul li a.linkedin:hover {
+  color: #ffffff;
+  background: #0077b5 ;
+}
 .course__share ul li a.tw {
   color: #03a9f4;
   /* background: rgba(3, 169, 244, 0.1); */
@@ -3410,13 +3418,21 @@ p {
   color: #ffffff;
   background: #03a9f4;
 }
-.course__share ul li a.pin {
+.course__share ul li a.youtube {
   color: #d8163f;
   /* background: rgba(216, 22, 63, 0.1); */
 }
-.course__share ul li a.pin:hover {
+.course__share ul li a.youtube:hover {
   color: #ffffff;
   background: #d8163f;
+}
+.course__share ul li a.instagram {
+  color: #cd486b  ;
+  /* background: rgba(216, 22, 63, 0.1); */
+}
+.course__share ul li a.instagram:hover {
+  color: #ffffff;
+  background: #cd486b  ;
 }
 .course__curriculum-content {
   padding: 13px 30px;
@@ -8320,6 +8336,30 @@ p.checkout-coupon input[type=text]:focus {
   -moz-box-shadow: 0px 1px 4px 0px rgba(8, 0, 42, 0.2);
   box-shadow: 0px 1px 4px 0px rgba(8, 0, 42, 0.2);
 }
+.sign__input textarea {
+  width: 100%;
+  height: 100px;
+  line-height: 52px;
+  padding: 0 20px;
+  font-size: 14px;
+  border: 2px solid transparent;
+  background: #f6f6f7;
+  color: #0e1133;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.sign__input textarea::placeholder {
+  color: #8e8c94;
+}
+.sign__input textarea:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #db3636;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(8, 0, 42, 0.2);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(8, 0, 42, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(8, 0, 42, 0.2);
+}
 .sign__input i {
   position: absolute;
   top: 51%;
@@ -9075,4 +9115,51 @@ p.checkout-coupon input[type=text]:focus {
 .rc__post p{
   font-size: 15px;
   line-height: 22px;
+}
+.blocknewsletter{
+  background: #052093;
+  padding: 8px 10px;
+  border-radius: 5px;
+  align-items: center;
+  line-height: 1.2;
+  transition: all .3s;
+  height: 100%;
+}
+.blocknewsletter:hover{
+  background: #db3636;
+}
+.newslIcon{
+  min-width: 26px;
+  height: 26px;
+  line-height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #db3636;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+.inverBox{
+  border-radius: 6px;
+  overflow: hidden;
+  height: 100%;
+}
+.inverBox img{
+  max-width: 100%;
+  aspect-ratio: 4/4;
+  object-fit: cover;
+}
+.invername{
+  padding: 15px 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .5px;
+  border-bottom: 1px solid #ffffff38;
+}
+.inverinfo{
+  padding: 10px 15px 15px;
+  line-height: 1.4;
+  font-size: 15px;
+  letter-spacing: .3px;
 }

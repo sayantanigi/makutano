@@ -704,6 +704,8 @@ class Home extends CI_Controller {
             $getOptionsSql = "SELECT * FROM `options`";
             $optionsList = $this->db->query($getOptionsSql)->result();
             //$imagePath = base_url().'uploads/logo/Logo-Makutano-inblock.png';
+            $address = $optionsList[6]->option_value;
+            $admEmail = $optionsList[8]->option_value;
             $message = "
             <body>
                 <div style='width: 600px; margin: 0 auto; background: #fff; border: 1px solid #e6e6e6'>
@@ -1523,8 +1525,9 @@ class Home extends CI_Controller {
         $this->load->view('footer');
     }
     public function newsletter() {
-        $this->load->view('header');
-        $this->load->view('newsletter');
+        $data['newsletter'] = $this->db->query("SELECT * FROM newsletter WHERE status= '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('newsletter', $data);
         $this->load->view('footer');
     }
 }

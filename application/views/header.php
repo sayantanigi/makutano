@@ -131,7 +131,7 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                             <a href="#">Network</a>
                                             <ul class="submenu">
                                                 <li><a href="<?= base_url()?>network">Network news</a></li>
-                                                <li><a href="#">Newsletter</a></li>
+                                                <li><a href="<?= base_url()?>newsletter">Newsletter</a></li>
                                                 <li><a href="<?= base_url()?>business_women">Women in Business</a></li>
                                                 <li><a href="https://levelupmakutano.com/">Levelup Makutano</a></li>
                                             </ul>

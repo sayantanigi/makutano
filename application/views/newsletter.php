@@ -20,102 +20,17 @@
             <div>
                 <h3 class="text-uppercase fw-bold mb-4">NOS DERNIÈRES NEWSLETTERS</h3>
                 <div class="row g-2">
+                    <?php if(!empty($newsletter)) { 
+                    foreach ($newsletter as $val) { ?>
                     <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
+                        <a href="<?= base_url()?>uploads/newsletter/<?= $val['image']?>" class="d-flex blocknewsletter">
                             <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Gmak Newsletter de MAKUTANO, c'est parti !</div>
+                            <div><?= $val['title']?></div>
                         </a>
                     </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>La corruption, fléau pour la République Démocratique du Congo</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Aviation, investissements, écologie : les dernière news éco de la Gmak Newsletter</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Près d'un milliard de dollars américains (USD) d'aides supplémentaires pour la RDC</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Mobilité verte, femmes entrepreneures, exploitation minière... Les dernières news éco de Gmak Newsletter</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>L'Ouganda, condamné à payer 325 millions de dollars à la RDC !</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>COP26, DRC-Africa Business Forum, etc... c'est la MAKUTANO Newsletter</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Flutterwave, le fer de lance des fintech africaines</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>DRC- Africa Business Forum, Kenya-RDC, Naguib Sawiris, etc...</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Plusieurs promesses de financements au Sommet UE-UA</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Le scandale ﬁnancier Congo Hold-up secoue la RDC</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Le CMMC : l'union fait la force !</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>La RDC, bientôt à la tête du marché mondial de batteries électriques ?</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>Le FMI confirme le rebond économique du pays !</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>L'électricité, enjeu majeur en RDC</div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="#" class="d-flex blocknewsletter">
-                            <div class="newslIcon"><i class="fas fa-file-pdf"></i></div>
-                            <div>19e place pour la RDC en matière d'égalité économique homme-femme !</div>
-                        </a>
-                    </div>
+                    <?php } } else { ?>
+                    <div class=""col-lg-12>No data found</div>
+                    <?php } ?>
                 </div>
                 <div class="text-center mt-30">
                     <a href="https://api.whatsapp.com/message/IPGZEJUIQRX5G1" class="e-btn mx-1 bg-success">Whatsapp <i class="fab fa-whatsapp"></i></a>
