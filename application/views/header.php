@@ -94,18 +94,18 @@ $optionsList = $this->db->query($getOptionsSql)->result();
                                                     <ul class="submenu">
                                                         <li><a href="<?= base_url()?>mak_08">Présentation #Makutano8</a></li>
                                                         <li><a href="<?= base_url()?>programme_mak8">Program</a></li>
-                                                        <li><a href="#">Intervenants</a></li>
-                                                        <li><a href="#">Partenaires</a></li>
+                                                        <li><a href="<?= base_url()?>intervenants">Intervenants</a></li>
+                                                        <li><a href="<?= base_url()?>partenaires_08">Partenaires</a></li>
                                                         <li><a href="<?= base_url()?>portfolio8">Portfolio #Makutano8</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Makutano 7</a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Livre blanc #Makutano7</a></li>
-                                                        <li><a href="#">Program</a></li>
-                                                        <li><a href="#">Thématiques</a></li>
-                                                        <li><a href="#">Communiqué de presse bilan</a></li>
-                                                        <li><a href="#">Partenaires</a></li>
+                                                        <li><a href="<?= base_url()?>livre_blanc">Livre blanc #Makutano7</a></li>
+                                                        <li><a href="<?= base_url()?>program">Program</a></li>
+                                                        <li><a href="<?= base_url()?>thematiques">Thématiques</a></li>
+                                                        <li><a href="<?= base_url()?>communique_de_presse_bilan">Communiqué de presse bilan</a></li>
+                                                        <li><a href="<?= base_url()?>partenaires_07">Partenaires</a></li>
                                                         <li><a href="<?= base_url()?>portfolio7">Portfolio #Makutano7</a></li>
                                                     </ul>
                                                 </li>

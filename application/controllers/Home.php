@@ -1530,4 +1530,50 @@ class Home extends CI_Controller {
         $this->load->view('newsletter', $data);
         $this->load->view('footer');
     }
+    public function partenaires_07() {
+        $data['tab'] = "partenaires_07";
+        $this->load->view('header', $data);
+        $this->load->view('partenaires', $data);
+        $this->load->view('footer');
+    }
+    public function partenaires_08() {
+        $data['tab'] = "partenaires_08";
+        $this->load->view('header', $data);
+        $this->load->view('partenaires', $data);
+        $this->load->view('footer');
+    }
+    public function intervenants() {
+        $data['tab'] = "intervenants";
+        $data['intervenants'] = $this->db->query("SELECT * FROM intervenants WHERE status = '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('intervenants', $data);
+        $this->load->view('footer');
+    }
+    public function livre_blanc() {
+        $data['tab'] = "livre_blanc";
+        $data['livre_blanc'] = $this->db->query("SELECT * FROM cms WHERE id = '23'")->row();
+        $this->load->view('header', $data);
+        $this->load->view('livre_blanc', $data);
+        $this->load->view('footer');
+    }
+    public function program() {
+        $data['tab'] = "program";
+        $data['program'] = $this->db->query("SELECT * FROM cms WHERE id = '24'")->row();
+        $this->load->view('header', $data);
+        $this->load->view('program', $data);
+        $this->load->view('footer');
+    }
+    public function thematiques() {
+        $data['thematiques_desc'] = $this->db->query("SELECT * FROM cms WHERE id= '25'")->row();
+        $data['thematiques'] = $this->db->query("SELECT * FROM thematiques WHERE status= '1'")->result_array();
+        $this->load->view('header', $data);
+        $this->load->view('thematiques', $data);
+        $this->load->view('footer');
+    }
+    public function communique_de_presse_bilan() {
+        $data['communique'] = $this->db->query("SELECT * FROM cms WHERE id= '26'")->row();
+        $this->load->view('header', $data);
+        $this->load->view('communique', $data);
+        $this->load->view('footer');
+    }
 }

@@ -61,7 +61,7 @@
                   </div>
                 </div>
                 <div class="col-sm-10">
-                <?php if($pages->id=="1" || $pages->id=="21") { ?>
+                <?php if($pages->id=="1" || $pages->id=="21" || $pages->id=="24" || $pages->id=="26") { ?>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <img src="<?=site_url('uploads/cms/'.$pages->image)?>" onerror="this.src='<?=site_url()?>assets/images/no-image.png';" class="img-responsive" style="width:100px">
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                 <?php } 
-                if($pages->id=="21") { ?>
+                if($pages->id=="21" || $pages->id=="24") { ?>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <img src="<?=site_url('uploads/cms/'.$pages->image1)?>" onerror="this.src='<?=site_url()?>assets/images/no-image.png';" class="img-responsive" style="width:100px">

@@ -9163,3 +9163,23 @@ p.checkout-coupon input[type=text]:focus {
   font-size: 15px;
   letter-spacing: .3px;
 }
+.bgbanner{
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+.bgbanner:after{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: #05209361;
+  z-index: 1;
+  content: '';
+}
+.bgbanner .container{
+  position: relative;
+  z-index: 9;
+}

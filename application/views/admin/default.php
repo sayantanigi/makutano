@@ -501,7 +501,7 @@
                     <li class="<?= ($tab == 'add_service' || $tab == 'service') ? 'active' : ''; ?>">
                         <a href="<?= admin_url('settings') ?>"><i class="fa fa-wrench"></i> Settings</a>
                     </li>
-                    <li class="treeview <?= ($tab == 'add_blog' || $tab == 'blog') ? 'active' : ''; ?>">
+                    <li class="treeview <?= ($tab == 'add_newsletter' || $tab == 'newsletter') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>
                             <span>Newsletter Management</span>
@@ -512,6 +512,32 @@
                         <ul class="treeview-menu">
                             <li class="<?= ($tab == 'add_newsletter') ? 'active' : ''; ?>"><a href="<?= admin_url('newsletter/add') ?>"><i class="fa fa-circle"></i> Add Newsletter</a></li>
                             <li class="<?= ($tab == 'newsletter') ? 'active' : ''; ?>"><a href="<?= admin_url('newsletter') ?>"><i class="fa fa-circle"></i> Newsletter Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'add_thematiques' || $tab == 'thematiques') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Thematiques Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_thematiques') ? 'active' : ''; ?>"><a href="<?= admin_url('thematiques/add') ?>"><i class="fa fa-circle"></i> Add Thematiques</a></li>
+                            <li class="<?= ($tab == 'thematiques') ? 'active' : ''; ?>"><a href="<?= admin_url('thematiques') ?>"><i class="fa fa-circle"></i> Thematiques Lists</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview <?= ($tab == 'add_intervenants' || $tab == 'intervenants') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Intervenant Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_intervenants') ? 'active' : ''; ?>"><a href="<?= admin_url('intervenants/add') ?>"><i class="fa fa-circle"></i> Add Intervenants</a></li>
+                            <li class="<?= ($tab == 'intervenants') ? 'active' : ''; ?>"><a href="<?= admin_url('intervenants') ?>"><i class="fa fa-circle"></i> IUntervenants Lists</a></li>
                         </ul>
                     </li>
                     <li class="<?= ($tab == 'email_list') ? 'active' : ''; ?>">
