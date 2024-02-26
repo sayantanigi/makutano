@@ -514,6 +514,19 @@
                             <li class="<?= ($tab == 'newsletter') ? 'active' : ''; ?>"><a href="<?= admin_url('newsletter') ?>"><i class="fa fa-circle"></i> Newsletter Lists</a></li>
                         </ul>
                     </li>
+                    <li class="treeview <?= ($tab == 'add_poster' || $tab == 'poster') ? 'active' : ''; ?>">
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Ad Management</span>
+                            <span class="pull-right-container">
+                                <span class="pull-right-container"><i class="fa fa-angle-right pull-right"></i></span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?= ($tab == 'add_poster') ? 'active' : ''; ?>"><a href="<?= admin_url('poster/add') ?>"><i class="fa fa-circle"></i> Add poster</a></li>
+                            <li class="<?= ($tab == 'poster') ? 'active' : ''; ?>"><a href="<?= admin_url('poster') ?>"><i class="fa fa-circle"></i> Poster Lists</a></li>
+                        </ul>
+                    </li>
                     <li class="treeview <?= ($tab == 'add_thematiques' || $tab == 'thematiques') ? 'active' : ''; ?>">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>

@@ -358,4 +358,46 @@
             <?php } ?>
         </div>
     </section>
+    <?php 
+    $poster = $this->db->query("SELECT * FROM poster WHERE status = '1' ORDER BY id DESC limit 1")->row();
+    if(!empty($poster)) { ?>
+    <div class="modal fade" id="exampleModal"  data-bs-backdrop="static"  data-bs-keyboard="false"  tabindex="-1" aria-labelledby="aboutUsLabel"  aria-hidden="true"> 
+        <div class="modal-dialog"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <button type="button"  class="btn-close"  data-bs-dismiss="modal"  aria-label="Close">X</button> 
+                    <div class="modal-body">
+                        <a href="<?php if(!empty(@$poster->link)) {echo @$poster->link;} else {echo "javascript:void(0)";}?>">
+                            <img src="<?= base_url()?>uploads/poster/<?= @$poster->image?>" style="width: 100%">
+                        </a>
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    <?php } ?>
 </main>
+<style>
+.modal.fade .modal-dialog {top: 20% !important;}
+.modal-header .btn-close {margin: 0px !important;
+    padding: 0px !important;
+    top: -10px !important;
+    position: absolute !important;
+    left: 485px;
+    background: red;
+    /* color: #fff !important; */
+    width: 24px;
+    height: 23px;
+    justify-content: center;
+    display: flex;
+    z-index: 111111111111111;
+    opacity: 1;}
+    .modal-header {padding: 0px !important;}
+    .modal-body {padding: 0px !important;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(window).on('load', function(){
+        $('#exampleModal').modal('show');
+    });
+ </script>	
