@@ -116,7 +116,7 @@
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-                <ul class="sidebar-menu" data-widget="tree">
+                <ul class="sidebar-menu" data-widget="tree" style="height: 600px; overflow-y: scroll; scrollbar-width: thin; scrollbar-color: #3c8dbc white;">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="<?= ($tab == 'dashboard') ? 'active' : ''; ?>">
                         <a href="<?= site_url('dashboard') ?>">

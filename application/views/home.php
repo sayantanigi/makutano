@@ -358,6 +358,7 @@
             <?php } ?>
         </div>
     </section>
+
     <?php 
     $poster = $this->db->query("SELECT * FROM poster WHERE status = '1' ORDER BY id DESC limit 1")->row();
     if(!empty($poster)) { ?>
@@ -367,7 +368,7 @@
                 <div class="modal-header"> 
                     <button type="button"  class="btn-close"  data-bs-dismiss="modal"  aria-label="Close">X</button> 
                     <div class="modal-body">
-                        <a href="<?php if(!empty(@$poster->link)) {echo @$poster->link;} else {echo "javascript:void(0)";}?>">
+                        <a href="<?php if(!empty(@$poster->link)) {echo @$poster->link;} else {echo "javascript:void(0)";}?>" target="_blank">
                             <img src="<?= base_url()?>uploads/poster/<?= @$poster->image?>" style="width: 100%">
                         </a>
                     </div> 
@@ -398,6 +399,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(window).on('load', function(){
-        $('#exampleModal').modal('show');
+        //$('#exampleModal').modal('show');
+        var is_modal_show = sessionStorage.getItem('alreadyShow');
+        if(is_modal_show != 'alredy shown'){
+            //$("#myModal").show()
+            $('#exampleModal').modal('show');
+          sessionStorage.setItem('alreadyShow','alredy shown');
+        }
     });
+
  </script>	
