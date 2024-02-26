@@ -74,7 +74,7 @@ class Poster extends AI_Controller {
 		}
 		
 		if ($this->input->post()) {
-			print_r($this->input->post());
+			//print_r($this->input->post());
 			if (!empty($_FILES['image']['name'][0])) {
 				$cpt = count($_FILES['image']['name']);
 				for($i=0; $i<$cpt; $i++) {
@@ -110,7 +110,7 @@ class Poster extends AI_Controller {
 					'status' => 1,
 					'created_date' => date("Y-m-d H:i:s"),
 				);
-				print_r($data_image);
+				//print_r($data_image);
 				$this->Poster_model->save($data_image, 'poster');
 				$this->session->set_flashdata('message', 'Data updated Successfully !');
 			}
