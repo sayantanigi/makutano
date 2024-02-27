@@ -1576,4 +1576,88 @@ class Home extends CI_Controller {
         $this->load->view('communique', $data);
         $this->load->view('footer');
     }
+    public function newsletterEmailSend() {
+        $date = date('Y-m-d');
+        $getSendEmailData = $this->db->query("SELECT * FROM sendemailtouser WHERE status IN ('pending','failed') AND created_date = '".$date."'")->result_array();
+        if(!empty($getSendEmailData)) {
+            foreach ($getSendEmailData as $mailData) {
+                $content = $mailData['content'];
+                $doc = new DOMDocument();
+                $doc->loadHTML($content);
+                $tags = $doc->getElementsByTagName('img');
+                $i = 1;
+                foreach ($tags as $tag) {
+                    $old_src = $tag->getAttribute('src');
+                    $whatIWant = substr($old_src, strpos($old_src, "makutano") + 9);
+                    $new_src_url = $whatIWant;
+                    $tag->setAttribute('src', 'cid:image_'.$i);
+                    $i++;
+                }
+                $description = $doc->saveHTML();
+                $optionsList = $this->db->query("SELECT * FROM options")->result();
+                //$imagePath = base_url().'uploads/logo/Logo-Makutano-inblock.png';
+                $admEmail = $optionsList[8]->option_value;
+                $address = $optionsList[6]->option_value;
+                $getUserEmail = $this->db->query("SELECT * FROM email_subscription WHERE id = '".$mailData['user_id']."' AND status = '1'")->row();
+                $userEmail = $getUserEmail->user_email;
+                $message = "
+                <body>
+                    <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
+                        <div style='padding: 30px 30px 15px 30px;box-sizing: border-box;'>
+                            <img src='cid:Logo' style='width:220px;float: right;margin-top: 0 auto;'>
+                            <div>$description</div>
+                            <div>
+                                <p style='font-size: 18px; margin: 0px; list-style: none'>Sincerly</p>
+                                <p style='font-size: 12px; margin: 0px; list-style: none'><b>Makutano</b></p>
+                                <p style='font-size: 12px; margin: 0px; list-style: none'><b>Visit us:</b> <span>$address</span></p>
+                                <p style='font-size: 12px; margin: 0px; list-style: none'><b>Email us:</b> <span>$admEmail</span></p>
+                            </div>
+                        </div>
+                        <table style='width: 100%;'>
+                            <tr>
+                                <td style='height:30px;width:100%; background: red;padding: 10px 0px; font-size:13px; color: #fff; text-align: center;'>Copyright &copy; <?=date('Y')?> Makutano. All rights reserved.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </body>";
+                $mail = new PHPMailer(true);
+                try {
+                    $mail->CharSet = 'UTF-8';
+                    $mail->SetFrom('masterclass@makutano.cd', 'Makutano');
+                    $mail->AddAddress($userEmail);
+                    $mail->IsHTML(true);
+                    $mail->Subject = $mailData['subject'];
+                    $mail->AddEmbeddedImage('uploads/logo/Logo-Makutano-inblock.png', 'Logo');
+                    $doc = new DOMDocument();
+                    $doc->loadHTML($content);
+                    $tags = $doc->getElementsByTagName('img');
+                    $j = 1;
+                    foreach ($tags as $tag) {
+                        $old_src = $tag->getAttribute('src');
+                        $whatIWant = substr($old_src, strpos($old_src, "makutano") + 9);
+                        $new_src_url = $whatIWant;
+                        $mail->AddEmbeddedImage($new_src_url, 'image_'.$j);
+                        //$tag->setAttribute('data-src', $old_src);
+                        $j++;
+                    }
+                    $mail->Body = $message;
+                    $mail->IsSMTP();
+                    //Send mail using GMAIL server
+                    $mail->Host = 'server286.web-hosting.com';       // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                          // Enable SMTP authentication
+                    $mail->Username = 'masterclass@makutano.cd';     // SMTP username
+                    $mail->Password = 'LYUv9Vm8vrKG';                // SMTP password
+                    $mail->SMTPSecure = 'tls';                       // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;
+                    if($mail->send()) {
+                        $this->db->query("UPDATE sendemailtouser SET status = 'sent', updated_date = '".$date."' WHERE id = '".$mailData['id']."'");
+                    } else {
+                        $this->db->query("UPDATE sendemailtouser SET status = 'failed', updated_date = '".$date."', reason = '".$mail->ErrorInfo."' WHERE id = '".$mailData['id']."'");
+                    }
+                } catch (Exception $e) {
+                    $this->db->query("UPDATE sendemailtouser SET status = 'failed', updated_date = '".$date."', reason = '".$mail->ErrorInfo."' WHERE id = '".$mailData['id']."'");
+                }
+            }
+        }
+    }
 }

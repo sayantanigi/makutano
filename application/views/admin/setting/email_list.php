@@ -23,61 +23,225 @@
                     <h3 class="box-title">Email Unsubscribe Lists</h3>
                 </div>
                 <div class="box-body">
-                    <table class="table">
-                        <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Email</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
+                    <table id="<?php if (!empty($members)) {echo "recordsTable";} ?>" class="display">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select_all"/></th>
+                                <!-- <th style="width: 10px">#</th> -->
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         if (!empty($members)) {
                         $i = 1;
                         foreach ($members as $member) {
                         ?>
-                        <tr>
-                            <td><?= $i ?></td>
+                        <tr id="recordsRow">
+                            <td><input type="checkbox" class="checkbox" value="<?= $member->id?>"/></td>
+                            <!-- <td><?= $i ?></td> -->
                             <td><?= $member->user_email ?></td>
                             <td><?= date('d M Y', strtotime($member->created_at)); ?></td>
                             <td><?php if($member->status == '1') { echo "Active"; } else { echo "Inactive";} ?></td>
-                            <td>
-                                <div class="action-button">
-                                    <button class="btn btn-xs btn-danger" style="margin-left: 5px;" title="Delete"
-                                        data-toggle="tooltip" onclick="deleteUsers(<?= @$member->id ?>)">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </div>
-                            </td>
                         </tr>
                         <?php $i++; } } else {
                             echo "<tr><td colspan='7' class='text-center red'><h3>No record available!</h3></td></tr>";
                         } ?>
+                        </tbody>
                     </table>
                 </div>
-                <div class="box-footer clearfix">
-                    <?= $paginate ?>
+                <div style="display: inline-block; float: right; margin-right: 25px;">
+                    <button class="btn btn-primary" type="button" id="sendEmail">Send Email</button>
+                    <button class="btn btn-danger" type="button" id="deleteAcc">Delete</button>
                 </div>
+                <div class="box-footer clearfix"><?= $paginate ?></div>
             </div>
         </div>
     </div>
 </section>
+<div class="modal fade" id="exampleModal1"  data-bs-backdrop="static"  data-bs-keyboard="false"  tabindex="-1" aria-labelledby="aboutUsLabel"  aria-hidden="true"> 
+    <div class="modal-dialog" style="width: 300px !important;top: 120px;border-bottom: none !important;"> 
+        <div class="modal-content" style="width: 300px;border-radius: 10px;">
+            <div class="modal-header"> 
+                <div style="text-align: right;margin-right: -15px;top: -15px;position: relative;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style=" border-radius: 20px; border: none; font-size: 20px; width: 30px; text-align: center; ">X</button> 
+                </div>
+                <div class="modal-body" style="padding-bottom: 0;">
+                    <select name="templeteID" id="templeteID" class="form-control">
+                        <option value="">Choose templete</option>
+                        <?php 
+                        $templates = $this->db->query("SELECT * FROM email_templete WHERE status = '1'")->result_array();
+                        if(!empty($templates)) {
+                        foreach ($templates as $template) { ?>
+                        <option value="<?= $template['id']?>"><?= $template['subject']?></option>
+                        <?php } } ?>
+                    </select>
+                </div> 
+                <div style="text-align: center;padding-bottom: 20px;">
+                    <button type="button" onclick="sendEmailtoUser()">Send</button>
+                    <input type="hidden" id="post_arr" value="">
+                </div>
+                <div style="text-align:center; color:red;" id="err_message"></div>
+            </div> 
+        </div> 
+    </div> 
+</div>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
 <script>
-    function deleteUsers(id) {
-        swal({
-            title: 'Are You sure want to delete this email id?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#36A1EA',
-            cancelButtonColor: '#e50914',
-            confirmButtonText: 'Yes',
-            cancelButtonText: 'No',
-            closeOnConfirm: true,
-            closeOnCancel: true
-        }, function (isConfirm) {
-            if (isConfirm) {
-                window.location.href = '<?= admin_url('settings/deleteUsers/') ?>' + id
+/*function deleteUsers(id) {
+    swal({
+        title: 'Are You sure want to delete this email id?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#36A1EA',
+        cancelButtonColor: '#e50914',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+        closeOnConfirm: true,
+        closeOnCancel: true
+    }, function (isConfirm) {
+        if (isConfirm) {
+            window.location.href = '<?= admin_url('settings/deleteUsers/') ?>' + id
+        }
+    });
+}*/
+$(document).ready(function() {
+    $("#recordsTable").dataTable();
+    $('#select_all').on('click',function() {
+        if(this.checked) {
+            $('.checkbox').each(function() {
+                this.checked = true;
+            });
+        } else {
+            $('.checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox').on('click',function() {
+        if($('.checkbox:checked').length == $('.checkbox').length){
+            $('#select_all').prop('checked',true);
+        }else{
+            $('#select_all').prop('checked',false);
+        }
+    });
+
+    $('#sendEmail').click(function() {
+        var post_arr = [];
+        $('#recordsRow input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                var id = $(this).val();
+                post_arr.push(id);
             }
         });
+        if(post_arr.length > 0) {
+            $('#exampleModal1').modal('show');
+            $('#post_arr').val(post_arr);
+        } else {
+            swal({
+                title: 'Please select alteast one record!',
+                type: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#36A1EA',
+                cancelButtonColor: '#e50914',
+                confirmButtonText: 'Ok',
+                cancelButtonText: 'No',
+                closeOnConfirm: true,
+                closeOnCancel: true
+            });
+        }
+    })
+
+    $('#deleteAcc').click(function() {
+        var post_arr = [];
+        // Get checked checkboxes
+        $('#recordsRow input[type=checkbox]').each(function() {
+            if ($(this).is(":checked")) {
+                var id = $(this).val();
+                post_arr.push(id);
+            }
+        });
+        if(post_arr.length > 0) {
+            swal({
+                title: 'Are You sure want to delete this email id?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#36A1EA',
+                cancelButtonColor: '#e50914',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+                closeOnConfirm: true,
+                closeOnCancel: true
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '<?= admin_url()?>Settings/deleteUsers',
+                        type: 'POST',
+                        data: { post_id: post_arr},
+                        success: function(response){
+                            $.each(post_arr, function(i,l) {
+                                $("#tr_"+l).remove();
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    })
+})
+function sendEmailtoUser(id) {
+    var userID = $('#post_arr').val();
+    var templateID = $('#templeteID').val();
+    if(templateID.length > 0) {
+        $.ajax({
+            method:'POST',
+            url:"<?= admin_url()?>Settings/storeEmailToSend",
+            data:{userID:userID,templateID:templateID},
+            success: function(response){
+                if(response == 1) {
+                    swal({
+                        title: 'Mail sent',
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: '#36A1EA',
+                        cancelButtonColor: '#e50914',
+                        confirmButtonText: 'Ok',
+                        cancelButtonText: 'No',
+                        closeOnConfirm: true,
+                        closeOnCancel: true
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    swal({
+                        title: 'Something went wrong. Please try again later.',
+                        type: 'warning',
+                        showCancelButton: false,
+                        confirmButtonColor: '#36A1EA',
+                        cancelButtonColor: '#e50914',
+                        confirmButtonText: 'Ok',
+                        cancelButtonText: 'No',
+                        closeOnConfirm: true,
+                        closeOnCancel: true
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            location.reload();
+                        }
+                    });
+                }
+            }
+        });
+    } else {
+        $('#err_message').show().html('Please select an email template first');
+        setTimeout(function() {
+            $('#err_message').fadeOut('slow')
+        }, 3000);
     }
+}
 </script>

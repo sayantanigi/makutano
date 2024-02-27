@@ -28,9 +28,9 @@
     <script src="<?= site_url('assets/admin/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
     <script src="<?= site_url('assets/admin/raphael/raphael.min.js') ?>"></script>
     <script src="<?= site_url('assets/admin/morris.js/morris.min.js') ?>"></script>
-    <script src="<?= site_url('assets/admin/jquery-sparkline1/dist/jquery.sparkline.min.js') ?>"></script>
+    <!-- <script src="<?= site_url('assets/admin/jquery-sparkline1/dist/jquery.sparkline.min.js') ?>"></script>
     <script src="<?= site_url('assets/admin/jvectormap1/jquery-jvectormap-1.2.2.min.js') ?>"></script>
-    <script src="<?= site_url('assets/admin/jvectormap1/jquery-jvectormap-world-mill-en.js') ?>"></script>
+    <script src="<?= site_url('assets/admin/jvectormap1/jquery-jvectormap-world-mill-en.js') ?>"></script> -->
     <script src="<?= site_url('assets/admin/jquery-knob/dist/jquery.knob.min.js') ?>"></script>
     <script src="<?= site_url('assets/admin/moment/min/moment.min.js') ?>"></script>
     <script src="<?= site_url('assets/admin/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>

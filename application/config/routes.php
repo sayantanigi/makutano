@@ -113,6 +113,7 @@ $route['logout'] = 'Users/logout';
 $route['consultant-dashboard'] = 'supercontrol/home';
 $route['search-query'] = 'Home/search_query';
 $route['unsubscribe/(:any)'] = 'Home/unsubscribe/$1';
+$route['newsletterEmailSend'] = 'Home/newsletterEmailSend';
 /*------------Admin Routes------------*/
 $route['admin'] = 'admin/users';
 $route['dashboard'] = 'admin/dashboard/index';

@@ -15,8 +15,7 @@ class Settings extends Admin_Controller
         $this->admin_login();
     }
 
-    public function index()
-    {
+    public function index() {
         $this->data['main'] = admin_view('setting/theme-options');
         $this->data['options'] = $this->Setting_model->all_options();
         if ($this->input->post('submit')) {
@@ -56,9 +55,7 @@ class Settings extends Admin_Controller
             $this->load->view(admin_view('default'), $this->data);
         }
     }
-
-    function seo_url($offset = 0)
-    {
+    function seo_url($offset = 0) {
         $this->data['offset'] = $offset;
         $show_per_page = 40;
         $this->data['main'] = admin_view('setting/url-index');
@@ -91,9 +88,7 @@ class Settings extends Admin_Controller
         $this->data['paginate'] = $this->pagination->create_links();
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    function seo_setting($id = false)
-    {
+    function seo_setting($id = false) {
         $this->data['page_title'] = "Seo Setting";
         $this->data['menu2'] = "Setting";
         $this->data['menu3'] = "Seo Setting";
@@ -111,9 +106,7 @@ class Settings extends Admin_Controller
         }
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    function edit_url($id = false)
-    {
+    function edit_url($id = false) {
         $this->data['main'] = admin_view('setting/add-url');
         $this->data['url'] = array('id' => $id, 'url' => '', 'seo_title' => '', 'seo_description' => '', 'seo_keywords' => '', 'h1_heading' => '', 'small_desc' => '');
         if ($id) {
@@ -136,25 +129,19 @@ class Settings extends Admin_Controller
             redirect(admin_url('settings/seo-url'));
         }
     }
-
-    function delete_url($id = false)
-    {
+    function delete_url($id = false) {
         if ($id) {
             $this->Setting_model->url_delete($id);
             $this->session->set_flashdata('success', 'SEO URL and details deleted successfully');
         }
         redirect(admin_url('settings/seo-url'));
     }
-
-    function restore()
-    {
+    function restore() {
         $this->db->truncate('options');
         $this->session->set_flashdata('success', 'Global Setting reset to Default');
         redirect(admin_url('settings'));
     }
-
-    function sql()
-    {
+    function sql() {
         $this->data['main'] = admin_view('setting/sql');
         if ($this->input->post('sql')) {
             $sql = $this->input->post('sql');
@@ -164,9 +151,7 @@ class Settings extends Admin_Controller
         }
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    function mail()
-    {
+    function mail() {
         $this->data['main'] = admin_view('setting/write-mail');
         if ($this->input->post('submit')) {
             echo $name = $this->input->post('name');
@@ -190,9 +175,7 @@ class Settings extends Admin_Controller
         }
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    public function change_password()
-    {
+    public function change_password() {
         $this->data['main'] = admin_view('admin/password');
         $this->form_validation->set_rules('old', 'Old Password', 'trim|required');
         $this->form_validation->set_rules('new', 'New Password', 'trim|required|min_length[6]');
@@ -213,9 +196,7 @@ class Settings extends Admin_Controller
         }
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    public function email_list($page = 1)
-    {
+    public function email_list($page = 1) {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
         }
@@ -259,12 +240,38 @@ class Settings extends Admin_Controller
         $this->data['paginate'] = $this->pagination->create_links();
         $this->load->view(admin_view('default'), $this->data);
     }
-
-    public function deleteUsers($id = false)
-    {
-        $this->Master_model->delete($id, 'email_subscription');
-        $msg = '["Deleted successfully.", "success", "#36A1EA"]';
-        $this->session->set_flashdata('msg', $msg);
-        redirect(admin_url('settings/email_list'));
+    public function storeEmailToSend() {
+        $userID = $_POST['userID'];
+        $templateID = $_POST['templateID'];
+        //echo "userID: ".$userID."<br> TemplateID: ".$templateID; die();
+        $templeteDetails = $this->db->query("SELECT * FROM email_templete WHERE id='$templateID' AND status = '1'")->row();
+        $user_id = explode(',', $userID);
+        if(!empty($user_id) && !empty($templateID)) {
+            for($i=0; $i < count($user_id); $i++) {
+                $templeteData = array(
+                    "user_id" => $user_id[$i], 
+                    "subject" => $templeteDetails->subject, 
+                    "content" => $templeteDetails->content,
+                    "status" => 'pending',
+                    "created_date" => date('Y-m-d')
+                );
+                $insertID = $this->db->insert("sendemailtouser", $templeteData);
+            }
+            if($insertID) {
+                echo "1"; //successfully inserted into database.
+            } else {
+                echo "-1"; //failed to insert data in the database.
+            }
+        } else {
+            echo "2";
+        }
+    }
+    public function deleteUsers($id = false) {
+        $post_id = $_POST['post_id'];
+        for($i=0; $i < count($post_id); $i++) {
+            $id = $post_id[$i];
+            $this->Master_model->delete($id, 'email_subscription');
+        }
+        echo "1";
     }
 }

@@ -32,6 +32,7 @@ $optionsList = $this->db->query($getOptionsSql)->result();
     .header__cart {top: 40px; right: 70px;}
     .header__cart a {color: #fff !important;}
     .header__cart {padding-left: 10px !important;}
+    @media (min-width: 1400px) {.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1198px !important;}}
     </style>
 </head>
 

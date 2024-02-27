@@ -31,7 +31,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Templete Name</th>
-                            <th>Templete Body</th>
+                            <th>Templete Subject</th>
                             <th>Created Date</th>
                             <th>Actions</th>
                         </tr>
@@ -42,17 +42,7 @@
                         <tr>
                             <td><?= $i ?></td>
                             <td><?= $etmplt->name ?></td>
-                            <td>
-                                <?php 
-                                $string = strip_tags($etmplt->content);
-                                if (strlen($string) > 500) {
-                                    $stringCut = substr($string, 0, 250);
-                                    $endPoint = strrpos($stringCut, ' ');
-                                    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                    $string .= '... ';
-                                }
-                                echo $string;
-                                ?></td>
+                            <td><?= $etmplt->subject ?></td>
                             <td><?= date('dM Y h:i A', strtotime($etmplt->created_date)); ?></td>
                             <td style="vertical-align: middle;">
                                 <div class="checkbox checbox-switch switch-success" style="margin-left: 20px;">

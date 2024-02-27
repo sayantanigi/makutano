@@ -77,10 +77,12 @@ class Email_templete extends Admin_Controller {
         }
         if ($this->form_validation->run()) {
             $name = $this->input->post('name');
+            $subject = $this->input->post('subject');
             $content = $this->input->post('content');
             $status = $this->input->post('status');
             $mydata = array(
                 'name' => $name,
+                'subject' => $subject,
                 'content' => $content,
                 'status' => $status,
                 'created_date' => date("Y-m-d h:i:s")
@@ -118,11 +120,13 @@ class Email_templete extends Admin_Controller {
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         if ($this->form_validation->run()) {
             $name = $this->input->post('name');
+            $subject = $this->input->post('subject');
             $content = $this->input->post('content');
             $status = $this->input->post('status');
             $where = array('id' => $id);
             $mydata = array(
                 'name' => $name,
+                'subject' => $subject,
                 'content' => $content,
                 'status' => $status,
                 'created_date' => date("Y-m-d h:i:s")

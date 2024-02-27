@@ -35,7 +35,12 @@
                                         <input type="text" name="name" value="<?= @$email_templete->name ?>" class="form-control" id="name" placeholder="Enter Template Name">
                                     </div>
                                 </div>
-
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="subject">Subject<span class="red">*</span></label>
+                                        <input type="text" name="subject" value="<?= @$email_templete->subject ?>" class="form-control" id="subject" placeholder="Enter Subject">
+                                    </div>
+                                </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="content">Templete Body<span class="red">*</span></label>
