@@ -24,7 +24,7 @@ class Email_templete extends Admin_Controller {
         }
         $show_per_page = 20;
         $offset = ($page - 1) * $show_per_page;
-        $this->data['title'] = 'Email templete';
+        $this->data['title'] = 'Email Template';
         $this->data['tab'] = 'email_templete';
         $this->data['main'] = admin_view('email_templete/index');
         $email_templete = $this->Email_templete_model->getAll($offset, $show_per_page);
@@ -65,15 +65,15 @@ class Email_templete extends Admin_Controller {
         $this->data['tab'] = 'add_email_templete';
         $this->data['main'] = admin_view('email_templete/add');
         if ($id) {
-            $this->data['title'] = 'Edit Email Templete';
+            $this->data['title'] = 'Edit Email Template';
             $this->data['email_templete'] = $pages = $this->db->query("SELECT * FROM email_templete WHERE id = '".$id."'")->row();
             if (!isset($pages)) {
                 redirect(site_url('error_404'));
                 exit();
             }
         } else {
-            $this->data['title'] = 'Add Email Templete';
-            $this->form_validation->set_rules('name', 'Email Templete Name', 'trim|required');
+            $this->data['title'] = 'Add Email Template';
+            $this->form_validation->set_rules('name', 'Email Template Name', 'trim|required');
         }
         if ($this->form_validation->run()) {
             $name = $this->input->post('name');
@@ -107,9 +107,9 @@ class Email_templete extends Admin_Controller {
             //echo "<pre>"; print_r($mydata); die();
             $result = $this->Commonmodel->add_details('email_templete', $mydata);
             if ($result) {
-                $msg = '["Email Templete added successfully!", "success", "#36A1EA"]';
+                $msg = '["Email Template added successfully!", "success", "#36A1EA"]';
             } else {
-                $msg = '["Email Templete already exist!", "error", "#e50914"]';
+                $msg = '["Email Template already exist!", "error", "#e50914"]';
             }
             $this->session->set_flashdata('msg', $msg);
             redirect(admin_url('email_templete'), 'refresh');
@@ -133,9 +133,9 @@ class Email_templete extends Admin_Controller {
             );
             $gn_user_id = $this->Commonmodel->update_row('email_templete', $mydata, $where);
             if ($gn_user_id) {
-                $msg = '["Email Templete updated successfully!", "success", "#36A1EA"]';
+                $msg = '["Email Template updated successfully!", "success", "#36A1EA"]';
             } else {
-                $msg = '["Email Templete not updated"!, "error", "#e50914"]';
+                $msg = '["Email Template not updated"!, "error", "#e50914"]';
             }
         }
         $this->session->set_flashdata('msg', $msg);
@@ -160,9 +160,9 @@ class Email_templete extends Admin_Controller {
             $id = $this->input->post('id');
             $status = $this->input->post('status');
             if ($status == 1) {
-                $msg = 'Email templete activated successfully!';
+                $msg = 'Email Template activated successfully!';
             } else {
-                $msg = 'Email templete deactivated successfully!';
+                $msg = 'Email Template deactivated successfully!';
             }
             if ($this->Commonmodel->update_row('email_templete', ['status' => $status], ['id' => $id])) {
                 echo '["' . $msg . '", "success", "#A5DC86"]';

@@ -30,8 +30,8 @@
                     <table class="table">
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>Templete Name</th>
-                            <th>Templete Subject</th>
+                            <th>Template Name</th>
+                            <th>Template Subject</th>
                             <th>Created Date</th>
                             <th>Actions</th>
                         </tr>

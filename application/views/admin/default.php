@@ -265,7 +265,7 @@
                     <li class="treeview <?= ($tab == 'add_email_templete' || $tab == 'email_templete') ? 'active' : ''; ?> ">
                         <a href="#">
                             <i class="fa fa-user"></i>
-                            <span>Email Templete</span>
+                            <span>Email Template</span>
                             <span class="pull-right-container">
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-right pull-right"></i>
@@ -274,10 +274,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="<?= ($tab == 'add_email_templete') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('email_templete/add') ?>"><i class="fa fa-circle"></i> Add Email Templete</a>
+                                <a href="<?= admin_url('email_templete/add') ?>"><i class="fa fa-circle"></i> Add Email Template</a>
                             </li>
                             <li class="<?= ($tab == 'email_templete') ? 'active' : ''; ?>">
-                                <a href="<?= admin_url('email_templete') ?>"><i class="fa fa-circle"></i>Email Templete Lists</a>
+                                <a href="<?= admin_url('email_templete') ?>"><i class="fa fa-circle"></i>Email Template Lists</a>
                             </li>
                         </ul>
                     </li>

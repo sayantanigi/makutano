@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border2">
-                    <h3 class="box-title">Email Unsubscribe Lists</h3>
+                    <h3 class="box-title">Email Subscribe Lists</h3>
                 </div>
                 <div class="box-body">
                     <table id="<?php if (!empty($members)) {echo "recordsTable";} ?>" class="display">
@@ -66,11 +66,11 @@
         <div class="modal-content" style="width: 300px;border-radius: 10px;">
             <div class="modal-header"> 
                 <div style="text-align: right;margin-right: -15px;top: -15px;position: relative;">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style=" border-radius: 20px; border: none; font-size: 20px; width: 30px; text-align: center; ">X</button> 
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style=" border-radius: 20px; border: none; font-size: 20px; width: 30px; text-align: center;" onclick="closeModal()">X</button> 
                 </div>
                 <div class="modal-body" style="padding-bottom: 0;">
                     <select name="templeteID" id="templeteID" class="form-control">
-                        <option value="">Choose templete</option>
+                        <option value="">Choose Template</option>
                         <?php 
                         $templates = $this->db->query("SELECT * FROM email_templete WHERE status = '1'")->result_array();
                         if(!empty($templates)) {
@@ -243,5 +243,8 @@ function sendEmailtoUser(id) {
             $('#err_message').fadeOut('slow')
         }, 3000);
     }
+}
+function closeModal() {
+    $('#exampleModal1').modal('hide');
 }
 </script>

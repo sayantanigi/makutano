@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="name">Templete Name<span class="red">*</span></label>
+                                        <label for="name">Template Name<span class="red">*</span></label>
                                         <input type="text" name="name" value="<?= @$email_templete->name ?>" class="form-control" id="name" placeholder="Enter Template Name">
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="content">Templete Body<span class="red">*</span></label>
+                                        <label for="content">Template Body<span class="red">*</span></label>
                                         <textarea name="content" class="form-control" id="content" placeholder="Enter Event Description"><?= @$email_templete->content ?></textarea>
                                     </div>
                                 </div>
