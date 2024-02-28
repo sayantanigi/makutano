@@ -243,14 +243,16 @@ class Settings extends Admin_Controller
     public function storeEmailToSend() {
         $userID = $_POST['userID'];
         $templateID = $_POST['templateID'];
+        $type = $_POST['type'];
         //echo "userID: ".$userID."<br> TemplateID: ".$templateID; die();
         $templeteDetails = $this->db->query("SELECT * FROM email_templete WHERE id='$templateID' AND status = '1'")->row();
         $user_id = explode(',', $userID);
         if(!empty($user_id) && !empty($templateID)) {
             for($i=0; $i < count($user_id); $i++) {
                 $templeteData = array(
-                    "user_id" => $user_id[$i], 
-                    "subject" => $templeteDetails->subject, 
+                    "user_id" => $user_id[$i],
+                    "type" => $type,
+                    "subject" => $templeteDetails->subject,
                     "content" => $templeteDetails->content,
                     "status" => 'pending',
                     "created_date" => date('Y-m-d')

@@ -1598,8 +1598,13 @@ class Home extends CI_Controller {
                 //$imagePath = base_url().'uploads/logo/Logo-Makutano-inblock.png';
                 $admEmail = $optionsList[8]->option_value;
                 $address = $optionsList[6]->option_value;
-                $getUserEmail = $this->db->query("SELECT * FROM email_subscription WHERE id = '".$mailData['user_id']."' AND status = '1'")->row();
-                $userEmail = $getUserEmail->user_email;
+                if($mailData['type'] == '1') {
+                    $getUserEmail = $this->db->query("SELECT * FROM email_subscription WHERE id = '".$mailData['user_id']."' AND status = '1'")->row();
+                    $userEmail = $getUserEmail->user_email;
+                } else {
+                    $getUserEmail = $this->db->query("SELECT * FROM users WHERE id = '".$mailData['user_id']."' AND status = '1'")->row();
+                    $userEmail = $getUserEmail->email;
+                }
                 $message = "
                 <body>
                     <div style='width:600px;margin: 0 auto;background: #fff; border: 1px solid #e6e6e6;'>
