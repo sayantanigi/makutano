@@ -45,6 +45,7 @@
     <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
     <style>
     span.logo-lg h2 {margin-top: 7px !important;}
+    .content-wrapper{min-height: 648px; overflow-x: hidden; overflow-y: scroll; height: 500px;}
     </style>
     <?php
         $aid = $this->session->userdata('userid');
@@ -209,12 +210,12 @@
                             <li class="<?= ($tab == 'contacts') ? 'active' : ''; ?> ">
                                 <a href="<?= admin_url('contacts') ?>"><i class="fa fa-circle"></i> <span>Contact Form</span></a>
                             </li>
-                            <li class="<?= ($tab == 'contacts_stay') ? 'active' : ''; ?> ">
+                            <!-- <li class="<?= ($tab == 'contacts_stay') ? 'active' : ''; ?> ">
                                 <a href="<?= admin_url('contacts/stay_with_us') ?>"><i class="fa fa-circle"></i>
                                     <span>Consult With Us</span>
                                 </a>
                             </li>
-                            <!-- <li class="<?= ($tab == 'cert_contacts') ? 'active' : ''; ?> ">
+                            <li class="<?= ($tab == 'cert_contacts') ? 'active' : ''; ?> ">
                                 <a href="<?= admin_url('contacts/certificate_review') ?>">
                                     <i class="fa fa-circle"></i> <span>Certificate Verification List</span>
                                 </a>
@@ -257,9 +258,9 @@
                             <li class="<?= ($tab == 'purchased_course') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('course/purchased_course') ?>"><i class="fa fa-circle"></i> Purchased Course Lists</a>
                             </li>
-                            <li class="<?= ($tab == 'course_reviewd') ? 'active' : ''; ?>">
+                            <!-- <li class="<?= ($tab == 'course_reviewd') ? 'active' : ''; ?>">
                                 <a href="<?= admin_url('course/course_reviewd') ?>"><i class="fa fa-circle"></i> Course Review Lists</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     <li class="treeview <?= ($tab == 'add_email_templete' || $tab == 'email_templete') ? 'active' : ''; ?> ">
