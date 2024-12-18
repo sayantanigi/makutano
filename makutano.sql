@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 02:08 PM
+-- Generation Time: Aug 08, 2024 at 08:41 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -84,7 +84,8 @@ CREATE TABLE `blogs` (
 
 INSERT INTO `blogs` (`id`, `title`, `slug`, `uploaded_by`, `popular`, `description`, `image`, `status`, `created_at`) VALUES
 (1, 'What is Lorem Ipsum?', 'what-is-lorem-ipsum', '', 'news', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', 'images.jpg', 1, '2024-02-14 06:16:38'),
-(4, 'Why do we use it?', 'why-do-we-use-it', '2', 'press', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', 'gfx100s_sample_04_thum-1.jpg', 1, '2024-02-13 20:07:00');
+(4, 'Why do we use it?', 'why-do-we-use-it', '2', 'press', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', 'gfx100s_sample_04_thum-1.jpg', 1, '2024-02-13 20:07:00'),
+(5, '« APPLICATION DE LA LOI DE LA SOUS-TRAITANCE EN RÉPUBLIQUE DÉMOCRATIQUE DU CONGO : ANALYSE DE LA RATIONALITÉ ÉCONOMICO-JURIDIQUE »', 'application-de-la-loi-de-la-sous-traitance-en-rÉpublique-dÉmocratique-du-congo-analyse-de-la-rationalitÉ-Économico-juridique', '', 'blog', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', 'spec-ops-the-line.png', 1, '2024-02-20 07:04:39');
 
 -- --------------------------------------------------------
 
@@ -48501,7 +48502,46 @@ INSERT INTO `cms` (`id`, `page`, `title`, `meta_title`, `slug`, `meta_descriptio
 (16, 'Get In Touch', 'Get In Touch', 'Get In Touch', 'get-in-touch', 'Get In Touch', '<p>Have some queries or suggestions, or just want to say hi? Our support teams are ready to help you 24/7.</p>\r\n', '', '', 1, '2021-01-15 04:31:05'),
 (20, 'Job readiness', 'Job readiness', 'Job readiness', 'job-readiness', 'Curriculum drafted for current market needs.', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '', '', 1, '2023-01-19 09:15:40'),
 (21, 'Consulting', 'Consulting Services', 'Consulting services', 'consulting-services', 'We offer the best consulting services on this planet', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', 'image12.png', 'image1.jpg', 1, '2023-05-05 00:52:32'),
-(22, 'Refund Policy', 'Refund Policy', 'Refund Policy', 'refund-policy', 'Curriculum drafted for current market needs.', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '', '', 1, '2023-01-19 09:15:40');
+(22, 'Refund Policy', 'Refund Policy', 'Refund Policy', 'refund-policy', 'Curriculum drafted for current market needs.', '<h2>What is Lorem Ipsum?</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>\r\n', '', '', 1, '2023-01-19 09:15:40'),
+(23, 'PRÉFACE', 'PRÉFACE', 'PRÉFACE', 'prÉface', 'PRÉFACE', '<p>&Eacute;vènement signature de la plateforme d&rsquo;affaires Makutano, le forum Makutano attire chaque ann&eacute;e à Kinshasa plusieurs centaines de participants autour d&rsquo;un th&egrave;me strat&eacute;gique.</p>\r\n\r\n<p>Moment tr&egrave;s attendu par l&rsquo;ensemble des acteurs &eacute;conomiques de premier plan au Congo comme dans les pays de la r&eacute;gion, le forum Makutano est un espace d&rsquo;engagement collaboratif où les tables rondes, panels, ateliers, alternent avec les sessions de networking, les Master Class et les &laquo; deal rooms &raquo;. La force du forum Makutano repose sur le brassage d&rsquo;expertises multisectorielles de haut niveau contribuant à faire de ce rassemblement annuel un r&eacute;el vecteur d&rsquo;innovation et de d&eacute;veloppement pour le Congo, mais aussi pour la r&eacute;gion.</p>\r\n\r\n<p>Makutano croit fermement &agrave; l&rsquo;imp&eacute;ratif de distiller un nouvel &eacute;tat d&rsquo;esprit dans le chef des parties prenantes pour une RDC et une Afrique d&eacute;termin&eacute;es &agrave; affronter de multiples d&eacute;fis et tirer parti des opportunit&eacute;s de d&eacute;veloppement. S&rsquo;il on vient au Makutano, d&rsquo;abord et avant pour discuter affaire avec diff&eacute;rents partenaires africains et d&rsquo;outre-mer, il faudra noter qu&rsquo;en parall&egrave;le, des &eacute;changes avec les d&eacute;cideurs politiques, les hommes et femmes d&rsquo;affaires, et les experts lors des tables rondes et des pl&eacute;ni&egrave;res th&eacute;matiques, sont aussi au menu. Par ailleurs, ces moments de r&eacute;flexion et d&rsquo;&eacute;change sont ponctu&eacute;s de s&eacute;quences festives refl&eacute;tant la richesse culturelle du continent.</p>\r\n\r\n<p>Rendez-vous business incontournable depuis 7 ans, l&rsquo;&eacute;dition 2021 du Forum Makutano n&rsquo;a pas d&eacute;rog&eacute; &agrave; la r&egrave;gle, le 7 d&eacute;cembre dernier, malgr&eacute; une jauge et un format r&eacute;duits. Dans le strict respect des r&egrave;gles sanitaires, il a r&eacute;uni 300 d&eacute;cideurs des secteurs public et priv&eacute; ainsi que plusieurs personnalit&eacute;s congolaises et internationales : Jean-Michel Sama Lukonde, Premier ministre de RDC, Nicolas Kazadi, Ministre des Finances de RDC, Romuald Wadagni, son homologue du Benin, l&rsquo;Ivoirien Lacina Kon&eacute;, Directeur g&eacute;n&eacute;ral de Smart Africa, R&eacute;my Rioux, Directeur G&eacute;n&eacute;ral de l&rsquo;Agence Fran&ccedil;aise de D&eacute;veloppement (AFD), le Kenyan Kaddu Sebunya, CEO du l&rsquo;African Wildlife Foundation, le &laquo; serial &raquo; entrepreneur &eacute;gyptien Naguib Sawiris ou encore par vid&eacute;o interpos&eacute;e le Ballon d&rsquo;Or Lionel Messi auquel le chiffre 7 a &eacute;galement r&eacute;ussi !</p>\r\n\r\n<p>Ce brainstorming g&eacute;ant d&rsquo;une douzaine d&rsquo;heures invitait, en cette p&eacute;riode de multiples bouleversements, &agrave; r&eacute;fl&eacute;chir et &agrave; agir &laquo; Out of the Box &raquo;, c&rsquo;est-&agrave;-dire en essayant de se d&eacute;faire de toutes ces certitudes dans lesquelles l&rsquo;on est install&eacute; depuis toujours et que l&rsquo;on n&rsquo;a jamais remises en cause. Parmi les sujets abord&eacute;s, l&rsquo;indispensable construction de champions nationaux, la transition &eacute;nerg&eacute;tique vers les &eacute;nergies renouvelables, le financement de l&rsquo;entrepreneuriat culturel ou encore le num&eacute;rique, levier de d&eacute;veloppement &agrave; saisir. Tous les participants ont r&eacute;pondu sans langue de bois aux questions du public et des membres du Makutano qui se sont succ&eacute;d&eacute; pour interviewer sans concession les pan&eacute;listes ou pour mod&eacute;rer les d&eacute;bats de fa&ccedil;on experte, au c&ocirc;t&eacute; de Christian Lusakueno, Pr&eacute;sident de Top Congo, partenaire radio du Forum 2021.</p>\r\n\r\n<p>Parmi les temps forts de la journ&eacute;e, il y a lieu de saluer aussi la signature, sous l&rsquo;&eacute;gide du Makutano, de trois accords visant &agrave; renforcer le soutien de l&rsquo;AFD au secteur priv&eacute; congolais, confortant ainsi le r&ocirc;le strat&eacute;gique du Forum en tant que moment de networking privil&eacute;gi&eacute;. Cette 7&egrave;me &eacute;dition aura mis en exergue l&rsquo;urgence d&rsquo;un indispensable dialogue d&eacute;complex&eacute; entre les acteurs du secteur priv&eacute; et ceux du secteur public congolais. Il est opportun de continuer &agrave; d&eacute;velopper la confiance qui sous-tend ce dialogue, y compris peut-&ecirc;tre sous un format diff&eacute;rent et avec d&rsquo;autres protagonistes, l&rsquo;ann&eacute;e prochaine.</p>\r\n\r\n<p>Le Mak7 aura enfin capt&eacute; l&rsquo;int&eacute;r&ecirc;t d&rsquo;une soixantaine de journalistes repr&eacute;sentant autant de m&eacute;dias nationaux et internationaux et aura &eacute;t&eacute; suivi sur Facebook par pr&egrave;s de 32 000 personnes. Le pr&eacute;sent livre blanc reprend l&rsquo;essentiel du contenu du MAK7 et d&eacute;bouche sur les principales recommandations, qui pourraient servir de starting-block &agrave; l&rsquo;action ainsi qu&rsquo;&agrave; d&rsquo;autres r&eacute;flexions.</p>\r\n\r\n<p>Nicole Sulu<br />\r\nCEO Makutano</p>\r\n', 'image11.png', '', 1, '2024-02-24 07:40:30'),
+(24, 'PROGRAMME DU FORUM #MAKUTANO7', 'PROGRAMME DU FORUM #MAKUTANO7', '', 'programme-du-forum-makutano7', '', '', 'programme-MAK7-0001.jpg', 'programme-MAK7-0002.jpg', 1, '2024-02-24 07:52:45'),
+(25, 'THÉMATIQUES 2021', 'THÉMATIQUES 2021', '', 'thÉmatiques-2021', '', '<p>Le r&eacute;seau congolais Makutano propose un forum d&rsquo;affaires &laquo; nouvelle g&eacute;n&eacute;ration &raquo; o&ugrave; les africains s&rsquo;emploient &ecirc;tre des acteurs cl&eacute;s de leur &eacute;conomie. Makutano se d&eacute;marque ainsi des rencontres protocolaires et folkloriques teint&eacute;es d&rsquo;un afro-optimisme d&eacute;pourvu de r&eacute;flexion-action et de projets transformateurs.</p>\r\n\r\n<p>La septi&egrave;me &eacute;dition de Makutano &ndash; Mak7 pr&eacute;vue les 7 &amp; 8 d&eacute;cembre prochains, va se d&eacute;rouler sur une toile de fond tout particulier marqu&eacute; par le rebondissement de la pand&eacute;mie de COVID-19 avec &agrave; l&rsquo;actualit&eacute; l&rsquo;apparition de la variante Omicron. Par ailleurs, MAK7 se tient presqu&rsquo;un mois apr&egrave;s la COP26, essentiellement galvanis&eacute;e par la transition &eacute;nerg&eacute;tique et les engagements aux &eacute;missions nettes z&eacute;ro. C&rsquo;est aussi dans ce contexte particulier que les parties prenantes africaines s&rsquo;activent &agrave; rendre effective la Zone de libre-&eacute;change continentale africaine (ZLECAF). MAK7 se veut une opportunit&eacute; de r&eacute;flexion et d&rsquo;action &laquo; out of the box &raquo; sur ces th&eacute;matiques afin de sortir des sentiers battus pour apporter des solutions novatrices et disruptives, s&rsquo;il le faut.</p>\r\n\r\n<p>Pour ce faire, MAK7 entend accorder aux acteurs principaux du monde des affaires, aux d&eacute;cideurs politiques, aux jeunes et femmes entrepreneurs de la RDC et du reste du Continent un espace d&rsquo;&eacute;change et de discussion engag&eacute;s sans langue de bois au travers des panels y compris un au niveau pr&eacute;sidentiel.</p>\r\n\r\n<p>Makutano croit fermement &agrave; l&rsquo;imp&eacute;ratif de distiller un nouvel &eacute;tat d&rsquo;esprit dans les chefs des parties prenantes pour une RDC et une Afrique d&eacute;termin&eacute;es &agrave; affronter des multiples d&eacute;fis et tirer parti des opportunit&eacute;s de d&eacute;veloppement. S&rsquo;il on vient au Makutano, d&rsquo;abord et avant discuter affaire avec diff&eacute;rent partenaires africains et d&rsquo;outre-mer, il faudra noter qu&rsquo;en parall&egrave;le des &eacute;changes avec les d&eacute;cideurs politiques les hommes et femmes d&rsquo;affaires et les experts lors des tables-rondes et des pl&eacute;ni&egrave;res th&eacute;matiques sont aussi au menu. Par ailleurs, ces moments de r&eacute;flexion et d&rsquo;&eacute;change sont ponctu&eacute;s de s&eacute;quences festives refl&eacute;tant la richesse culturelle du continent.</p>\r\n', '', '', 1, '2024-02-24 08:34:30'),
+(26, 'COMMUNIQUÉ DE PRESSE BILAN', 'COMMUNIQUÉ DE PRESSE BILAN', '', 'communiquÉ-de-presse-bilan', '', '', 'CP-Mak7-Version-francaise.jpg', '', 1, '2024-02-24 09:10:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `conference`
+--
+
+CREATE TABLE `conference` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `slug` text DEFAULT NULL,
+  `category` text DEFAULT NULL,
+  `description` longtext NOT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `image` text NOT NULL,
+  `attachment` text NOT NULL,
+  `uploaded_by` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `conference`
+--
+
+INSERT INTO `conference` (`id`, `title`, `slug`, `category`, `description`, `date`, `image`, `attachment`, `uploaded_by`, `status`, `created_at`) VALUES
+(1, 'when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'when-an-unknown-printer-took-a-galley-of-type-and-scrambled-it-to-make-a-type-specimen-book', 'webinar', '</p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n\" id=\"editor1\"><h2>CONFÉRENCE DE LANCEMENT DE L’INSTITUT MAKUTANO</h2>\r\n\r\n<h3>MOTIVATION ET OBJET</h3>\r\n\r\n<p>A l’occasion de la commémoration de l’indépendance politique de la République démocratique du Congo, une interrogation sur l’indépendance économique du pays s’invite avec acuité tant il est vrai que sans celle-ci, la première ne saurait être appréciée à sa juste valeur. Le réseau Makutano organise ce samedi 27 juin 2020, sous forme de webinaire, une conférence académique sur ce thème pour mettre en évidence les pistes d’avancée vers l’indépendance économique de la République démocratique du Congo. Au-delà, Les trois axes majeurs qui seront discutés sont : l’indépendance<br />\r\nfinancière et ses limites, l’indépendance énergétique et la politique industrielle ainsi que le capital humain dans la transformation de l’agriculture. Au-delà de la compréhension des démarches intellectuelle et empirique de la transformation industrielle, la conférence apportera une lumière sur l’état du portefeuille de projets d’investissements y relatif en RDC, le processus concret de lancement d’un projet en partenariat avec le gouvernement congolais via l’accompagnement de l’Agence Nationale pour la Promotion des Investissements ainsi qu’une esquisse d’une nouvelle politique d’investissement.</p>\r\n\r\n<hr />\r\n<h3>PROGRAM</h3>\r\n\r\n<p><strong>11h00</strong> : Ouverture et présentation du projet de lancement de l’Institut Makutano, Think tank du réseau Makutano.</p>\r\n\r\n<p><em><strong>Nicole Sulu Tshiyoyo</strong>, Fondatrice du réseau Sultani Makutano.</em></p>\r\n\r\n<p><strong>11h05</strong> : Présentation sur « L’indépendance financière et ses limites : la balance entre stratégies d’accès aux marchés internationaux et développement d’un système financier interne ».</p>\r\n\r\n<p><em><strong>José Manoka Mussala</strong> (MBA), Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing de la banque Clearstream Banking Luxembourg S.A.</em></p>\r\n\r\n<p><strong>11h20</strong> : Présentation sur « L’indépendance énergétique et la politique industrielle : cas de la transformation structurelle d’une économie de ressources naturelles ».</p>\r\n\r\n<p><em><strong>Jean-Marc Kilolo Malambwe</strong> (PhD, MBA), Economiste international, Professeur à l’Université Protestante du Congo et à l’Université Pédagogique Nationale.</em></p>\r\n\r\n<p><strong>11h35</strong> : Présentation sur « Capital humain et transformation de l’agriculture : rôle des entreprises et des décideurs ».</p>\r\n\r\n<p><em><strong>Christian OTCHIA</strong> (PhD), Professeur associé à l’Université de Nagoya au Japon.</em></p>\r\n\r\n<p><strong>11h50</strong> : Présentation sur « Portefeuille de projets de la RDC compatible avec l’indépendance économique, en finance, énergie, agriculture et ressources minières : esquisse d’une nouvelle politique d’investissement ».</p>\r\n\r\n<p><em><strong>Anthony NKINZO</strong>, Directeur Général de l’Agence Nationale pour la Promotion des Investissements.</em></p>\r\n\r\n<p><strong>12h05</strong> : Séance de questions-réponses et échanges</p>\r\n\r\n<p><strong>12h30</strong> : Fin de la conférence</p>\r\n\r\n<hr />\r\n<h3>NOTES BIOGRAPHIQUES DES PRINCIPAUX ORATEURS</h3>\r\n\r\n<p><strong>José MANOKA MUSSALA</strong> (MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.01.21-150x150.png\" /></p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n', '2024-02-29', 'spec-ops-the-line1.png', 'c4611_sample_explain_-_Copy.pdf', '', 1, '2024-02-20 07:14:56'),
+(7, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry', 'RABA/ARBI', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-20', 'spec-ops-the-line6.png', '9982_6655_ActivateGoogleLocationAPI2.pdf', '2', 1, '2024-02-19 23:06:00'),
+(8, 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'it-was-popularised-in-the-1960s-with-the-release-of-letraset-sheets-containing-lorem-ipsum-passages', 'Working Papers', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-21', 'luxurious-bag2.jpg', '9982_6655_ActivateGoogleLocationAPI4.pdf', '2', 1, '2024-02-19 23:06:00'),
+(11, 'It has survived not only five centuries, but also the leap into electronic typesetting', 'it-has-survived-not-only-five-centuries-but-also-the-leap-into-electronic-typesetting', 'Analyses Makutano', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-24', '1624550510XoNRRYd0t0.png', 'c4611_sample_explain_-_Copy1.pdf', '2', 1, '2024-02-19 23:07:00'),
+(12, 'when an unknown printer took a galley of type and scrambled it to make a type specimen book', 'when-an-unknown-printer-took-a-galley-of-type-and-scrambled-it-to-make-a-type-specimen-book', 'webinar', '</p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n\" id=\"editor1\"><h2>CONFÉRENCE DE LANCEMENT DE L’INSTITUT MAKUTANO</h2>\r\n\r\n<h3>MOTIVATION ET OBJET</h3>\r\n\r\n<p>A l’occasion de la commémoration de l’indépendance politique de la République démocratique du Congo, une interrogation sur l’indépendance économique du pays s’invite avec acuité tant il est vrai que sans celle-ci, la première ne saurait être appréciée à sa juste valeur. Le réseau Makutano organise ce samedi 27 juin 2020, sous forme de webinaire, une conférence académique sur ce thème pour mettre en évidence les pistes d’avancée vers l’indépendance économique de la République démocratique du Congo. Au-delà, Les trois axes majeurs qui seront discutés sont : l’indépendance<br />\r\nfinancière et ses limites, l’indépendance énergétique et la politique industrielle ainsi que le capital humain dans la transformation de l’agriculture. Au-delà de la compréhension des démarches intellectuelle et empirique de la transformation industrielle, la conférence apportera une lumière sur l’état du portefeuille de projets d’investissements y relatif en RDC, le processus concret de lancement d’un projet en partenariat avec le gouvernement congolais via l’accompagnement de l’Agence Nationale pour la Promotion des Investissements ainsi qu’une esquisse d’une nouvelle politique d’investissement.</p>\r\n\r\n<hr />\r\n<h3>PROGRAM</h3>\r\n\r\n<p><strong>11h00</strong> : Ouverture et présentation du projet de lancement de l’Institut Makutano, Think tank du réseau Makutano.</p>\r\n\r\n<p><em><strong>Nicole Sulu Tshiyoyo</strong>, Fondatrice du réseau Sultani Makutano.</em></p>\r\n\r\n<p><strong>11h05</strong> : Présentation sur « L’indépendance financière et ses limites : la balance entre stratégies d’accès aux marchés internationaux et développement d’un système financier interne ».</p>\r\n\r\n<p><em><strong>José Manoka Mussala</strong> (MBA), Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing de la banque Clearstream Banking Luxembourg S.A.</em></p>\r\n\r\n<p><strong>11h20</strong> : Présentation sur « L’indépendance énergétique et la politique industrielle : cas de la transformation structurelle d’une économie de ressources naturelles ».</p>\r\n\r\n<p><em><strong>Jean-Marc Kilolo Malambwe</strong> (PhD, MBA), Economiste international, Professeur à l’Université Protestante du Congo et à l’Université Pédagogique Nationale.</em></p>\r\n\r\n<p><strong>11h35</strong> : Présentation sur « Capital humain et transformation de l’agriculture : rôle des entreprises et des décideurs ».</p>\r\n\r\n<p><em><strong>Christian OTCHIA</strong> (PhD), Professeur associé à l’Université de Nagoya au Japon.</em></p>\r\n\r\n<p><strong>11h50</strong> : Présentation sur « Portefeuille de projets de la RDC compatible avec l’indépendance économique, en finance, énergie, agriculture et ressources minières : esquisse d’une nouvelle politique d’investissement ».</p>\r\n\r\n<p><em><strong>Anthony NKINZO</strong>, Directeur Général de l’Agence Nationale pour la Promotion des Investissements.</em></p>\r\n\r\n<p><strong>12h05</strong> : Séance de questions-réponses et échanges</p>\r\n\r\n<p><strong>12h30</strong> : Fin de la conférence</p>\r\n\r\n<hr />\r\n<h3>NOTES BIOGRAPHIQUES DES PRINCIPAUX ORATEURS</h3>\r\n\r\n<p><strong>José MANOKA MUSSALA</strong> (MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.01.21-150x150.png\" /></p>\r\n\r\n<p>Expert des services financiers pour la clientèle institutionnelle. Totalisant une expérience professionnelle d’une vingtaine d’années dans l’industrie bancaire, Monsieur Manoka a exercé diverses fonctions opérationnelles, commerciales et de développement produit dans les lignes de métiers liés aux services aux investisseurs ainsi qu’aux opérations sur les marchés des capitaux. Son parcours professionnel s’étale sur trois continents : l’Afrique, l’Amérique et l’Europe. En effet, Monsieur Manoka a travaillé en RDC, en Belgique, aux USA et plus récemment au Luxembourg. Aujourd’hui, Monsieur Manoka est Vice-Président en charge du Business Development pour la ligne de métier Banking, Funding & Financing d’une banque au Luxembourg. Formé à l’Université Catholique de Louvain (Louvain-La Neuve) où il a obtenu une licence en sciences économiques, il détient également un MBA en banque décroché auprès de l’Université de Londres (Unversity of London).</p>\r\n\r\n<p><strong>Jean-Marc KILOLO MALAMBWE</strong> (PhD, MBA)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.01-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à L’Université Protestante du Congo et à l’Université Pédagogique Nationale. Economiste international spécialisé dans les questions de commerce et développement international, il détient un doctorat de l’École polytechnique de Paris, un MBA de l’UQAM, une Maîtrise en économie de l’université de Montréal et une licence en économie de l’Université catholique de Louvain. Auteur de plusieurs publications dans des revues savantes telles que Review of the World Economics, Journal of international trade and economic development, Economics and Politics, etc., il a codirigé un volume de la revue d’Intelligence Stratégique et des Relations Internationales (Dounia) consacré à l’émergence de la RDC. Expert africain reconnu, il a animé des séminaires de renforcement de capacités dans environ 15 pays d’Afrique. Dans son parcours professionnel, il a exercé comme économiste au Canada (Institut de la Statistique du Québec), en<br />\r\nSuisse (Commission Economique pour l’Europe, CNUCED, International Trade Center), au Kenya (United Nations office for Disaster Risk Reduction) et au Cameroun (Commission Economique pour l’Afrique).</p>\r\n\r\n<p><strong>Christian OTCHIA</strong> (PhD)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.16-150x150.png\" /></p>\r\n\r\n<p>Professeur d’économie à Nagoya University au Japon, Monsieur Otchia possède une vaste expérience pratique dans la conception et la mise en œuvre de politiques industrielles, ayant travaillé avec divers gouvernements locaux et nationaux (Japon, Vietnam, Cambodge, Burkina Faso, Éthiopie, Tchad, Cameroun) et des organisations internationales (FAO, CNUCED, CEA, Banque Mondiale). Ses domaines de recherche comprennent la politique économique, l’économie du travail, et l’économie du développement. Son approche consiste en l’utilisation de la statistique et des modèles d’équilibre général calculables (EGC) à l’étude de la pauvreté, les inégalités, le lien entre la croissance économique et les changements structurels ainsi que la politique industrielle dans le contexte de la mondialisation. Il a contribué au développement d’outils analytiques d’évaluation des politiques économiques dans les pays en développement, en ce compris les modèles EGC et la croissance inclusive, avec une reconnaissance de l’International InputOutput Association à travers un prix en 2013. Il a également reçu en 2016 le prix Lawrence R. Klein de la Pan Pacific Association of Input-Output Studies et le premier prix Thomas Rutherford de la GAMS corporation et le Center for Global Trade Analysis de l’Université de Purdue pour ses travaux sur les modèles ECG et de micro-simulation. Actuellement, il se concentre sur l’application des méthodologies développées sur l’impact de compétences socio-émotionnelles sur le marché du travail en termes d’emplois, d’entreprenariat et de revenus en Afrique Subsaharienne. Il a de nombreuses publications dans de revues scientifiques internationales huppées.</p>\r\n\r\n<p><strong>Anthony NKINZO</strong> (Licence, Certificat D’études Supérieures Approfondies)</p>\r\n\r\n<p><img alt=\"\" src=\"https://makutano.cd/wp-content/uploads/2020/07/Capture-d%E2%80%99e%CC%81cran-2020-07-27-a%CC%80-12.02.34-150x150.png\" /></p>\r\n\r\n<p>Directeur Général de l’Agence Nationale pour la Promotion des Investissements (ANAPI) en République Démocratique du Congo (RDC). Il a été Associates Partner en charge du volet juridique et fiscal au sein du Cabinet ABN Nzailu & Co et Tax & Legal Manager au sein de Cabinet PricewaterhouseCoopers/RDC. Il a également une solide expérience au sein de l’administration publique puisqu’il a été Directeur de Cabinet au Ministère du Portefeuille puis Directeur de Cabinet à la VicePrimature du Ministère du Budget après avoir été Agent Vérificateur de recouvrements à la Direction générale des impôts. Licencié en Droit de l’Université de Kinshasa, il a une certification en études supérieures approfondies sur le Management Général Avancé de la Grande école de commerce HEC Paris.</p>\r\n', '2024-02-29', 'spec-ops-the-line1.png', 'c4611_sample_explain_-_Copy.pdf', '', 1, '2024-02-20 07:14:56'),
+(13, 'WHAT IF, AFTER FLOYD, MEDIA WERE INTERESTED IN THE BENI DRAMA?', 'what-if-after-floyd-media-were-interested-in-the-beni-drama', 'network', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-20', 'spec-ops-the-line6.png', '9982_6655_ActivateGoogleLocationAPI2.pdf', '2', 1, '2024-02-19 23:06:00'),
+(14, 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'it-was-popularised-in-the-1960s-with-the-release-of-letraset-sheets-containing-lorem-ipsum-passages', 'institute', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-21', 'luxurious-bag2.jpg', '9982_6655_ActivateGoogleLocationAPI4.pdf', '2', 1, '2024-02-19 23:06:00'),
+(15, 'It has survived not only five centuries, but also the leap into electronic typesetting', 'it-has-survived-not-only-five-centuries-but-also-the-leap-into-electronic-typesetting', 'foundation', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', '2024-02-24', '1624550510XoNRRYd0t0.png', 'c4611_sample_explain_-_Copy1.pdf', '2', 1, '2024-02-19 23:07:00'),
+(16, 'THE FRANC AND PRICES DANCE IN THE DRC: THE INFERNAL WALTZ?', 'the-franc-and-prices-dance-in-the-drc-the-infernal-waltz', 'network', '<p>Samedi, 08 Ao&ucirc;t 2020, 11h00 &ndash; 13h00 Kinshasa Time.</p>\r\n\r\n<p>Animation du d&eacute;bat :&nbsp;<strong>Annie MUTAMBA</strong>, Consultante en communication et affaires publiques et co-fondatrice du cabinet de conseil Meridia Partners.</p>\r\n\r\n<p>Pan&eacute;listes :&nbsp;<strong>Andr&eacute; LITE ASEBEA</strong>, Ministre congolais des droits humains ;&nbsp;<strong>Mireille KABAMBA</strong>, Dg Canal + (RDC) ;&nbsp;<strong>Christian LUSAKUENO</strong>, Journaliste et fondateur de Top Congo FM;&nbsp;<strong>Alain FOKA</strong>, Journaliste, animateur radio sp&eacute;cialiste des questions africaines (RFI) ;&nbsp;<strong>Patient LIGODI</strong>, Journaliste correspondant pour RFI en RDC et fondateur du site web d&rsquo;information &laquo; Actualites.cd &raquo;.</p>\r\n', '2024-02-22', 'bigstock-High-tech-electronic-PCB-Prin-147988193-1536x1152.jpg', 'c4611_sample_explain_-_Copy2.pdf', '', 1, '2024-02-22 10:30:50');
 
 -- --------------------------------------------------------
 
@@ -48524,6 +48564,30 @@ CREATE TABLE `contacts` (
   `address` text NOT NULL,
   `business_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_institute`
+--
+
+CREATE TABLE `contact_institute` (
+  `id` int(11) NOT NULL,
+  `fname` text DEFAULT NULL,
+  `lname` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `subject` longtext DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `created_at` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_institute`
+--
+
+INSERT INTO `contact_institute` (`id`, `fname`, `lname`, `email`, `subject`, `message`, `created_at`) VALUES
+(1, 'sayantan', 'Bhakta', 'sayantan@goigi.in', 'Test Subject', 'This is a test email', '2024-02-19 12:40'),
+(2, 'sayantan', 'Bhakta', 'sayantan@goigi.in', 'Test Subject', 'this is a test email', '2024-02-19 12:42');
 
 -- --------------------------------------------------------
 
@@ -49043,8 +49107,8 @@ INSERT INTO `course_reviews` (`review_id`, `course_id`, `user_id`, `rating`, `re
 (2, 1, 1, 2, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-12 11:20:25'),
 (3, 2, 1, 3, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-11 11:20:25'),
 (4, 1, 1, 3, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-11 11:20:25'),
-(5, 0, 1, 4, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25'),
-(92, 0, 1, 5, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25');
+(5, 1, 1, 4, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25'),
+(92, 1, 1, 5, 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.', '1', '2024-02-10 11:20:25');
 
 -- --------------------------------------------------------
 
@@ -49080,7 +49144,33 @@ CREATE TABLE `email_subscription` (
 --
 
 INSERT INTO `email_subscription` (`id`, `user_email`, `status`, `created_at`) VALUES
-(5, 'sayantan@goigi.in', '0', '2024-02-13 22:27:00');
+(5, 'sayantan@goigi.in', '1', '2024-02-13 22:27:00'),
+(6, 'sayantan.ece.imps@gmail.com', '1', '2024-02-13 22:27:00'),
+(7, 'sayanchakraborty@goigi.in', '1', '2024-02-13 22:27:00'),
+(8, 'goutampaul@goigi.in', '1', '2024-02-13 22:27:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email_templete`
+--
+
+CREATE TABLE `email_templete` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `subject` text DEFAULT NULL,
+  `content` longtext DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `email_templete`
+--
+
+INSERT INTO `email_templete` (`id`, `name`, `subject`, `content`, `image`, `status`, `created_date`) VALUES
+(1, 'Module 1 update', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/images.jpg\" style=\"height:176px; width:286px\" /></tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', NULL, '1', '2024-02-27 05:12:40');
 
 -- --------------------------------------------------------
 
@@ -49267,6 +49357,133 @@ INSERT INTO `homecourse` (`id`, `heading`, `sub_heading`, `course_icon`, `course
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `intervenants`
+--
+
+CREATE TABLE `intervenants` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `designation` text DEFAULT NULL,
+  `profilePics` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `intervenants`
+--
+
+INSERT INTO `intervenants` (`id`, `name`, `designation`, `profilePics`, `status`, `created_at`) VALUES
+(1, 'S.E Félix-Antoine Tshisekedi Tshilombo', 'Président de la République démocratique du Congo', 'FELIX-TSHISEKEDI1.webp', '1', NULL),
+(2, 'S.E Jean-Michel Sama Lukonde', 'Premier Ministre de la RDC', 'SAMA-LOKONDE.webp', '1', NULL),
+(3, 'H.E Christian Mwando Nsimba', 'Ministre d\'État, ministre du Plan RDC', 'CHRISTIAN-MWANDO-NSIMBA.webp', '1', NULL),
+(4, 'H.E Guy Loando Mboyo', 'Ministre d’Etat de l’Aménagement du Territoire RDC', 'GUY-LOANDO-MBOYO.webp', '1', NULL),
+(5, 'H.E. Nicolas Kazadi', 'Ministre des Finances RDC', 'NICOLAS-KAZADI.webp', '1', NULL),
+(6, 'S.E Alexis Gisaro Muvunyi', 'Ministre des Insfrastructures RDC', 'ALEXIS-GISARO-MUVUNYI.webp', '1', NULL),
+(7, 'H.E. Antoinette N’Samba Kalambayi', 'Ministre des Mines RDC', 'ANTOINETTE-NSAMBA-KALAMBAYI.webp', '1', NULL),
+(8, 'S.E Aimé Sakombi Molendo', 'Ministre des Affaires foncières RDC', 'MINISTRE-MOLENDO-SAKOMBI.webp', '1', NULL),
+(9, 'Jean-Marc Châtaigner', 'Ambassadeur, Chef de la Délégation de l\'Union Européenne', 'JEAN-MARC-CHATAIGNER.webp', '1', NULL),
+(10, 'H.E. Bruno Aubert', 'Ambassadeur de France en RDC', 'BRUNO-AUBERT-1.webp', '1', NULL),
+(11, 'Murat Ülkü', 'Ambassadeur de Türkiye', 'MURAT-ULKU-TUK.webp', '1', NULL),
+(12, 'Jean-Yves Le Gall', 'Président du Conseil d’Orientation Stratégique de l’Université Paris-Saclay', 'JEAN-YVES-LE-GALL.webp', '1', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mak_zeronine`
+--
+
+CREATE TABLE `mak_zeronine` (
+  `id` int(11) NOT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `presentation_for` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mak_zeronine`
+--
+
+INSERT INTO `mak_zeronine` (`id`, `image`, `presentation_for`, `status`, `created_date`) VALUES
+(1, '4404_mak-09-1.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(2, '2106_mak-09-2.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(3, '8959_mak-09-3.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(4, '3402_mak-09-4.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(5, '7720_mak-09-5.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(6, '8580_mak-09-6.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(7, '6753_mak-09-7.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(8, '3591_mak-09-8.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(9, '5793_mak-09-9.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(10, '546_mak-09-10.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(11, '1532_mak-09-11.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(12, '1867_mak-09-12.webp', 'mak_09', '1', '2024-02-22 12:30:30'),
+(13, '1459_mak-09-13.webp', 'mak_09', '1', '2024-02-19 17:22:55'),
+(15, '3984_mak-09-14.webp', 'mak_09', '1', '2024-02-22 12:28:18'),
+(16, '7844_0002-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(17, '1376_0003-1-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(18, '5659_0004-1-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(19, '3226_0005-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(20, '2777_0006-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(21, '1482_0007-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(22, '7933_0008-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(23, '7718_0009-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(24, '5830_0010-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(25, '1220_0011-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(26, '4271_0012-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(27, '5204_0013-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(28, '1500_0014-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(29, '6920_0015-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(30, '7043_0016-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(31, '2131_0017-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(32, '8912_0018-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(33, '9676_0019-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(34, '8348_0020-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43'),
+(35, '5738_0021-768x1024.webp', 'mak_08', '1', '2024-02-22 13:17:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `network`
+--
+
+CREATE TABLE `network` (
+  `id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `slug` text DEFAULT NULL,
+  `uploaded_by` varchar(255) NOT NULL,
+  `popular` text NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `title`, `image`, `status`, `created_date`) VALUES
+(1, 'Gmak Newsletter de MAKUTANO, c\'est parti !', '9395_9982_6655_ActivateGoogleLocationAPI.pdf', '1', '2024-02-23 18:58:02'),
+(2, 'La corruption, fléau pour la République Démocratique du Congo', '9004_c4611_sample_explain-Copy2.pdf', '1', '2024-02-23 19:20:20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `options`
 --
 
@@ -49298,7 +49515,7 @@ INSERT INTO `options` (`option_id`, `option_name`, `option_value`) VALUES
 (19, 'course_price', NULL),
 (20, 'pint', NULL),
 (21, 'linked', 'https://www.linkedin.com/'),
-(22, 'lt', 'Reality superimposed into creativity!'),
+(22, 'lt', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'),
 (23, 'insta', 'https://www.instagram.com/'),
 (24, 'l1', NULL),
 (25, 'l2', NULL),
@@ -49321,7 +49538,9 @@ INSERT INTO `options` (`option_id`, `option_name`, `option_value`) VALUES
 (42, 'map', '<iframe src=\"https://maps.google.com/maps?q=Fort%20Miley&t=&z=13&ie=UTF8&iwloc=&output=embed\"></iframe>'),
 (43, 'tollfree', NULL),
 (44, 'shipping_charge', '20'),
-(45, 'tax', '18');
+(45, 'tax', '18'),
+(46, 'app_store_link', 'https://www.apple.com/app-store/'),
+(47, 'play_store_link', 'https://play.google.com/store/');
 
 -- --------------------------------------------------------
 
@@ -49375,6 +49594,107 @@ CREATE TABLE `payments` (
   `payment_status` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolio`
+--
+
+CREATE TABLE `portfolio` (
+  `id` int(11) NOT NULL,
+  `portfolioId` varchar(45) DEFAULT NULL,
+  `image` longtext DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `portfolio`
+--
+
+INSERT INTO `portfolio` (`id`, `portfolioId`, `image`, `status`, `created_date`) VALUES
+(1, '1', '5041_gallery1.webp', '1', '2024-02-15 15:18:49'),
+(2, '1', '1629_gallery2.webp', '1', '2024-02-15 15:18:49'),
+(3, '1', '8604_gallery3.webp', '1', '2024-02-15 15:18:49'),
+(4, '1', '2837_gallery4.webp', '1', '2024-02-15 15:18:49'),
+(5, '1', '3337_gallery5.webp', '1', '2024-02-15 15:18:49'),
+(6, '1', '903_gallery6.webp', '1', '2024-02-15 15:18:49'),
+(7, '1', '9177_gallery7.webp', '1', '2024-02-15 15:18:49'),
+(8, '1', '4789_gallery8.webp', '1', '2024-02-15 15:18:49'),
+(9, '1', '8272_gallery9.webp', '1', '2024-02-15 15:18:49'),
+(10, '1', '7303_gallery10.webp', '1', '2024-02-15 15:18:49'),
+(11, '1', '6541_gallery11.webp', '1', '2024-02-15 15:18:49'),
+(12, '1', '4829_gallery12.webp', '1', '2024-02-15 15:18:49'),
+(13, '1', '944_gallery13.webp', '1', '2024-02-15 15:18:49'),
+(14, '1', '6338_gallery14.webp', '1', '2024-02-15 15:18:49'),
+(15, '1', '7492_gallery15.webp', '1', '2024-02-15 15:18:49'),
+(16, '1', '682_gallery16.webp', '1', '2024-02-15 15:18:49'),
+(17, '1', '5965_gallery17.webp', '1', '2024-02-15 15:18:49'),
+(18, '1', '6949_gallery18.webp', '1', '2024-02-15 15:18:49'),
+(19, '2', '6933_gallery2.webp', '1', '2024-02-15 15:37:53'),
+(20, '2', '4370_gallery3.webp', '1', '2024-02-15 15:37:53'),
+(21, '2', '3675_gallery1.webp', '1', '2024-02-15 16:13:17'),
+(22, '2', '5818_gallery5.webp', '1', '2024-02-15 15:37:53'),
+(23, '2', '1153_gallery6.webp', '1', '2024-02-15 15:37:53'),
+(24, '2', '1543_gallery7.webp', '1', '2024-02-15 15:37:53'),
+(25, '2', '2592_gallery8.webp', '1', '2024-02-15 15:37:53'),
+(26, '2', '3744_gallery9.webp', '1', '2024-02-15 15:37:53'),
+(27, '3', '6350_gallery1.webp', '1', '2024-02-15 15:38:20'),
+(28, '3', '4806_gallery2.webp', '1', '2024-02-15 15:38:20'),
+(29, '3', '1388_gallery3.webp', '1', '2024-02-15 15:38:20'),
+(30, '3', '5706_gallery4.webp', '1', '2024-02-15 15:38:20'),
+(31, '3', '1695_gallery5.webp', '1', '2024-02-15 15:38:20'),
+(32, '3', '938_gallery6.webp', '1', '2024-02-15 15:38:20'),
+(33, '3', '5911_gallery7.webp', '1', '2024-02-15 15:38:20'),
+(34, '3', '5056_gallery8.webp', '1', '2024-02-15 15:38:20'),
+(35, '3', '7785_gallery9.webp', '1', '2024-02-15 15:38:20'),
+(36, '3', '7317_gallery10.webp', '1', '2024-02-15 15:38:20'),
+(37, '3', '609_gallery11.webp', '1', '2024-02-15 15:38:20'),
+(38, '3', '7934_gallery12.webp', '1', '2024-02-15 15:38:20'),
+(39, '3', '9457_gallery13.webp', '1', '2024-02-15 15:38:20'),
+(40, '3', '6420_gallery14.webp', '1', '2024-02-15 15:38:20'),
+(41, '3', '8832_event-9-min.jpg', '1', '2024-02-15 16:13:42'),
+(42, '4', '1642_makutano-youth-1-1.jpg', '1', '2024-02-15 17:33:04'),
+(43, '4', '5615_makutano-youth-2-1.jpg', '1', '2024-02-15 17:33:04'),
+(44, '4', '7137_makutano-youth-3-1.jpg', '1', '2024-02-15 17:33:04'),
+(45, '4', '2358_makutano-youth-galerie-1.jpg', '1', '2024-02-15 17:33:04'),
+(46, '4', '6205_makutano-youth-galerie-2.jpg', '1', '2024-02-15 17:33:04'),
+(47, '4', '3671_makutano-youth-galerie-3.jpg', '1', '2024-02-15 17:33:04'),
+(48, '4', '1492_makutano-youth-galerie-4.jpg', '1', '2024-02-15 17:33:04'),
+(49, '4', '3139_makutano-youth-galerie-5.jpg', '1', '2024-02-15 17:33:04'),
+(50, '4', '4948_makutano-youth-galerie-6.jpg', '1', '2024-02-15 17:33:04'),
+(65, '5', '8543_makutano-forum-wib-1-768x554.jpg', '1', '2024-02-22 16:58:20'),
+(66, '5', '5941_makutano-forum-wib-2-768x968.jpg', '1', '2024-02-22 16:58:20'),
+(67, '5', '3507_makutano-forum-wib-3-768x512.jpg', '1', '2024-02-22 16:58:20'),
+(68, '5', '3039_makutano-forum-wib-4.jpg', '1', '2024-02-22 16:58:20'),
+(69, '5', '8772_makutano-forum-wib-5-768x513.jpg', '1', '2024-02-22 16:58:20'),
+(70, '5', '8856_makutano-forum-wib-6-768x513.jpg', '1', '2024-02-22 16:58:20'),
+(71, '5', '1442_makutano-forum-wib-7-768x512.jpg', '1', '2024-02-22 16:58:20'),
+(72, '5', '664_makutano-sultani-forum-edition-5-6-1-768x512.jpg', '1', '2024-02-22 16:58:20'),
+(73, '5', '3210_makutano-wib-2.jpg', '1', '2024-02-22 16:58:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poster`
+--
+
+CREATE TABLE `poster` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `link` longtext DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `poster`
+--
+
+INSERT INTO `poster` (`id`, `title`, `image`, `link`, `status`, `created_date`) VALUES
+(1, 'Makutano 10', '3090_popup.jpg', 'http://localhost/makutano/', '1', '2024-02-26 16:50:30');
 
 -- --------------------------------------------------------
 
@@ -49502,7 +49822,7 @@ CREATE TABLE `product_order_details` (
   `tax` varchar(45) DEFAULT NULL,
   `order_total` varchar(45) DEFAULT NULL,
   `status` text DEFAULT NULL,
-  `created_date` varchar(100) DEFAULT current_timestamp()
+  `created_date` varchar(100) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -49558,6 +49878,60 @@ CREATE TABLE `product_type` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `programme`
+--
+
+CREATE TABLE `programme` (
+  `id` int(11) NOT NULL,
+  `title` longtext DEFAULT NULL,
+  `programme_for` varchar(45) DEFAULT NULL,
+  `forum_date` text DEFAULT NULL,
+  `start_time` text DEFAULT NULL,
+  `end_time` text DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `dress_code` text DEFAULT NULL,
+  `uploaded_by` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `programme`
+--
+
+INSERT INTO `programme` (`id`, `title`, `programme_for`, `forum_date`, `start_time`, `end_time`, `description`, `dress_code`, `uploaded_by`, `status`, `created_at`) VALUES
+(1, 'MERCREDI 20 SEPTEMBRE 2023', 'mak_09', NULL, NULL, NULL, '<p>08H00 &ndash; 8H45</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>ACCUEIL CAF&Eacute;</p>\r\n\r\n<p>09H00 &ndash; 10H15</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>MOT DE BIENVENUE</p>\r\n\r\n<p>Deborah Mutund,&nbsp;Entrepreneure, femme de media, consultante en relations publiques</p>\r\n\r\n<p>MC MAKUTANO 2023</p>\r\n\r\n<p>OPENING SPEECH</p>\r\n\r\n<p>Nicole Sulu,&nbsp;Founder Makutano</p>\r\n\r\n<p>S.E.M. Jean-Michel Sama Lukonde,&nbsp;Premier ministre, RDC</p>\r\n\r\n<p>S.E.M. Patrick Achi,&nbsp;Premier ministre, C&ocirc;te d&rsquo;Ivoire</p>\r\n\r\n<p>10H15 &ndash; 11H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 1</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>&Eacute;ric Kacou,&nbsp;DG, Entrepreneurial Solutions Partners</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Keynote (10 min)</p>\r\n\r\n<p>Robert Matana Gumede,&nbsp;Executive Chairman, GUMA Group</p>\r\n\r\n<p>Intervenants</p>\r\n\r\n<p>S.EM. Olusegun Obasanjo,&nbsp;Pr&eacute;sident honoraire du Nig&eacute;ria</p>\r\n\r\n<p>S.E.M. Nicolas Kazadi,&nbsp;Ministre des Finances de RDC</p>\r\n\r\n<p>Albert Yuma,&nbsp;Pr&eacute;sident, FEC</p>\r\n\r\n<p>Paulo Gomes,&nbsp;PDG &ndash; Orango Investment Corporation, Co-fondateur &ndash; New African Capital Partners</p>\r\n\r\n<p>Abdou Souleye Diop,&nbsp;Managing Partner &ndash; Mazars</p>\r\n\r\n<p>Farida Jirari,&nbsp;Directrice g&eacute;n&eacute;rale Association pour le Progr&egrave;s des Dirigeants</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle Chandelier Lagune</p>\r\n\r\n<p>WORKSHOP 1 (25 Pax)</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Discussion sur une probl&eacute;matique concr&egrave;te issue du panel, assortie d&rsquo;un &laquo; Take Away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Ambassadrice</p>\r\n\r\n<p>Charlotte Kalala,&nbsp;Congo na Paris</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>Teddy Roux,&nbsp;Directeur Afrique de l&rsquo;Ouest &ndash; Entrepreneurial Solutions Partners, LLC</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 2</p>\r\n\r\n<p>INTERVIEW 4.0</p>\r\n\r\n<p>Special guest</p>\r\n\r\n<p>Samuel Eto&rsquo;o,&nbsp;Pr&eacute;sident, FECAFOOT</p>\r\n\r\n<p>Mod&eacute;ratrice</p>\r\n\r\n<p>Madjissem Beringaye,&nbsp;TV Host &amp; Entrepreneure</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle ABOISSO</p>\r\n\r\n<p>WORKSHOP 2 (25 pax)</p>\r\n\r\n<p>MINES</p>\r\n\r\n<p>Discussion pr&eacute;paratoire sur une probl&eacute;matique concr&egrave;te du panel Mines, assortie d&rsquo;un &laquo; take away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Mod&eacute;rateurs</p>\r\n\r\n<p>Landry Djimpe, Innogence Consulting</p>\r\n\r\n<p>Laetitia Gadegbeku, Directrice-pays Groupe Endeavour Minm</p>\r\n', 'BUSINESS-FORMAL', NULL, '1', '2024-02-22 02:55'),
+(2, 'JEUDI 21 SEPTEMBRE 2023', 'mak_09', NULL, NULL, NULL, '<p>08H00 &ndash; 8H45</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>ACCUEIL CAF&Eacute;</p>\r\n\r\n<p>09H00 &ndash; 10H15</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>MOT DE BIENVENUE</p>\r\n\r\n<p>Deborah Mutund,&nbsp;Entrepreneure, femme de media, consultante en relations publiques</p>\r\n\r\n<p>MC MAKUTANO 2023</p>\r\n\r\n<p>OPENING SPEECH</p>\r\n\r\n<p>Nicole Sulu,&nbsp;Founder Makutano</p>\r\n\r\n<p>S.E.M. Jean-Michel Sama Lukonde,&nbsp;Premier ministre, RDC</p>\r\n\r\n<p>S.E.M. Patrick Achi,&nbsp;Premier ministre, C&ocirc;te d&rsquo;Ivoire</p>\r\n\r\n<p>10H15 &ndash; 11H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 1</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>&Eacute;ric Kacou,&nbsp;DG, Entrepreneurial Solutions Partners</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Keynote (10 min)</p>\r\n\r\n<p>Robert Matana Gumede,&nbsp;Executive Chairman, GUMA Group</p>\r\n\r\n<p>Intervenants</p>\r\n\r\n<p>S.EM. Olusegun Obasanjo,&nbsp;Pr&eacute;sident honoraire du Nig&eacute;ria</p>\r\n\r\n<p>S.E.M. Nicolas Kazadi,&nbsp;Ministre des Finances de RDC</p>\r\n\r\n<p>Albert Yuma,&nbsp;Pr&eacute;sident, FEC</p>\r\n\r\n<p>Paulo Gomes,&nbsp;PDG &ndash; Orango Investment Corporation, Co-fondateur &ndash; New African Capital Partners</p>\r\n\r\n<p>Abdou Souleye Diop,&nbsp;Managing Partner &ndash; Mazars</p>\r\n\r\n<p>Farida Jirari,&nbsp;Directrice g&eacute;n&eacute;rale Association pour le Progr&egrave;s des Dirigeants</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle Chandelier Lagune</p>\r\n\r\n<p>WORKSHOP 1 (25 Pax)</p>\r\n\r\n<p>CHAMPIONS AFRICAINS</p>\r\n\r\n<p>Discussion sur une probl&eacute;matique concr&egrave;te issue du panel, assortie d&rsquo;un &laquo; Take Away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Ambassadrice</p>\r\n\r\n<p>Charlotte Kalala,&nbsp;Congo na Paris</p>\r\n\r\n<p>Moderator :</p>\r\n\r\n<p>Teddy Roux,&nbsp;Directeur Afrique de l&rsquo;Ouest &ndash; Entrepreneurial Solutions Partners, LLC</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle des f&ecirc;tes</p>\r\n\r\n<p>PANEL 2</p>\r\n\r\n<p>INTERVIEW 4.0</p>\r\n\r\n<p>Special guest</p>\r\n\r\n<p>Samuel Eto&rsquo;o,&nbsp;Pr&eacute;sident, FECAFOOT</p>\r\n\r\n<p>Mod&eacute;ratrice</p>\r\n\r\n<p>Madjissem Beringaye,&nbsp;TV Host &amp; Entrepreneure</p>\r\n\r\n<p>11H30 &ndash; 12H30</p>\r\n\r\n<p>Salle ABOISSO</p>\r\n\r\n<p>WORKSHOP 2 (25 pax)</p>\r\n\r\n<p>MINES</p>\r\n\r\n<p>Discussion pr&eacute;paratoire sur une probl&eacute;matique concr&egrave;te du panel Mines, assortie d&rsquo;un &laquo; take away &raquo; pr&eacute;sent&eacute; en Cl&ocirc;ture.</p>\r\n\r\n<p>Mod&eacute;rateurs</p>\r\n\r\n<p>Landry Djimpe, Innogence Consulting</p>\r\n\r\n<p>Laetitia Gadegbeku, Directrice-pays Groupe Endeavour Minm</p>\r\n', 'BUSINESS-FORMAL', NULL, '1', '2024-02-22 02:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `programme_sejour`
+--
+
+CREATE TABLE `programme_sejour` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `programme_for` varchar(45) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `dress_code` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `programme_sejour`
+--
+
+INSERT INTO `programme_sejour` (`id`, `title`, `programme_for`, `description`, `dress_code`, `status`, `created_at`) VALUES
+(2, 'MARDI 19/09/2023 : COCKTAIL', 'mak_09', '<p>19H00 :&nbsp;<strong>Cocktail de bienvenue&nbsp;</strong>/ R&eacute;sidence priv&eacute;e, Marcory</p>\r\n', 'Business casual', '1', '2024-02-22 02:16'),
+(3, 'MERCREDI 20/09/2023 : JOUR 1 MAKUTANO', 'mak_09', '<p>08H00 - 08H45 :&nbsp;<strong>Accueil&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>09H00 - 12H30 :&nbsp;<strong>1&egrave;re partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 1&nbsp;</strong>/ Le Comptoir, ITC Ivoire Trade Center</p>\r\n\r\n<p>12H45 - 14H00 :&nbsp;<strong>D&eacute;jeuner 2 - D&eacute;jeunerd&eacute;bat entrepreunariat&nbsp;</strong>/ La R&eacute;sidence (sur invitation)</p>\r\n\r\n<p>14H30 - 17H30 :&nbsp;<strong>2&egrave;me&nbsp;partie des &eacute;changes&nbsp;</strong>/ Sofitel H&ocirc;tel Ivoire</p>\r\n\r\n<p>18H30 - 20H00 :&nbsp;<strong>Cocktail Makutano</strong>&nbsp;/ Galerie Studer, 13 Bd Hassan II</p>\r\n', 'Business formal', '1', '2024-02-22 02:16'),
+(4, 'MONDAY, OCTOBER 24, 2022 - KINSHASA', 'mak_08', '<p>MONDAY, OCTOBER 24, 2022 - KINSHASA<br />\r\n<strong>PULLMAN H&ocirc;tel</strong></p>\r\n\r\n<p>08H00 &ndash; 8H30<br />\r\nWELCOME OF THE PARTICIPANTS</p>\r\n\r\n<p><strong>MC of the day :<br />\r\nSophy Aiida</strong>, Producer, TV Presenter &amp; International event organiser</p>\r\n\r\n<p><strong>8H30 &ndash; 9H30<br />\r\nMAKUTANO OPENING</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Nicole Sulu</strong>, Founder Makutano<br />\r\n<strong>Yannick Mbiya</strong>, DGA TMB</p>\r\n\r\n<p><strong>9H30 &ndash; 10H00<br />\r\nBRAINDATE&nbsp;</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Jean-Yves Le Gall</strong>, President of the Strategic Orientation Council of the University of Paris-Saclay<br />\r\n<strong>Maram Kaire</strong>, Managing Director of AFRICASPACE</p>\r\n\r\n<p><strong>10H00 &ndash; 10H30</strong><br />\r\n<strong>OPENING PLENARY</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>H.E. Jean-Michel Sama Lukonde</strong>, Prime Minister of DRC<br />\r\n<strong>Maria de Carmo Trovoada</strong>, Honorary Prime Minister &amp; Governor of teh Centra Bank of Sao Tome</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Christian Lusakueno</strong>, CEO Top Congo Fm</p>\r\n\r\n<p><strong>10H30 &ndash; 10H50<br />\r\nCOFFEE BREAK | VISIT OUR BOOKSTORE AND MEET OUR AUTHORS</strong></p>\r\n\r\n<p><strong>10H50 &ndash; 11H50<br />\r\nDEBATE 1<br />\r\n145 NEW NATIONAL CHAMPIONS ?</strong><br />\r\n<br />\r\n<strong>Introduction (5&rsquo;) :</strong><br />\r\n<strong>Eric Kacou</strong>, Cofounder &amp; CEO of ESPartners</p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Samba Bathily</strong>, CEO ADS Group<br />\r\n<strong>H.E. Murat &Uuml;lk&uuml;</strong>, Ambassador of T&uuml;rkiye in DRC<br />\r\n<strong>Firoz Ladak</strong>, President of ERFIP</p>\r\n\r\n<p><strong>Moderator :&nbsp;</strong>:<br />\r\n<strong>Eric Kacou</strong>, Cofounder &amp; CEO of ESPartners</p>\r\n\r\n<p><strong>Questions-r&eacute;ponses&nbsp;30&rsquo;</strong></p>\r\n\r\n<p><strong>&nbsp;</strong></p>\r\n\r\n<p><strong>11H50 &ndash; 12H00</strong><br />\r\n<strong>Martin Bakole</strong>, Congolese professional boxer, WBC International heavyweight champion&nbsp;<strong>WBC International</strong></p>\r\n\r\n<p><strong>12H00 &ndash; 12H45</strong><br />\r\n<strong>145 REASONS TO BELIEVE IN&nbsp;L&rsquo;AVENIR&nbsp;DRC&rsquo;S FUTURE</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>H.E. Christian Mwando Nsimba</strong>, Minister of the Plan<br />\r\n<strong>Jean Mabi</strong>, General Manager of BCECO<br />\r\n<strong>Alain Lungungu</strong>, CFEF Coordinator<br />\r\n<strong>Elhadj Dialo</strong>, UNDP Representative</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Alexandre Nshue</strong>, Makutano Expert</p>\r\n\r\n<p><strong>12H45 &ndash; 14H00</strong><br />\r\n<strong>LUNCH BREAK</strong></p>\r\n\r\n<p><strong>14H00 &ndash; 15H00 (SALON CONGO)</strong><br />\r\n<strong>DEBATE 2</strong><br />\r\n<strong>BLACK DEALS : WHAT IS AFRICAN OIL&rsquo;S FUTURE ?</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Mamadou Fall Kane</strong>, Secr&eacute;taire permanent adjoint au Comit&eacute; d&rsquo;orientation strat&eacute;gique pour le p&eacute;trole et le gaz &amp; Conseiller &eacute;nergie du Pr&eacute;sident de la R&eacute;publique Macky-Sall<br />\r\n<strong>Ayuk NJ</strong>, President of the African Energy Chamber (AEC)<br />\r\n<strong>Yvonne Mbala</strong>, DGA Perenco</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Kizito Pakabomba</strong>, Managing DIrector &amp; Associate at Twyk International, Makutano Expert&nbsp;<strong>Makutano</strong><br />\r\n<strong>Georges Bokundu</strong>, SARW Program Director (Southern African Natural Resources Watch) in DRC</p>\r\n\r\n<p><strong>Questions &amp; Answers 30&rsquo;</strong></p>\r\n\r\n<p><strong>14H00 &ndash; 15H30 (SALON LUBUMBASHI)</strong><br />\r\n<strong>BRAINDATES</strong><br />\r\n<strong>FROM AGRICULTURE TO AGRIBUSINESS</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Alda Kule</strong>, Financial Advisor to the Ministry of Finance<br />\r\n<strong>Malick Fall</strong>, Resident representative IFC<br />\r\n<strong>Didier Mumengi Tshikudi</strong>, Senator<br />\r\n<strong>Pascal Eva Nze</strong>, Conseiller financier DG ANPI Gabon<br />\r\n<strong>Olivier Laouchez</strong>, Co-Founder &amp; Executive Chairman of Trace<br />\r\n<strong>Thione Niang</strong>, Social entrepreneur</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Anthony Nkinzo</strong>, DG ANAPI</p>\r\n\r\n<p><strong>Questions &amp; Answers 30&rsquo;</strong></p>\r\n\r\n<p><strong>14H00 &ndash; 16H00 (SALON CONGO)</strong><br />\r\n<strong>DEBATE 3</strong><br />\r\n<strong>INFRASTRUCTURES : OPENING UP OF TERRITORIES</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>H.E. Guy Loando Mboyo</strong>, Minister of State for Regional Planning<br />\r\n<strong>H.E Alexis Gisaro Muvunyi</strong>, Minister of Infrastructures<br />\r\n<strong>H.E. Cherubin Okende</strong>, Minister of Transport and Communications<br />\r\n<strong>H.E. Fran&ccedil;ois Rubota</strong>, Ministre d&rsquo;Etat en charge du D&eacute;veloppement Rural<br />\r\n<strong>S.E. Bruno Aubert</strong>, Ambassador of France in DRC<br />\r\n<strong>Philippe Eponon</strong>, Founder &amp; CEO &laquo;La Route l&rsquo;Africaine&raquo;, President, Groupement Ivoirien des B&acirc;timents et Travaux Publics (GIBTP), Vice-President of the Conf&eacute;d&eacute;ration G&eacute;n&eacute;rale des Entreprises de C&ocirc;te d&rsquo;Ivoire (CGECI)<br />\r\n<strong>Sherif Nazmy</strong>, CEO Samcrete Mbuji-Mayi Kananga RN1 Project</p>\r\n\r\n<p><strong>Moderator :</strong><br />\r\n<strong>Guillain Amani</strong>, Makutano Expert</p>\r\n\r\n<p><strong>Questions &amp; Answers 30&rsquo;</strong></p>\r\n\r\n<p><strong>15H30 &ndash; 17H00 (SALON LUBUMBASHI)</strong><br />\r\n<strong>GREEN DEALS</strong><br />\r\n<strong>BETWEEN POLITICAL DENIAL AND PRIVATE SECTOR WAIT-AND-SEE ATTITUDE, ARE WE MISSING OUT ON THE ENERGY TRANSITION ?</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>H.E. Eve Bazaiba</strong>, Deputy Prime Minister and Minister PF the Environment and Sustainable Development<br />\r\n<strong>Chinamula Idesbald</strong>, CEO ANSER<br />\r\n<strong>Fabrice Lusinde,&nbsp;</strong>, DG SNEL<br />\r\n<strong>Jean-Marc Ch&acirc;taigner</strong>, Ambassador of the European Union to the DRC</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Prof. Arthur Kaniki</strong>, Vice-Dean of the Polytechnic Faculty of the University of Lubumbashi<br />\r\n<strong>Lucine Le Moal</strong>, DG USAID Invest</p>\r\n\r\n<p><strong>Questions &amp; Answers 30&rsquo;</strong></p>\r\n\r\n<p><strong>16H00 &ndash; 16H50 (SALON CONGO)<br />\r\nDEBATE 4<br />\r\nFOOD SELF-SUFFICIENCY : WHY REINVENT THE WHEEL?</strong><br />\r\n<br />\r\n<strong>Introduction 5&rsquo; :</strong><br />\r\n<strong>Al Kitenge</strong>, Strategist &amp; Social Innovator</p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>S.E. D&eacute;sir&eacute; M&rsquo;Zinga Birihanze</strong>, Minister of Agriculture<br />\r\n<strong>Kaala Mpinga</strong>, President of the National Commission National Agriculture and Forestry Commission of the FEC<br />\r\n<strong>Pacifique Kahasha</strong>, Ambassador of the Agricultural Transformation Agenda, Presidency of the Republic<br />\r\n<strong>Dr Nteranya Sanginga</strong>, CEO of IITA<br />\r\n<strong>Claudia Senghor</strong>, Agro-economist specialized in sustainable development, agricultural consultant and entrepreneur<br />\r\n<strong>Mohamed Hegazy</strong>, Executive Board Member HG-Egypt<br />\r\n<strong>Joseph Choge</strong>, Group Managing Director at UNGA Group</p>\r\n\r\n<p><strong>Moderators :</strong><br />\r\n<strong>Alain Foka</strong>, Journaliste</p>\r\n\r\n<p><strong>Questions &amp; Answers 30&rsquo;</strong></p>\r\n\r\n<p><strong>16H50 &ndash; 17H00</strong><br />\r\n<strong>SIGNING OF AN AGREEMENT ON STRENGTHENING THE WOMEN&rsquo;S&nbsp;ENTREPRENEURIAL&nbsp;ECOSYSTEM IN THE DRC</strong></p>\r\n\r\n<p>Introduction :<br />\r\n<strong>Hannah Subayi</strong>, Country officer &amp; Equity expert of Proparco DRC</p>\r\n\r\n<p><strong>Safia Ibrahim Otokore</strong>, Director of AFD, DRC<br />\r\n<strong>Nicole Sulu,&nbsp;</strong>Founder of Makutano</p>\r\n\r\n<p><strong>17H30 &ndash; 17H45<br />\r\nARE AFRICAN BANKS THE KEY TO &ldquo;CONTINENTAL AGRO-BUSINESS&rdquo;?</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Henri Claude Oyima</strong>, CEO BGFI Bank<br />\r\n<strong>Yannick Mbiya,&nbsp;</strong>DGA TMB<br />\r\n<strong>H.E. Nicolas Kazadi</strong>, Minister of Finance DRC<br />\r\n<strong>Rene Awambeng</strong>, Global Head/Client Relations Afreximbank<br />\r\n<strong>Ismahill Diaby</strong>, General Manager West and Central Africa, VISA</p>\r\n\r\n<p><strong>Moderator :</strong><br />\r\n<strong>Rosine Sori-Coulibaly</strong>, Honorary minister of Finance of Burkina Faso</p>\r\n\r\n<p><strong>17H45 &ndash; 18H30<br />\r\nPANEL CL&Ocirc;TURE</strong></p>\r\n\r\n<p><strong>Moderator :</strong><br />\r\n<strong>Alain Foka</strong>, Journaliste</p>\r\n\r\n<p><strong>18H30 &ndash; 19H30<br />\r\nCOCKTAIL</strong></p>\r\n\r\n<p><strong>END OF DAY 1</strong></p>\r\n', '', '1', '2024-02-22 02:44'),
+(5, 'JEUDI 27 OCTOBRE 2022, MBUJI-MAYI', 'mak_08', '<p>JEUDI 27 OCTOBRE 2022,&nbsp;<strong>MBUJI-MAYI</strong><br />\r\n<strong>H&ocirc;tel M&eacute;tropole</strong><br />\r\n57, avenue Salongo, Q/Mudiba, C/Kanshi</p>\r\n\r\n<p><strong>Special flight charter</strong></p>\r\n\r\n<p>04H30<br />\r\n<strong>A&eacute;roport de N&rsquo;djili</strong></p>\r\n\r\n<p>05H30<br />\r\n<strong>D&eacute;collage</strong></p>\r\n\r\n<p>08H00<br />\r\n<strong>Atterrissage a&eacute;roport de Mbuji-Mayi |&nbsp;</strong>D&eacute;part visite du site de Tshiala (sur invitation)</p>\r\n\r\n<p>09H00<br />\r\n<strong>Accueil du public &agrave; l&rsquo;h&ocirc;tel M&eacute;tropole</strong></p>\r\n\r\n<p><strong>MC : Fran&ccedil;oise Buela</strong><strong>&nbsp;&amp; Ars&egrave;ne Mpunga Mpunga</strong></p>\r\n\r\n<p><strong>09H45 &ndash; 10H15</strong><br />\r\n<strong>OPENING SPEECH</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Opening speech :</strong><br />\r\n<strong>Nicole Sulu</strong><strong>,</strong>&nbsp;Founder of Makutano<br />\r\n<strong>Mathias Kabeya</strong>, Governor of Kasa&iuml;-Oriental<br />\r\n<strong>Anthony Nkinzo</strong>, DG ANAPI<br />\r\n<strong>Marguerite Kunduma</strong>, Directrice de Programme UNFPA<br />\r\n<strong>H.E. Nicolas Kazadi</strong>, Minister of Finance</p>\r\n\r\n<p><strong>10H15 &ndash; 10H25</strong><br />\r\n<strong>Esp&eacute;rance Belau</strong>, President of the Board of Directors of the Federation MC2 Network/la Mutuelle Financi&egrave;res des Femmes Africaines, MUFFA RDC<br />\r\n<strong>Jos&eacute; Mpiana</strong>, President of the Provincial Youth Council, East Kasai</p>\r\n\r\n<p><strong>10H35 &ndash; 10H45<br />\r\nVIP TALK<br />\r\nM. Mutamba</strong>, Directeur Provincial des Imp&ocirc;ts DGI</p>\r\n\r\n<p><strong>10H35 &ndash; 10H50</strong><br />\r\n<strong>SPOTLIGHT TALKS</strong></p>\r\n\r\n<p><strong>Alain Kaninda</strong>, DG ARCA<br />\r\n<strong>Ra&iuml;sa Fauve Nzanda</strong>, Head of the Enabel EDUKOR Project<br />\r\n<strong>Moumini Ouedraogo</strong>, Deputy Country Director WFP</p>\r\n\r\n<p><strong>10H50 &ndash; 11H00<br />\r\nVIP TALK</strong><br />\r\n<strong>Fran&ccedil;ois Muamba Tshishimbi,</strong>&nbsp;Coordonnateur du Conseil Pr&eacute;sidentiel de Veille Strat&eacute;gique &ndash; CPVS</p>\r\n\r\n<p><strong>11H00 &ndash; 12H00</strong><br />\r\n<strong>PAROLE AUX GOUVERNEURS (D&Eacute;BAT)</strong></p>\r\n\r\n<p><strong>Speakers :</strong><br />\r\n<strong>Mathias Kabeya</strong>, Governor of Kasa&iuml;-Oriental<br />\r\n<strong>Julie Ngungwa Mwayuma</strong>, Governor of Tanganyika<br />\r\n<strong>Rita Bola</strong>, Governor of Maindombe<br />\r\n<strong>Nathan Ilunga Numbi</strong>, Governor of Lomami</p>\r\n\r\n<p><strong>Moderator :</strong><br />\r\n<strong>Anthony Nkinzo</strong>, DG ANAPI</p>\r\n\r\n<p><strong>Questions-r&eacute;ponses 20&rsquo;</strong></p>\r\n\r\n<p><strong>12H00 &ndash; 13H00</strong><br />\r\n<strong>LUNCH DIAMOND</strong>&nbsp;by&nbsp;<strong>BRASIMBA &amp; ANAPI&nbsp;</strong>and&nbsp;<strong>VISIT MBUJI-MAYI&nbsp;</strong>&agrave; la r&eacute;sidence du Gouverneur</p>\r\n\r\n<p><strong>13H15 &ndash; 14H00</strong><br />\r\n<strong>C&Eacute;R&Eacute;MONIE DE CL&Ocirc;TURE</strong><br />\r\n<strong>S.E. F&eacute;lix-Antoine Tshisekedi</strong>, Pr&eacute;sident de la R&eacute;publique D&eacute;mocratique du Congo</p>\r\n\r\n<p><strong>Moderator :</strong><br />\r\n<strong>Christian Lusakueno</strong>, CEO Top Congo Fm</p>\r\n\r\n<p><strong>14H00 &ndash; 14H15<br />\r\nLOCAL SHOW&nbsp;</strong>by<strong>&nbsp;MIBA</strong></p>\r\n\r\n<p><strong>14H15 &ndash; 16H15</strong><br />\r\n<strong>NETWORKING TIME</strong></p>\r\n\r\n<p><strong>16H30</strong><br />\r\n<strong>D&eacute;part navettes pour l&rsquo;a&eacute;roport&nbsp;</strong>/ Departure by shuttle to the Airport</p>\r\n\r\n<p><strong>18H00<br />\r\nD&eacute;collage /&nbsp;</strong>Take-off of the plane</p>\r\n\r\n<p><strong>FIN DE LA 2&egrave;me JOURN&Eacute;E</strong></p>\r\n', '', '1', '2024-02-22 02:44');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `quiz_bank`
 --
 
@@ -49592,6 +49966,36 @@ CREATE TABLE `review` (
   `rply_status` int(11) NOT NULL,
   `rply_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sendemailtouser`
+--
+
+CREATE TABLE `sendemailtouser` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `subject` text DEFAULT NULL,
+  `content` longtext DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL,
+  `updated_date` varchar(45) DEFAULT NULL,
+  `reason` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sendemailtouser`
+--
+
+INSERT INTO `sendemailtouser` (`id`, `user_id`, `type`, `subject`, `content`, `status`, `created_date`, `updated_date`, `reason`) VALUES
+(1, '5', '1', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'sent', '2024-02-27', '2024-02-27', NULL),
+(2, '6', '1', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'sent', '2024-02-27', '2024-02-27', NULL),
+(3, '8', '1', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'sent', '2024-02-27', '2024-02-27', NULL),
+(4, '5', '1', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/images.jpg\" style=\"height:176px; width:286px\" /></tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'sent', '2024-02-27', '2024-02-27', NULL),
+(5, '5', '1', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/images.jpg\" style=\"height:176px; width:286px\" /></tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'sent', '2024-02-27', '2024-02-27', NULL),
+(8, '2', '2', 'Makutano Newsletter ', '<h1><em><strong>Greetings from&nbsp;Makutano</strong></em></h1>\r\n\r\n<h3><tt>Dear User,</tt></h3>\r\n\r\n<p><tt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur metus quis mauris mattis varius. Fusce nisl est, porta vitae justo a, pharetra porttitor nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In eu tortor ut nisl viverra luctus. Suspendisse quis justo dolor. Vestibulum vel aliquet dolor. Nullam at vulputate ante, quis aliquet sapien. Donec eu magna et lorem mollis semper et eu nisi. Sed leo nisl, faucibus ut sagittis non, rhoncus vel ligula. Nulla id elementum felis. Praesent efficitur velit vel mi eleifend, in ornare ante feugiat. Mauris magna metus, faucibus quis dolor eget, rutrum <samp>vestibulum justo. Vivamus pellentesque dapibus libero.</samp></tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/courses-img-3.jpg\" style=\"height:198px; width:425px\" /></tt></p>\r\n\r\n<p><tt>Nulla at facilisis velit. Donec rutrum vehicula mi volutpat commodo. Etiam metus leo, venenatis quis lacus quis, rutrum consectetur lorem. Nam id auctor felis. Sed lectus est, condimentum eu quam eget, iaculis vestibulum eros. Aenean vehicula, leo ut auctor semper, risus ex ullamcorper purus, vitae blandit sapien ante vel tortor. Aliquam erat volutpat. Proin venenatis nisl id arcu rutrum tempor.</tt></p>\r\n\r\n<p><tt><img alt=\"\" src=\"http://localhost/makutano/uploads/ckeditor/images.jpg\" style=\"height:176px; width:286px\" /></tt></p>\r\n\r\n<p><tt>Praesent porttitor, justo ut aliquam posuere, risus libero pulvinar enim, in hendrerit erat nisl quis elit. Pellentesque feugiat vestibulum imperdiet. Proin ac hendrerit dui, et malesuada sapien. Praesent enim elit, efficitur in leo eu, commodo tempus ipsum. Nullam sit amet efficitur massa. Phasellus ac sapien ligula. Maecenas sed quam augue. Etiam ut purus tristique, facilisis mauris sit amet, sollicitudin felis. Nulla dictum sapien ut sodales posuere. Aenean quis turpis eu augue congue volutpat. Pellentesque feugiat efficitur eros, vitae aliquet mauris iaculis feugiat. Aenean cursus tristique sem eu imperdiet.</tt></p>\r\n', 'pending', '2024-02-28', '2024-02-28', NULL);
 
 -- --------------------------------------------------------
 
@@ -53888,6 +54292,40 @@ CREATE TABLE `testimonials` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `thematiques`
+--
+
+CREATE TABLE `thematiques` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `thematiques`
+--
+
+INSERT INTO `thematiques` (`id`, `title`, `image`, `status`, `created_date`) VALUES
+(1, 'MAKUTANO 7 : OUT OF THE BOX <br>  PLENIERE DOUVERTURE : LE PREMIER MINISTRE DE LA RD C AU MAKUTANO', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(2, 'MAKUTANO 7 : OUT OF THE BOX\nPOUR EN FINIR AVEC L’AIDE... ET COOPÉRER POUR DE BON ?', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(3, 'MAKUTANO 7 : OUT OF THE BOX\nRECOTRAUMA : SOLIDARITY LUNCH RECOTRAUMA', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(4, 'MAKUTANO 7 : OUT OF THE BOX\nCLIMAT DES AFFAIRES ET BONNE GOUVERNANCE', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(5, 'MAKUTANO 7 : OUT OF THE BOX\nRECOTRAUMA : SOLIDARITY LUNCH RECOTRAUMA', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(6, 'MAKUTANO 7 : OUT OF THE BOX\nCOMMENT CREER DES CHAMPIONS NATIONAUX ?', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(7, 'MAKUTANO 7 : OUT OF THE BOX\nSPÉCIAL INTERVIEW JULES ALINGETE', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(8, 'MAKUTANO 7 : OUT OF THE BOX\nBUSINESS LUNCH UNFPA : TIRER PROFIT DE LA JEUNESSE DE LA POPULATION CONGOLAISE POUR ACCELERER LA CROISSANCE ECONOMIQUE', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(9, 'MAKUTANO 7 : OUT OF THE BOX\nTRANSITION ENERGETIQUE : UNE OPPORTUNITE D’AFFAIRES POUR LA RDC ET L’AFRIQUE ?', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(10, 'MAKUTANO 7 : OUT OF THE BOX\nTABLE RONDE : INVESTISSEMENTS PUBLICS LA REALITE SUR LE TERRAIN', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(11, 'MAKUTANO 7 : OUT OF THE BOX\nVIP TALK 1 : E-SPINNING WORLD', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(12, 'MAKUTANO 7 : OUT OF THE BOX\nVIP TALK 1 : E-SPINNING WORLD', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(13, 'MAKUTANO 7 : OUT OF THE BOX\nL’URGENCE D’UN RESET PATRIOTIQUE', '3344_Makutano-7-Pleniere-ouverture-premier-ministre.pdf', '1', '2024-02-24 14:07:00'),
+(14, 'MAKUTANO 7 : OUT OF THE BOX\nPOUR OU CONTRE LA DOUBLE NATIONALITÉ', NULL, '1', '2024-02-24 14:07:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -53921,7 +54359,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `currency`, `currency_symbol`, `fname`, `lname`, `email`, `password`, `phone`, `phone_full`, `phone_code`, `phone_country`, `phone_st_country`, `user_bio`, `skills`, `email_verified`, `status`, `image`, `created_at`, `otp`, `token`, `userType`) VALUES
 (1, 'USD', '$', 'Sayantan', 'Bhakta', 'student@gmail.com', '25d55ad283aa400af464c76d713c07ad', '9852365412', '', 0, '', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc vel odio bibendum tincidunt. Nulla facilisi. Sed euismod, justo vel aliquam molestie, dolor sapien sagittis velit, et lacinia nisi nisl vel nisi. Sed auctor nibh vitae urna vulputate molestie.', 'Python', 1, 1, '1357_istockphoto-1399565382-170667a.jpg', '2024-02-02 13:45:48', NULL, NULL, '1'),
-(2, 'USD', '$', 'Demo', 'Instructor', 'instructor@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-02 13:47:50', NULL, NULL, '2');
+(2, 'USD', '$', 'Demo', 'Instructor', 'sayantan@goigi.in', '25d55ad283aa400af464c76d713c07ad', NULL, NULL, NULL, NULL, NULL, NULL, '', 1, 1, NULL, '2024-02-02 13:47:50', NULL, NULL, '2');
 
 -- --------------------------------------------------------
 
@@ -54024,6 +54462,59 @@ CREATE TABLE `user_subscriptions` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youth_activity`
+--
+
+CREATE TABLE `youth_activity` (
+  `id` int(11) NOT NULL,
+  `heading` text DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `created_at` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `youth_activity`
+--
+
+INSERT INTO `youth_activity` (`id`, `heading`, `description`, `status`, `created_at`) VALUES
+(1, 'MAKUTANO YOUTH SUMMIT', '<p>This is a specific event at MAK4Y, a bit like a mini Makutano for young talents and entrepreneurs.</p>\r\n', '1', '2024-02-15 06:18'),
+(2, 'MASTER CLASS', '<p>These are mentoring and coaching sessions for young people with a CEO through the sharing of experience of a Makutano CEO or other selected guest.</p>\r\n', '1', '2024-02-15 06:13'),
+(3, 'CONFERENCES / DEBATES', '<p>These are sessions in the form of exchanges and conversations where groups of young people will be able to chat with the members of the MAKUTANO network.</p>\r\n\r\n<p>During the workshops, young people can present their projects and thus be guided by mentors present.</p>\r\n', '1', '2024-02-15 06:13'),
+(4, 'SOCIAL NETWORK CHATS', '<p>These are online discussion sessions on social networks on a predefined topic where any young person from all over the republic and even beyond, can ask questions directly (live) to a person representing MAKUTANO with the aim of to create real proximity between MAKUTANO and young people.</p>\r\n', '1', '2024-02-15 06:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youth_member`
+--
+
+CREATE TABLE `youth_member` (
+  `id` int(11) NOT NULL,
+  `fname` text DEFAULT NULL,
+  `lname` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `contactno` text DEFAULT NULL,
+  `age` text DEFAULT NULL,
+  `town` text DEFAULT NULL,
+  `area` text DEFAULT NULL,
+  `company` text DEFAULT NULL,
+  `qualification` text DEFAULT NULL,
+  `statute` text DEFAULT NULL,
+  `interest` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `youth_member`
+--
+
+INSERT INTO `youth_member` (`id`, `fname`, `lname`, `email`, `contactno`, `age`, `town`, `area`, `company`, `qualification`, `statute`, `interest`) VALUES
+(1, 'sayantan', 'Bhakta', 'sayantan@goigi.in', '1232323123213', '32', 'test', 'test', 'test', 'test', 'Employee', 'Networking,Financement'),
+(2, 'sayantan', 'Bhakta', 'sayantan@goigi.in', '1232323123213', '32', 'test', 'test', 'test', 'test', 'Employee', 'Networking,Mentoring');
+
 --
 -- Indexes for dumped tables
 --
@@ -54065,9 +54556,21 @@ ALTER TABLE `cms`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `conference`
+--
+ALTER TABLE `conference`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_institute`
+--
+ALTER TABLE `contact_institute`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54137,6 +54640,12 @@ ALTER TABLE `email_subscription`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `email_templete`
+--
+ALTER TABLE `email_templete`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `email_unsubscribe_list`
 --
 ALTER TABLE `email_unsubscribe_list`
@@ -54186,6 +54695,30 @@ ALTER TABLE `homecourse`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `intervenants`
+--
+ALTER TABLE `intervenants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mak_zeronine`
+--
+ALTER TABLE `mak_zeronine`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `network`
+--
+ALTER TABLE `network`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `options`
 --
 ALTER TABLE `options`
@@ -54208,6 +54741,18 @@ ALTER TABLE `order_list`
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `portfolio`
+--
+ALTER TABLE `portfolio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `poster`
+--
+ALTER TABLE `poster`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54253,6 +54798,18 @@ ALTER TABLE `product_type`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `programme`
+--
+ALTER TABLE `programme`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `programme_sejour`
+--
+ALTER TABLE `programme_sejour`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `quiz_bank`
 --
 ALTER TABLE `quiz_bank`
@@ -54262,6 +54819,12 @@ ALTER TABLE `quiz_bank`
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sendemailtouser`
+--
+ALTER TABLE `sendemailtouser`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54319,6 +54882,12 @@ ALTER TABLE `testimonials`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `thematiques`
+--
+ALTER TABLE `thematiques`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -54349,6 +54918,18 @@ ALTER TABLE `user_subscriptions`
   ADD PRIMARY KEY (`usr_subid`);
 
 --
+-- Indexes for table `youth_activity`
+--
+ALTER TABLE `youth_activity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `youth_member`
+--
+ALTER TABLE `youth_member`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -54368,7 +54949,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -54386,13 +54967,25 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `cms`
 --
 ALTER TABLE `cms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `conference`
+--
+ALTER TABLE `conference`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact_institute`
+--
+ALTER TABLE `contact_institute`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -54458,7 +55051,13 @@ ALTER TABLE `course_syllabus`
 -- AUTO_INCREMENT for table `email_subscription`
 --
 ALTER TABLE `email_subscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `email_templete`
+--
+ALTER TABLE `email_templete`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `email_unsubscribe_list`
@@ -54509,10 +55108,34 @@ ALTER TABLE `homecourse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `intervenants`
+--
+ALTER TABLE `intervenants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `mak_zeronine`
+--
+ALTER TABLE `mak_zeronine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `network`
+--
+ALTER TABLE `network`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -54531,6 +55154,18 @@ ALTER TABLE `order_list`
 --
 ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `portfolio`
+--
+ALTER TABLE `portfolio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT for table `poster`
+--
+ALTER TABLE `poster`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `powerspeech`
@@ -54575,6 +55210,18 @@ ALTER TABLE `product_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `programme`
+--
+ALTER TABLE `programme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `programme_sejour`
+--
+ALTER TABLE `programme_sejour`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `quiz_bank`
 --
 ALTER TABLE `quiz_bank`
@@ -54585,6 +55232,12 @@ ALTER TABLE `quiz_bank`
 --
 ALTER TABLE `review`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sendemailtouser`
+--
+ALTER TABLE `sendemailtouser`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -54641,6 +55294,12 @@ ALTER TABLE `testimonials`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `thematiques`
+--
+ALTER TABLE `thematiques`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -54669,6 +55328,18 @@ ALTER TABLE `user_ques`
 --
 ALTER TABLE `user_subscriptions`
   MODIFY `usr_subid` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `youth_activity`
+--
+ALTER TABLE `youth_activity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `youth_member`
+--
+ALTER TABLE `youth_member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
